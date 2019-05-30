@@ -1,0 +1,5 @@
+[config]
+WEBSITE_NODE_DEFAULT_VERSION=10.14.1
+NODE_ENV=production
+SCM_DO_BUILD_DURING_DEPLOYMENT=true
+command=npm install --production

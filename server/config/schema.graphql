@@ -1,0 +1,38 @@
+scalar Date
+
+interface Node {
+  id: ID!
+}
+
+type Query {
+  buildNumber: String
+  user(id: ID!): User
+  users: [User!]!
+}
+
+type User implements Node {
+  id: ID!
+  createdAt: Date!
+  updatedAt: Date!
+  firstName: String!
+  lastName: String!
+  email: String
+}
+
+type Mutation {
+  createUser(input: CreateUserInput): UserPayload
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String
+}
+
+type UserPayload {
+  user: User
+}
+
+type Subscription {
+  userCreated: User
+}

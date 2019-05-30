@@ -1,0 +1,46 @@
+{
+  "name": "wba-mika-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "db:create": "sequelize db:create",
+    "db:create:all": "sequelize db:create && NODE_ENV=test sequelize db:create",
+    "db:drop": "sequelize db:drop",
+    "db:drop:all": "sequelize db:drop && NODE_ENV=test sequelize db:drop",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:all": "sequelize db:migrate && NODE_ENV=test sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo",
+    "db:rollback:all": "sequelize db:migrate:undo && NODE_ENV=test sequelize db:migrate:undo",
+    "db:reset": "yarn db:drop && yarn db:setup",
+    "db:setup": "yarn db:create && yarn db:migrate",
+    "db:seed": "node seed/run.js",
+    "sequelize": "sequelize",
+    "start": "node index.js",
+    "start-production": "NODE_ENV=production node index.js",
+    "test": "NODE_ENV=test jest --bail --runInBand --watch",
+    "repl": "node --experimental-repl-await --eval 'const models = require(\"./models\")' --interactive",
+    "update-build-number": "node ./scripts/update-build-number.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "dotenv": "^6.2.0",
+    "graphql": "^14.1.1",
+    "graphql-subscriptions": "^1.0.0",
+    "pg": "^7.11.0",
+    "querystring": "^0.2.0",
+    "sequelize": "^4.42.1"
+  },
+  "devDependencies": {
+    "apollo-server-testing": "^2.4.8",
+    "jest": "^24.1.0",
+    "jest-watch-typeahead": "^0.2.1",
+    "sequelize-cli": "^5.4.0"
+  },
+  "jest": {
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}

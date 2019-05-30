@@ -1,0 +1,13 @@
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.headline {
+  color: #000000;
+}
+
+.greeting {
+  color: #404040;
+}

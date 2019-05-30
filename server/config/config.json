@@ -1,0 +1,24 @@
+{
+  "development": {
+    "database": "apprentice_graphql_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "database": "apprentice_graphql_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false,
+    "operatorsAliases": false
+  },
+  "production": {
+    "database": "DB_NAME",
+    "username": "DB_USERNAME",
+    "host": "DB_HOST",
+    "password": "DB_PASSWORD",
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}
