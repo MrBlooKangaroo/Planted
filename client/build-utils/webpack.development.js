@@ -18,12 +18,6 @@ const createCSSUse = ({ modules } = {}) => [
       plugins: () => [postcssPresetEnv({ stage: 2 })],
     },
   },
-  {
-    loader: 'sass-loader',
-    options: {
-      includePaths: [path.resolve('src/constants')],
-    },
-  },
 ];
 
 module.exports = () => ({
