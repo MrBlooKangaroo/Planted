@@ -15,6 +15,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      nickName: {
+        allowNull: false,
+        type: Sequalize.STRING,
+      },
       firstName: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -23,10 +27,18 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      photo: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       email: {
         allowNull: false,
         type: Sequelize.STRING,
         unique: true,
+      },
+      city: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
     });
   },
