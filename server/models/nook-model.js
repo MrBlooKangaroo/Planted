@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     luxLevel: DataTypes.ENUM(...Level),
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
-    userId: DataTypes.UUID
+    userId: DataTypes.UUID,
+    
   }, {});
   nook.associate = function(models) {
     nook.belongsTo(models.user);
