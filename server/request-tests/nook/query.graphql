@@ -1,6 +1,0 @@
-query getNook($id: ID!) {
-  nook(id: $id) {
-    name
-    luxLevel
-  }
-}

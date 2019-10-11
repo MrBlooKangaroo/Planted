@@ -2,7 +2,7 @@ const { Level } = require('../utils/enums.ts');
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('nooks', {
+    queryInterface.createTable('nooks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -41,6 +41,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.ENUM(...Level)
       }, 
+    });
+    return await queryInterface.addIndex('users', {
+      fields: ['userId', 'name'],
+      unique: true,
     });
   },
   down: (queryInterface, Sequelize) => {

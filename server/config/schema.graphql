@@ -22,14 +22,14 @@ type User implements Node {
   photo: String
   email: String!
   city: String
-
+  nooks: [Nooks!]!
 }
 
 type Nook implements Node {
   id: ID!
   createdAt: Date!
   updatedAt: Date!
-  name: String
+  name: String!
   location: String
   photo: String
   luxLevel: Level!
