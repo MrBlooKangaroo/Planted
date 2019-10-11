@@ -7,9 +7,11 @@ const {
 const db = require('../../models');
 
 const userDatum = {
+  nickname: 'Hotshot',
   firstName: 'Mook',
   lastName: 'Flexer',
   email: 'mookin@mook.com',
+  city: 'boston',
 };
 
 afterEach(cleanUpDb);
@@ -31,6 +33,7 @@ describe('get user request', () => {
     expect(responseUser.firstName).toBe(userDatum.firstName);
     expect(responseUser.lastName).toBe(userDatum.lastName);
     expect(responseUser.email).toBe(userDatum.email);
+    expect(responseUser.nickname).toBe(userDatum.nickname);
   });
 
   it('should return NOT_FOUND error if invalid user id supplied', async () => {

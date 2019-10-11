@@ -8,16 +8,31 @@ type Query {
   buildNumber: String
   user(id: ID!): User
   users: [User!]!
+  nook(id: ID!): Nook
+  nooks: [Nook!]!
 }
 
 type User implements Node {
   id: ID!
   createdAt: Date!
   updatedAt: Date!
+  nickname: String!
   firstName: String!
   lastName: String!
-  email: String
+  photo: String
+  email: String!
+  city: String
 
+}
+
+type Nook implements Node {
+  id: ID!
+  createdAt: Date!
+  updatedAt: Date!
+  name: String
+  location: String
+  photo: String
+  luxLevel: Level!
 }
 
 type Mutation {
@@ -36,4 +51,10 @@ type UserPayload {
 
 type Subscription {
   userCreated: User
+}
+
+enum Level {
+  HIGH,
+  MEDIUM,
+  LOW
 }
