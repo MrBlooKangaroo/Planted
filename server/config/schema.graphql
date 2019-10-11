@@ -22,7 +22,7 @@ type User implements Node {
   photo: String
   email: String!
   city: String
-  nooks: [Nooks!]!
+  nooks: [Nook!]!
 }
 
 type Nook implements Node {
@@ -42,7 +42,8 @@ type Mutation {
 input CreateUserInput {
   firstName: String!
   lastName: String!
-  email: String
+  email: String!
+  nickname: String!
 }
 
 type UserPayload {
