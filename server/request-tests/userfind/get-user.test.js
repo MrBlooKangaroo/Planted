@@ -17,15 +17,13 @@ const userDatum = {
 const nookDataOne = {
     name: 'spotOne',
     luxLevel: 'HIGH',
-    location: "bathroom",
-    photo: "asdfas"
+
 }
 
 const nookDataTwo = {
     name: 'spotTwo',
     luxLevel: 'LOW',
-    location: "Kitchen",
-    photo: "asdfa"
+
 }
 
 afterEach(cleanUpDb);

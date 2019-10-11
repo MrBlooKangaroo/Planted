@@ -8,6 +8,7 @@ type Query {
   buildNumber: String
   user(id: ID!): User
   users: [User!]!
+  plants: [Plant!]!
 }
 
 type User implements Node {
@@ -21,6 +22,7 @@ type User implements Node {
   email: String!
   city: String
   nooks: [Nook!]!
+  plants: [Plant!]!
 }
 
 type Nook implements Node {
@@ -31,6 +33,16 @@ type Nook implements Node {
   location: String
   photo: String
   luxLevel: Level!
+  plants: [Plant!]!
+}
+
+type Plant implements Node {
+  id: ID!
+  createdAt: Date!
+  updatedAt: Date!
+  name: String!
+  photo: String
+  health: Health!
 }
 
 type Mutation {
@@ -56,4 +68,12 @@ enum Level {
   HIGH,
   MEDIUM,
   LOW
+}
+
+enum Health {
+  THRIVING,
+  HEALTHY,
+  SICK,
+  DYING,
+  DEAD
 }

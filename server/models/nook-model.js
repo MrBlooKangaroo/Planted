@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   nook.associate = function(models) {
     nook.belongsTo(models.user);
+    nook.hasMany(models.plant);
   };
   return nook;
 }; 
