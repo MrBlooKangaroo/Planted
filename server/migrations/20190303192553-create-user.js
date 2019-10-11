@@ -15,7 +15,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      nickName: {
+      nickname: {
         allowNull: false,
         type: Sequalize.STRING,
       },

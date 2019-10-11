@@ -7,9 +7,11 @@ const {
 const db = require('../../models');
 
 const userDatum = {
+  nickname: 'Sicko',
   firstName: 'Mook',
   lastName: 'Flexer',
   email: 'mookin@mook.com',
+  city: 'Boston'
 };
 
 afterEach(cleanUpDb);
