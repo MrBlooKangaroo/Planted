@@ -7,9 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     location: DataTypes.STRING,
     photo: DataTypes.STRING,
-    luxLevel: DataTypes.ENUM(...Level),
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,
+    luxLevel: DataTypes.ENUM([...Level]),
     userId: DataTypes.UUID,
     
   }, {});

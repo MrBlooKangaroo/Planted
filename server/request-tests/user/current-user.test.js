@@ -40,8 +40,9 @@ describe('get user request', () => {
     const { testClient } = await createTestClient();
     const variables = { id: '0b9f38f1-333f-42db-b0c7-3939cab66bc8' };
     const response = await testClient.query({ query, variables });
-
+  
     const { errors } = response;
+    
     expect(errors.length).toBe(1);
     expect(errors[0].extensions.code).toBe('NOT_FOUND');
   });

@@ -2,6 +2,8 @@ query getNook($id: ID!) {
   user(id: $id) {
     firstName
     lastName
+    email
+    nickname
     nooks {
       name
     }

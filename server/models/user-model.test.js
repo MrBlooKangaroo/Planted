@@ -8,6 +8,8 @@ const userDatum = {
   firstName: 'Mook',
   lastName: 'Flexer',
   email: 'mookin@mook.com',
+  city: 'boston',
+  nickname: 'Hotshot',
 };
 
 describe('User Model', () => {

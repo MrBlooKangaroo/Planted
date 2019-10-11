@@ -8,8 +8,6 @@ type Query {
   buildNumber: String
   user(id: ID!): User
   users: [User!]!
-  nook(id: ID!): Nook
-  nooks: [Nook!]!
 }
 
 type User implements Node {

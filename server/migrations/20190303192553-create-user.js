@@ -37,7 +37,7 @@ module.exports = {
         unique: true,
       },
       city: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
     });

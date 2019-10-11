@@ -1,5 +1,6 @@
 const { Level } = require('../utils/enums.ts');
 'use strict';
+//console.log(Level);
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('nooks', {
@@ -30,19 +31,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       location: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       photo: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       luxLevel: {
         allowNull: false,
-        type: Sequelize.ENUM(...Level)
+        type: Sequelize.ENUM([...Level])
       }, 
     });
-    return await queryInterface.addIndex('users', {
+    return await queryInterface.addIndex('nooks', {
       fields: ['userId', 'name'],
       unique: true,
     });
