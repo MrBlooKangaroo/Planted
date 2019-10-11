@@ -14,12 +14,10 @@ type User implements Node {
   id: ID!
   createdAt: Date!
   updatedAt: Date!
-  nickname: String!
   firstName: String!
   lastName: String!
-  photo: String
   email: String
-  city: String
+
 }
 
 type Mutation {
