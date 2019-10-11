@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
 				unique: true,
 			},
 			city: DataTypes.STRING,
-			userId: DataTypes.UUID
+
 		},
 		{},
   );
