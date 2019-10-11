@@ -1,5 +1,5 @@
 const db = require('../../models');
-const tableNames = ['users'];
+const tableNames = ['users', 'nooks'];
 
 const cleanUpDb = async done => {
   const queryInterface = db.sequelize.getQueryInterface();

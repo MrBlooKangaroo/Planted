@@ -1,8 +1,8 @@
 const { Level } = require('../utils/enums.ts');
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    queryInterface.createTable('nooks', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('nooks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.UUID,
         references: {
           model: 'users',
-          key: 'id'
+          key: 'id',
         }
       },
       name: {

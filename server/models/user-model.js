@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				unique: true,
 			},
-			city: DataTypes.STRING
+			city: DataTypes.STRING,
+			userId: DataTypes.UUID
 		},
 		{},
   );
