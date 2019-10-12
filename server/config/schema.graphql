@@ -4,11 +4,20 @@ interface Node {
   id: ID!
 }
 
-type Query {
-  buildNumber: String
-  user(id: ID!): User
-  users: [User!]!
-  plants: [Plant!]!
+type Query {
+  buildNumber: String
+
+  user(id: ID!): User
+  users: [User!]!
+
+  plant(id: ID!): Plant
+  plants: [Plant!]!
+
+  nook(id: ID!): Nook
+  nooks: [Nook!]!
+
+  genus(id: ID!): Genus
+  genuses: [Genus!]!
 }
 
 type User implements Node {
@@ -60,21 +69,53 @@ type Watering {
 
 type Mutation {
   createUser(input: CreateUserInput): UserPayload
+  createPlant(input: CreatePlantInput): PlantPayload
+  createNook(input: CreateNookInput): NookPayload
 }
 
 input CreateUserInput {
+  nickname: String!
   firstName: String!
   lastName: String!
   email: String!
-  nickname: String!
+}
+
+input CreatePlantInput {
+  name: String!
+  health: Health!
+  genus: Genus!
+  nook: Nook!
+  user: User!
+}
+
+input CreateNookInput {
+  name: String!
+  luxLevel: Level!
+  user: User!
 }
 
 type UserPayload {
   user: User
 }
 
-type Subscription {
-  userCreated: User
+type PlantPayload {
+  plant: Plant!
+}
+
+type NookPayload {
+  nook: Nook!
+}
+
+type Subscription {
+  userCreated: User
+}
+
+type Subscription {
+  plantCreated: Plant
+}
+
+type Subscription {
+  nookCreated: Nook
 }
 
 enum Level {
@@ -92,10 +133,10 @@ enum Health {
 }
 
 enum Frequency {
-    DAILY
-    BIWEEKLY
-    WEEKLY
-    MONTHLY
-    QUARTERLY
-    YEARLY
+  DAILY
+  BIWEEKLY
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
 }
