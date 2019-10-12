@@ -1,7 +1,7 @@
 const { Level } = require('../utils/enums.ts');
 
 module.exports = (sequelize, {
-  STRING, ENUM, UUID
+  UUID, STRING, ENUM
 }) => {
   const nook = sequelize.define('nook', {
     name: STRING,

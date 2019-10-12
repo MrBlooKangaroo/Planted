@@ -1,7 +1,7 @@
 const { Health } = require('../utils/enums.ts');
 
 module.exports = (sequelize, {
-  STRING, ENUM, UUID
+  UUID, STRING, ENUM
 }) => {
   const plant = sequelize.define('plant', {
     name: STRING,
