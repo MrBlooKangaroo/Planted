@@ -1,17 +1,16 @@
 const { Level } = require('../utils/enums.ts');
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const nook = sequelize.define(
-    'nook', 
-    {
-    name: DataTypes.STRING,
-    location: DataTypes.STRING,
-    photo: DataTypes.STRING,
-    luxLevel: DataTypes.ENUM([...Level]),
-    userId: DataTypes.UUID,
-    
+
+module.exports = (sequelize, {
+  STRING, ENUM, UUID
+}) => {
+  const nook = sequelize.define('nook', {
+    name: STRING,
+    location: STRING,
+    photo: STRING,
+    luxLevel: ENUM([...Level]),
+    userId: UUID, 
   }, {});
-  nook.associate = function(models) {
+  nook.associate = models => {
     nook.belongsTo(models.user);
     nook.hasMany(models.plant);
   };

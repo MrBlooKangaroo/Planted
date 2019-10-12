@@ -20,6 +20,12 @@ const nookDatum = {
     photo: 'prettyplants.jpg'
 }
 
+const plantDatum = {
+  name: 'Ladyfingers',
+  health: 'DEAD',
+  photo: 'ladyfingers.jpg'
+};
+
 describe('Nook Model', () => {
   describe('validations', () => {
     it('should require presence of name', async () => {

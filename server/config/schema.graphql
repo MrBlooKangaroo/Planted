@@ -16,8 +16,8 @@ type User implements Node {
   nickname: String!
   firstName: String!
   lastName: String!
-  photo: String
   email: String!
+  photo: String
   city: String
   nooks: [Nook!]!
   plants: [Plant!]!
@@ -26,17 +26,17 @@ type User implements Node {
 type Nook implements Node {
   id: ID!
   name: String!
+  luxLevel: Level!
   location: String
   photo: String
-  luxLevel: Level!
   plants: [Plant!]!
 }
 
 type Plant implements Node {
   id: ID!
   name: String!
-  photo: String
   health: Health!
+  photo: String
 }
 
 type Mutation {
