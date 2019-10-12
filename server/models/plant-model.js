@@ -15,6 +15,7 @@ module.exports = (sequelize, {
     plant.belongsTo(models.nook);
     plant.belongsTo(models.user);
     plant.belongsTo(models.genus)
+    plant.hasMany(models.watering) 
   };
   return plant;
 };

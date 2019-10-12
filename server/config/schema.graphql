@@ -37,6 +37,7 @@ type Plant implements Node {
   name: String!
   health: Health!
   photo: String
+  waterings: [Watering!]!
 }
 
 type Genus implements Node { 
@@ -48,6 +49,13 @@ type Genus implements Node {
   photo: String!
   luxPreferred: Level! 
   wateringCycle: Frequency!
+}
+
+type Watering {
+  id: ID! 
+  priority: Level!
+  expectedAt: Date!
+  executedAt: Date
 }
 
 type Mutation {

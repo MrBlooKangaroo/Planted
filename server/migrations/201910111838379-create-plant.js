@@ -1,10 +1,10 @@
 const { Health } = require('../utils/enums.ts');
 
 module.exports = {
-  up: (queryInterface, {
+  up: async (queryInterface, {
     UUID, DATE, STRING, ENUM, literal
   }) => {
-    return queryInterface.createTable('plants', {
+    return await queryInterface.createTable('plants', {
       id: {
         type: UUID,
         primaryKey: true,
@@ -43,7 +43,7 @@ module.exports = {
           key: 'id',
         }
       },
-      name: {
+      name: { 
         allowNull: false,
         type: STRING
       },
