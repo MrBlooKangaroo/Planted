@@ -35,6 +35,14 @@ module.exports = {
           key: 'id',
         }
       },
+      genusId:{
+        allowNull: false,
+        type: UUID,
+        references: {
+          model: 'genera',
+          key: 'id',
+        }
+      },
       name: {
         allowNull: false,
         type: STRING

@@ -8,11 +8,13 @@ module.exports = (sequelize, {
     photo: STRING,
     health: ENUM([...Health]),
     userId: UUID,
-    nookId: UUID
+    nookId: UUID,
+    genusId: UUID
   }, {});
   plant.associate = models => {
     plant.belongsTo(models.nook);
     plant.belongsTo(models.user);
+    plant.belongsTo(models.genus)
   };
   return plant;
 };

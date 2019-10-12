@@ -12,5 +12,8 @@ module.exports = (sequelize, {
     luxPreferred: ENUM([...Level]),
     wateringCycle: ENUM([...Frequency]),
   }, {});
+  genus.associate = models => {
+    genus.hasMany(models.plant);
+  };
   return genus;
 };

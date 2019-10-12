@@ -18,6 +18,16 @@ const nookDatum = {
     luxLevel: 'MEDIUM',
 }
 
+const genusDatum = {
+  nickname: "God's Petunia",
+  nomenclature: "lorem ipsumius dolorae",
+  description: "really cool looking",
+  instructions: "just give em lots of love",
+  photo: "godspetunia.jpg",
+  luxPreferred: "HIGH",
+  wateringCycle: "DAILY"
+}
+
 const plantDatum = {
   name: 'Ladyfingers',
   health: 'DEAD',
@@ -42,14 +52,16 @@ describe('Plant Model', () => {
 
     it('should only accept allowed health values', async () => {
     const user = await db.user.create(userDatum)
+    const genus = await db.genus.create(genusDatum)
     const nook = await db.nook.create({ 
-        ...nookDatum, 
-        userId: user.id 
+      ...nookDatum, 
+      userId: user.id 
     })
     const plant = await db.plant.create({ 
         ...plantDatum, 
         userId: user.id,
-        nookId: nook.id 
+        nookId: nook.id,
+        genusId: genus.id
     })
 
     expect(Health).toContain(plant.health);
