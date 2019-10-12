@@ -24,6 +24,34 @@ describe('Genus Model', () => {
       expect(genus).toBe('SequelizeDatabaseError');
     });
 
+    it('should require presence of nomenclature', async () => {
+      const genus = await db.genus.create({ ...genusDatum, nomenclature: null })
+        .catch(({ name: errorName }) => errorName);
+
+      expect(genus).toBe('SequelizeDatabaseError');
+    });
+    
+    it('should require presence of description', async () => {
+      const genus = await db.genus.create({ ...genusDatum, description: null })
+        .catch(({ name: errorName }) => errorName);
+
+      expect(genus).toBe('SequelizeDatabaseError');
+    });
+
+    it('should require presence of instructions', async () => {
+      const genus = await db.genus.create({ ...genusDatum, instructions: null })
+        .catch(({ name: errorName }) => errorName);
+
+      expect(genus).toBe('SequelizeDatabaseError');
+    });
+
+    it('should require presence of photo', async () => {
+      const genus = await db.genus.create({ ...genusDatum, photo: null })
+        .catch(({ name: errorName }) => errorName);
+
+      expect(genus).toBe('SequelizeDatabaseError');
+    });
+
     it('should only accept allowed level values', async () => {
     const genus = await db.genus.create({...genusDatum})
 

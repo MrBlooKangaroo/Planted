@@ -51,18 +51,8 @@ describe('Plant Model', () => {
     });
 
     it('should only accept allowed health values', async () => {
-    const user = await db.user.create(userDatum)
-    const genus = await db.genus.create(genusDatum)
-    const nook = await db.nook.create({ 
-      ...nookDatum, 
-      userId: user.id 
-    })
-    const plant = await db.plant.create({ 
-        ...plantDatum, 
-        userId: user.id,
-        nookId: nook.id,
-        genusId: genus.id
-    })
+      const plant = await db.plant.create({ ...plantDatum, health: null })
+
 
     expect(Health).toContain(plant.health);
     });
