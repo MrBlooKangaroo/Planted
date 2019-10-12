@@ -40,7 +40,6 @@ describe('get a specific user data', () => {
         const variables = { id: userOne.id };
         const response = await testClient.query({ query, variables });
         const responseUser = response.data.user;
-        console.log(responseUser);
     
         expect(response.errors).toBe(undefined);
         expect(responseUser).toBeDefined();

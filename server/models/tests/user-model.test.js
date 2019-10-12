@@ -1,5 +1,5 @@
-const db = require('./index');
-const { cleanUpDb, closeDbConnection } = require('../utils/test');
+const db = require('../index');
+const { cleanUpDb, closeDbConnection } = require('../../utils/test');
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);

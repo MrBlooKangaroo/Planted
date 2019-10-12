@@ -13,8 +13,6 @@ type Query {
 
 type User implements Node {
   id: ID!
-  createdAt: Date!
-  updatedAt: Date!
   nickname: String!
   firstName: String!
   lastName: String!
@@ -27,8 +25,6 @@ type User implements Node {
 
 type Nook implements Node {
   id: ID!
-  createdAt: Date!
-  updatedAt: Date!
   name: String!
   location: String
   photo: String
@@ -38,8 +34,6 @@ type Nook implements Node {
 
 type Plant implements Node {
   id: ID!
-  createdAt: Date!
-  updatedAt: Date!
   name: String!
   photo: String
   health: Health!
@@ -65,15 +59,15 @@ type Subscription {
 }
 
 enum Level {
-  HIGH,
-  MEDIUM,
+  HIGH
+  MEDIUM
   LOW
 }
 
 enum Health {
-  THRIVING,
-  HEALTHY,
-  SICK,
-  DYING,
+  THRIVING
+  HEALTHY
+  SICK
+  DYING
   DEAD
 }

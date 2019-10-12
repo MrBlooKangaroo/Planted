@@ -1,6 +1,6 @@
-const db = require('./index');
-const { cleanUpDb, closeDbConnection } = require('../utils/test');
-const { Health } = require('../utils/enums')
+const db = require('../index');
+const { cleanUpDb, closeDbConnection } = require('../../utils/test');
+const { Health } = require('../../utils/enums')
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
@@ -27,7 +27,7 @@ const plantDatum = {
 describe('Plant Model', () => {
   describe('validations', () => {
     it('should require presence of name', async () => {
-      const plant = await db.user.create({ ...plantDatum, name: null })
+      const plant = await db.plant.create({ ...plantDatum, name: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(plant).toBe('SequelizeDatabaseError');
