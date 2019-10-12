@@ -1,26 +1,27 @@
 const { Level } = require('../utils/enums.ts');
-'use strict';
-//console.log(Level);
+
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface, {
+    UUID, DATE, STRING, ENUM, literal
+  }) => {
     await queryInterface.createTable('nooks', {
       id: {
-        allowNull: false,
+        type: UUID,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.literal('uuid_generate_v4()'),
+        allowNull: false,
+        defaultValue: literal('uuid_generate_v4()'),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DATE
       },
       userId:{
         allowNull: false,
-        type: Sequelize.UUID,
+        type: UUID,
         references: {
           model: 'users',
           key: 'id',
@@ -28,19 +29,19 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: STRING
       },
       location: {
         allowNull: true,
-        type: Sequelize.STRING
+        type: STRING
       },
       photo: {
         allowNull: true,
-        type: Sequelize.STRING
+        type: STRING
       },
       luxLevel: {
         allowNull: false,
-        type: Sequelize.ENUM([...Level])
+        type: ENUM([...Level])
       }, 
     });
     return await queryInterface.addIndex('nooks', {

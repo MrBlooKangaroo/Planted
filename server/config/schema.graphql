@@ -39,6 +39,17 @@ type Plant implements Node {
   photo: String
 }
 
+# type Genus implements Node { 
+#   id: ID! 
+#   nickname: String!
+#   nomenclature: String! 
+#   description: String! 
+#   instructions: String! 
+#   photo: String!
+#   luxPreferred: Level! 
+#   wateringCycle: Frequency!
+# }
+
 type Mutation {
   createUser(input: CreateUserInput): UserPayload
 }
@@ -71,3 +82,4 @@ enum Health {
   DYING
   DEAD
 }
+

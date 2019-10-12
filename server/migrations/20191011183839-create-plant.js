@@ -1,29 +1,27 @@
 const { Health } = require('../utils/enums.ts');
-'use strict';
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, {
+    UUID, DATE, STRING, ENUM, literal
+  }) => {
     return queryInterface.createTable('plants', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: UUID,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      name: {
         allowNull: false,
-        type: Sequelize.STRING
+        defaultValue: literal('uuid_generate_v4()'),
       },
-      photo: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      health: {
+      createdAt: {
         allowNull: false,
-        type: Sequelize.ENUM([...Health])
+        type: DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DATE
       },
       userId:{
         allowNull: false,
-        type: Sequelize.UUID,
+        type: UUID,
         references: {
           model: 'users',
           key: 'id',
@@ -31,23 +29,27 @@ module.exports = {
       },
       nookId:{
         allowNull: false,
-        type: Sequelize.UUID,
+        type: UUID,
         references: {
           model: 'nooks',
           key: 'id',
         }
       },
-      createdAt: {
+      name: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: STRING
       },
-      updatedAt: {
+      photo: {
+        allowNull: true,
+        type: STRING
+      },
+      health: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: ENUM([...Health])
+      },
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('plants');
   }
 };
