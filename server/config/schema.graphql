@@ -64,6 +64,7 @@ type Genus implements Node {
   description: String! 
   instructions: String! 
   photo: String!
+  colors: String!
   luxPreferred: Level! 
   wateringCycle: Frequency!
 }
@@ -80,12 +81,14 @@ type Mutation {
   createUser(input: CreateUserInput): UserPayload
   createPlant(input: CreatePlantInput): PlantPayload
   createNook(input: CreateNookInput): NookPayload
+  createWatering(input: CreateWateringInput): WateringPayload
 }
 
 type Subscription {
   userCreated: User
   plantCreated: Plant
   nookCreated: Nook
+  wateringCreated: Watering
 }
 
 input CreateUserInput {
@@ -107,6 +110,12 @@ input CreateNookInput {
   userId: ID!
 }
 
+input CreateWateringInput {
+  priority: Level!
+  expectedAt: Date!
+  plantId: ID!
+}
+
 type UserPayload {
   user: User
 }
@@ -117,6 +126,10 @@ type PlantPayload {
 
 type NookPayload {
   nook: Nook
+}
+
+type WateringPayload {
+  watering: Watering
 }
 
 enum Level { 
