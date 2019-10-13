@@ -18,6 +18,9 @@ type Query {
 
   genus(id: ID!): Genus
   genera: [Genus!]!
+
+  watering(id: ID!): Watering
+  waterings: [Watering!]!
 }
 
 type User implements Node {
