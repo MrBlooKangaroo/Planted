@@ -20,12 +20,6 @@ const nookDatum = {
     photo: 'prettyplants.jpg'
 }
 
-const plantDatum = {
-  name: 'Ladyfingers',
-  health: 'DEAD',
-  photo: 'ladyfingers.jpg'
-};
-
 describe('Nook Model', () => {
   describe('validations', () => {
     it('should require presence of name', async () => {
@@ -35,7 +29,7 @@ describe('Nook Model', () => {
       expect(nook).toBe('SequelizeDatabaseError');
     });
 
-    it('should require presence of lux level', async () => {
+    it('should require presence of luxLevel', async () => {
       const nook = await db.plant.create({ ...nookDatum, luxLevel: null })
         .catch(({ name: errorName }) => errorName);
 

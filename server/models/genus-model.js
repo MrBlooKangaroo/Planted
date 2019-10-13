@@ -8,9 +8,11 @@ module.exports = (sequelize, {
     nomenclature: STRING,
     description: STRING,
     instructions: STRING,
+    colors: STRING,
     photo: STRING,
-    luxPreferred: ENUM([...Level]),
-    wateringCycle: ENUM([...Frequency]),
+    luxLevel: ENUM([...Level]),
+    waterLevel: ENUM([...Level]),
+    waterCycle: ENUM([...Frequency]),
   }, {});
   genus.associate = models => {
     genus.hasMany(models.plant);

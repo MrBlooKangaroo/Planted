@@ -35,15 +35,23 @@ module.exports = {
         allowNull: false,
         type: STRING
       },
+      colors: {
+        allowNull: false,
+        type: STRING
+      },
       photo: {
         allowNull: false,
         type: STRING
       },
-      luxPreferred: {
+      luxLevel: {
         allowNull: false,
         type: ENUM([...Level])
       }, 
-      wateringCycle: {
+      waterLevel: {
+        allowNull: false,
+        type: ENUM([...Level])
+      }, 
+      waterCycle: {
         allowNull: false,
         type: ENUM([...Frequency])
       }, 

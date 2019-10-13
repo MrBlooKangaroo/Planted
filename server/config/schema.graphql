@@ -17,7 +17,7 @@ type Query {
   nooks: [Nook!]!
 
   genus(id: ID!): Genus
-  genuses: [Genus!]!
+  genera: [Genus!]!
 }
 
 type User implements Node {
@@ -65,7 +65,8 @@ type Genus implements Node {
   instructions: String! 
   photo: String!
   colors: String!
-  luxPreferred: Level! 
+  luxLevel: Level! 
+  waterLevel: Level!
   wateringCycle: Frequency!
 }
 

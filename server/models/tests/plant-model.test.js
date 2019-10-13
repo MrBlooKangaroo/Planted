@@ -23,9 +23,11 @@ const genusDatum = {
   nomenclature: "lorem ipsumius dolorae",
   description: "really cool looking",
   instructions: "just give em lots of love",
+  colors: "yellow purple grey",
   photo: "godspetunia.jpg",
-  luxPreferred: "HIGH",
-  wateringCycle: "DAILY"
+  luxLevel: "HIGH",
+  waterLevel: "MEDIUM",
+  waterCycle: "DAILY"
 }
 
 const plantDatum = {
@@ -49,22 +51,51 @@ describe('Plant Model', () => {
 
       expect(plant).toBe('SequelizeDatabaseError');
     });
+    
+    it('should be able to create a plant', async () => {
+      const user = await db.user.create(userDatum)
+      const genus = await db.genus.create(genusDatum)
+      const nook = await db.nook.create({ 
+        ...nookDatum, 
+        userId: user.id 
+      })
+      const plant = await db.plant.create({ 
+          ...plantDatum, 
+          userId: user.id,
+          nookId: nook.id,
+          genusId: genus.id
+      })
 
+      expect(Health).toContain(plant.health);
+    });
+    
     it('should only accept allowed health values', async () => {
-    const user = await db.user.create(userDatum)
-    const genus = await db.genus.create(genusDatum)
-    const nook = await db.nook.create({ 
-      ...nookDatum, 
-      userId: user.id 
-    })
-    const plant = await db.plant.create({ 
+      const user = await db.user.create(userDatum)
+      const genus = await db.genus.create(genusDatum)
+      const nook = await db.nook.create({ 
+        ...nookDatum, 
+        userId: user.id 
+      })
+
+      const plantGood = await db.plant.create({ 
         ...plantDatum, 
         userId: user.id,
         nookId: nook.id,
-        genusId: genus.id
-    })
+        genusId: genus.id,
+        health: 'HEALTHY' 
+      })
+      
+      const plantBad = await db.plant.create({ 
+        ...plantDatum, 
+        userId: user.id,
+        nookId: nook.id,
+        genusId: genus.id,
+        health: 'SOME CRAZY INPUT' 
+      })
+        .catch(({ name: errorName }) => errorName);
 
-    expect(Health).toContain(plant.health);
+      expect(Health).toContain(plantGood.health);
+      expect(plantBad).toBe('SequelizeDatabaseError');
     });
   });
 });
