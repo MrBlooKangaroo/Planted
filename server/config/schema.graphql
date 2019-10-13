@@ -1,52 +1,60 @@
 scalar Date
 
 interface Node {
-  id: ID!
+  id: ID
 }
 
-type Query {
-  buildNumber: String
+type Query {
+  buildNumber: String
 
-  user(id: ID!): User
-  users: [User!]!
+  user(id: ID!): User
+  users: [User!]!
 
-  plant(id: ID!): Plant
-  plants: [Plant!]!
+  plant(id: ID!): Plant
+  plants: [Plant!]!
 
-  nook(id: ID!): Nook
-  nooks: [Nook!]!
+  nook(id: ID!): Nook
+  nooks: [Nook!]!
 
-  genus(id: ID!): Genus
-  genuses: [Genus!]!
+  genus(id: ID!): Genus
+  genuses: [Genus!]!
 }
 
 type User implements Node {
   id: ID!
   nickname: String!
   firstName: String!
-  lastName: String!
-  email: String!
+  lastName: String 
+  email: String
   photo: String
-  city: String
+  city: String! 
   nooks: [Nook!]!
-  plants: [Plant!]!
-}
-
-type Nook implements Node {
-  id: ID!
-  name: String!
-  luxLevel: Level!
-  location: String
-  photo: String
-  plants: [Plant!]!
+  createdAt: Date!
+  updatedAt: Date
 }
 
 type Plant implements Node {
   id: ID!
   name: String!
-  health: Health!
+  genus: Genus!
   photo: String
+  nook: Nook!
+  health: Health!
   waterings: [Watering!]!
+  createdAt: Date!
+  updatedAt: Date
+}
+
+type Nook implements Node {
+  id: ID!
+  name: String!
+  location: String!
+  photo: String
+  user: User!
+  luxLevel: Level!
+  plants: [Plant!]!
+  createdAt: Date!
+  updatedAt: Date
 }
 
 type Genus implements Node { 
@@ -62,6 +70,7 @@ type Genus implements Node {
 
 type Watering {
   id: ID! 
+  plant: Plant!
   priority: Level!
   expectedAt: Date!
   executedAt: Date
@@ -69,74 +78,66 @@ type Watering {
 
 type Mutation {
   createUser(input: CreateUserInput): UserPayload
-  createPlant(input: CreatePlantInput): PlantPayload
-  createNook(input: CreateNookInput): NookPayload
+  createPlant(input: CreatePlantInput): PlantPayload
+  createNook(input: CreateNookInput): NookPayload
+}
+
+type Subscription {
+  userCreated: User
+  plantCreated: Plant
+  nookCreated: Nook
 }
 
 input CreateUserInput {
-  nickname: String!
   firstName: String!
-  lastName: String!
-  email: String!
+  lastName: String
+  email: String
 }
 
-input CreatePlantInput {
-  name: String!
-  health: Health!
-  genus: Genus!
-  nook: Nook!
-  user: User!
+input CreatePlantInput {
+  name: String!
+  genusId: ID!
+  nookId: ID!
+  userId: ID!
 }
 
-input CreateNookInput {
-  name: String!
-  luxLevel: Level!
-  user: User!
+input CreateNookInput {
+  name: String!
+  location: String!
+  userId: ID!
 }
 
 type UserPayload {
   user: User
 }
 
-type PlantPayload {
-  plant: Plant!
+type PlantPayload {
+  plant: Plant
 }
 
-type NookPayload {
-  nook: Nook!
+type NookPayload {
+  nook: Nook
 }
 
-type Subscription {
-  userCreated: User
-}
-
-type Subscription {
-  plantCreated: Plant
-}
-
-type Subscription {
-  nookCreated: Nook
-}
-
-enum Level {
-  HIGH
-  MEDIUM
+enum Level { 
+  HIGH 
+  MEDIUM 
   LOW
 }
 
-enum Health {
-  THRIVING
-  HEALTHY
-  SICK
-  DYING
+enum Health { 
+  THRIVING 
+  HEALTHY 
+  SICK 
+  DYING 
   DEAD
 }
 
-enum Frequency {
-  DAILY
-  BIWEEKLY
-  WEEKLY
-  MONTHLY
-  QUARTERLY
+enum Frequency { 
+  DAILY 
+  BIWEEKLY 
+  WEEKLY 
+  MONTHLY 
+  QUARTERLY 
   YEARLY
-}
+} 
