@@ -6,10 +6,10 @@ afterEach(cleanUpDb);
 afterAll(closeDbConnection);
 
 const genusDatum = {
-  nickname: 'God\'s Petunia',
-  nomenclature: 'lorem ipsumius dolorae',
+  name: 'God\'s Petunia',
   description: 'really cool looking',
   instructions: 'just give em lots of love',
+  features: 'Purifies the air',
   photo: 'godspetunia.jpg',
   colors: 'blue green yello pink',
   luxLevel: 'HIGH',
@@ -19,15 +19,8 @@ const genusDatum = {
 
 describe('Genus Model', () => {
   describe('validations', () => {
-    it('should require presence of nickname', async () => {
-      const genus = await db.genus.create({ ...genusDatum, nickname: null })
-        .catch(({ name: errorName }) => errorName);
-
-      expect(genus).toBe('SequelizeDatabaseError');
-    });
-
-    it('should require presence of nomenclature', async () => {
-      const genus = await db.genus.create({ ...genusDatum, nomenclature: null })
+    it('should require presence of name', async () => {
+      const genus = await db.genus.create({ ...genusDatum, name: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(genus).toBe('SequelizeDatabaseError');
@@ -42,6 +35,13 @@ describe('Genus Model', () => {
 
     it('should require presence of instructions', async () => {
       const genus = await db.genus.create({ ...genusDatum, instructions: null })
+        .catch(({ name: errorName }) => errorName);
+
+      expect(genus).toBe('SequelizeDatabaseError');
+    });
+
+    it('should require presence of features', async () => {
+      const genus = await db.genus.create({ ...genusDatum, features: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(genus).toBe('SequelizeDatabaseError');

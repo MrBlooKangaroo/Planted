@@ -4,10 +4,10 @@ module.exports = (sequelize, {
     STRING, ENUM
 }) => {
   const genus = sequelize.define('genus', {
-    nickname: STRING,
-    nomenclature: STRING,
+    name: STRING,
     description: STRING,
     instructions: STRING,
+    features: STRING,
     colors: STRING,
     photo: STRING,
     luxLevel: ENUM([...Level]),

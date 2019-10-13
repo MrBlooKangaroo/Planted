@@ -18,23 +18,23 @@ const nookDatum = {
     luxLevel: 'MEDIUM',
 }
 
-const genusDatum = {
-  nickname: "God's Petunia",
-  nomenclature: "lorem ipsumius dolorae",
-  description: "really cool looking",
-  instructions: "just give em lots of love",
-  colors: "yellow purple grey",
-  photo: "godspetunia.jpg",
-  luxLevel: "HIGH",
-  waterLevel: "MEDIUM",
-  waterCycle: "DAILY"
-}
-
 const plantDatum = {
   name: 'Ladyfingers',
   health: 'DEAD',
   photo: 'ladyfingers.jpg'
 };
+
+const genusDatum = {
+  name: 'God\'s Petunia',
+  description: 'really cool looking',
+  instructions: 'just give em lots of love',
+  features: 'Purifies the air',
+  colors: 'yellow purple grey',
+  photo: 'godspetunia.jpg',
+  luxLevel: 'HIGH',
+  waterLevel: 'MEDIUM',
+  waterCycle: 'DAILY'
+}
 
 describe('Plant Model', () => {
   describe('validations', () => {

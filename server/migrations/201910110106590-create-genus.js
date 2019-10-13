@@ -19,11 +19,7 @@ module.exports = {
         allowNull: false,
         type: DATE
       },
-      nickname: {
-        allowNull: false,
-        type: STRING
-      },
-      nomenclature: {
+      name: {
         allowNull: false,
         type: STRING
       },
@@ -32,6 +28,10 @@ module.exports = {
         type: STRING
       },
       instructions: {
+        allowNull: false,
+        type: STRING
+      },
+      features: {
         allowNull: false,
         type: STRING
       },

@@ -59,10 +59,10 @@ type Nook implements Node {
 
 type Genus implements Node { 
   id: ID! 
-  nickname: String!
-  nomenclature: String! 
+  name: String!
   description: String! 
   instructions: String! 
+  features: String!
   photo: String!
   colors: String!
   luxLevel: Level! 
