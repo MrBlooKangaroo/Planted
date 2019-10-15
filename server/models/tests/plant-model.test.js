@@ -32,7 +32,7 @@ const plantTypeDatum = {
   photoUrl: 'godspetunia.jpg',
   luxLevel: 'HIGH',
   waterLevel: 'MEDIUM',
-  waterCycle: 'DAILY'
+  waterCycle: 'MONTHLY'
 }
 
 describe('Plant Model', () => {

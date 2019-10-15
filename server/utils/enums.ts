@@ -9,23 +9,11 @@ exports.WaterLevel = [
     'HIGH',
     'MEDIUM',
     'LOW',
-    'ALL'
 ]
 
-
-exports.PlantHealth = [
-    'THRIVING',
-    'HEALTHY',
-    'SICK',
-    'DYING',
-    'DEAD'
-]
-
-exports.WateringFrequency = [
+exports.WaterCycle = [
     'DAILY',
-    'BIWEEKLY',
     'WEEKLY',
-    'MONTHLY',
-    'QUARTERLY',
-    'YEARLY'
+    'BIWEEKLY',
+    'MONTHLY'
 ]

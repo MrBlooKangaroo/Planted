@@ -37,11 +37,9 @@ type User implements Node {
 
 type Plant implements Node {
   id: ID!
-  name: String!
   plantType: PlantType!
   photoUrl: String
   nook: Nook
-  health: PlantHealth!
   watering: Watering!
   createdAt: Date!
   updatedAt: Date
@@ -63,12 +61,10 @@ type PlantType implements Node {
   name: String!
   description: String! 
   instructions: String! 
-  features: String!
   photoUrl: String!
-  colors: String!
   luxLevel: LuxLevel! 
   waterLevel: WaterLevel!
-  wateringCycle: WateringFrequency!
+  waterCycle: WaterCycle!
 }
 
 type Watering {
@@ -89,9 +85,6 @@ type Mutation {
 
 type Subscription {
   userCreated: User
-  plantCreated: Plant
-  nookCreated: Nook
-  wateringCreated: Watering
 }
 
 input CreateUserInput {
@@ -101,7 +94,6 @@ input CreateUserInput {
 }
 
 input CreatePlantInput {
-  name: String!
   plantTypeId: ID!
   nookId: ID!
 }
@@ -136,6 +128,7 @@ enum LuxLevel {
   HIGH 
   MEDIUM 
   LOW
+  ALL
 }
 
 enum WaterLevel { 
@@ -144,19 +137,9 @@ enum WaterLevel {
   LOW
 }
 
-enum PlantHealth { 
-  THRIVING 
-  HEALTHY 
-  SICK 
-  DYING 
-  DEAD
-}
-
-enum WateringFrequency { 
+enum WaterCycle { 
   DAILY 
-  BIWEEKLY 
   WEEKLY 
+  BIWEEKLY 
   MONTHLY 
-  QUARTERLY 
-  YEARLY
 } 

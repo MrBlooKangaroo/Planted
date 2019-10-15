@@ -25,15 +25,15 @@ module.exports = {
       },
       description: {
         allowNull: false,
-        type: STRING
+        type: STRING(10000)
       },
       instructions: {
         allowNull: false,
-        type: STRING
+        type: STRING(10000)
       },
       features: {
         allowNull: false,
-        type: STRING
+        type: STRING(10000)
       },
       colors: {
         allowNull: false,
