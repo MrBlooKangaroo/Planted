@@ -50,5 +50,4 @@ exports.waterings = async () => {
   return await db.watering.findAll()
 }
   
-
 exports.buildNumber = getBuildNumber
