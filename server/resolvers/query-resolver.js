@@ -5,7 +5,7 @@ const { getBuildNumber } = require('../utils');
 exports.user = async (_obj, { id }) => {
   const user = await db.user.findOne({
     where: { id },
-    include: [{ model: db.nook }, { model: db.plant }],
+    include: [{ model: db.nook }],
   });
   return user || raiseNotFoundError();
 };
@@ -32,13 +32,13 @@ exports.nooks = async () => {
   return await db.nook.findAll()
 }
 
-exports.genus = async (_obj, { id }) => {
-  const nook = await db.genus.findByPk(id)
+exports.plantType = async (_obj, { id }) => {
+  const nook = await db.plantType.findByPk(id)
   return nook || raiseNotFoundError()
 }
 
-exports.genera = async () => {
-  return await db.genus.findAll()
+exports.plantTypes = async () => {
+  return await db.plantType.findAll()
 }
 
 exports.watering = async (_obj, { id }) => {
@@ -50,4 +50,5 @@ exports.waterings = async () => {
   return await db.watering.findAll()
 }
   
+
 exports.buildNumber = getBuildNumber

@@ -31,7 +31,7 @@ module.exports = {
         allowNull: false,
         type: STRING,
       },
-      photo: {
+      photoUrl: {
         allowNull: true,
         type: STRING,
       },

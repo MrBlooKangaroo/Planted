@@ -1,11 +1,18 @@
-exports.Level = [
+exports.LuxLevel = [
     'HIGH',
     'MEDIUM',
     'LOW',
     'ALL'
 ]
 
-exports.Health = [
+exports.WaterLevel = [
+    'HIGH',
+    'MEDIUM',
+    'LOW',
+    'ALL'
+]
+
+exports.PlantHealth = [
     'THRIVING',
     'HEALTHY',
     'SICK',
@@ -13,8 +20,11 @@ exports.Health = [
     'DEAD'
 ]
 
-exports.Frequency = [
+exports.WateringFrequency = [
+    'DAILY',
     'BIWEEKLY',
     'WEEKLY',
-    'MONTHLY'
+    'MONTHLY',
+    'QUARTERLY',
+    'YEARLY'
 ]

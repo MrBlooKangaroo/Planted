@@ -6,8 +6,8 @@ exports.__resolveType = (object, context) => {
       return 'Nook';
     case 'plant':
       return 'Plant';
-    case 'genus':
-      return 'Genus';
+    case 'plantType':
+      return 'PlantType';
     case 'watering':
       return 'Watering';
     default:

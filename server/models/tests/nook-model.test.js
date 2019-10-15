@@ -10,14 +10,12 @@ const userDatum = {
     firstName: 'Mook',
     lastName: 'Flexer',
     email: 'mookin@mook.com',
-    city: 'boston',
 };
 
 const nookDatum = {
     name: 'Pretty Plants',
-    location: 'back patio',
     luxLevel: 'HIGH',   
-    photo: 'prettyplants.jpg'
+    photoUrl: 'prettyplants.jpg'
 }
 
 describe('Nook Model', () => {

@@ -11,7 +11,7 @@ const userDatum = {
   firstName: 'Mook',
   lastName: 'Flexer',
   email: 'mookin@mook.com',
-  city: 'boston',
+  photo: 'https://www.staples-3p.com/s7/is/image/Staples/sp19979996_sc7?wid=512&hei=512'
 };
 
 afterEach(cleanUpDb);
@@ -24,16 +24,18 @@ describe('get user request', () => {
     const { testClient } = await createTestClient();
     const user = await db.user.create({ ...userDatum });
 
+
+
     const variables = { id: user.id };
     const response = await testClient.query({ query, variables });
     const responseUser = response.data.user;
-
     expect(response.errors).toBe(undefined);
     expect(responseUser).toBeDefined();
     expect(responseUser.firstName).toBe(userDatum.firstName);
     expect(responseUser.lastName).toBe(userDatum.lastName);
     expect(responseUser.email).toBe(userDatum.email);
     expect(responseUser.nickname).toBe(userDatum.nickname);
+    expect(responseUser.photoUrl).toBe(userDatum.photoUrl);
   });
 
   it('should return NOT_FOUND error if invalid user id supplied', async () => {

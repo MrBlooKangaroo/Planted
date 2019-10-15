@@ -1,8 +1,10 @@
-query getUser($id: ID!) {
+query getNook($id: ID!) {
   user(id: $id) {
     nickname
     firstName
     lastName
     email
+    nickname
+    photoUrl
   }
 }
