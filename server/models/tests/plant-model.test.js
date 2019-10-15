@@ -33,7 +33,7 @@ const genusDatum = {
   photo: 'godspetunia.jpg',
   luxLevel: 'HIGH',
   waterLevel: 'MEDIUM',
-  waterCycle: 'DAILY'
+  waterCycle: 'MONTHLY'
 }
 
 describe('Plant Model', () => {

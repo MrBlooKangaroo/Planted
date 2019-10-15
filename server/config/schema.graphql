@@ -140,6 +140,7 @@ enum Level {
   HIGH 
   MEDIUM 
   LOW
+  ALL
 }
 
 enum Health { 
@@ -151,10 +152,7 @@ enum Health {
 }
 
 enum Frequency { 
-  DAILY 
-  BIWEEKLY 
   WEEKLY 
+  BIWEEKLY 
   MONTHLY 
-  QUARTERLY 
-  YEARLY
 } 

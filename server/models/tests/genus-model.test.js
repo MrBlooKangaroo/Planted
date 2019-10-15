@@ -14,7 +14,7 @@ const genusDatum = {
   colors: 'blue green yello pink',
   luxLevel: 'HIGH',
   waterLevel: 'LOW',
-  waterCycle: 'DAILY'
+  waterCycle: 'BIWEEKLY'
 }
 
 describe('Genus Model', () => {

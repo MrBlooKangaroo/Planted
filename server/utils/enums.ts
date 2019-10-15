@@ -1,7 +1,8 @@
 exports.Level = [
     'HIGH',
     'MEDIUM',
-    'LOW'
+    'LOW',
+    'ALL'
 ]
 
 exports.Health = [
@@ -13,10 +14,7 @@ exports.Health = [
 ]
 
 exports.Frequency = [
-    'DAILY',
     'BIWEEKLY',
     'WEEKLY',
-    'MONTHLY',
-    'QUARTERLY',
-    'YEARLY'
+    'MONTHLY'
 ]
