@@ -1,13 +1,13 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, {
+  UUID, DATE
+}) => {
   const watering = sequelize.define('watering', {
-    expectedAt: DataTypes.DATE,
-    executedAt: DataTypes.DATE,
-    plantId: DataTypes.UUID
-  }, {});
+    plantId: UUID,
+    expectedAt: DATE,
+    executedAt: DATE
+  }, {})
   watering.associate = function(models) {
-    // associations can be defined here
-    watering.belongsTo(models.plant);
-  };
-  return watering;
-};
+    watering.belongsTo(models.plant)
+  }
+  return watering
+}

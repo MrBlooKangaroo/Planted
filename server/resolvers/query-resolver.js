@@ -33,21 +33,12 @@ exports.nooks = async () => {
 }
 
 exports.plantType = async (_obj, { id }) => {
-  const nook = await db.plantType.findByPk(id)
-  return nook || raiseNotFoundError()
+  const plantType = await db.plantType.findByPk(id)
+  return plantType || raiseNotFoundError()
 }
 
-exports.plantTypes = async () => {
+exports.plantType = async () => {
   return await db.plantType.findAll()
 }
 
-exports.watering = async (_obj, { id }) => {
-  const watering = await db.watering.findByPk(id)
-  return watering || raiseNotFoundError()
-}
-
-exports.waterings = async () => {
-  return await db.watering.findAll()
-}
-  
 exports.buildNumber = getBuildNumber

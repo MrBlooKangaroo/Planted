@@ -1,8 +1,6 @@
-const { PlantHealth } = require('../utils/enums.ts');
-
 module.exports = {
   up: async (queryInterface, {
-    UUID, DATE, STRING, ENUM, literal
+    UUID, DATE, STRING, literal
   }) => {
     return await queryInterface.createTable('plants', {
       id: {
@@ -35,21 +33,12 @@ module.exports = {
           key: 'id',
         }
       },
-      name: { 
-        allowNull: false,
-        type: STRING
-      },
       photoUrl: {
         allowNull: true,
         type: STRING
       },
-      health: {
-        allowNull: false,
-        type: ENUM([...PlantHealth])
-      },
-    });
+    })
   },
-  down: queryInterface => {
-    return queryInterface.dropTable('plants');
-  }
-};
+  down: queryInterface =>
+    queryInterface.dropTable('plants')
+}

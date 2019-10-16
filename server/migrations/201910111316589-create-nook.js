@@ -1,10 +1,10 @@
-const { LuxLevel } = require('../utils/enums.ts');
+const { LuxLevel } = require('../utils/enums.ts')
 
 module.exports = {
   up: async (queryInterface, {
     UUID, DATE, STRING, ENUM, literal
   }) => {
-    await queryInterface.createTable('nooks', {
+    return await queryInterface.createTable('nooks', {
       id: {
         type: UUID,
         primaryKey: true,
@@ -39,13 +39,8 @@ module.exports = {
         allowNull: false,
         type: ENUM([...LuxLevel])
       }, 
-    });
-    return await queryInterface.addIndex('nooks', {
-      fields: ['userId', 'name'],
-      unique: true,
-    });
+    })
   },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('nooks');
-  }
-};
+  down: queryInterface =>
+    queryInterface.dropTable('nooks')
+}

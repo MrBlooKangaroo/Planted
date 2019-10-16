@@ -6,19 +6,14 @@ interface Node {
 
 type Query {
   buildNumber: String
-
   user(id: ID!): User
   users: [User!]!
-
   plant(id: ID!): Plant
   plants: [Plant!]!
-
   nook(id: ID!): Nook
   nooks: [Nook!]!
-
   plantType(id: ID!): PlantType
   plantTypes: [PlantType!]!
-
   watering(id: ID!): Watering
   waterings: [Watering!]!
 }
@@ -37,10 +32,10 @@ type User implements Node {
 
 type Plant implements Node {
   id: ID!
-  plantType: PlantType!
   photoUrl: String
-  nook: Nook
-  watering: Watering!
+  nook: Nook!
+  plantType: PlantType!
+  waterings: [Watering!]!
   createdAt: Date!
   updatedAt: Date
 }
@@ -49,8 +44,8 @@ type Nook implements Node {
   id: ID!
   name: String!
   photoUrl: String
-  user: User!
   luxLevel: LuxLevel!
+  user: User!
   plants: [Plant!]!
   createdAt: Date!
   updatedAt: Date
@@ -72,8 +67,6 @@ type Watering {
   plant: Plant!
   expectedAt: Date!
   executedAt: Date
-  createdAt: Date!
-  updatedAt: Date
 }
 
 type Mutation {

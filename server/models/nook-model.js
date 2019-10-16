@@ -1,4 +1,4 @@
-const { LuxLevel } = require('../utils/enums.ts');
+const { LuxLevel } = require('../utils/enums.ts')
 
 module.exports = (sequelize, {
   UUID, STRING, ENUM
@@ -8,10 +8,10 @@ module.exports = (sequelize, {
     photoUrl: STRING,
     luxLevel: ENUM([...LuxLevel]),
     userId: UUID, 
-  }, {});
+  }, {})
   nook.associate = models => {
-    nook.belongsTo(models.user);
-    nook.hasMany(models.plant);
-  };
-  return nook;
-}; 
+    nook.belongsTo(models.user)
+    nook.hasMany(models.plant)
+  }
+  return nook
+} 

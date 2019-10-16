@@ -1,8 +1,12 @@
-const { LuxLevel, WaterLevel, WateringFrequency } = require('../utils/enums.ts');
+const { 
+  LuxLevel, 
+  WaterLevel, 
+  WaterCycle 
+} = require('../utils/enums.ts')
 
 module.exports = {
   up: async (queryInterface, {
-    UUID, DATE, STRING, ENUM, literal
+    UUID, STRING, ENUM, literal
   }) => {
    return queryInterface.createTable('plantTypes', {
       id: {
@@ -10,14 +14,6 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
         defaultValue: literal('uuid_generate_v4()'),
-      },
-      createdAt: {
-        allowNull: false,
-        type: DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DATE
       },
       name: {
         allowNull: false,
@@ -30,14 +26,6 @@ module.exports = {
       instructions: {
         allowNull: false,
         type: STRING(10000)
-      },
-      features: {
-        allowNull: false,
-        type: STRING(10000)
-      },
-      colors: {
-        allowNull: false,
-        type: STRING
       },
       photoUrl: {
         allowNull: false,
@@ -53,11 +41,10 @@ module.exports = {
       }, 
       waterCycle: {
         allowNull: false,
-        type: ENUM([...WateringFrequency])
+        type: ENUM([...WaterCycle])
       }, 
-    });
+    })
   },
-  down: queryInterface => {
-    return queryInterface.dropTable('plantTypes');
-  }
-};
+  down: queryInterface =>
+    queryInterface.dropTable('plantTypes')
+}

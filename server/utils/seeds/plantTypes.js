@@ -5,10 +5,8 @@
     "instructions": "Grow crotons in a bright spot: They like lots of light to produce all those colorful leaves. If your croton doesn't get enough light, you might find the plant grows tall and lanky, with few leaves that don't have deep, rich hues. \n\nWater crotons when the soil starts to dry. They're not as thirsty as many other common houseplants, but will drop leaves if they stay too wet or too dry for extended periods. \n\nLike most houseplants, they also appreciate abundant humidity. You can boost humidity for your croton by growing it in a well-lit kitchen or bathroom, placing a small humidifier nearby, or grouping it nearby other houseplants. \n\nFertilize croton in spring and summer to keep it healthy and growing. Crotons only need fertilizer once or twice during the season, but you can get them to grow faster by fertilizing more frequently. Follow the directions on the fertilizer package whenever feeding your plants.",
     "luxLevel": "HIGH",
     "waterLevel": "MEDIUM",
-    "colors": "Green, Orange, Pink, Purple, Red, Silver, Variegated, White, Yellow",
-    "features": "Colorful foliage\nPurifies the air",
     "waterCycle": "WEEKLY",
-    "photo": "https://images.homedepot-static.com/productImages/aa23d40d-5c0a-4aa9-8508-6d079ff77e45/svn/costa-farms-house-plants-10croperedmod-64_1000.jpg"
+    "photoUrl": "https://images.homedepot-static.com/productImages/aa23d40d-5c0a-4aa9-8508-6d079ff77e45/svn/costa-farms-house-plants-10croperedmod-64_1000.jpg"
   },
   {
     "name": "Elephant Ear",
@@ -19,7 +17,7 @@
     "colors": "Green, Purple, Silver",
     "features": "Colorful foliage",
     "waterCycle": "WEEKLY",
-    "photo": "https://www.staples-3p.com/s7/is/image/Staples/sp19979996_sc7?wid=512&hei=512"
+    "photoUrl": "https://www.staples-3p.com/s7/is/image/Staples/sp19979996_sc7?wid=512&hei=512"
   },
   {
     "name": "Ficus",
@@ -30,7 +28,7 @@
     "colors": "Green, Purple, Variegated",
     "features": "Purifies the air",
     "waterCycle": "BIWEEKLY",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfWhLBkPQiqNoyx87AohhYtN5faNc8zQsBgnJ2FUuZxv54qByGrg"
+    "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfWhLBkPQiqNoyx87AohhYtN5faNc8zQsBgnJ2FUuZxv54qByGrg"
   },
   {
     "name": "Monstera",
@@ -41,7 +39,7 @@
     "colors": "Green",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "WEEKLY",
-    "photo": "https://asepsis-kenya.com/wp-content/uploads/2019/03/Swiss-cheese-plant.jpg"
+    "photoUrl": "https://asepsis-kenya.com/wp-content/uploads/2019/03/Swiss-cheese-plant.jpg"
   },
   {
     "name": "Pothos",
@@ -52,7 +50,7 @@
     "colors": "Green, Variegated",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "BIWEEKLY",
-    "photo": "https://images.homedepot-static.com/productImages/ce1ee23d-755d-4134-aafe-7e5457bec583/svn/nearly-natural-artificial-plants-6060-s3-64_300.jpg"
+    "photoUrl": "https://images.homedepot-static.com/productImages/ce1ee23d-755d-4134-aafe-7e5457bec583/svn/nearly-natural-artificial-plants-6060-s3-64_300.jpg"
   },
   {
     "name": "Money Tree",
@@ -63,7 +61,7 @@
     "colors": "Green",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "MONTHLY",
-    "photo": "https://fyf.tac-cdn.net/images/products/large/P-131.jpg?auto=webp&quality=60"
+    "photoUrl": "https://fyf.tac-cdn.net/images/products/large/P-131.jpg?auto=webp&quality=60"
   },
   {
     "name": "Pilea Sharing",
@@ -74,7 +72,7 @@
     "colors": "Green",
     "features": "Purifies the air",
     "waterCycle": "WEEKLY",
-    "photo": "http://www.selectivegardener.com/images/products/3945.jpg"
+    "photoUrl": "http://www.selectivegardener.com/images/products/3945.jpg"
   },
   {
     "name": "Snake",
@@ -85,7 +83,7 @@
     "colors": "Green, Variegated",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "MONTHLY",
-    "photo": "https://images.homedepot-static.com/productImages/5dadb077-272c-4c4b-8807-a20cb53db9db/svn/costa-farms-house-plants-10sansl-64_1000.jpg"
+    "photoUrl": "https://images.homedepot-static.com/productImages/5dadb077-272c-4c4b-8807-a20cb53db9db/svn/costa-farms-house-plants-10sansl-64_1000.jpg"
   },
   {
     "name": "Spider",
@@ -96,7 +94,7 @@
     "colors": "Green, Variegated",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "WEEKLY",
-    "photo": "https://www.plantsguru.com/image/cache/catalog/Chlorophytum/pg-chlorophytum1-800x800.jpg"
+    "photoUrl": "https://www.plantsguru.com/image/cache/catalog/Chlorophytum/pg-chlorophytum1-800x800.jpg"
   },
   {
     "name": "Senecio",
@@ -107,7 +105,7 @@
     "colors": "Green",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "WEEKLY",
-    "photo": "https://images.homedepot-static.com/productImages/7a1b11fb-7269-442d-bb7a-cae192350cf7/svn/nearly-natural-artificial-plants-6169-s3-64_300.jpg"
+    "photoUrl": "https://images.homedepot-static.com/productImages/7a1b11fb-7269-442d-bb7a-cae192350cf7/svn/nearly-natural-artificial-plants-6169-s3-64_300.jpg"
   },
   {
     "name": "ZZ",
@@ -118,7 +116,7 @@
     "colors": "Green",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "BIWEEKLY",
-    "photo": "https://images-na.ssl-images-amazon.com/images/I/61IvpGOSaiL._SX425_.jpg"
+    "photoUrl": "https://images-na.ssl-images-amazon.com/images/I/61IvpGOSaiL._SX425_.jpg"
   },
   {
     "name": "Boston Fern",
@@ -129,6 +127,6 @@
     "colors": "Green",
     "features": "Purifies the air\nSuper-easy to grow",
     "waterCycle": "WEEKLY",
-    "photo": "https://images.homedepot-static.com/productImages/dc332467-19dd-49a2-a9e1-c92ac9301040/svn/costa-farms-house-plants-10bosthb-64_1000.jpg"
+    "photoUrl": "https://images.homedepot-static.com/productImages/dc332467-19dd-49a2-a9e1-c92ac9301040/svn/costa-farms-house-plants-10bosthb-64_1000.jpg"
   }
 ]

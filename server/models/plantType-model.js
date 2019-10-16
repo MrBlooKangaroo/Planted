@@ -1,4 +1,8 @@
-const { WaterLevel, LuxLevel, WateringFrequency } = require('../utils/enums.ts');
+const { 
+  LuxLevel, 
+  WaterLevel,
+  WaterCycle
+} = require('../utils/seeds/enums.ts')
 
 module.exports = (sequelize, {
     STRING, ENUM
@@ -7,15 +11,13 @@ module.exports = (sequelize, {
     name: STRING,
     description: STRING,
     instructions: STRING,
-    features: STRING,
-    colors: STRING,
     photoUrl: STRING,
     luxLevel: ENUM([...LuxLevel]),
     waterLevel: ENUM([...WaterLevel]),
-    waterCycle: ENUM([...WateringFrequency]),
-  }, {});
+    waterCycle: ENUM([...WaterCycle]),
+  }, {})
   plantType.associate = models => {
-    plantType.hasMany(models.plant);
-  };
-  return plantType;
-};
+    plantType.hasMany(models.plant)
+  }
+  return plantType
+}
