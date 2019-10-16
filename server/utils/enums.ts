@@ -12,6 +12,7 @@ exports.WaterLevel = [
     'ALL'
 ]
 
+
 exports.PlantHealth = [
     'THRIVING',
     'HEALTHY',
