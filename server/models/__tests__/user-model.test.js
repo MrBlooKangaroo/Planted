@@ -1,43 +1,40 @@
 const db = require('../index');
-const { cleanUpDb, closeDbConnection } = require('../../utils/test');
+const { 
+  cleanUpDb, 
+  closeDbConnection, 
+} = require('../../utils/test');
+const { testUser } = require('../../utils/seeds/testData')
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
 
-const userDatum = {
-  firstName: 'Mook',
-  lastName: 'Flexer',
-  email: 'mookin@mook.com',
-  city: 'boston',
-  nickname: 'Hotshot',
-};
-
 describe('User Model', () => {
   describe('validations', () => {
+
     it('should require presence of firstName', async () => {
-      const user = await db.user.create({ ...userDatum, firstName: null })
+      const user = await db.user.create({ ...testUser, firstName: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(user).toBe('SequelizeDatabaseError');
     });
 
     it('should require presence of lastName', async () => {
-      const user = await db.user.create({ ...userDatum, lastName: null })
+      const user = await db.user.create({ ...testUser, lastName: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(user).toBe('SequelizeDatabaseError');
     });
 
     it('should require presence of email', async () => {
-      const user = await db.user.create({ ...userDatum, email: null })
+      const user = await db.user.create({ ...testUser, email: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(user).toBe('SequelizeDatabaseError');
     });
 
     it('should not allow duplicate emails', async () => {
-      const validUser = await db.user.create(userDatum);
-      const invalidUser = await db.user.create(userDatum)
+      const validUser = await db.user.create(testUser);
+      const invalidUser = await db.user.create(testUser)
         .catch(({ name: errorName }) => errorName);
 
       expect(validUser).toBeDefined();

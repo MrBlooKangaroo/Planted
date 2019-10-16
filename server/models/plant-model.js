@@ -1,20 +1,15 @@
-const { Health } = require('../utils/enums.ts');
-
 module.exports = (sequelize, {
-  UUID, STRING, ENUM
+  UUID, STRING
 }) => {
   const plant = sequelize.define('plant', {
     name: STRING,
-    photo: STRING,
-    health: ENUM([...Health]),
-    userId: UUID,
+    photoUrl: STRING,
     nookId: UUID,
-    genusId: UUID
+    plantTypeId: UUID
   }, {});
   plant.associate = models => {
     plant.belongsTo(models.nook);
-    plant.belongsTo(models.user);
-    plant.belongsTo(models.genus)
+    plant.belongsTo(models.plantType)
     plant.hasMany(models.watering) 
   };
   return plant;

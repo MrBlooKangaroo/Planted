@@ -1,8 +1,6 @@
-const { Level } = require('../utils/enums.ts');
-
 module.exports = {
   up: (queryInterface, {
-    UUID, DATE, ENUM, literal
+    UUID, DATE,  literal
   }) => {
     return queryInterface.createTable('waterings', {
       id: {
@@ -19,17 +17,13 @@ module.exports = {
         allowNull: true,
         type: DATE
       },
-      // plantId:{       TODO
-      //   type: UUID,
-      //   allowNull: false,
-      //   references: {
-      //     model: 'plants',
-      //     key: 'id',
-      //   }
-      // },
-      priority: {
+      plantId:{
+        type: UUID,
         allowNull: false,
-        type: ENUM([...Level])
+        references: {
+          model: 'plants',
+          key: 'id',
+        }
       },
     });
   },

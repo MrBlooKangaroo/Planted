@@ -6,19 +6,14 @@ interface Node {
 
 type Query {
   buildNumber: String
-
   user(id: ID!): User
   users: [User!]!
-
   plant(id: ID!): Plant
   plants: [Plant!]!
-
   nook(id: ID!): Nook
   nooks: [Nook!]!
-
-  genus(id: ID!): Genus
-  genera: [Genus!]!
-
+  plantType(id: ID!): PlantType
+  plantTypes: [PlantType!]!
   watering(id: ID!): Watering
   waterings: [Watering!]!
 }
@@ -29,8 +24,7 @@ type User implements Node {
   firstName: String!
   lastName: String 
   email: String
-  photo: String
-  city: String! 
+  photoUrl: String
   nooks: [Nook!]!
   createdAt: Date!
   updatedAt: Date
@@ -38,11 +32,9 @@ type User implements Node {
 
 type Plant implements Node {
   id: ID!
-  name: String!
-  genus: Genus!
-  photo: String
+  photoUrl: String
   nook: Nook!
-  health: Health!
+  plantType: PlantType!
   waterings: [Watering!]!
   createdAt: Date!
   updatedAt: Date
@@ -51,32 +43,28 @@ type Plant implements Node {
 type Nook implements Node {
   id: ID!
   name: String!
-  location: String!
-  photo: String
+  photoUrl: String
+  luxLevel: LuxLevel!
   user: User!
-  luxLevel: Level!
   plants: [Plant!]!
   createdAt: Date!
   updatedAt: Date
 }
 
-type Genus implements Node { 
+type PlantType implements Node { 
   id: ID! 
   name: String!
   description: String! 
   instructions: String! 
-  features: String!
-  photo: String!
-  colors: String!
-  luxLevel: Level! 
-  waterLevel: Level!
-  wateringCycle: Frequency!
+  photoUrl: String!
+  luxLevel: LuxLevel! 
+  waterLevel: WaterLevel!
+  waterCycle: WaterCycle!
 }
 
 type Watering {
   id: ID! 
   plant: Plant!
-  priority: Level!
   expectedAt: Date!
   executedAt: Date
 }
@@ -90,9 +78,6 @@ type Mutation {
 
 type Subscription {
   userCreated: User
-  plantCreated: Plant
-  nookCreated: Nook
-  wateringCreated: Watering
 }
 
 input CreateUserInput {
@@ -102,20 +87,16 @@ input CreateUserInput {
 }
 
 input CreatePlantInput {
-  name: String!
-  genusId: ID!
   nookId: ID!
-  userId: ID!
+  plantTypeId: ID!
 }
 
 input CreateNookInput {
   name: String!
-  location: String!
   userId: ID!
 }
 
 input CreateWateringInput {
-  priority: Level!
   expectedAt: Date!
   plantId: ID!
 }
@@ -136,22 +117,20 @@ type WateringPayload {
   watering: Watering
 }
 
-enum Level { 
+enum LuxLevel { 
   HIGH 
   MEDIUM 
   LOW
   ALL
 }
 
-enum Health { 
-  THRIVING 
-  HEALTHY 
-  SICK 
-  DYING 
-  DEAD
+enum WaterLevel { 
+  HIGH 
+  MEDIUM 
+  LOW
 }
 
-enum Frequency { 
+enum WaterCycle { 
   WEEKLY 
   BIWEEKLY 
   MONTHLY 

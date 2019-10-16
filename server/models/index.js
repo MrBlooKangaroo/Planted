@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
-const genera = require('../utils/seeds/genera');
+const plantTypes = require('../utils/seeds/plantTypes');
 const db = {};
 
 require('dotenv').config();
@@ -60,8 +60,8 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-genera.forEach(genus => {
-  db.genus.create({...genus})
+plantTypes.forEach(plantType => {
+  db.plantType.create({...plantType})
 })
 
 module.exports = db;

@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, {
 	STRING
 }) => {
@@ -7,8 +5,7 @@ module.exports = (sequelize, {
 		nickname: STRING,
 		firstName: STRING,
 		lastName: STRING,
-		photo: STRING,
-		city: STRING,
+		photoUrl: STRING,
 		email: {
 			type: STRING,
 			unique: true,
@@ -16,7 +13,6 @@ module.exports = (sequelize, {
 	}, {},);
 	user.associate = models => {
 		user.hasMany(models.nook);
-		user.hasMany(models.plant);
 	};
 	return user;
 };

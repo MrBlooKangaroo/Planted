@@ -4,5 +4,11 @@ query getUser($id: ID!) {
     firstName
     lastName
     email
+    photoUrl
+    nooks {
+        name
+    }
+    createdAt
+    updatedAt
   }
 }

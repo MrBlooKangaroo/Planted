@@ -1,0 +1,15 @@
+query getNook($id: ID!) {
+  nook(id: $id) {
+    id
+    name
+    description
+    instructions
+    photoUrl
+    luxLevel
+    waterLevel
+    waterCycle
+    plants {
+        name
+    }
+  }
+}

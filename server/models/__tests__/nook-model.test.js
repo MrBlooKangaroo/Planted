@@ -1,49 +1,40 @@
 const db = require('../index');
+const { LuxLevel } = require('../../utils/seeds/enums')
 const { cleanUpDb, closeDbConnection } = require('../../utils/test');
-const { Level } = require('../../utils/enums')
+const { testUser, testNook } = require('../../utils/seeds/testData')
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
 
-const userDatum = {
-    nickname: 'Hotshot',
-    firstName: 'Mook',
-    lastName: 'Flexer',
-    email: 'mookin@mook.com',
-    city: 'boston',
-};
-
-const nookDatum = {
-    name: 'Pretty Plants',
-    location: 'back patio',
-    luxLevel: 'HIGH',   
-    photo: 'prettyplants.jpg'
-}
-
 describe('Nook Model', () => {
   describe('validations', () => {
     it('should require presence of name', async () => {
-      const nook = await db.user.create({ ...nookDatum, name: null })
+      const user = await db.user.create(testUser)
+      const nook = await db.user.create({ 
+        ...testNook, 
+        userId: user.id,
+        name: null 
+      })
         .catch(({ name: errorName }) => errorName);
 
       expect(nook).toBe('SequelizeDatabaseError');
     });
 
     it('should require presence of luxLevel', async () => {
-      const nook = await db.plant.create({ ...nookDatum, luxLevel: null })
+      const nook = await db.plant.create({ ...testNook, luxLevel: null })
         .catch(({ name: errorName }) => errorName);
 
       expect(nook).toBe('SequelizeDatabaseError');
     });
 
-    it('should only accept allowed level values', async () => {
-    const user = await db.user.create(userDatum)
+    it('should only accept allowed LuxLevel values', async () => {
+    const user = await db.user.create(testUser)
     const nook = await db.nook.create({ 
-        ...nookDatum, 
+        ...testNook, 
         userId: user.id 
     })
 
-    expect(Level).toContain(nook.luxLevel);
+    expect(LuxLevel).toContain(nook.luxLevel);
     });
   });
 });
