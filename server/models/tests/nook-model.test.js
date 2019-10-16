@@ -1,6 +1,6 @@
 const db = require('../index');
 const { cleanUpDb, closeDbConnection } = require('../../utils/test');
-const { Level } = require('../../utils/enums')
+const { LuxLevel } = require('../../utils/enums')
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
@@ -10,14 +10,12 @@ const userDatum = {
     firstName: 'Mook',
     lastName: 'Flexer',
     email: 'mookin@mook.com',
-    city: 'boston',
 };
 
 const nookDatum = {
     name: 'Pretty Plants',
-    location: 'back patio',
     luxLevel: 'HIGH',   
-    photo: 'prettyplants.jpg'
+    photoUrl: 'prettyplants.jpg'
 }
 
 describe('Nook Model', () => {
@@ -37,13 +35,13 @@ describe('Nook Model', () => {
     });
 
     it('should only accept allowed level values', async () => {
-    const user = await db.user.create(userDatum)
-    const nook = await db.nook.create({ 
-        ...nookDatum, 
-        userId: user.id 
-    })
+      const user = await db.user.create(userDatum)
+      const nook = await db.nook.create({ 
+          ...nookDatum, 
+          userId: user.id 
+      })
 
-    expect(Level).toContain(nook.luxLevel);
+      expect(LuxLevel).toContain(nook.luxLevel);
     });
   });
 });

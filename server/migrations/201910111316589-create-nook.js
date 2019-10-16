@@ -1,4 +1,4 @@
-const { Level } = require('../utils/enums.ts');
+const { LuxLevel } = require('../utils/enums.ts');
 
 module.exports = {
   up: async (queryInterface, {
@@ -31,17 +31,13 @@ module.exports = {
         allowNull: false,
         type: STRING
       },
-      location: {
-        allowNull: true,
-        type: STRING
-      },
-      photo: {
+      photoUrl: {
         allowNull: true,
         type: STRING
       },
       luxLevel: {
         allowNull: false,
-        type: ENUM([...Level])
+        type: ENUM([...LuxLevel])
       }, 
     });
     return await queryInterface.addIndex('nooks', {

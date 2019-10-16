@@ -1,4 +1,4 @@
-const { Health } = require('../utils/enums.ts');
+const { PlantHealth } = require('../utils/enums.ts');
 
 module.exports = {
   up: async (queryInterface, {
@@ -19,27 +19,19 @@ module.exports = {
         allowNull: false,
         type: DATE
       },
-      userId:{
-        allowNull: false,
-        type: UUID,
-        references: {
-          model: 'users',
-          key: 'id',
-        }
-      },
       nookId:{
-        allowNull: false,
+        allowNull: true,
         type: UUID,
         references: {
           model: 'nooks',
           key: 'id',
         }
       },
-      genusId:{
+      plantTypeId:{
         allowNull: false,
         type: UUID,
         references: {
-          model: 'genera',
+          model: 'plantTypes',
           key: 'id',
         }
       },
@@ -47,13 +39,13 @@ module.exports = {
         allowNull: false,
         type: STRING
       },
-      photo: {
+      photoUrl: {
         allowNull: true,
         type: STRING
       },
       health: {
         allowNull: false,
-        type: ENUM([...Health])
+        type: ENUM([...PlantHealth])
       },
     });
   },

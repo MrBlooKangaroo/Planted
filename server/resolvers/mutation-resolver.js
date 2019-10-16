@@ -24,13 +24,13 @@ exports.createPlant = async (obj, { input }, { currentUser }, info) =
 }
 
 exports.createNook = async (obj, { input }, { currentUser }, info) => {
-  const nook = await db.plant.create({ ...input })
+  const nook = await db.nook.create({ ...input })
   await pubsub.publish('NOOK_CREATED', { nookCreated: nook })
   return { nook }
 }
 
 exports.createWatering = async (obj, { input }, { currentUser }, info) => {
-  const watering = await db.plant.create({ ...input })
+  const watering = await db.watering.create({ ...input })
   await pubsub.publish('WATERING_CREATED', { wateringCreated: watering })
   return { watering }
 }

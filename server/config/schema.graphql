@@ -16,8 +16,8 @@ type Query {
   nook(id: ID!): Nook
   nooks: [Nook!]!
 
-  genus(id: ID!): Genus
-  genera: [Genus!]!
+  plantType(id: ID!): PlantType
+  plantTypes: [PlantType!]!
 
   watering(id: ID!): Watering
   waterings: [Watering!]!
@@ -29,8 +29,7 @@ type User implements Node {
   firstName: String!
   lastName: String 
   email: String
-  photo: String
-  city: String! 
+  photoUrl: String
   nooks: [Nook!]!
   createdAt: Date!
   updatedAt: Date
@@ -39,11 +38,11 @@ type User implements Node {
 type Plant implements Node {
   id: ID!
   name: String!
-  genus: Genus!
-  photo: String
-  nook: Nook!
-  health: Health!
-  waterings: [Watering!]!
+  plantType: PlantType!
+  photoUrl: String
+  nook: Nook
+  health: PlantHealth!
+  watering: Watering!
   createdAt: Date!
   updatedAt: Date
 }
@@ -51,34 +50,34 @@ type Plant implements Node {
 type Nook implements Node {
   id: ID!
   name: String!
-  location: String!
-  photo: String
+  photoUrl: String
   user: User!
-  luxLevel: Level!
+  luxLevel: LuxLevel!
   plants: [Plant!]!
   createdAt: Date!
   updatedAt: Date
 }
 
-type Genus implements Node { 
+type PlantType implements Node { 
   id: ID! 
   name: String!
   description: String! 
   instructions: String! 
   features: String!
-  photo: String!
+  photoUrl: String!
   colors: String!
-  luxLevel: Level! 
-  waterLevel: Level!
-  wateringCycle: Frequency!
+  luxLevel: LuxLevel! 
+  waterLevel: WaterLevel!
+  wateringCycle: WateringFrequency!
 }
 
 type Watering {
   id: ID! 
   plant: Plant!
-  priority: Level!
   expectedAt: Date!
   executedAt: Date
+  createdAt: Date!
+  updatedAt: Date
 }
 
 type Mutation {
@@ -103,19 +102,16 @@ input CreateUserInput {
 
 input CreatePlantInput {
   name: String!
-  genusId: ID!
+  plantTypeId: ID!
   nookId: ID!
-  userId: ID!
 }
 
 input CreateNookInput {
   name: String!
-  location: String!
   userId: ID!
 }
 
 input CreateWateringInput {
-  priority: Level!
   expectedAt: Date!
   plantId: ID!
 }
@@ -136,13 +132,19 @@ type WateringPayload {
   watering: Watering
 }
 
-enum Level { 
+enum LuxLevel { 
   HIGH 
   MEDIUM 
   LOW
 }
 
-enum Health { 
+enum WaterLevel { 
+  HIGH 
+  MEDIUM 
+  LOW
+}
+
+enum PlantHealth { 
   THRIVING 
   HEALTHY 
   SICK 
@@ -150,7 +152,7 @@ enum Health {
   DEAD
 }
 
-enum Frequency { 
+enum WateringFrequency { 
   DAILY 
   BIWEEKLY 
   WEEKLY 

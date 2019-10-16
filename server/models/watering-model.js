@@ -1,15 +1,12 @@
-const { Level } = require('../utils/enums.ts');
-
-module.exports = (sequelize, {
-  UUID, ENUM, DATE
-}) => {
+'use strict';
+module.exports = (sequelize, DataTypes) => {
   const watering = sequelize.define('watering', {
-    priority: ENUM([...Level]),
-    plantId: UUID,
-    expectedAt: DATE,
-    executedAt: DATE
+    expectedAt: DataTypes.DATE,
+    executedAt: DataTypes.DATE,
+    plantId: DataTypes.UUID
   }, {});
-  watering.associate = models => {
+  watering.associate = function(models) {
+    // associations can be defined here
     watering.belongsTo(models.plant);
   };
   return watering;

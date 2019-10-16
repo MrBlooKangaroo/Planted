@@ -1,6 +1,6 @@
 const db = require('../index');
 const { cleanUpDb, closeDbConnection } = require('../../utils/test');
-const { Health } = require('../../utils/enums')
+const { PlantHealth } = require('../../utils/enums')
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
@@ -10,7 +10,6 @@ const userDatum = {
     firstName: 'Mook',
     lastName: 'Flexer',
     email: 'mookin@mook.com',
-    city: 'boston',
 };
 
 const nookDatum = {
@@ -21,16 +20,16 @@ const nookDatum = {
 const plantDatum = {
   name: 'Ladyfingers',
   health: 'DEAD',
-  photo: 'ladyfingers.jpg'
+  photoUrl: 'ladyfingers.jpg'
 };
 
-const genusDatum = {
+const plantTypeDatum = {
   name: 'God\'s Petunia',
   description: 'really cool looking',
   instructions: 'just give em lots of love',
   features: 'Purifies the air',
   colors: 'yellow purple grey',
-  photo: 'godspetunia.jpg',
+  photoUrl: 'godspetunia.jpg',
   luxLevel: 'HIGH',
   waterLevel: 'MEDIUM',
   waterCycle: 'DAILY'
@@ -54,24 +53,23 @@ describe('Plant Model', () => {
     
     it('should be able to create a plant', async () => {
       const user = await db.user.create(userDatum)
-      const genus = await db.genus.create(genusDatum)
+      const plantType = await db.plantType.create(plantTypeDatum)
       const nook = await db.nook.create({ 
         ...nookDatum, 
         userId: user.id 
       })
       const plant = await db.plant.create({ 
           ...plantDatum, 
-          userId: user.id,
           nookId: nook.id,
-          genusId: genus.id
+          plantTypeId: plantType.id
       })
 
-      expect(Health).toContain(plant.health);
+      expect(PlantHealth).toContain(plant.health);
     });
     
     it('should only accept allowed health values', async () => {
       const user = await db.user.create(userDatum)
-      const genus = await db.genus.create(genusDatum)
+      const plantType = await db.plantType.create(plantTypeDatum)
       const nook = await db.nook.create({ 
         ...nookDatum, 
         userId: user.id 
@@ -79,22 +77,30 @@ describe('Plant Model', () => {
 
       const plantGood = await db.plant.create({ 
         ...plantDatum, 
-        userId: user.id,
         nookId: nook.id,
-        genusId: genus.id,
+        plantTypeId: plantType.id,
         health: 'HEALTHY' 
+      }).catch(({ name: errorName }) => errorName);
+
+      expect(PlantHealth).toContain(plantGood.health);
+
+    });
+    it('should show that the plant has a Sequelize error for wrong health value', async () =>{
+      const user = await db.user.create(userDatum)
+      const plantType = await db.plantType.create(plantTypeDatum)
+      const nook = await db.nook.create({ 
+        ...nookDatum, 
+        userId: user.id 
       })
-      
+
       const plantBad = await db.plant.create({ 
         ...plantDatum, 
-        userId: user.id,
         nookId: nook.id,
-        genusId: genus.id,
+        plantTypeId: plantType.id,
         health: 'SOME CRAZY INPUT' 
       })
-        .catch(({ name: errorName }) => errorName);
+      .catch(({ name: errorName }) => errorName);
 
-      expect(Health).toContain(plantGood.health);
       expect(plantBad).toBe('SequelizeDatabaseError');
     });
   });
