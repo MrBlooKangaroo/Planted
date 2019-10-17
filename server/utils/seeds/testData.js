@@ -11,7 +11,8 @@ exports.testPlant = {
 
 exports.testNook = {
     name: 'Back Patio',
-    luxLevel: 'MEDIUM'
+    luxLevel: 'MEDIUM',
+    photoUrl: 'backpatio.jpg'
 }
 
 exports.testPlantType = {

@@ -10,8 +10,8 @@ module.exports = (sequelize, {
     userId: UUID
   }, {});
   nook.associate = models => {
-    nook.belongsTo(models.user, { foreignKey: 'userId', as: 'user' });
-    nook.hasMany(models.plant, { as: 'plants'});
+    nook.belongsTo(models.user);
+    nook.hasMany(models.plant);
   };
   return nook;
 }; 

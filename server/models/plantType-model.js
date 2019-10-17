@@ -17,7 +17,7 @@ module.exports = (sequelize, {
     waterCycle: ENUM([...WaterCycle]),
   }, {});
   plantType.associate = models => {
-    plantType.hasMany(models.plant, { as: 'plants'});
+    plantType.hasMany(models.plant);
   };
   return plantType;
 };

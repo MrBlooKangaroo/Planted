@@ -2,7 +2,10 @@ const db = require('../models');
 const { raiseNotFoundError, getBuildNumber } = require('../utils');
 
 exports.user = async (_obj, { id }) => {
-  const user = await db.user.findByPk(id)
+  const user = await db.user.findOne({
+    where: { id },
+    include: db.nook
+  })
   return user || raiseNotFoundError();
 };
   
@@ -11,7 +14,10 @@ exports.users = async () => {
 }
 
 exports.plant = async (_obj, { id }) => {
-  const plant = await db.plant.findByPk(id)
+  const plant = await db.plant.findOne({
+    where: { id },
+    include: [db.nook, db.plantType, db.watering]
+  })
   return plant || raiseNotFoundError()
 }
 
@@ -20,7 +26,10 @@ exports.plants = async () => {
 }
 
 exports.nook = async (_obj, { id }) => {
-  const nook = await db.nook.findByPk(id)
+  const nook = await db.nook.findOne({
+    where: { id },
+    include: [db.user, db.plant]
+  })
   return nook || raiseNotFoundError()
 }
 
@@ -28,12 +37,11 @@ exports.nooks = async () => {
   return await db.nook.findAll()
 }
 
-exports.plantType = async (_obj, { name }) => {
-  const plantType = await db.plantType.findAll({
-  where: {
-    name
-  }
-});
+exports.plantType = async (_obj, { id }) => {
+  const plantType = await db.plantType.findOne({
+    where: { id },
+    include: db.plant
+  })
   return plantType || raiseNotFoundError()
 }
 
@@ -42,7 +50,10 @@ exports.plantTypes = async () => {
 }
 
 exports.watering = async (_obj, { id }) => {
-  const watering = await db.watering.findByPk(id)
+  const watering = await db.watering.findOne({
+    where: { id },
+    include: db.plant
+  })
   return watering || raiseNotFoundError()
 }
 

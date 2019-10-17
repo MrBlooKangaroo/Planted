@@ -9,7 +9,7 @@ module.exports = (sequelize, {
     timestamps: false
   });
   watering.associate = models => {
-    watering.belongsTo(models.plant, { foreignKey: 'plantId', as: 'plant'});
+    watering.belongsTo(models.plant);
   };
   return watering;
 };
