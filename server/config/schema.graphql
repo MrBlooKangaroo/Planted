@@ -11,11 +11,11 @@ type Query {
   plant(id: ID!): Plant
   plants: [Plant!]!
   nook(id: ID!): Nook
-  nooks: [Nook!]!
-  plantType(id: ID!): PlantType
-  plantTypes: [PlantType!]!
+  nooks: [Nook!]
+  plantType(name: String!): PlantType
+  plantTypes: [PlantType!]
   watering(id: ID!): Watering
-  waterings: [Watering!]!
+  waterings: [Watering!]
 }
 
 type User implements Node {
@@ -25,7 +25,7 @@ type User implements Node {
   lastName: String 
   email: String
   photoUrl: String
-  nooks: [Nook!]!
+  nooks: [Nook!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -35,7 +35,7 @@ type Plant implements Node {
   photoUrl: String
   nook: Nook!
   plantType: PlantType!
-  waterings: [Watering!]!
+  waterings: [Watering!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -46,7 +46,7 @@ type Nook implements Node {
   photoUrl: String
   luxLevel: LuxLevel!
   user: User!
-  plants: [Plant!]!
+  plants: [Plant!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -60,6 +60,7 @@ type PlantType implements Node {
   luxLevel: LuxLevel! 
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!
+  plants: [Plant!]
 }
 
 type Watering {

@@ -23,3 +23,8 @@ exports.testPlantType = {
     waterLevel: 'MEDIUM',
     waterCycle: 'MONTHLY'
   }
+
+exports.testWatering = {
+    expectedAt: new Date(),
+    executedAt: null
+}

@@ -4,12 +4,12 @@ query getNook($id: ID!) {
     name
     photoUrl
     luxLevel
-    user {
-        name
-    }
-    plants {
-        name
-    }
+    # user {
+    #     nickname
+    # }
+    # plants {
+    #     id
+    # }
     createdAt
     updatedAt
   }

@@ -2,12 +2,14 @@ module.exports = (sequelize, {
   UUID, DATE
 }) => {
   const watering = sequelize.define('watering', {
-    plantId: UUID,
     expectedAt: DATE,
-    executedAt: DATE
-  }, {});
+    executedAt: DATE,
+    plantId: UUID
+  }, {
+    timestamps: false
+  });
   watering.associate = models => {
-    watering.belongsTo(models.plant);
+    watering.belongsTo(models.plant, { foreignKey: 'plantId', as: 'plant'});
   };
   return watering;
 };

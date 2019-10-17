@@ -7,11 +7,11 @@ module.exports = (sequelize, {
     name: STRING,
     photoUrl: STRING,
     luxLevel: ENUM([...LuxLevel]),
-    userId: UUID, 
+    userId: UUID
   }, {});
   nook.associate = models => {
-    nook.belongsTo(models.user);
-    nook.hasMany(models.plant);
+    nook.belongsTo(models.user, { foreignKey: 'userId', as: 'user' });
+    nook.hasMany(models.plant, { as: 'plants'});
   };
   return nook;
 }; 
