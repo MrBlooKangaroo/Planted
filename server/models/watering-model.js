@@ -5,8 +5,10 @@ module.exports = (sequelize, {
     expectedAt: DATE,
     executedAt: DATE,
     plantId: UUID
-  }, {})
-  watering.associate = function(models) {
+  }, {
+    timestamps: false
+  })
+  watering.associate = models => {
     watering.belongsTo(models.plant)
   }
   return watering

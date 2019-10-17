@@ -1,5 +1,5 @@
-query getPlantType($name: String!) {
-  plantType(name: $name) {
+query getPlantType($id: ID!) {
+  plantType(id: $id) {
     id
     name
     description

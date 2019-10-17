@@ -12,7 +12,7 @@ module.exports = (sequelize, {
 		},
 	}, {},);
 	user.associate = models => {
-		user.hasMany(models.nook, { as: 'nooks'});
+		user.hasMany(models.nook);
 	};
 	return user;
 };

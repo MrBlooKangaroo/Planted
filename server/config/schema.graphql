@@ -6,14 +6,19 @@ interface Node {
 
 type Query {
   buildNumber: String
+  
   user(id: ID!): User
   users: [User!]!
+
   plant(id: ID!): Plant
   plants: [Plant!]!
+
   nook(id: ID!): Nook
   nooks: [Nook!]
-  plantType(name: String!): PlantType
+
+  plantType(id: ID!): PlantType
   plantTypes: [PlantType!]
+
   watering(id: ID!): Watering
   waterings: [Watering!]
 }

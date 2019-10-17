@@ -13,7 +13,7 @@
     "db:rollback": "sequelize db:migrate:undo",
     "db:rollback:all": "sequelize db:migrate:undo && NODE_ENV=test sequelize db:migrate:undo",
     "db:reset": "yarn db:drop && yarn db:setup",
-    "db:setup": "yarn db:create && yarn db:migrate",
+    "db:setup": "yarn db:drop:all && yarn db:create:all && yarn db:migrate:all && yarn test",
     "db:seed": "node seed/run.js",
     "sequelize": "sequelize",
     "start": "node index.js",
