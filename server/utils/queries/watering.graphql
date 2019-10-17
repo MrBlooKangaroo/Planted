@@ -2,9 +2,9 @@ query getWatering($id: ID!) {
   watering(id: $id) {
     id
     plant {
-        name
+        id
     }
     expectedAt
-    executedAt
+    executedAt  
   }
 }

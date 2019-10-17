@@ -1,5 +1,5 @@
-query getNook($id: ID!) {
-  nook(id: $id) {
+query getPlantType($name: String!) {
+  plantType(name: $name) {
     id
     name
     description
@@ -9,7 +9,7 @@ query getNook($id: ID!) {
     waterLevel
     waterCycle
     plants {
-        name
+        id
     }
   }
 }

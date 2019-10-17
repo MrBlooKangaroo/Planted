@@ -2,7 +2,6 @@ module.exports = (sequelize, {
   UUID, STRING
 }) => {
   const plant = sequelize.define('plant', {
-    name: STRING,
     photoUrl: STRING,
     nookId: UUID,
     plantTypeId: UUID

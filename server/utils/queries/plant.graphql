@@ -1,7 +1,6 @@
 query getPlant($id: ID!) {
   plant(id: $id) {
     id
-    name
     photoUrl
     nook {
         name
