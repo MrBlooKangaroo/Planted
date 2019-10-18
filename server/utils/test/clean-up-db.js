@@ -1,13 +1,13 @@
-const db = require('../../models');
-const tableNames = ['users', 'nooks', 'plants', 'plantTypes', 'waterings'];
+const db = require('../../models')
+const tableNames = ['users', 'nooks', 'plants', 'plantTypes', 'waterings']
 
 const cleanUpDb = async done => {
-  const queryInterface = db.sequelize.getQueryInterface();
+  const queryInterface = db.sequelize.getQueryInterface()
   const addForeignKeyCallbacks = await tableNames.reduce(
     async (addForeignKeyCallbacksPromise, tableName) => {
       const foreignKeyReferences = await queryInterface.getForeignKeyReferencesForTable(
         tableName,
-      );
+      )
 
       const addForeignKeyCallbacks = foreignKeyReferences.map(
         ({
@@ -27,18 +27,18 @@ const cleanUpDb = async done => {
                 },
               }),
             ),
-      );
-      const previousCallbacks = await addForeignKeyCallbacksPromise;
-      const callbacks = await Promise.all(addForeignKeyCallbacks);
+      )
+      const previousCallbacks = await addForeignKeyCallbacksPromise
+      const callbacks = await Promise.all(addForeignKeyCallbacks)
 
-      return [...previousCallbacks, ...callbacks];
+      return [...previousCallbacks, ...callbacks]
     },
     Promise.resolve([]),
-  );
+  )
 
-  await db.sequelize.truncate();
-  await Promise.all(addForeignKeyCallbacks.map(callback => callback()));
-  done();
-};
+  await db.sequelize.truncate()
+  await Promise.all(addForeignKeyCallbacks.map(callback => callback()))
+  done()
+}
 
-module.exports = cleanUpDb;
+module.exports = cleanUpDb

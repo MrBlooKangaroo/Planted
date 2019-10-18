@@ -1,4 +1,4 @@
-const { LuxLevel } = require('../utils/enums.ts')
+const { LuxLevel } = require('../utils/seeds/enums.ts')
 
 module.exports = (sequelize, {
   UUID, STRING, ENUM
@@ -14,4 +14,4 @@ module.exports = (sequelize, {
     nook.hasMany(models.plant)
   }
   return nook
-} 
+}

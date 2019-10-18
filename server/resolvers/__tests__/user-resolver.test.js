@@ -3,9 +3,12 @@ const {
   cleanUpDb, 
   createQuery,
   createTestClient,
-  closeDbConnection, 
+  closeDbConnection
 } = require('../../utils/test')
-const { testUser, testNook } = require('../../utils/seeds/testData')
+const { 
+  testUser, 
+  testNook 
+} = require('../../utils/seeds/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)

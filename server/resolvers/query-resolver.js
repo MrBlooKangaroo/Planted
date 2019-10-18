@@ -1,13 +1,13 @@
-const db = require('../models');
-const { raiseNotFoundError, getBuildNumber } = require('../utils');
+const db = require('../models')
+const { raiseNotFoundError, getBuildNumber } = require('../utils')
 
 exports.user = async (_obj, { id }) => {
   const user = await db.user.findOne({
     where: { id },
     include: db.nook
   })
-  return user || raiseNotFoundError();
-};
+  return user || raiseNotFoundError()
+}
   
 exports.users = async () => {
   return await db.user.findAll()

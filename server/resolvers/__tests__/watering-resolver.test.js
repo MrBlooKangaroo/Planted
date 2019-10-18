@@ -3,7 +3,7 @@ const {
   cleanUpDb, 
   createQuery,
   createTestClient,
-  closeDbConnection, 
+  closeDbConnection
 } = require('../../utils/test')
 const { 
     testUser, 

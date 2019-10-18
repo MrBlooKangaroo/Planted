@@ -3,7 +3,7 @@ const resolvers = {
   Mutation: require('./mutation-resolver'),
   Subscription: require('./subscription-resolver'),
   Node: require('./node'),
-  Date: require('./date-resolver'),
-};
+  Date: require('./date-resolver')
+}
 
-module.exports = resolvers;
+module.exports = resolvers

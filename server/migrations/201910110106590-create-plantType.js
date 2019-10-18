@@ -53,7 +53,6 @@ module.exports = {
       }, 
     })
   },
-  down: queryInterface => {
-    return queryInterface.dropTable('plantTypes')
-  }
+  down: queryInterface =>
+    queryInterface.dropTable('plantTypes')
 }

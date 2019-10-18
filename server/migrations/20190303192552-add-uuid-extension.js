@@ -9,4 +9,4 @@ module.exports = {
     queryInterface.sequelize.query(
       'DROP EXTENSION IF EXISTS "uuid-ossp"'
     ),
-};
+}

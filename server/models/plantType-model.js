@@ -2,7 +2,7 @@ const {
   LuxLevel, 
   WaterLevel,
   WaterCycle
-} = require('../utils/enums.ts')
+} = require('../utils/seeds/enums.ts')
 
 module.exports = (sequelize, {
     STRING, ENUM

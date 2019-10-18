@@ -1,8 +1,5 @@
-const db = require('../index');
-const { 
-  cleanUpDb, 
-  closeDbConnection,
-} = require('../../utils/test');
+const db = require('../index')
+const { cleanUpDb, closeDbConnection } = require('../../utils/test')
 const { 
   testUser, 
   testPlant, 
@@ -10,8 +7,8 @@ const {
   testPlantType 
 } = require('../../utils/seeds/testData')
 
-afterEach(cleanUpDb);
-afterAll(closeDbConnection);
+afterEach(cleanUpDb)
+afterAll(closeDbConnection)
 
 describe('Plant Model', () => {
   describe('validations', () => {
@@ -29,7 +26,7 @@ describe('Plant Model', () => {
           plantTypeId: plantType.id
       })
 
-      expect(plant).toBeDefined();
-    });
-  });
-});
+      expect(plant).toBeDefined()
+    })
+  })
+})

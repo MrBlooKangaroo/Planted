@@ -1,10 +1,10 @@
-const db = require('../index');
+const db = require('../index')
 const { LuxLevel } = require('../../utils/seeds/enums')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test');
+const { cleanUpDb, closeDbConnection } = require('../../utils/test')
 const { testUser, testNook } = require('../../utils/seeds/testData')
 
-afterEach(cleanUpDb);
-afterAll(closeDbConnection);
+afterEach(cleanUpDb)
+afterAll(closeDbConnection)
 
 describe('Nook Model', () => {
   describe('validations', () => {
@@ -15,17 +15,17 @@ describe('Nook Model', () => {
         userId: user.id,
         name: null 
       })
-        .catch(({ name: errorName }) => errorName);
+        .catch(({ name: errorName }) => errorName)
 
-      expect(nook).toBe('SequelizeDatabaseError');
-    });
+      expect(nook).toBe('SequelizeDatabaseError')
+    })
 
     it('should require presence of luxLevel', async () => {
       const nook = await db.plant.create({ ...testNook, luxLevel: null })
-        .catch(({ name: errorName }) => errorName);
+        .catch(({ name: errorName }) => errorName)
 
-      expect(nook).toBe('SequelizeDatabaseError');
-    });
+      expect(nook).toBe('SequelizeDatabaseError')
+    })
 
     it('should only accept allowed LuxLevel values', async () => {
     const user = await db.user.create(testUser)
@@ -34,7 +34,7 @@ describe('Nook Model', () => {
         userId: user.id 
     })
 
-    expect(LuxLevel).toContain(nook.luxLevel);
-    });
-  });
-});
+    expect(LuxLevel).toContain(nook.luxLevel)
+    })
+  })
+})

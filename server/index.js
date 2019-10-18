@@ -10,5 +10,3 @@ server.listen(PORT).then(({ url, subscriptionsUrl }) => {
 
   seeder(db)
 })
-
-
