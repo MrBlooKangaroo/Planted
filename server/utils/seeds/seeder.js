@@ -2,40 +2,55 @@ const {
     users, 
     plants,
     nooks, 
-    plantTypes 
+    plantTypes,
+    waterings
 } = require('./data')
 
-function getRandomId (idArray) {
-    console.log('\nrandom\n',
-        Math.floor(
-            Math.random() 
-                * (idArray.length)
-        )
-    )
-    return idArray[
-        Math.floor(
-            Math.random() 
-                * (idArray.length - 1)
-        )
-    ]
-}
+const getRandomId = ids =>
+    ids[Math.floor(Math.random() * (ids.length - 1))]
 
 module.exports = async db => {
     let newUserIds = []
+        newNookIds = []
+        newPlantIds = []
+        newPlantTypeIds = []
 
-    users.forEach(async userSeed => {
-        const responseUser = await db.user.create(userSeed)
+    plantTypes.forEach(async plantType => {
+        const responsePlantType = await db.plantType.create(plantType)
+        newPlantTypeIds.push(responsePlantType.id)
+    })
+
+    users.forEach(async user => {
+        const responseUser = await db.user.create(user)
         newUserIds.push(responseUser.id)
-        
-        if (newUserIds.length == users.length) {
-            await nooks.forEach(async nook => {
-                await db.nook.create({
+
+        if (newUserIds.length === users.length) {
+            nooks.forEach(async nook => {
+                const responseNook = await db.nook.create({
                     ...nook,
-                    userId: newUserIds[
-                        Math.floor(Math.random() 
-                            * (newUserIds.length - 1))
-                    ]
+                    userId: getRandomId(newUserIds)
                 })
+                newNookIds.push(responseNook.id)
+
+                if(newNookIds.length === nooks.length) {
+                    plants.forEach(async plant => {
+                        const responsePlant = await db.plant.create({
+                            ...plant,
+                            nookId: getRandomId(newNookIds),
+                            plantTypeId: getRandomId(newPlantTypeIds)
+                        })
+                        newPlantIds.push(responsePlant.id)
+
+                        if(newPlantIds.length === plants.length) {
+                            waterings.forEach( async watering => {
+                                await db.watering.create({
+                                    ...watering,
+                                    plantId: getRandomId(newPlantIds)
+                                })
+                            })
+                        }
+                    })
+                }
             })
         }
     })
