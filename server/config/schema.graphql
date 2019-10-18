@@ -93,8 +93,8 @@ input CreateUserInput {
 }
 
 input CreatePlantInput {
-  plantTypeId: ID!
   nookId: ID!
+  plantTypeId: ID!
 }
 
 input CreateNookInput {

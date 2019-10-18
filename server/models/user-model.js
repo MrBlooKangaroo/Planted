@@ -10,10 +10,10 @@ module.exports = (sequelize, {
 			type: STRING,
 			unique: true,
 		},
-	}, {},);
+	}, {},)
 	user.associate = models => {
-		user.hasMany(models.nook);
-	};
-	return user;
-};
+		user.hasMany(models.nook)
+	}
+	return user
+}
 

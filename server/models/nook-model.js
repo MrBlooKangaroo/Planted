@@ -7,7 +7,7 @@ module.exports = (sequelize, {
     name: STRING,
     photoUrl: STRING,
     luxLevel: ENUM([...LuxLevel]),
-    userId: UUID, 
+    userId: UUID
   }, {})
   nook.associate = models => {
     nook.belongsTo(models.user)

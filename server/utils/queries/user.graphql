@@ -1,4 +1,4 @@
-query getNook($id: ID!) {
+query getUser($id: ID!) {
   user(id: $id) {
     nickname
     firstName

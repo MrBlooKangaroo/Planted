@@ -1,44 +1,9 @@
 const db = require('../index');
 const { cleanUpDb, closeDbConnection } = require('../../utils/test');
-const { LuxLevel, WaterLevel, WateringFrequency } = require('../../utils/enums')
+const { testUser, test, WateringFrequency } = require('../../utils/enums')
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
-
-const userDatum = {
-    nickname: 'Hotshot',
-    firstName: 'Mook',
-    lastName: 'Flexer',
-    email: 'mookin@mook.com',
-};
-
-const nookDatum = {
-    name: 'Mr. Nook',
-    luxLevel: 'MEDIUM',
-}
-
-const plantDatum = {
-  name: 'Ladyfingers',
-  health: 'DEAD',
-  photoUrl: 'ladyfingers.jpg'
-};
-
-const plantTypeDatum = {
-  name: 'God\'s Petunia',
-  description: 'really cool looking',
-  instructions: 'just give em lots of love',
-  features: 'Purifies the air',
-  colors: 'yellow purple grey',
-  photoUrl: 'godspetunia.jpg',
-  luxLevel: 'HIGH',
-  waterLevel: 'MEDIUM',
-  waterCycle: 'DAILY'
-}
-
-const wateringDatum = {
-    expectedAt: new Date('December 17, 1995 03:24:00'),
-    executedAt: new Date('December 17, 1995 03:24:00'),
-}
 
 describe('Watering Model', () => {
     describe('validations', () => {

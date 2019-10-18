@@ -7,7 +7,7 @@ module.exports = {
         type: UUID,
         primaryKey: true,
         allowNull: false,
-        defaultValue: literal('uuid_generate_v4()'),
+        defaultValue: literal('uuid_generate_v4()')
       },
       createdAt: {
         allowNull: false,
@@ -17,26 +17,26 @@ module.exports = {
         allowNull: false,
         type: DATE
       },
-      nookId:{
+      nookId: {
         allowNull: true,
         type: UUID,
         references: {
           model: 'nooks',
-          key: 'id',
+          key: 'id'
         }
       },
-      plantTypeId:{
+      plantTypeId: {
         allowNull: false,
         type: UUID,
         references: {
           model: 'plantTypes',
-          key: 'id',
+          key: 'id'
         }
       },
       photoUrl: {
         allowNull: true,
         type: STRING
-      },
+      }
     })
   },
   down: queryInterface =>
