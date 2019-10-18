@@ -50,7 +50,7 @@ module.exports = {
       waterCycle: {
         allowNull: false,
         type: ENUM([...WaterCycle])
-      }, 
+      }
     })
   },
   down: queryInterface =>
