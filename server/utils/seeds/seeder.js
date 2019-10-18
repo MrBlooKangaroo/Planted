@@ -25,26 +25,41 @@ module.exports = async db => {
         nookIds = []
         plantIds = []
         plantTypeIds = []
-    async function createUsers(userArray) {
-        const testArray = await userArray.map(async userSeed => {
-            const responseUser = await db.user.create(userSeed)
-            nooks.forEach(async nook => {
-                await db.nook.create({
-                    ...nook,
-                    userId: responseUser.id
-                })
-            })
-            return responseUser.id
-        })
-        // .then(testArray => {
-        //     console.log(testArray)
-        // })
-        // console.log(testArray)
+    const userNookAssociations = {
+        
     }
-    const userIds = await createUsers(users)
-        .then(userIds => {
-            // console.log(userIds)
-        })  
+    async function createUsers(userArray) {
+        let i = 0
+        let newUserArray = []
+        const getUserArray = async () => {
+            return await userArray.map(async userSeed => {
+                const responseUser = await db.user.create(userSeed)
+                newUserArray.push(responseUser.id)
+                // console.log(newUserArray)
+
+                if (newUserArray.length == userArray.length) {
+                    await nooks.forEach(async nook => {
+                        const index = Math.floor(Math.random() * (nooks.length - 1))
+                        if (Math.random() > 0.66) {
+                            await db.nook.create({
+                                ...nook,
+                                userId: responseUser.id
+                            })
+                        }
+                    }) //.then(test => { console.log(test)})
+                    console.log(newUserArray)
+                }
+                    
+                return responseUser.id
+            })
+            console.log(newUserArray)
+            return newUserArray
+        }
+        const test = await getUserArray() //.then(test2 => { console.log(test2, newUserArray)})
+        // console.log(await test)
+    }
+    await createUsers(users) //.then(test3 => { console.log(test3)})
+    // console.log(await db.user.findAll())
     // console.log(userIds)    
     // await nooks.forEach(async nook => {
     //     // console.log('\n\n\n\n\n\nhello')
