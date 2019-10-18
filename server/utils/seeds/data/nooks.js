@@ -18,5 +18,15 @@ module.exports = [
         name: 'Roofdeck',
         photoUrl: 'roofdeck.jpeg',
         luxLevel: 'HIGH'
+    },
+    {
+        name: 'Guest Bedroom',
+        photoUrl: 'guestbedroom.png',
+        luxLevel: 'MEDIUM'
+    },
+    {
+        name: 'Basement',
+        photoUrl: 'basement.jpg',
+        luxLevel: 'LOW'
     }
 ]

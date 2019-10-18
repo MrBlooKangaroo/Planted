@@ -4,7 +4,6 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
-const { seeder } = require('../utils/seeds');
 const db = {};
 
 require('dotenv').config();
@@ -59,7 +58,5 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
-seeder(db)
 
 module.exports = db;
