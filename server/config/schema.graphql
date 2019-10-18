@@ -8,10 +8,10 @@ type Query {
   buildNumber: String
   
   user(id: ID!): User
-  users: [User!]!
+  users: [User!]
 
   plant(id: ID!): Plant
-  plants: [Plant!]!
+  plants: [Plant!]
 
   nook(id: ID!): Nook
   nooks: [Nook!]
@@ -21,6 +21,9 @@ type Query {
 
   watering(id: ID!): Watering
   waterings: [Watering!]
+
+  wish(id: ID!): Wish
+  wishes: [Wish!]
 }
 
 type User implements Node {
@@ -31,6 +34,7 @@ type User implements Node {
   email: String
   photoUrl: String
   nooks: [Nook!]
+  wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -52,6 +56,7 @@ type Nook implements Node {
   luxLevel: LuxLevel!
   user: User!
   plants: [Plant!]
+  wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -66,13 +71,23 @@ type PlantType implements Node {
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!
   plants: [Plant!]
+  wishes: [Wish!]
 }
 
-type Watering {
+type Watering implements Node {
   id: ID! 
   plant: Plant!
   expectedAt: Date!
   executedAt: Date
+}
+
+type Wish implements Node {
+  id: ID! 
+  user: User!
+  plantType: PlantType!
+  nook: Nook
+  createdAt: Date!
+  updatedAt: Date
 }
 
 type Mutation {
@@ -80,6 +95,7 @@ type Mutation {
   createPlant(input: CreatePlantInput): PlantPayload
   createNook(input: CreateNookInput): NookPayload
   createWatering(input: CreateWateringInput): WateringPayload
+  createWish(input: CreateWishInput): WishPayload
 }
 
 type Subscription {
@@ -107,6 +123,12 @@ input CreateWateringInput {
   plantId: ID!
 }
 
+input CreateWishInput {
+  userId: ID!
+  plantTypeId: ID!
+  nookId: ID
+}
+
 type UserPayload {
   user: User
 }
@@ -121,6 +143,10 @@ type NookPayload {
 
 type WateringPayload {
   watering: Watering
+}
+
+type WishPayload {
+  wish: Wish
 }
 
 enum LuxLevel { 

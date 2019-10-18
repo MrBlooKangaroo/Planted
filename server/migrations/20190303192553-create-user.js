@@ -38,8 +38,8 @@ module.exports = {
         type: STRING,
         unique: true,
       },
-    });
+    })
   },
   down: queryInterface =>
     queryInterface.dropTable('users')
-};
+}

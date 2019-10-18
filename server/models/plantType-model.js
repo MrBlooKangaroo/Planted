@@ -18,6 +18,7 @@ module.exports = (sequelize, {
   }, {})
   plantType.associate = models => {
     plantType.hasMany(models.plant)
+    plantType.hasMany(models.wish)
   }
   return plantType
 }

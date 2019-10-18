@@ -48,6 +48,14 @@ module.exports = async db => {
                                     plantId: getRandomId(newPlantIds)
                                 })
                             })
+                            for (let i = 0; i < 10; i++) {
+                                await db.wish.create({
+                                    userId: getRandomId(newUserIds),
+                                    plantTypeId: getRandomId(newPlantTypeIds),
+                                    nookId: Math.random() > 0.5
+                                        ? getRandomId(newNookIds) : null
+                                })
+                            }
                         }
                     })
                 }

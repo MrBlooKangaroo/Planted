@@ -12,6 +12,7 @@ module.exports = (sequelize, {
   nook.associate = models => {
     nook.belongsTo(models.user)
     nook.hasMany(models.plant)
+    nook.hasMany(models.wish)
   }
   return nook
 }

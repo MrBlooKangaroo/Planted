@@ -13,6 +13,7 @@ module.exports = (sequelize, {
 	}, {},)
 	user.associate = models => {
 		user.hasMany(models.nook)
+		user.hasMany(models.wish)
 	}
 	return user
 }

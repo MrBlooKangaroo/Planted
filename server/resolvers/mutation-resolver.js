@@ -35,3 +35,9 @@ exports.createWatering = async (obj, { input }, { currentUser }, info)
   return { watering }
 }
   
+exports.createWish = async (obj, { input }, { currentUser }, info) => {
+  const wish = await db.wish.create({ ...input })
+  await pubsub.publish('WISH_CREATED', { wishCreated: wish })
+  return { wish }
+}
+    
