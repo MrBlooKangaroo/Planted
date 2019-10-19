@@ -7,27 +7,27 @@ afterEach(cleanUpDb)
 afterAll(closeDbConnection)
 
 describe('Nook Model', () => {
-  describe('validations', () => {
-    it('should require presence of name', async () => {
-      const user = await db.user.create(testUser)
-      const nook = await db.user.create({ 
-        ...testNook, 
-        userId: user.id,
-        name: null 
-      })
-        .catch(({ name: errorName }) => errorName)
-
-      expect(nook).toBe('SequelizeDatabaseError')
+  
+  it('should require presence of name', async () => {
+    const user = await db.user.create(testUser)
+    const nook = await db.user.create({ 
+      ...testNook, 
+      userId: user.id,
+      name: null 
     })
+      .catch(({ name: errorName }) => errorName)
 
-    it('should require presence of luxLevel', async () => {
-      const nook = await db.plant.create({ ...testNook, luxLevel: null })
-        .catch(({ name: errorName }) => errorName)
+    expect(nook).toBe('SequelizeDatabaseError')
+  })
 
-      expect(nook).toBe('SequelizeDatabaseError')
-    })
+  it('should require presence of luxLevel', async () => {
+    const nook = await db.plant.create({ ...testNook, luxLevel: null })
+      .catch(({ name: errorName }) => errorName)
 
-    it('should only accept allowed LuxLevel values', async () => {
+    expect(nook).toBe('SequelizeDatabaseError')
+  })
+
+  it('should only accept allowed LuxLevel values', async () => {
     const user = await db.user.create(testUser)
     const nook = await db.nook.create({ 
         ...testNook, 
@@ -35,6 +35,5 @@ describe('Nook Model', () => {
     })
 
     expect(LuxLevel).toContain(nook.luxLevel)
-    })
   })
 })
