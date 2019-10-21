@@ -1,0 +1,1 @@
+exports.plant = watering => watering.getPlant()
