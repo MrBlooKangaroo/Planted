@@ -1,6 +1,6 @@
 const db = require('../index')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
-const { testUser } = require('../../utils/seeds/testData')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
+const { testUser } = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)

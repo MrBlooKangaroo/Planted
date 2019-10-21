@@ -4,11 +4,11 @@ const {
   createQuery,
   createTestClient,
   closeDbConnection
-} = require('../../utils/test')
+} = require('../../utils/testing')
 const { 
   testUser, 
   testNook 
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)

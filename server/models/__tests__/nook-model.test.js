@@ -1,13 +1,13 @@
 const db = require('../index')
-const { LuxLevel } = require('../../utils/seeds/enums')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
-const { testUser, testNook } = require('../../utils/seeds/testData')
+const { LuxLevel } = require('../../utils/enums')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
+const { testUser, testNook } = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
 
 describe('Nook Model', () => {
-  
+
   it('should require presence of name', async () => {
     const user = await db.user.create(testUser)
     const nook = await db.user.create({ 

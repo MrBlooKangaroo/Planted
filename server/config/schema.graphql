@@ -81,6 +81,10 @@ type Watering implements Node {
   executedAt: Date
 }
 
+"""
+The act of making a wish. 
+Can be optionally tied to a nook.
+"""
 type Wish implements Node {
   id: ID! 
   user: User!

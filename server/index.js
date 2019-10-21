@@ -1,6 +1,6 @@
 const db = require('./models')
 const server = require('./config/server')
-const { seeder } = require('./utils/seeds')
+const seeder = require('./seeders/seeder')
 
 const PORT = process.env.PORT || 1337
 

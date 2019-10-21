@@ -14,7 +14,7 @@
     "db:rollback:all": "sequelize db:migrate:undo && NODE_ENV=test sequelize db:migrate:undo",
     "db:reset": "yarn db:drop && yarn db:setup",
     "db:setup": "yarn db:drop:all && yarn db:create:all && yarn db:migrate:all && yarn test",
-    "db:seed": "node seed/run.js",
+    "db:seed": "node ./seeders/seeder.js",
     "sequelize": "sequelize",
     "start": "node index.js",
     "start-production": "NODE_ENV=production node index.js",
