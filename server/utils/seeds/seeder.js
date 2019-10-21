@@ -1,3 +1,4 @@
+const db = require('../../models')
 const { 
     users, 
     plants,
@@ -9,7 +10,7 @@ const {
 const getRandomId = ids =>
     ids[Math.floor(Math.random() * (ids.length - 1))]
 
-module.exports = async db => {
+const seeder = async db => {
     let newUserIds = []
         newNookIds = []
         newPlantIds = []
@@ -55,3 +56,5 @@ module.exports = async db => {
         }
     })
 }
+
+seeder(db)
