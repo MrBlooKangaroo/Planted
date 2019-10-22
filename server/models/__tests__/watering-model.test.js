@@ -13,8 +13,7 @@ afterAll(closeDbConnection)
 
 describe('Watering Model', () => {
     describe('validations', () => {
-
-        it('should return all fields in response', async () => {
+        it('should return plantId, expectedAt and executedAt in response', async () => {
             const user = await db.user.create(testUser)
             const plantType = await db.plantType.create(testPlantType)
             const nook = await db.nook.create({ 
@@ -36,7 +35,9 @@ describe('Watering Model', () => {
             expect(typeof watering.expectedAt === 'date')
             expect(watering.executedAt).toBe(null)
         })
-        
+    })
+
+    describe('associations', () => {
         it('should associate a watering with a plant', async () => {
             const user = await db.user.create(testUser)
             const plantType = await db.plantType.create(testPlantType)
@@ -57,9 +58,7 @@ describe('Watering Model', () => {
               })  
             }
       
-            const plantWaterings = await db.watering.findAll({
-              where: { plantId: plant.id }
-            })
+            const plantWaterings = await plant.getWaterings()
       
             expect(plantWaterings).toBeDefined()
             expect(plantWaterings.length).toBe(22)

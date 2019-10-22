@@ -8,7 +8,7 @@ afterAll(closeDbConnection)
 describe('User Model', () => {
   describe('validations', () => {
 
-    it('should return all fields in response', async () => {
+    it('should return nickname, firstName and lastName in response', async () => {
       const user = await db.user.create(testUser)
 
       expect(user).toBeDefined()
@@ -16,25 +16,6 @@ describe('User Model', () => {
       expect(user.firstName).toBe('Mook')
       expect(user.lastName).toBe('Flexer')
       expect(user.email).toBe('mookin@mook.com')
-    })
-
-    it('should return a list of waterings in response', async () => {
-      const user = await db.user.create(testUser)
-      
-      for (let i = 0; i < 13; i++) {
-        await db.nook.create({
-            ...testNook,
-            userId: user.id
-        })  
-      }
-
-      const userNooks = await db.nook.findAll({
-        where: { userId: user.id }
-      })
-
-      expect(userNooks).toBeDefined()
-      expect(userNooks.length).toBe(13)
-      expect(userNooks[0].userId).toBe(user.id)
     })
 
     it('should require presence of nickname', async () => {
@@ -65,6 +46,25 @@ describe('User Model', () => {
 
       expect(validUser).toBeDefined()
       expect(invalidUser).toBe('SequelizeUniqueConstraintError')
+    })
+
+    describe('associations', () => {
+      it('should return a list of nooks in response', async () => {
+        const user = await db.user.create(testUser)
+        const nooks = new Array(11).map(async _ =>
+          await db.nook.create({
+            ...testNook,
+            userID: user.id
+          })
+        )
+        const nookIds = nooks.map(nook => nook.id)
+        const userNooks = await user.getNooks()
+        const userNookIds = userNooks.map(nook => nook.id)
+  
+        expect(userNooks).toBeDefined()
+        expect(userNooks.length).toBe(11)
+        expect(userNookIds).toEqual(expect.arrayContaining(nookIds))
+      })
     })
   })
 })

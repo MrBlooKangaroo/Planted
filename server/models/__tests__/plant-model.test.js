@@ -13,8 +13,7 @@ afterAll(closeDbConnection)
 
 describe('Plant Model', () => {
   describe('validations', () => {
-
-    it('should return all fields in response', async () => {
+    it('should return photoUrl, nookId and plantTypeId in response', async () => {
       const user = await db.user.create(testUser)
       const plantType = await db.plantType.create(testPlantType)
       const nook = await db.nook.create({ 
@@ -28,11 +27,13 @@ describe('Plant Model', () => {
       })
 
       expect(plant).toBeDefined()
-      expect(plant.photoUrl).toBe('ladyfingers.jpg')
+      expect(plant.photoUrl).toBe(testPlant.photoUrl)
       expect(plant.nookId).toBe(nook.id)
       expect(plant.plantTypeId).toBe(plantType.id)
     })
-    
+  })
+
+  describe('associations', () => {
     it('should associate a plant with a nook', async () => {
       const user = await db.user.create(testUser)
       const plantType = await db.plantType.create(testPlantType)
@@ -46,16 +47,14 @@ describe('Plant Model', () => {
         plantTypeId: plantType.id
       })
 
-      const nookResponse = await db.nook.findOne({
-        where: { id: plant.nookId }
-      })
+      const plantNook = await plant.getNook()
       
-      expect(nookResponse).toBeDefined()
-      expect(nookResponse.id).toBe(nook.id)
-      expect(nookResponse.name).toBe(nook.name)
-      expect(nookResponse.photoUrl).toBe(nook.photoUrl)
-      expect(nookResponse.luxLevel).toBe(nook.luxLevel)
-      expect(nookResponse.userId).toBe(nook.userId)
+      expect(plantNook).toBeDefined()
+      expect(plantNook.id).toBe(nook.id)
+      expect(plantNook.name).toBe(nook.name)
+      expect(plantNook.photoUrl).toBe(nook.photoUrl)
+      expect(plantNook.luxLevel).toBe(nook.luxLevel)
+      expect(plantNook.userId).toBe(nook.userId)
     })
 
     it('should associate a plant with a plantType', async () => {
@@ -71,20 +70,18 @@ describe('Plant Model', () => {
         plantTypeId: plantType.id
       })
 
-      const plantTypeResponse = await db.plantType.findOne({
-        where: { id: plant.plantTypeId }
-      })
+      const plantPlantType = await plant.getPlantType()
       
-      expect(plantTypeResponse).toBeDefined()
-      expect(plantTypeResponse.id).toBe(plantType.id)
-      expect(plantTypeResponse.name).toBe(plantType.name)
-      expect(plantTypeResponse.description).toBe(plantType.description)
-      expect(plantTypeResponse.instructions).toBe(plantType.instructions)
-      expect(plantTypeResponse.photoUrl).toBe(plantType.photoUrl)
-      expect(plantTypeResponse.luxLevel).toBe(plantType.luxLevel)
-      expect(plantTypeResponse.waterLevel).toBe(plantType.waterLevel)
-      expect(plantTypeResponse.waterCycle).toBe(plantType.waterCycle)
-      expect(plantTypeResponse.userId).toBe(plantType.userId)
+      expect(plantPlantType).toBeDefined()
+      expect(plantPlantType.id).toBe(plantType.id)
+      expect(plantPlantType.name).toBe(plantType.name)
+      expect(plantPlantType.description).toBe(plantType.description)
+      expect(plantPlantType.instructions).toBe(plantType.instructions)
+      expect(plantPlantType.photoUrl).toBe(plantType.photoUrl)
+      expect(plantPlantType.luxLevel).toBe(plantType.luxLevel)
+      expect(plantPlantType.waterLevel).toBe(plantType.waterLevel)
+      expect(plantPlantType.waterCycle).toBe(plantType.waterCycle)
+      expect(plantPlantType.userId).toBe(plantType.userId)
     })
 
     it('should return a list of waterings in response', async () => {
@@ -100,20 +97,20 @@ describe('Plant Model', () => {
           plantTypeId: plantType.id
       })
 
-      for (let i = 0; i < 7; i++) {
-        await db.watering.create({
-            ...testWatering,
-            plantId: plant.id
-        })  
-      }
-
-      const plantWaterings = await db.watering.findAll({
-        where: { plantId: plant.id }
-      })
+      const waterings = new Array(13).map(async _ =>
+        await db.plant.create({
+          ...testPlant,
+          nookId: nook.id,
+          plantTypeId: plantType.id
+        })
+      )
+      const wateringIds = waterings.map(watering => watering.id)
+      const plantWaterings = await plant.getWaterings()
+      const plantWateringIds = plantWaterings.map(plantWatering => plantWatering.id)
 
       expect(plantWaterings).toBeDefined()
-      expect(plantWaterings.length).toBe(7)
-      expect(plantWaterings[0].plantId).toBe(plant.id)
+      expect(plantWaterings.length).toBe(13)
+      expect(plantWateringIds).toEqual(expect.arrayContaining(wateringIds))
     })
   })
 })

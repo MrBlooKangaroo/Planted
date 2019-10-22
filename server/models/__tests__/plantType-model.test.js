@@ -13,43 +13,17 @@ afterAll(closeDbConnection)
 
 describe('Plant Type Model', () => {
   describe('validations', () => {
-
-    it('should return all fields in response', async () => {
+    it('should return name, description, instructions, photoUrl, luxLevel, waterLevel and waterCycle in response', async () => {
       const plantType = await db.plantType.create(testPlantType)
 
       expect(plantType).toBeDefined()
-      expect(plantType.name).toBe('God\'s Petunia')
-      expect(plantType.description).toBe('really cool looking')
-      expect(plantType.instructions).toBe('just give em lots of love')
-      expect(plantType.photoUrl).toBe('godspetunia.jpg')
-      expect(plantType.luxLevel).toBe('HIGH')
-      expect(plantType.waterLevel).toBe('MEDIUM')
-      expect(plantType.waterCycle).toBe('MONTHLY')
-    })
-
-    it('should return a list of plants in response', async () => {
-      const user = await db.user.create(testUser)
-      const plantType = await db.plantType.create(testPlantType)
-      const nook = await db.nook.create({ 
-        ...testNook, 
-        userId: user.id 
-      })
-
-      for (let i = 0; i < 5; i++) {
-        await db.plant.create({
-            ...testPlant,
-            nookId: nook.id,
-            plantTypeId: plantType.id
-        })  
-      }
-
-      const plantsOfPlantType = await db.plant.findAll({
-        where: { nookId: nook.id }
-      })
-
-      expect(plantsOfPlantType).toBeDefined()
-      expect(plantsOfPlantType.length).toBe(5)
-      expect(plantsOfPlantType[0].plantTypeId).toBe(plantType.id)
+      expect(plantType.name).toBe(testPlantType.name)
+      expect(plantType.description).toBe(testPlantType.description)
+      expect(plantType.instructions).toBe(testPlantType.instructions)
+      expect(plantType.photoUrl).toBe(testPlantType.photoUrl)
+      expect(plantType.luxLevel).toBe(testPlantType.luxLevel)
+      expect(plantType.waterLevel).toBe(testPlantType.waterLevel)
+      expect(plantType.waterCycle).toBe(testPlantType.waterCycle)
     })
 
     it('should require presence of name', async () => {
@@ -112,6 +86,32 @@ describe('Plant Type Model', () => {
 
       expect(LuxLevel).toContain(plantType.luxLevel)
       expect(LuxLevel).toContain(plantType.waterLevel)
+    })
+  })
+
+  describe('associations', () => {
+    it('should return a list of plants in response', async () => {
+      const user = await db.user.create(testUser)
+      const plantType = await db.plantType.create(testPlantType)
+      const nook = await db.nook.create({ 
+          ...testNook, 
+          userId: user.id 
+      })
+
+      const plants = new Array(7).map(async _ =>
+        await db.plant.create({
+          ...testPlant,
+          nookId: nook.id,
+          plantTypeId: plantType.id
+        })
+      )
+      const plantIds = plants.map(plant => plant.id)
+      const plantTypePlants = await plantType.getPlants()
+      const plantTypePlantIds = plantTypePlants.map(plant => plant.id)
+
+      expect(plantTypePlants).toBeDefined()
+      expect(plantTypePlants.length).toBe(7)
+      expect(plantTypePlantIds).toEqual(expect.arrayContaining(plantIds))
     })
   })
 })

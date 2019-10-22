@@ -13,8 +13,7 @@ afterAll(closeDbConnection)
 
 describe('Nook Model', () => {
   describe('validations', () => {
-
-    it('should return all fields in response', async () => {
+    it('should return name, luxLevel, photoUrl and userId in response', async () => {
       const user = await db.user.create(testUser)
       const nook = await db.nook.create({ 
         ...testNook, 
@@ -22,55 +21,10 @@ describe('Nook Model', () => {
       })
       
       expect(nook).toBeDefined()
-      expect(nook.name).toBe('Back Patio')
-      expect(nook.luxLevel).toBe('MEDIUM')
-      expect(nook.photoUrl).toBe('backpatio.jpg')
+      expect(nook.name).toBe(testNook.name)
+      expect(nook.luxLevel).toBe(testNook.luxLevel)
+      expect(nook.photoUrl).toBe(testNook.photoUrl)
       expect(nook.userId).toBe(user.id)
-    })
-    
-    it('should associate a nook with a user', async () => {
-      const user = await db.user.create(testUser)
-      const nook = await db.nook.create({ 
-        ...testNook, 
-        userId: user.id 
-      })
-
-      const userResponse = await db.user.findOne({
-        where: { id: nook.userId }
-      })
-
-      expect(userResponse).toBeDefined()
-      expect(userResponse.id).toBe(user.id)
-      expect(userResponse.nickname).toBe(user.nickname)
-      expect(userResponse.firstName).toBe(user.firstName)
-      expect(userResponse.lastName).toBe(user.lastName)
-      expect(userResponse.photoUrl).toBe(user.photoUrl)
-      expect(userResponse.email).toBe(user.email)
-    })
-
-    it('should return a list of plants in response', async () => {
-      const user = await db.user.create(testUser)
-      const plantType = await db.plantType.create(testPlantType)
-      const nook = await db.nook.create({ 
-        ...testNook, 
-        userId: user.id 
-      })
-
-      for (let i = 0; i < 9; i++) {
-        await db.plant.create({
-            ...testPlant,
-            nookId: nook.id,
-            plantTypeId: plantType.id
-        })  
-      }
-
-      const plantsInNook = await db.plant.findAll({
-        where: { nookId: nook.id }
-      })
-
-      expect(plantsInNook).toBeDefined()
-      expect(plantsInNook.length).toBe(9)
-      expect(plantsInNook[0].nookId).toBe(nook.id)
     })
 
     it('should require presence of name', async () => {
@@ -100,6 +54,50 @@ describe('Nook Model', () => {
       })
 
       expect(LuxLevel).toContain(nook.luxLevel)
+    })
+  })
+
+  describe('associations', () => {
+    it('should associate a nook with a user', async () => {
+      const user = await db.user.create(testUser)
+      const nook = await db.nook.create({ 
+        ...testNook, 
+        userId: user.id 
+      })
+
+      const nookUser = await nook.getUser()
+
+      expect(nookUser).toBeDefined()
+      expect(nookUser.id).toBe(user.id)
+      expect(nookUser.nickname).toBe(user.nickname)
+      expect(nookUser.firstName).toBe(user.firstName)
+      expect(nookUser.lastName).toBe(user.lastName)
+      expect(nookUser.photoUrl).toBe(user.photoUrl)
+      expect(nookUser.email).toBe(user.email)
+    })
+
+    it('should return a list of plants in response', async () => {
+      const user = await db.user.create(testUser)
+      const plantType = await db.plantType.create(testPlantType)
+      const nook = await db.nook.create({ 
+        ...testNook, 
+        userId: user.id 
+      })
+
+      const plants = new Array(9).map(async _ =>
+        await db.plant.create({
+          ...testPlant,
+          nookId: nook.id,
+          plantTypeId: plantType.id
+        })
+      )
+      const plantIds = plants.map(plant => plant.id)
+      const nookPlants = await nook.getPlants()
+      const nookPlantIds = nookPlants.map(nookPlant => nookPlant.id)
+
+      expect(plantsInNook).toBeDefined()
+      expect(plantsInNook.length).toBe(9)
+      expect(nookPlantIds).toEqual(expect.arrayContaining(plantIds))
     })
   })
 })
