@@ -81,22 +81,26 @@ input CreateUserInput {
   nickname: String!
 	firstName: String!
 	lastName: String
+  photoUrl: String
 	email: String
 }
 
 input CreatePlantInput {
+  photoUrl: String
 	nookId: ID!
 	plantTypeId: ID!
 }
 
 input CreateNookInput {
 	name: String!
+  photoUrl: String
   luxLevel: LuxLevel
 	userId: ID!
 }
 
 input CreateWateringInput {
 	expectedAt: Date!
+  executedAt: Date
 	plantId: ID!
 }
 
