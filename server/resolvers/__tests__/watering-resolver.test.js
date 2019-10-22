@@ -50,7 +50,7 @@ describe('Watering Resolver', () => {
     expect(responseWatering.executedAt).toBeDefined()
   })
 
-  it('should return NOT_FOUND error if invalid user id supplied', async () => {
+  it('should return NOT_FOUND error if invalid watering id supplied', async () => {
     const { testClient } = await createTestClient()
     const variables = { id: '0b9f38f1-333f-42db-b0c7-3939cab66bc8' }
     const response = await testClient.query({ query, variables })
@@ -80,7 +80,7 @@ describe('Watering Resolver', () => {
     const variables = { id: watering.id }
     const response = await testClient.query({ query, variables })
     const responseWatering = response.data.watering
-    
+
     expect(responseWatering.plant).toBeDefined()
     expect(responseWatering.plant.id).toBe(plant.id)
   })
