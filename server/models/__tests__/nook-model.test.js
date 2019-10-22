@@ -84,19 +84,22 @@ describe('Nook Model', () => {
         userId: user.id 
       })
 
-      const plants = new Array(9).map(async _ =>
-        await db.plant.create({
+      let plants = []
+      for (let i = 0; i < 9; i++) {
+        const plant = await db.plant.create({
           ...testPlant,
           nookId: nook.id,
           plantTypeId: plantType.id
         })
-      )
+        plants.push(plant)
+      }
+
       const plantIds = plants.map(plant => plant.id)
       const nookPlants = await nook.getPlants()
-      const nookPlantIds = nookPlants.map(nookPlant => nookPlant.id)
+      const nookPlantIds = nookPlants.map(plant => plant.id)
 
-      expect(plantsInNook).toBeDefined()
-      expect(plantsInNook.length).toBe(9)
+      expect(nookPlants).toBeDefined()
+      expect(nookPlants.length).toBe(9)
       expect(nookPlantIds).toEqual(expect.arrayContaining(plantIds))
     })
   })

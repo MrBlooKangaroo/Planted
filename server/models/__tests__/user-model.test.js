@@ -51,16 +51,20 @@ describe('User Model', () => {
     describe('associations', () => {
       it('should return a list of nooks in response', async () => {
         const user = await db.user.create(testUser)
-        const nooks = new Array(11).map(async _ =>
-          await db.nook.create({
+
+        let nooks = []
+        for (let i = 0; i < 11; i++) {
+          const nook = await db.nook.create({
             ...testNook,
-            userID: user.id
+            userId: user.id
           })
-        )
+          nooks.push(nook)
+        }
+
         const nookIds = nooks.map(nook => nook.id)
         const userNooks = await user.getNooks()
         const userNookIds = userNooks.map(nook => nook.id)
-  
+
         expect(userNooks).toBeDefined()
         expect(userNooks.length).toBe(11)
         expect(userNookIds).toEqual(expect.arrayContaining(nookIds))

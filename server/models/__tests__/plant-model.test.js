@@ -97,13 +97,15 @@ describe('Plant Model', () => {
           plantTypeId: plantType.id
       })
 
-      const waterings = new Array(13).map(async _ =>
-        await db.plant.create({
-          ...testPlant,
-          nookId: nook.id,
-          plantTypeId: plantType.id
+      let waterings = []
+      for (let i = 0; i < 13; i++) {
+        const watering = await db.watering.create({
+          ...testWatering,
+          plantId: plant.id
         })
-      )
+        waterings.push(watering)
+      }
+
       const wateringIds = waterings.map(watering => watering.id)
       const plantWaterings = await plant.getWaterings()
       const plantWateringIds = plantWaterings.map(plantWatering => plantWatering.id)
