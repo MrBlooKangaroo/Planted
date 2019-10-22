@@ -50,7 +50,7 @@ describe('Nook Resolver', () => {
     expect(errors[0].extensions.code).toBe('NOT_FOUND')
   })
 
-  it('should have a valid relationship to plants', async () => {
+  it('should include associated plants in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const plantType = await db.plantType.create(testPlantType)
@@ -71,7 +71,7 @@ describe('Nook Resolver', () => {
     expect(responseNook.plants.length).toBe(1)
   })
 
-  it('should have a valid relationship with user', async () => {
+  it('should include associated user in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const nook = await db.nook.create({ 

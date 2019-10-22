@@ -9,7 +9,7 @@ query getPlantType($id: ID!) {
     waterLevel
     waterCycle
     plants {
-        id
+      id
     }
   }
 }

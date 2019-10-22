@@ -60,7 +60,7 @@ describe('Watering Resolver', () => {
     expect(errors[0].extensions.code).toBe('NOT_FOUND')
   })
 
-  it('should have a valid relationship to plant', async () => {
+  it('should include associated plants in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const plantType = await db.plantType.create(testPlantType)

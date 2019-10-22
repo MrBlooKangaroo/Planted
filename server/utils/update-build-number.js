@@ -14,7 +14,7 @@ const updateBuildNumber = () => {
     const buildNumberCounter = parseInt(buildNumber.substring(0, 1))
     return fs.writeFileSync(
       'build-number.txt',
-      `${buildNumberCounter + 1}-${sha}`,
+      `${buildNumberCounter + 1}-${sha}`
     )
   }
 }

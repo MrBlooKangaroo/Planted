@@ -3,13 +3,13 @@ query getPlant($id: ID!) {
     id
     photoUrl
     nook {
-        id
+      id
     }
     plantType {
-        id
+      id
     }   
     waterings {
-        id
+      id
     }
     createdAt
     updatedAt
