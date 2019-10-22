@@ -78,6 +78,7 @@ type Mutation {
 }
 
 input CreateUserInput {
+  nickname: String!
 	firstName: String!
 	lastName: String
 	email: String
@@ -90,6 +91,7 @@ input CreatePlantInput {
 
 input CreateNookInput {
 	name: String!
+  luxLevel: LuxLevel
 	userId: ID!
 }
 
