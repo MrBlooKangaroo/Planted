@@ -1,0 +1,17 @@
+query getPlant($id: ID!) {
+  plant(id: $id) {
+    id
+    photoUrl
+    nook {
+      id
+    }
+    plantType {
+      id
+    }   
+    waterings {
+      id
+    }
+    createdAt
+    updatedAt
+  }
+}

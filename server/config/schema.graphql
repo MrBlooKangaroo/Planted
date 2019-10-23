@@ -1,38 +1,140 @@
 scalar Date
 
 interface Node {
-  id: ID!
+	id: ID
 }
 
 type Query {
-  buildNumber: String
-  user(id: ID!): User
-  users: [User!]!
+	buildNumber: String
+	user(id: ID!): User
+	users: [User!]!
+	plant(id: ID!): Plant
+	plants: [Plant!]!
+	nook(id: ID!): Nook
+	nooks: [Nook!]
+	plantType(id: ID!): PlantType
+	plantTypes: [PlantType!]
+	watering(id: ID!): Watering
+	waterings: [Watering!]
 }
 
 type User implements Node {
-  id: ID!
-  createdAt: Date!
-  updatedAt: Date!
-  firstName: String!
-  lastName: String!
-  email: String
+	id: ID!
+	nickname: String!
+	firstName: String!
+	lastName: String
+	email: String
+	photoUrl: String
+	nooks: [Nook!]
+	createdAt: Date!
+	updatedAt: Date
+}
+
+type Plant implements Node {
+	id: ID!
+	photoUrl: String
+	nook: Nook!
+	plantType: PlantType!
+	waterings: [Watering!]
+	createdAt: Date!
+	updatedAt: Date
+}
+
+type Nook implements Node {
+	id: ID!
+	name: String!
+	photoUrl: String
+	luxLevel: LuxLevel!
+	user: User!
+	plants: [Plant!]
+	createdAt: Date!
+	updatedAt: Date
+}
+
+type PlantType implements Node {
+	id: ID!
+	name: String!
+	description: String!
+	instructions: String!
+	photoUrl: String!
+	luxLevel: LuxLevel!
+	waterLevel: WaterLevel!
+	waterCycle: WaterCycle!
+	plants: [Plant!]
+}
+
+type Watering {
+	id: ID!
+	plant: Plant!
+	expectedAt: Date!
+	executedAt: Date
 }
 
 type Mutation {
-  createUser(input: CreateUserInput): UserPayload
+	createUser(input: CreateUserInput): UserPayload
+	createPlant(input: CreatePlantInput): PlantPayload
+	createNook(input: CreateNookInput): NookPayload
+	createWatering(input: CreateWateringInput): WateringPayload
 }
 
 input CreateUserInput {
-  firstName: String!
-  lastName: String!
-  email: String
+  nickname: String!
+	firstName: String!
+	lastName: String
+  photoUrl: String
+	email: String
+}
+
+input CreatePlantInput {
+  photoUrl: String
+	nookId: ID!
+	plantTypeId: ID!
+}
+
+input CreateNookInput {
+	name: String!
+  photoUrl: String
+  luxLevel: LuxLevel
+	userId: ID!
+}
+
+input CreateWateringInput {
+	expectedAt: Date!
+  executedAt: Date
+	plantId: ID!
 }
 
 type UserPayload {
-  user: User
+	user: User
 }
 
-type Subscription {
-  userCreated: User
+type PlantPayload {
+	plant: Plant
+}
+
+type NookPayload {
+	nook: Nook
+}
+
+type WateringPayload {
+	watering: Watering
+}
+
+enum LuxLevel {
+	HIGH
+	MEDIUM
+	LOW
+	ALL
+}
+
+enum WaterLevel {
+	HIGH
+	MEDIUM
+	LOW
+}
+
+enum WaterCycle {
+	WEEKLY
+	BIWEEKLY
+	MONTHLY
 }

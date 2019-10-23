@@ -1,3 +1,3 @@
-const { PubSub } = require('apollo-server');
+const { PubSub } = require('apollo-server')
 
-module.exports = new PubSub();
+module.exports = new PubSub()

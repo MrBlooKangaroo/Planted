@@ -1,0 +1,14 @@
+query getNook($id: ID!) {
+  user(id: $id) {
+    nickname
+    firstName
+    lastName
+    email
+    photoUrl
+    nooks {
+      id
+    }
+    createdAt
+    updatedAt
+  }
+}
