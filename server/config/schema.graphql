@@ -1,27 +1,22 @@
 scalar Date
 
 interface Node {
-  id: ID
+	id: ID
 }
 
 type Query {
   buildNumber: String
-  
+
   user(id: ID!): User
   users: [User!]
-
   plant(id: ID!): Plant
   plants: [Plant!]
-
   nook(id: ID!): Nook
   nooks: [Nook!]
-
   plantType(id: ID!): PlantType
   plantTypes: [PlantType!]
-
   watering(id: ID!): Watering
   waterings: [Watering!]
-
   wish(id: ID!): Wish
   wishes: [Wish!]
 }
@@ -40,13 +35,13 @@ type User implements Node {
 }
 
 type Plant implements Node {
-  id: ID!
-  photoUrl: String
-  nook: Nook!
-  plantType: PlantType!
-  waterings: [Watering!]
-  createdAt: Date!
-  updatedAt: Date
+	id: ID!
+	photoUrl: String
+	nook: Nook!
+	plantType: PlantType!
+	waterings: [Watering!]
+	createdAt: Date!
+	updatedAt: Date
 }
 
 type Nook implements Node {
@@ -107,24 +102,30 @@ type Subscription {
 }
 
 input CreateUserInput {
-  firstName: String!
-  lastName: String
-  email: String
+  nickname: String!
+	firstName: String!
+	lastName: String
+  photoUrl: String
+	email: String
 }
 
 input CreatePlantInput {
-  nookId: ID!
-  plantTypeId: ID!
+  photoUrl: String
+	nookId: ID!
+	plantTypeId: ID!
 }
 
 input CreateNookInput {
-  name: String!
-  userId: ID!
+	name: String!
+  photoUrl: String
+  luxLevel: LuxLevel
+	userId: ID!
 }
 
 input CreateWateringInput {
-  expectedAt: Date!
-  plantId: ID!
+	expectedAt: Date!
+  executedAt: Date
+	plantId: ID!
 }
 
 input CreateWishInput {
@@ -134,19 +135,19 @@ input CreateWishInput {
 }
 
 type UserPayload {
-  user: User
+	user: User
 }
 
 type PlantPayload {
-  plant: Plant
+	plant: Plant
 }
 
 type NookPayload {
-  nook: Nook
+	nook: Nook
 }
 
 type WateringPayload {
-  watering: Watering
+	watering: Watering
 }
 
 type WishPayload {
@@ -160,14 +161,14 @@ enum LuxLevel {
   ALL
 }
 
-enum WaterLevel { 
-  HIGH 
-  MEDIUM 
-  LOW
+enum WaterLevel {
+	HIGH
+	MEDIUM
+	LOW
 }
 
-enum WaterCycle { 
-  WEEKLY 
-  BIWEEKLY
-  MONTHLY 
-} 
+enum WaterCycle {
+	WEEKLY
+	BIWEEKLY
+	MONTHLY
+}

@@ -25,5 +25,5 @@ module.exports = [
     },
     {
         expectedAt: getRandomFutureDate()
-    },
+    }
 ]

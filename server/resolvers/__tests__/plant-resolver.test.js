@@ -54,7 +54,7 @@ describe('Plant Resolver', () => {
     expect(errors[0].extensions.code).toBe('NOT_FOUND')
   })
 
-  it('should have a valid relationship to nook', async () => {
+  it('should include associated nook in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const plantType = await db.plantType.create(testPlantType)
@@ -75,7 +75,7 @@ describe('Plant Resolver', () => {
     expect(responsePlant.nook.id).toBe(nook.id)
   })
 
-  it('should have a valid relationship to plantType', async () => {
+  it('should include associated plantType in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const plantType = await db.plantType.create(testPlantType)
@@ -96,7 +96,7 @@ describe('Plant Resolver', () => {
     expect(responsePlant.plantType.id).toBe(plantType.id)
   })
 
-  it('should have a valid relationship to waterings', async () => {
+  it('should include associated waterings in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const plantType = await db.plantType.create(testPlantType)

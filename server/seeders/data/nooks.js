@@ -11,7 +11,7 @@ module.exports = [
     },
     {
         name: 'Dog House',
-        photoUrl: 'doghouse.pdf',
+        photoUrl: 'doghouse.png',
         luxLevel: 'LOW'
     },
     {

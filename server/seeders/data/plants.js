@@ -6,7 +6,7 @@ module.exports = [
         photoUrl: 'ficus.png'
     },
     {
-        photoUrl: 'monstera.pdf'
+        photoUrl: 'monstera.png'
     },
     {
         photoUrl: 'susan.jpeg'
@@ -21,7 +21,7 @@ module.exports = [
         photoUrl: 'bostonfern.jpg'
     },
     {
-        photoUrl: 'spider.pdf'
+        photoUrl: 'spider.jpg'
     },
     {
         photoUrl: 'snake.jpeg'

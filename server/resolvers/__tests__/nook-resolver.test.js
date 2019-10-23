@@ -40,7 +40,7 @@ describe('Nook Resolver', () => {
     expect(responseNook.luxLevel).toBe(testNook.luxLevel)
   })
 
-  it('should return NOT_FOUND error if invalid user id supplied', async () => {
+  it('should return NOT_FOUND error if invalid nook id supplied', async () => {
     const { testClient } = await createTestClient()
     const variables = { id: '0b9f38f1-333f-42db-b0c7-3939cab66bc8' }
     const response = await testClient.query({ query, variables })
@@ -50,7 +50,7 @@ describe('Nook Resolver', () => {
     expect(errors[0].extensions.code).toBe('NOT_FOUND')
   })
 
-  it('should have a valid relationship to plants', async () => {
+  it('should include associated plants in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const plantType = await db.plantType.create(testPlantType)
@@ -71,7 +71,7 @@ describe('Nook Resolver', () => {
     expect(responseNook.plants.length).toBe(1)
   })
 
-  it('should have a valid relationship with user', async () => {
+  it('should include associated user in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     const nook = await db.nook.create({ 

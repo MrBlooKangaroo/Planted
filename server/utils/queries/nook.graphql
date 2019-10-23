@@ -5,10 +5,10 @@ query getNook($id: ID!) {
     photoUrl
     luxLevel
     user {
-        id
+      id
     }
     plants {
-        id
+      id
     }
     createdAt
     updatedAt
