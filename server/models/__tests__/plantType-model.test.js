@@ -1,12 +1,12 @@
 const db = require('../index')
-const { LuxLevel, WaterCycle } = require('../../utils/seeds/enums')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
+const { LuxLevel, WaterLevel, WaterCycle } = require('../../utils/enums')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
 const { 
   testUser, 
   testNook,
   testPlant,
   testPlantType
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)

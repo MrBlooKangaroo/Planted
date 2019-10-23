@@ -29,9 +29,3 @@ exports.createWatering = async (obj, { input }) => {
   const watering = await db.watering.create({ ...input })
   return { watering }
 }
-  
-exports.createWish = async (obj, { input }) => {
-  const wish = await db.wish.create({ ...input })
-  return { wish }
-}
-    

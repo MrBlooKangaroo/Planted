@@ -6,7 +6,6 @@ interface Node {
 
 type Query {
   buildNumber: String
-
   user(id: ID!): User
   users: [User!]
   plant(id: ID!): Plant
@@ -17,19 +16,15 @@ type Query {
   plantTypes: [PlantType!]
   watering(id: ID!): Watering
   waterings: [Watering!]
-  wish(id: ID!): Wish
-  wishes: [Wish!]
 }
 
 type User implements Node {
   id: ID!
-  nickname: String!
   firstName: String!
   lastName: String 
   email: String
   photoUrl: String
   nooks: [Nook!]
-  wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -51,7 +46,6 @@ type Nook implements Node {
   luxLevel: LuxLevel!
   user: User!
   plants: [Plant!]
-  wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -66,7 +60,6 @@ type PlantType implements Node {
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!
   plants: [Plant!]
-  wishes: [Wish!]
 }
 
 type Watering implements Node {
@@ -76,33 +69,14 @@ type Watering implements Node {
   executedAt: Date
 }
 
-"""
-The act of making a wish. 
-Can be optionally tied to a nook.
-"""
-type Wish implements Node {
-  id: ID! 
-  user: User!
-  plantType: PlantType!
-  nook: Nook
-  createdAt: Date!
-  updatedAt: Date
-}
-
 type Mutation {
   createUser(input: CreateUserInput): UserPayload
   createPlant(input: CreatePlantInput): PlantPayload
   createNook(input: CreateNookInput): NookPayload
   createWatering(input: CreateWateringInput): WateringPayload
-  createWish(input: CreateWishInput): WishPayload
-}
-
-type Subscription {
-  userCreated: User
 }
 
 input CreateUserInput {
-  nickname: String!
 	firstName: String!
 	lastName: String
   photoUrl: String
@@ -128,37 +102,23 @@ input CreateWateringInput {
 	plantId: ID!
 }
 
-input CreateWishInput {
-  userId: ID!
-  plantTypeId: ID!
-  nookId: ID
-}
-
 type UserPayload {
-	user: User
+  user: User
 }
-
 type PlantPayload {
-	plant: Plant
+  plant: Plant
 }
-
 type NookPayload {
-	nook: Nook
+  nook: Nook
 }
-
 type WateringPayload {
-	watering: Watering
-}
-
-type WishPayload {
-  wish: Wish
+  watering: Watering
 }
 
 enum LuxLevel { 
   HIGH 
   MEDIUM 
   LOW
-  ALL
 }
 
 enum WaterLevel {

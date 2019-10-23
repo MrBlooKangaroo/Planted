@@ -61,16 +61,4 @@ exports.waterings = async () => {
   return await db.watering.findAll()
 }
 
-exports.wish = async (_obj, { id }) => {
-  const wish = await db.wish.findOne({
-    where: { id },
-    include: [db.user, db.nook, db.plantType]
-  })
-  return wish || raiseNotFoundError()
-}
-
-exports.wishes = async () => {
-  return await db.wish.findAll()
-}
-
 exports.buildNumber = getBuildNumber

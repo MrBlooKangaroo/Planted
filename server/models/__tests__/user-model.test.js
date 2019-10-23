@@ -1,30 +1,22 @@
 const db = require('../index')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
 const { 
   testUser, 
   testNook 
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
 
 describe('User Model', () => {
   describe('validations', () => {
-    it('should return nickname, firstName and lastName in response', async () => {
+    it('should return firstName and lastName in response', async () => {
       const user = await db.user.create(testUser)
 
       expect(user).toBeDefined()
-      expect(user.nickname).toBe('Hotshot')
       expect(user.firstName).toBe('Mook')
       expect(user.lastName).toBe('Flexer')
       expect(user.email).toBe('mookin@mook.com')
-    })
-
-    it('should require presence of nickname', async () => {
-      const user = await db.user.create({ ...testUser, nickname: null })
-        .catch(({ name: errorName }) => errorName)
-
-      expect(user).toBe('SequelizeDatabaseError')
     })
 
     it('should require presence of firstName', async () => {

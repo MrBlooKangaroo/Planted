@@ -2,7 +2,6 @@ module.exports = (sequelize, {
 	STRING
 }) => {
 	const user = sequelize.define('user', {
-		nickname: STRING,
 		firstName: STRING,
 		lastName: STRING,
 		photoUrl: STRING,
@@ -13,7 +12,6 @@ module.exports = (sequelize, {
 	}, {},)
 	user.associate = models => {
 		user.hasMany(models.nook)
-		user.hasMany(models.wish)
 	}
 	return user
 }

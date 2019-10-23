@@ -64,18 +64,6 @@ describe('Watering Model', () => {
             expect(plantWaterings.length).toBe(22)
             expect(plantWaterings[0].plantId).toBe(plant.id)
         })
-        const plant = await db.plant.create({ 
-            ...testPlant, 
-            nookId: nook.id,
-            plantTypeId: plantType.id
-        })
-        const watering = await db.watering.create({
-            ...testWatering,
-            plantId: plant.id
-        })
-
-        expect(watering.expectedAt).toEqual(testWatering.expectedAt)
-        expect(watering.plantId).toEqual(plant.id)
     })
 })
   

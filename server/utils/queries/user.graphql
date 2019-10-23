@@ -1,6 +1,5 @@
 query getNook($id: ID!) {
   user(id: $id) {
-    nickname
     firstName
     lastName
     email

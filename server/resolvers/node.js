@@ -10,8 +10,6 @@ exports.__resolveType = (object, context) => {
       return 'PlantType'
     case 'watering':
       return 'Watering'
-    case 'wish':
-      return 'Wish'
     default:
       return null
   }

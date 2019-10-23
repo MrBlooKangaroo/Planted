@@ -6,7 +6,7 @@ const {
   testNook, 
   testPlantType,
   testWatering
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -114,8 +114,5 @@ describe('Plant Model', () => {
       expect(plantWaterings.length).toBe(13)
       expect(plantWateringIds).toEqual(expect.arrayContaining(wateringIds))
     })
-
-    expect(plant).toBeDefined()
-    expect(plant.photoUrl).toBe(testPlant.photoUrl)
   })
 })

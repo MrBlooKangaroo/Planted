@@ -25,10 +25,6 @@ module.exports = {
         allowNull: false,
         type: STRING,
       },
-      nickname: {
-        allowNull: false,
-        type: STRING,
-      },
       photoUrl: {
         allowNull: true,
         type: STRING,
@@ -37,7 +33,7 @@ module.exports = {
         allowNull: false,
         type: STRING,
         unique: true,
-      },
+      }
     })
   },
   down: queryInterface =>

@@ -1,14 +1,13 @@
 exports.LuxLevel = [
     'HIGH',
     'MEDIUM',
-    'LOW',
-    'ALL'
+    'LOW'
 ]
 
 exports.WaterLevel = [
     'HIGH',
     'MEDIUM',
-    'LOW',
+    'LOW'
 ]
 
 exports.WaterCycle = [

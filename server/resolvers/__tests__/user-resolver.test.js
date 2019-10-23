@@ -3,12 +3,9 @@ const {
   cleanUpDb, 
   createQuery,
   createTestClient,
-  closeDbConnection
+  closeDbConnection, 
 } = require('../../utils/testing')
-const { 
-  testUser, 
-  testNook 
-} = require('../../utils/testing/testData')
+const { testUser, testNook } = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -28,7 +25,6 @@ describe('User Resolver', () => {
     
     expect(response.errors).toBe(undefined)
     expect(responseUser).toBeDefined()
-    expect(responseUser.nickname).toBe(testUser.nickname)
     expect(responseUser.firstName).toBe(testUser.firstName)
     expect(responseUser.lastName).toBe(testUser.lastName)
     expect(responseUser.email).toBe(testUser.email)
@@ -44,7 +40,7 @@ describe('User Resolver', () => {
     expect(errors[0].extensions.code).toBe('NOT_FOUND')
   })
 
-  it('should include associated nooks in the response', async () => {
+  it('should have a valid relationship with nooks', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     await db.nook.create({ 
