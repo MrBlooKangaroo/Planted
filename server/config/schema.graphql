@@ -26,6 +26,7 @@ type User implements Node {
   email: String
   photoUrl: String
   nooks: [Nook!]
+  wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -47,6 +48,7 @@ type Nook implements Node {
   luxLevel: LuxLevel!
   user: User!
   plants: [Plant!]
+  wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
 }
@@ -61,6 +63,7 @@ type PlantType implements Node {
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!
   plants: [Plant!]
+  wishes: [Wish!]
 }
 
 type Watering implements Node {
@@ -68,8 +71,6 @@ type Watering implements Node {
   plant: Plant!
   expectedAt: Date!
   executedAt: Date
-  createdAt: Date!
-  updatedAt: Date
 }
 
 type Wish implements Node {
