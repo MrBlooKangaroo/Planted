@@ -5,7 +5,6 @@ interface Node {
 }
 
 type Query {
-  buildNumber: String
   user(id: ID!): User
   users: [User!]
   plant(id: ID!): Plant

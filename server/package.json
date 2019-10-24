@@ -20,8 +20,7 @@
     "start": "node index.js",
     "start-production": "NODE_ENV=production node index.js",
     "test": "NODE_ENV=test jest --bail --runInBand --watch",
-    "repl": "node --experimental-repl-await --eval 'const models = require(\"./models\")' --interactive",
-    "update-build-number": "node ./utils/update-build-number.js"
+    "repl": "node --experimental-repl-await --eval 'const models = require(\"./models\")' --interactive"
   },
   "dependencies": {
     "apollo-server": "^2.4.8",
