@@ -16,8 +16,8 @@ module.exports = {
 
     const plantTypeToWaterCycleDict = plantTypes.map(plantType => {
       return {
-        plantTypeId: plantType.id,
-        waterCycle: plantType.waterCycle
+        waterCycle: plantType.waterCycle,
+        plantTypeId: plantType.id
       }
     })
 
@@ -26,33 +26,33 @@ module.exports = {
         return plantTypeId === plantTypeToWaterCycleDef.plantTypeId
       })[0].waterCycle
       return {
-        plantId,
-        waterCycle
+        waterCycle,
+        plantId
       }
     })
 
     let wateringSeeds = []
     plantToWaterCycleDict.forEach(({ plantId, waterCycle }) => {
-      let wateringDate = new Date()
+      let expectedAt = new Date()
       switch(waterCycle) {
         default:
         case 'WEEKLY': 
-          wateringDate = new Date(wateringDate.getTime() + weekInMs)
+          expectedAt = new Date(expectedAt.getTime() + weekInMs)
           break
         case 'BIWEEKLY':
-          wateringDate = new Date(wateringDate.getTime() + 2 * weekInMs)
+          expectedAt = new Date(expectedAt.getTime() + 2 * weekInMs)
           break
         case 'MONTHLY':
-          wateringDate = new Date(wateringDate.getTime() + 4 * weekInMs)
+          expectedAt = new Date(expectedAt.getTime() + 4 * weekInMs)
           break
       }
       wateringSeeds.push({
+        expectedAt,
         waterCycle,
-        expectedAt: wateringDate.toLocaleDateString(),
-        executedAt: null,
         plantId
       })
     })
+
     await db.watering.bulkCreate(wateringSeeds)
   },
   down: queryInterface => queryInterface.bulkDelete('waterings', null, {})
