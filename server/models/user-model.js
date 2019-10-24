@@ -7,11 +7,12 @@ module.exports = (sequelize, {
 		photoUrl: STRING,
 		email: {
 			type: STRING,
-			unique: true,
-		},
+			unique: true
+		}
 	}, {},)
 	user.associate = models => {
 		user.hasMany(models.nook)
+		user.hasMany(models.wish)
 	}
 	return user
 }
