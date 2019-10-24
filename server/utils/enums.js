@@ -11,7 +11,6 @@ exports.WaterLevel = [
 ]
 
 exports.WaterCycle = [
-    'DAILY',
     'WEEKLY',
     'BIWEEKLY',
     'MONTHLY'
