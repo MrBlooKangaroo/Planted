@@ -13,17 +13,12 @@ const context = async ({ _req, connection }) =>
 
 const onConnect = async (connectionParams) => true
 
-const isIntrospectionOn =
-	process.env.NODE_ENV !== 'production' ||
-  (process.env.NODE_ENV === 'production' 
-  && process.env.IS_INTROSPECTION_ON === 'true')
-
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
 	context,
-	introspection: isIntrospectionOn,
-	playground: isIntrospectionOn,
+	introspection: true,
+	playground: true,
 	subscriptions: { onConnect }
 })
 
