@@ -3,5 +3,6 @@ module.exports = {
     plant: require('./plant.graphql'),
     nook: require('./nook.graphql'),
     plantType: require('./plantType.graphql'),
-    watering: require('./watering.graphql')
+    watering: require('./watering.graphql'),
+    wish: require('./wish.graphql')
 }
