@@ -90,6 +90,17 @@ type Watering implements Node {
   plant: Plant!
   expectedAt: Date!
   executedAt: Date
+  createdAt: Date!
+  updatedAt: Date
+}
+
+type Wish implements Node {
+  id: ID! 
+  user: User!
+  plantType: PlantType!
+  nook: Nook
+  createdAt: Date!
+  updatedAt: Date
 }
 
 """

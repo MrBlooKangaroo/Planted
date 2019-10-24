@@ -9,6 +9,14 @@ module.exports = {
         allowNull: false,
         defaultValue: literal('uuid_generate_v4()')
       },
+      createdAt: {
+        allowNull: false,
+        type: DATE
+      },
+      updatedAt: {
+        allowNull: true,
+        type: DATE
+      },
       plantId: {
         type: UUID,
         allowNull: false,

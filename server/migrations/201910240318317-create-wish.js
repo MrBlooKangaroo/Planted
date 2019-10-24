@@ -34,8 +34,8 @@ module.exports = {
             }
         },
         nookId: {
-            allowNull: true,
             type: UUID,
+            allowNull: true,
             references: {
                 model: 'nooks',
                 key: 'id'
