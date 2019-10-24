@@ -40,7 +40,7 @@ describe('User Resolver', () => {
     expect(errors[0].extensions.code).toBe('NOT_FOUND')
   })
 
-  it('should have a valid relationship with nooks', async () => {
+  it('should include associated nooks in the response', async () => {
     const { testClient } = await createTestClient()
     const user = await db.user.create(testUser)
     await db.nook.create({ 

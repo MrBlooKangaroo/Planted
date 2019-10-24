@@ -17,6 +17,10 @@ module.exports = {
         allowNull: false,
         type: DATE,
       },
+      nickname: {
+        allowNull: false,
+        type: STRING,
+      },
       firstName: {
         allowNull: false,
         type: STRING,

@@ -1,8 +1,6 @@
 const db = require('../models')
 const { nooks } = require('./data')
-
-const getRandomId = array =>
-  array[Math.floor(Math.random() * array.length)].id
+const { getRandomId } = require('../utils')
 
 module.exports = {
   up: async () => {
