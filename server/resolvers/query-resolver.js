@@ -9,7 +9,7 @@ exports.user = async (_obj, input) => {
   return user || raiseNotFoundError()
 }
   
-exports.users = async (_obj, inputs, test, test3 ) => {
+exports.users = async () => {
   return await db.user.findAll()
 }
 
