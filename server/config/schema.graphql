@@ -20,6 +20,9 @@ type Query {
   wishes: [Wish!]
 }
 
+"""
+  A user of the Planted app.
+"""
 type User implements Node {
   id: ID!
   firstName: String!
@@ -32,6 +35,10 @@ type User implements Node {
   updatedAt: Date
 }
 
+"""
+  The instance of a user owning a plant.
+  Has to be tied to a nook.
+"""
 type Plant implements Node {
 	id: ID!
 	photoUrl: String
@@ -42,6 +49,10 @@ type Plant implements Node {
 	updatedAt: Date
 }
 
+"""
+  A space for grouping plants together.
+  Nooks should not span multiple rooms. 
+"""
 type Nook implements Node {
   id: ID!
   name: String!
@@ -54,6 +65,10 @@ type Nook implements Node {
   updatedAt: Date
 }
 
+"""
+  A particular kind of a plant.
+  Contains most of the static data.
+"""
 type PlantType implements Node { 
   id: ID! 
   name: String!
@@ -67,6 +82,10 @@ type PlantType implements Node {
   wishes: [Wish!]
 }
 
+"""
+  The act of watering a plant. 
+  Can be marked as executed.
+"""
 type Watering implements Node {
   id: ID! 
   plant: Plant!
@@ -74,6 +93,10 @@ type Watering implements Node {
   executedAt: Date
 }
 
+"""
+  The act of adding a kind of plant to a user's wishlist. 
+  Can be optionally tied to a nook.
+"""
 type Wish implements Node {
   id: ID! 
   user: User!
