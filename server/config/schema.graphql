@@ -90,8 +90,6 @@ type Watering implements Node {
   plant: Plant!
   expectedAt: Date!
   executedAt: Date
-  createdAt: Date!
-  updatedAt: Date
 }
 
 type Wish implements Node {
