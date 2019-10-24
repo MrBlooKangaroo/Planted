@@ -92,6 +92,10 @@ type Watering implements Node {
   executedAt: Date
 }
 
+"""
+  The act of adding a kind of plant to a user's wishlist. 
+  Can be optionally tied to a nook.
+"""
 type Wish implements Node {
   id: ID! 
   user: User!
