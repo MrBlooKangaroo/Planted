@@ -20,7 +20,7 @@ module.exports = {
         plantTypeId: plantType.id
       }
     })
-
+    
     const plantToWaterCycleDict = plantToPlantTypeDict.map(({ plantId, plantTypeId }) => {
       const waterCycle = plantTypeToWaterCycleDict.filter(plantTypeToWaterCycleDef => {
         return plantTypeId === plantTypeToWaterCycleDef.plantTypeId
