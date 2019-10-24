@@ -1,5 +1,5 @@
 const db = require('../models')
-const { raiseNotFoundError, getBuildNumber } = require('../utils')
+const { raiseNotFoundError} = require('../utils')
 
 exports.user = async (_obj, input) => {
   const user = await db.user.findOne({
@@ -72,5 +72,3 @@ exports.wish = async (_obj, { id }) => {
 exports.wishes = async () => {
   return await db.wish.findAll()
 }
-
-exports.buildNumber = getBuildNumber
