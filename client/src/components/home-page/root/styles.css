@@ -11,4 +11,5 @@ main,
   align-items: center;
   display: flex;
   flex-direction: column;
+  background: #f5f8f6;
 }
