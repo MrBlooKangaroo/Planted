@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { vibes, plantTypes } from './utils';
+import { vibes } from './utils';
 import Card from './Card';
 import {
   header,
