@@ -19,7 +19,7 @@ const NavBar = () => (
       <input
         className={input}
         type="text"
-        placeholder="&#xf002;    Search Plant Names"
+        placeholder=" &#xf002;    Search Plant Names"
       />
       <button className={login}>Log in</button>
     </div>
