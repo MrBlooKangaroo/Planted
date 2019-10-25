@@ -17,14 +17,6 @@
   font-size: 2.2rem;
   margin-left: 3.4rem;
 }
-.logo:hover {
-  cursor: pointer;
-  color: #675016;
-}
-.logo:active {
-  transform: scale(0.9);
-  color: #3e300f;
-}
 
 .searchBar {
   font-family: 'Karla', sans-serif;
@@ -41,14 +33,6 @@
   margin-right: 4rem;
   font-size: 1.3rem;
   font-weight: bold;
-}
-.login:hover {
-  background: #86630a;
-  color: #fff3d3;
-  border: solid 2px #ffedc0;
-}
-.login:active {
-  transform: scale(0.9);
 }
 
 input {
