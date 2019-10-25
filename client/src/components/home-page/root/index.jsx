@@ -3,20 +3,12 @@ import styles from './styles.css';
 import { Login } from '../../login/root/index';
 // import styles from './styles.css';
 import NavBar from '../NavBar';
-
-export const text = {
-  headline: 'Graphql Starter Kit',
-  greeting: 'Make some stuff!',
-};
+import Explore from '../Explore';
 
 const HomePageRoot = () => (
   <main className={styles.root}>
-    <h1 className={styles.headline}>{text.headline}</h1>
+    <h1 className={styles.headline}>Planted</h1>
     <NavBar />
-    <section>
-      <span className={styles.greeting}>{text.greeting}</span>
-      <Login />
-    </section>
   </main>
 );
 
