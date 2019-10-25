@@ -8,9 +8,11 @@
   background-color: #ffc32d;
   justify-content: space-between;
   height: 6.7rem;
+  box-shadow: #a77b0b 0rem 0.2rem 0.6rem;
 }
 
 .logo {
+  color: #212121;
   font-family: 'Halant', serif;
   font-size: 2.2rem;
   margin-left: 3.4rem;
@@ -50,16 +52,13 @@
 }
 
 input {
-  padding: 0.3rem;
   border: solid 1px #7a7a7a;
-  font-family: FontAwesome, 'Open Sans', Verdana, sans-serif;
-  border-radius: 4px;
   padding: 0.7rem;
-  font-family: FontAwesome, 'Open Sans', Verdana, sans-serif;
+  font-family: FontAwesome, 'Karla', sans-serif;
   border-radius: 4px;
   width: 21rem;
-  height: 1.5rem;
-  font-size: 1rem;
+  height: 1.7rem;
+  font-size: 1.1rem;
 }
 
 .input:focus,
