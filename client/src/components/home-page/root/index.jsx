@@ -1,21 +1,12 @@
-import React from 'react'
-import styles from './styles.css'
-import { Login } from '../../login/root/index'
-// import styles from './styles.css';
-
-export const text = {
-	headline: 'Graphql Starter Kit',
-	greeting: 'Make some stuff!'
-}
+import React, { Fragment } from 'react'
+import NavBar from '../NavBar'
+import Explore from '../Explore'
 
 const HomePageRoot = () => (
-	<main className={styles.root}>
-		<h1 className={styles.headline}>{text.headline}</h1>
-		<section>
-			<span className={styles.greeting}>{text.greeting}</span>
-			<Login />
-		</section>
-	</main>
+	<Fragment>
+		<NavBar />
+		<Explore />
+	</Fragment>
 )
 
 export { HomePageRoot }
