@@ -15,6 +15,14 @@
 	font-size: 2.2rem;
 	margin-left: 3.4rem;
 }
+.logo:hover {
+	cursor: pointer;
+	color: #675016;
+}
+.logo:active {
+	transform: scale(0.9);
+	color: #3e300f;
+}
 
 .searchBar {
 	font-family: 'Karla', sans-serif;
@@ -42,13 +50,16 @@
 }
 
 input {
+	padding: 0.3rem;
 	border: solid 1px #7a7a7a;
+	font-family: FontAwesome, 'Open Sans', Verdana, sans-serif;
+	border-radius: 4px;
 	padding: 0.7rem;
-	font-family: FontAwesome, 'Karla', sans-serif;
+	font-family: FontAwesome, 'Open Sans', Verdana, sans-serif;
 	border-radius: 4px;
 	width: 21rem;
-	height: 1.7rem;
-	font-size: 1.1rem;
+	height: 1.5rem;
+	font-size: 1rem;
 }
 
 .input:focus,
