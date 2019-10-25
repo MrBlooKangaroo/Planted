@@ -1,7 +1,11 @@
 html,
 body,
 main,
-#app,
+#app {
+	height: 100%;
+	background: #f5f8f6;
+}
+
 .root {
 	height: 100%;
 	background: #f5f8f6;
