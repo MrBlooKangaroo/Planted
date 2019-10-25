@@ -13,15 +13,14 @@
     "db:rollback": "sequelize db:migrate:undo",
     "db:rollback:all": "sequelize db:migrate:undo && NODE_ENV=test sequelize db:migrate:undo",
     "db:reset": "yarn db:drop && yarn db:setup",
-    "db:setup": "yarn db:drop:all && yarn db:create:all && yarn db:migrate:all && yarn db:seed",
+    "db:setup": "yarn db:create:all && yarn db:migrate:all && yarn db:seed",
     "db:seed": "sequelize db:seed:all",
     "db:seed:undo": "sequelize db:seed:undo:all",
     "sequelize": "sequelize",
     "start": "node index.js",
     "start-production": "NODE_ENV=production node index.js",
     "test": "NODE_ENV=test jest --bail --runInBand --watch",
-    "repl": "node --experimental-repl-await --eval 'const models = require(\"./models\")' --interactive",
-    "update-build-number": "node ./utils/update-build-number.js"
+    "repl": "node --experimental-repl-await --eval 'const models = require(\"./models\")' --interactive"
   },
   "dependencies": {
     "apollo-server": "^2.4.8",
@@ -31,16 +30,17 @@
     "graphql": "^14.1.1",
     "graphql-subscriptions": "^1.0.0",
     "graphql-tools": "^4.0.5",
+    "moment": "^2.24.0",
     "papaparse": "^5.1.0",
     "pg": "^7.11.0",
     "querystring": "^0.2.0",
-    "sequelize": "^4.42.1"
+    "sequelize": "^4.42.1",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "apollo-server-testing": "^2.4.8",
     "jest": "^24.1.0",
-    "jest-watch-typeahead": "^0.2.1",
-    "sequelize-cli": "^5.4.0"
+    "jest-watch-typeahead": "^0.2.1"
   },
   "jest": {
     "watchPlugins": [
