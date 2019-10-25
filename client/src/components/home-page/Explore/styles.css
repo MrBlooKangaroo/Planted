@@ -1,19 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Halant:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-* {
-  transition: all 0.2s ease;
-}
-
 .header {
   color: rgba(33, 33, 33, 0.9);
   font-family: 'Halant', serif;
   font-size: 3.6rem;
   text-align: center;
   margin-top: 4.5rem;
-}
-.header:hover {
-  color: #675016;
 }
 
 .chooseVibe {
@@ -70,13 +63,6 @@
   font-family: 'Karla', sans-serif;
   margin-bottom: 1rem;
   transition: all 0.05s linear;
-}
-.menuItem:hover {
-  cursor: pointer;
-  color: #1ece77;
-}
-.menuItem:active {
-  transform: scaleX(0.9);
 }
 
 .carousel {
