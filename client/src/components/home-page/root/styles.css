@@ -1,7 +1,9 @@
 html,
 body,
-main {
+main,
+#app {
   height: 100%;
+  background: #f5f8f6;
 }
 
 .root {
