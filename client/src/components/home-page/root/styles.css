@@ -3,12 +3,13 @@ body,
 main,
 #app,
 .root {
-  height: 100%;
-  background: #f5f8f6;
+	height: 100%;
+	background: #f5f8f6;
 }
 
 .root {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	background: #f5f8f6;
 }
