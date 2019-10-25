@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import NavBar from '../NavBar';
-import Explore from '../Explore';
+import React, { Fragment } from 'react'
+import NavBar from '../NavBar'
+import Explore from '../Explore'
 
 const HomePageRoot = () => (
-  <Fragment>
-    <NavBar />
-    <Explore />
-  </Fragment>
-);
+	<Fragment>
+		<NavBar />
+		<Explore />
+	</Fragment>
+)
 
-export { HomePageRoot };
+export { HomePageRoot }
