@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './styles.css';
+import React, { Fragment } from 'react';
+// import styles from './styles.css';
+import NavBar from '../NavBar';
 
 export const text = {
   headline: 'Graphql Starter Kit',
@@ -7,12 +8,9 @@ export const text = {
 };
 
 const HomePageRoot = () => (
-  <main className={styles.root}>
-    <h1 className={styles.headline}>{text.headline}</h1>
-    <section>
-      <span className={styles.greeting}>{text.greeting}</span>
-    </section>
-  </main>
+  <Fragment>
+    <NavBar />
+  </Fragment>
 );
 
 export { HomePageRoot };
