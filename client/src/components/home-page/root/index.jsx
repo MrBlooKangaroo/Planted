@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './styles.css';
 import { Login } from '../../login/root/index';
+// import styles from './styles.css';
+import NavBar from '../NavBar';
 
 export const text = {
   headline: 'Graphql Starter Kit',
@@ -10,6 +12,7 @@ export const text = {
 const HomePageRoot = () => (
   <main className={styles.root}>
     <h1 className={styles.headline}>{text.headline}</h1>
+    <NavBar />
     <section>
       <span className={styles.greeting}>{text.greeting}</span>
       <Login />
