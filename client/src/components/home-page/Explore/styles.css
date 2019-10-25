@@ -78,3 +78,19 @@
   background: white;
   margin: 0 1rem;
 }
+
+.dropdown {
+  padding: 1rem;
+  background: white;
+  margin: 2rem auto;
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  width: 13rem;
+  border-radius: 4px;
+  box-shadow: #2b4c3c40 0rem 0.5rem 0.9rem;
+}
+
+.caret {
+  margin-left: 2rem;
+  font-size: 1.1rem;
+}
