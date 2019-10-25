@@ -25,6 +25,14 @@
 	transform: scale(0.9);
 	color: #3e300f;
 }
+.logo:hover {
+	cursor: pointer;
+	color: #675016;
+}
+.logo:active {
+	transform: scale(0.9);
+	color: #3e300f;
+}
 
 .searchBar {
 	font-family: 'Karla', sans-serif;
