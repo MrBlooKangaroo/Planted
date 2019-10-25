@@ -1,6 +1,16 @@
-import React from 'react';
-import { header } from './styles.css';
+import React, { Fragment } from 'react';
+import { header, dropdown, caret } from './styles.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = () => <main className={header}>Find new plant friends.</main>;
+const Explore = () => (
+  <Fragment>
+    <main className={header}>Find new plant friends.</main>
+    <div className={dropdown}>
+      CHOOSE YOUR VIBE
+      <FontAwesomeIcon className={caret} icon={faAngleDown} />
+    </div>
+  </Fragment>
+);
 
-export default NavBar;
+export default Explore;
