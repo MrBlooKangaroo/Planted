@@ -54,13 +54,18 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "classnames": "^2.2.6",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-icons": "^3.7.0",
     "react-router-dom": "^4.3.1",
     "react-testing-library": "^6.0.0",
+    "reactstrap": "^8.1.1",
     "serve": "^11.0.1"
   },
   "babel": {
