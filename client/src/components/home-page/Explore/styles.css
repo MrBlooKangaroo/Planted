@@ -93,10 +93,10 @@
 	margin: 0 1rem;
 }
 
-.dropdown {
+.chooseVibe {
 	padding: 1rem;
 	background: white;
-	margin: 2rem auto;
+	margin: 2rem auto 0rem auto;
 	font-family: 'Karla', sans-serif;
 	font-weight: bold;
 	width: 13rem;
@@ -104,7 +104,57 @@
 	box-shadow: #2b4c3c40 0rem 0.5rem 0.9rem;
 }
 
-.caret {
+.caretUp,
+.caretDown {
 	margin-left: 2rem;
 	font-size: 1.1rem;
+}
+.caretUp:active,
+.caretDown:active {
+	transform: scale(0.5);
+}
+
+.caretUp {
+	transform: rotate(0deg);
+}
+
+.caretDown {
+	transform: rotate(180deg);
+}
+
+.menuOpen,
+.menuClosed {
+	background: white;
+	list-style: none;
+	margin: auto;
+	box-shadow: #2b4c3c40 0rem 1rem 0.9rem;
+	border-radius: 4px;
+	width: 11rem;
+	padding: 1rem 2rem;
+	color: #212121;
+	border-top: solid 2px #fec32d;
+}
+
+.menuOpen {
+	height: 16rem;
+	opacity: 1;
+}
+
+.menuClosed {
+	height: 0;
+	opacity: 0;
+}
+
+.menuItem {
+	font-size: 1.2rem;
+	font-family: 'Karla', sans-serif;
+	margin-bottom: 1rem;
+	transition: all 0.05s linear;
+}
+.menuItem:hover {
+	cursor: pointer;
+	color: #1ece77;
+}
+.menuItem:active {
+	transform: scaleX(0.9);
 }
