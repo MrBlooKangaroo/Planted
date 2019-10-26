@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Halant:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
+* {
+  transition: all 0.2s ease;
+}
+
 .header {
   color: rgba(33, 33, 33, 0.9);
   font-family: 'Halant', serif;
@@ -12,10 +16,10 @@
   color: #675016;
 }
 
-.dropdown {
+.chooseVibe {
   padding: 1rem;
   background: white;
-  margin: 2rem auto;
+  margin: 2rem auto 0rem auto;
   font-family: 'Karla', sans-serif;
   font-weight: bold;
   width: 13rem;
@@ -50,8 +54,8 @@
   padding: 1rem 2rem;
   color: #212121;
   border-top: solid 2px #fec32d;
-  overflow: hidden;
 }
+
 .menuOpen {
   height: 16rem;
   opacity: 1;
@@ -73,18 +77,4 @@
 }
 .menuItem:active {
   transform: scaleX(0.9);
-}
-
-.carousel {
-  display: flex;
-  flex-direction: row;
-}
-
-.card {
-  justify-content: space-between;
-  align-items: center;
-  width: 10rem;
-  height: 20rem;
-  background: white;
-  margin: 0 1rem;
 }

@@ -7,5 +7,3 @@ export const vibes = [
   'Greenhouse',
   "Farmer's Fantasy",
 ];
-
-export const plantTypes = ['Monstera', 'Ficus', "Elephant's Ear"];
