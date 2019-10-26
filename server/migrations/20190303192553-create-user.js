@@ -26,7 +26,7 @@ module.exports = {
         type: STRING,
       },
       nickname: {
-        allowNull: false,
+        allowNull: true,
         type: STRING,
       },
       photoUrl: {

@@ -2,7 +2,8 @@ exports.testUser = {
     nickname: 'Hotshot',
     firstName: 'Mook',
     lastName: 'Flexer',
-    email: 'mookin@mook.com'
+    email: 'mookin@mook.com',
+    photoUrl: 'aplant.png'
 }
 
 exports.testPlant = {
@@ -26,6 +27,6 @@ exports.testPlantType = {
   }
 
 exports.testWatering = {
-    expectedAt: new Date(),
+    expectedAt: '1995-12-17T08:24:00.000Z',
     executedAt: null
 }

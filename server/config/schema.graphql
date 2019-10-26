@@ -20,7 +20,7 @@ type Query {
 
 type User implements Node {
 	id: ID!
-	nickname: String!
+	nickname: String
 	firstName: String!
 	lastName: String
 	email: String
@@ -78,10 +78,10 @@ type Mutation {
 }
 
 input CreateUserInput {
-  nickname: String!
+	nickname: String!
 	firstName: String!
 	lastName: String
-  photoUrl: String
+	photoUrl: String
 	email: String
 }
 

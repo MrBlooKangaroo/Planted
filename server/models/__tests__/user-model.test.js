@@ -18,13 +18,6 @@ describe('User Model', () => {
       expect(user.email).toBe('mookin@mook.com')
     })
 
-    it('should require presence of nickname', async () => {
-      const user = await db.user.create({ ...testUser, nickname: null })
-        .catch(({ name: errorName }) => errorName)
-
-      expect(user).toBe('SequelizeDatabaseError')
-    })
-
     it('should require presence of firstName', async () => {
       const user = await db.user.create({ ...testUser, firstName: null })
         .catch(({ name: errorName }) => errorName)
