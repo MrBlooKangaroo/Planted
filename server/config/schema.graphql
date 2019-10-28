@@ -78,7 +78,7 @@ type Mutation {
 input CreateUserInput {
 	firstName: String!
 	lastName: String
-  photoUrl: String
+	photoUrl: String
 	email: String
 }
 

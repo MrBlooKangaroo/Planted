@@ -46,8 +46,8 @@ describe('Watering Resolver', () => {
     expect(responseWatering).toBeDefined()
     expect(response.errors).toBe(undefined)
     expect(responseWatering).toBeDefined()
-    expect(responseWatering.expectedAt).toBe(testWatering.expectedAt.toISOString())
-    expect(responseWatering.executedAt).toBeDefined()
+    expect(responseWatering.expectedAt).toBe(testWatering.expectedAt)
+    expect(responseWatering.executedAt).toBe(null)
   })
 
   it('should return NOT_FOUND error if invalid watering id supplied', async () => {
