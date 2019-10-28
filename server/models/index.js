@@ -10,22 +10,9 @@ require('dotenv').config()
 
 let sequelize
 if (config.use_env_variable) {
-  const {
-    database,
-    username,
-    host,
-    password,
-    use_env_variable,
-    ...restOfConfig
-  } = config
   sequelize = new Sequelize(
-    process.env[database],
-    process.env[username],
-    process.env[password],
-    {
-      host: process.env[host],
-      ...restOfConfig,
-    },
+    process.env[config.use_env_variable], 
+    config
   )
 } else {
   sequelize = new Sequelize(

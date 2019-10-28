@@ -13,10 +13,6 @@
 		"operatorsAliases": false
 	},
 	"production": {
-		"database": "DB_NAME",
-		"username": "DB_USERNAME",
-		"host": "DB_HOST",
-		"password": "DB_PASSWORD",
 		"use_env_variable": "DATABASE_URL",
 		"dialect": "postgres",
 		"operatorsAliases": false
