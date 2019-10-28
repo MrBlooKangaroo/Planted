@@ -46,7 +46,7 @@ describe('Watering Resolver', () => {
     expect(responseWatering).toBeDefined()
     expect(response.errors).toBe(undefined)
     expect(responseWatering).toBeDefined()
-    expect(responseWatering.expectedAt).toBe('1995-12-17T08:24:00.000Z')
+    expect(responseWatering.expectedAt).toBe(testWatering.expectedAt)
     expect(responseWatering.executedAt).toBe(null)
   })
 

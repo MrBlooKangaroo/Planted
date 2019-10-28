@@ -35,7 +35,7 @@ describe('User Resolver', () => {
         const response = await testClient.mutate({ mutation: CREATE_USER, variables: {user:{...testUser}} })
         const responseUser = response.data.createUser.user
     
-        expect(response.data.createUser.user).toBeDefined()
+        expect(responseUser).toBeDefined()
         expect(responseUser.firstName).toBe(testUser.firstName)
         expect(responseUser.lastName).toBe(testUser.lastName)
         expect(responseUser.photoUrl).toBe(testUser.photoUrl)
