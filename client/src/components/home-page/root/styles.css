@@ -1,7 +1,8 @@
 html,
 body,
 main,
-#app {
+#app,
+.root {
   height: 100%;
   background: #f5f8f6;
 }
@@ -10,13 +11,4 @@ main,
   align-items: center;
   display: flex;
   flex-direction: column;
-  background: #f5f8f6;
-}
-
-.headline {
-  color: #000000;
-}
-
-.greeting {
-  color: #404040;
 }
