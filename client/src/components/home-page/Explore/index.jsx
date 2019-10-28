@@ -29,18 +29,9 @@ const Explore = () => {
       </div>
       <ul className={isOpen ? menuOpen : menuClosed}>
         {vibes.map(vibe => (
-          <li className={menuItem} key={vibe}>
-            {vibe}
-          </li>
+          <li className={menuItem}>{vibe}</li>
         ))}
       </ul>
-      {
-        // <ul className={carousel}>
-        //   {plantTypes.map(plantType =>
-        //     <Card plantType={plantType} key={plantType}/>
-        //   )}
-        // </ul>
-      }
     </Fragment>
   );
 };
