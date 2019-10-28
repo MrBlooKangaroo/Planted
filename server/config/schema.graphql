@@ -5,29 +5,27 @@ interface Node {
 }
 
 type Query {
-	buildNumber: String
-	user(id: ID!): User
-	users: [User!]!
-	plant(id: ID!): Plant
-	plants: [Plant!]!
-	nook(id: ID!): Nook
-	nooks: [Nook!]
-	plantType(id: ID!): PlantType
-	plantTypes: [PlantType!]
-	watering(id: ID!): Watering
-	waterings: [Watering!]
+  user(id: ID!): User
+  users: [User!]
+  plant(id: ID!): Plant
+  plants: [Plant!]
+  nook(id: ID!): Nook
+  nooks: [Nook!]
+  plantType(id: ID!): PlantType
+  plantTypes: [PlantType!]
+  watering(id: ID!): Watering
+  waterings: [Watering!]
 }
 
 type User implements Node {
-	id: ID!
-	nickname: String!
-	firstName: String!
-	lastName: String
-	email: String
-	photoUrl: String
-	nooks: [Nook!]
-	createdAt: Date!
-	updatedAt: Date
+  id: ID!
+  firstName: String!
+  lastName: String 
+  email: String
+  photoUrl: String
+  nooks: [Nook!]
+  createdAt: Date!
+  updatedAt: Date
 }
 
 type Plant implements Node {
@@ -41,44 +39,43 @@ type Plant implements Node {
 }
 
 type Nook implements Node {
-	id: ID!
-	name: String!
-	photoUrl: String
-	luxLevel: LuxLevel!
-	user: User!
-	plants: [Plant!]
-	createdAt: Date!
-	updatedAt: Date
+  id: ID!
+  name: String!
+  photoUrl: String
+  luxLevel: LuxLevel!
+  user: User!
+  plants: [Plant!]
+  createdAt: Date!
+  updatedAt: Date
 }
 
-type PlantType implements Node {
-	id: ID!
-	name: String!
-	description: String!
-	instructions: String!
-	photoUrl: String!
-	luxLevel: LuxLevel!
-	waterLevel: WaterLevel!
-	waterCycle: WaterCycle!
-	plants: [Plant!]
+type PlantType implements Node { 
+  id: ID! 
+  name: String!
+  description: String! 
+  instructions: String! 
+  photoUrl: String!
+  luxLevel: LuxLevel! 
+  waterLevel: WaterLevel!
+  waterCycle: WaterCycle!
+  plants: [Plant!]
 }
 
-type Watering {
-	id: ID!
-	plant: Plant!
-	expectedAt: Date!
-	executedAt: Date
+type Watering implements Node {
+  id: ID! 
+  plant: Plant!
+  expectedAt: Date!
+  executedAt: Date
 }
 
 type Mutation {
-	createUser(input: CreateUserInput): UserPayload
-	createPlant(input: CreatePlantInput): PlantPayload
-	createNook(input: CreateNookInput): NookPayload
-	createWatering(input: CreateWateringInput): WateringPayload
+  createUser(input: CreateUserInput): UserPayload
+  createPlant(input: CreatePlantInput): PlantPayload
+  createNook(input: CreateNookInput): NookPayload
+  createWatering(input: CreateWateringInput): WateringPayload
 }
 
 input CreateUserInput {
-  nickname: String!
 	firstName: String!
 	lastName: String
   photoUrl: String
@@ -105,26 +102,22 @@ input CreateWateringInput {
 }
 
 type UserPayload {
-	user: User
+  user: User
 }
-
 type PlantPayload {
-	plant: Plant
+  plant: Plant
 }
-
 type NookPayload {
-	nook: Nook
+  nook: Nook
 }
-
 type WateringPayload {
-	watering: Watering
+  watering: Watering
 }
 
-enum LuxLevel {
-	HIGH
-	MEDIUM
-	LOW
-	ALL
+enum LuxLevel { 
+  HIGH 
+  MEDIUM 
+  LOW
 }
 
 enum WaterLevel {

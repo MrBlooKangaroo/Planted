@@ -1,5 +1,4 @@
 exports.testUser = {
-    nickname: 'Hotshot',
     firstName: 'Mook',
     lastName: 'Flexer',
     email: 'mookin@mook.com'

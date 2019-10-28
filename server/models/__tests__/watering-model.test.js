@@ -1,12 +1,12 @@
 const db = require('../index')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
 const { 
     testUser, 
     testPlant, 
     testNook, 
     testPlantType, 
     testWatering 
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -65,5 +65,5 @@ describe('Watering Model', () => {
             expect(plantWaterings[0].plantId).toBe(plant.id)
         })
     })
-  })
+})
   

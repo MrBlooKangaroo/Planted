@@ -2,7 +2,6 @@ module.exports = (sequelize, {
 	STRING
 }) => {
 	const user = sequelize.define('user', {
-		nickname: STRING,
 		firstName: STRING,
 		lastName: STRING,
 		photoUrl: STRING,

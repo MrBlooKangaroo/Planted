@@ -1,12 +1,12 @@
 const db = require('../index')
-const { LuxLevel, WaterCycle } = require('../../utils/seeds/enums')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
+const { LuxLevel, WaterLevel, WaterCycle } = require('../../utils/enums')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
 const { 
   testUser, 
   testNook,
   testPlant,
   testPlantType
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -74,18 +74,23 @@ describe('Plant Type Model', () => {
 
       expect(plantType).toBe('SequelizeDatabaseError')
     })
-
-    it('should only accept allowed WaterCycle values', async () => {
-      const plantType = await db.plantType.create({...testPlantType})
-  
-      expect(WaterCycle).toContain(plantType.waterCycle)
-    })
-
-    it('should only accept allowed Level values', async () => {
+    
+    it('should only accept allowed LuxLevel values', async () => {
       const plantType = await db.plantType.create({...testPlantType})
 
       expect(LuxLevel).toContain(plantType.luxLevel)
-      expect(LuxLevel).toContain(plantType.waterLevel)
+    })
+
+    it('should only accept allowed WaterLevel values', async () => {
+      const plantType = await db.plantType.create({...testPlantType})
+
+      expect(WaterLevel).toContain(plantType.waterLevel)
+    })
+
+    it('should only accept allowed WaterCycle values', async () => {
+      const plantType = await db.plantType.create({...testPlantType})
+
+      expect(WaterCycle).toContain(plantType.waterCycle)
     })
   })
 

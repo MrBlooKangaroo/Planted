@@ -17,15 +17,15 @@ module.exports = {
         allowNull: false,
         type: DATE,
       },
+      nickname: {
+        allowNull: false,
+        type: STRING,
+      },
       firstName: {
         allowNull: false,
         type: STRING,
       },
       lastName: {
-        allowNull: false,
-        type: STRING,
-      },
-      nickname: {
         allowNull: false,
         type: STRING,
       },
@@ -37,9 +37,9 @@ module.exports = {
         allowNull: false,
         type: STRING,
         unique: true,
-      },
-    });
+      }
+    })
   },
   down: queryInterface =>
     queryInterface.dropTable('users')
-};
+}

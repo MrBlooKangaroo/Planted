@@ -1,8 +1,7 @@
 exports.LuxLevel = [
     'HIGH',
     'MEDIUM',
-    'LOW',
-    'ALL'
+    'LOW'
 ]
 
 exports.WaterLevel = [
@@ -12,7 +11,8 @@ exports.WaterLevel = [
 ]
 
 exports.WaterCycle = [
-    'BIWEEKLY',
+    'DAILY',
     'WEEKLY',
+    'BIWEEKLY',
     'MONTHLY'
 ]

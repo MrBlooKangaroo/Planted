@@ -1,4 +1,4 @@
-const { LuxLevel } = require('../utils/seeds/enums.ts')
+const { LuxLevel } = require('../utils/enums')
 
 module.exports = {
   up: async (queryInterface, {

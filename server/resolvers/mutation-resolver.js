@@ -15,18 +15,17 @@ exports.createUser = async (obj, { input }, { currentUser }, info) => {
   }
 }
 
-exports.createPlant = async (obj, { input }, { currentUser }, info) => {
+exports.createPlant = async (obj, { input }) => {
   const plant = await db.plant.create({ ...input })
   return { plant }
 }
 
-exports.createNook = async (obj, { input }, { currentUser }, info) => {
+exports.createNook = async (obj, { input }) => {
   const nook = await db.nook.create({ ...input })
   return { nook }
 }
 
-exports.createWatering = async (obj, { input }, { currentUser }, info) => {
+exports.createWatering = async (obj, { input }) => {
   const watering = await db.watering.create({ ...input })
   return { watering }
 }
-  

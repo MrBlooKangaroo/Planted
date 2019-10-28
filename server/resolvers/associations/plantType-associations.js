@@ -1,0 +1,1 @@
+exports.plants = plantType => plantType.getPlants()

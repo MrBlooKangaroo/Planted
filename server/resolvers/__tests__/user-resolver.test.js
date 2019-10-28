@@ -3,12 +3,9 @@ const {
   cleanUpDb, 
   createQuery,
   createTestClient,
-  closeDbConnection
-} = require('../../utils/test')
-const { 
-  testUser, 
-  testNook 
-} = require('../../utils/seeds/testData')
+  closeDbConnection, 
+} = require('../../utils/testing')
+const { testUser, testNook } = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -28,7 +25,6 @@ describe('User Resolver', () => {
     
     expect(response.errors).toBe(undefined)
     expect(responseUser).toBeDefined()
-    expect(responseUser.nickname).toBe(testUser.nickname)
     expect(responseUser.firstName).toBe(testUser.firstName)
     expect(responseUser.lastName).toBe(testUser.lastName)
     expect(responseUser.email).toBe(testUser.email)

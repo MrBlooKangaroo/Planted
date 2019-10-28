@@ -1,12 +1,12 @@
 const db = require('../index')
-const { LuxLevel } = require('../../utils/seeds/enums')
-const { cleanUpDb, closeDbConnection } = require('../../utils/test')
+const { LuxLevel } = require('../../utils/enums')
+const { cleanUpDb, closeDbConnection } = require('../../utils/testing')
 const { 
   testUser, 
   testNook,
   testPlant,
   testPlantType
-} = require('../../utils/seeds/testData')
+} = require('../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -40,7 +40,12 @@ describe('Nook Model', () => {
     })
 
     it('should require presence of luxLevel', async () => {
-      const nook = await db.nook.create({ ...testNook, luxLevel: null })
+      const user = await db.user.create(testUser)
+      const nook = await db.nook.create({ 
+        ...testNook, 
+        userId: user.id,
+        luxLevel: null 
+      })
         .catch(({ name: errorName }) => errorName)
 
       expect(nook).toBe('SequelizeDatabaseError')
@@ -69,7 +74,6 @@ describe('Nook Model', () => {
 
       expect(nookUser).toBeDefined()
       expect(nookUser.id).toBe(user.id)
-      expect(nookUser.nickname).toBe(user.nickname)
       expect(nookUser.firstName).toBe(user.firstName)
       expect(nookUser.lastName).toBe(user.lastName)
       expect(nookUser.photoUrl).toBe(user.photoUrl)
