@@ -8,7 +8,7 @@ const cleanUpDb = async done => {
       const foreignKeyReferences = await queryInterface.getForeignKeyReferencesForTable(
         tableName,
       )
-        console.log(foreignKeyReferences)
+
       const addForeignKeyCallbacks = foreignKeyReferences.map(
         ({
           columnName,

@@ -6,9 +6,7 @@ module.exports = {
     const plants = await db.plant.findAll()
     const plantTypes = await db.plantType.findAll()
     const wateringSeeds = plants.map(plant => {
-      const plantType = plantTypes.find(({ id }) =>
-        id === plant.plantTypeId
-      )
+      const plantType = plantTypes.find(({ id }) => id === plant.plantTypeId)
       const waterCycle = plantType ? plantType.waterCycle : ''
       switch(waterCycle) {
         default:
