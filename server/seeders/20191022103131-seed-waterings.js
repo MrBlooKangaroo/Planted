@@ -22,7 +22,7 @@ module.exports = {
           }
         case 'MONTHLY':
           return { 
-            expectedAt: moment().add(1, 'weeks').toISOString(),
+            expectedAt: moment().add(1, 'months').toISOString(),
             plantId: plant.id
           }
       }
