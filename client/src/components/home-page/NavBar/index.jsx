@@ -1,16 +1,5 @@
 import React from 'react';
-import {
-  navBar,
-  logo,
-  navContentRight,
-  searchBar,
-  login,
-  input,
-} from './styles.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
-import { FaSearch } from 'react-icons/fa';
+import { navBar, logo, navContentRight, login, input } from './styles.css';
 
 const NavBar = () => (
   <main className={navBar}>
