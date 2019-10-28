@@ -13,10 +13,10 @@
 		"operatorsAliases": false
 	},
 	"production": {
-		"database": "DB_NAME",
-		"username": "DB_USERNAME",
-		"host": "DB_HOST",
-		"password": "DB_PASSWORD",
+		"database": "apprentice_graphql_production",
+		"username": "orrnebcxsqybiv",
+		"host": "ec2-54-204-39-43.compute-1.amazonaws.com",
+		"password": "264edaecffc9919513a05be969dca1c1350c58da36e5959bfd074b6b8437f362",
 		"use_env_variable": "DATABASE_URL",
 		"dialect": "postgres",
 		"operatorsAliases": false

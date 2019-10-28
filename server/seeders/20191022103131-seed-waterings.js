@@ -6,10 +6,10 @@ module.exports = {
     const plants = await db.plant.findAll()
     const plantTypes = await db.plantType.findAll()
     const wateringSeeds = plants.map(plant => {
-      const waterCycle = plantTypes.find(({ id }) =>
-        id === plant.plantTypeId
-      ).waterCycle
+      const plantType = plantTypes.find(({ id }) => id === plant.plantTypeId)
+      const waterCycle = plantType ? plantType.waterCycle : ''
       switch(waterCycle) {
+        default:
         case 'WEEKLY': 
           return { 
             expectedAt: moment().add(1, 'weeks').toISOString(),
