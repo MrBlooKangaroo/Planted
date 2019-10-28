@@ -21,7 +21,7 @@ const Explore = () => {
         CHOOSE YOUR VIBE
         <FontAwesomeIcon
           icon={faAngleDown}
-          className={isOpen ? caretDown : caretUp}
+          className={isOpen ? caretUp : caretDown}
           onClick={() => toggle(!isOpen)}
         />
       </div>
