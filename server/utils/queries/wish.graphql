@@ -2,13 +2,13 @@ query getWish($id: ID!) {
   wish(id: $id) {
     id
     user {
-        id
+      id
     }
     plantType {
-        id
+      id
     }
     nook {
-        id
+      id
     }
     createdAt
     updatedAt  

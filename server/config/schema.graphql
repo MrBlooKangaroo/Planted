@@ -153,9 +153,9 @@ input CreateWateringInput {
 }
 
 input CreateWishInput {
-	userId: ID!
+  userId: ID!
   plantTypeId: ID!
-	nookId: ID
+  nookId: ID
 }
 
 type UserPayload {
