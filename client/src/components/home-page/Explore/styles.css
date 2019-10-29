@@ -18,13 +18,15 @@
 
 .chooseVibe {
   padding: 1rem;
+  font-size: 1.1rem;
   background: white;
-  margin: 2rem auto 0rem auto;
+  margin: 2rem auto 1rem auto;
   font-family: 'Karla', sans-serif;
   font-weight: bold;
-  width: 13rem;
+  width: 17rem;
   border-radius: 4px;
-  box-shadow: #2b4c3c40 0rem 0.5rem 0.9rem;
+  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 0.5rem 0.9rem;
+  text-align: center;
 }
 
 .caretUp,
@@ -43,42 +45,6 @@
   transform: rotate(0deg);
 }
 
-.menuOpen,
-.menuClosed {
-  background: white;
-  list-style: none;
-  margin: auto;
-  box-shadow: #2b4c3c40 0rem 1rem 0.9rem;
-  border-radius: 4px;
-  width: 11rem;
-  padding: 1rem 2rem;
-  color: #212121;
-  border-top: solid 2px #fec32d;
-  overflow: hidden;
-}
-.menuOpen {
-  height: 16rem;
-  opacity: 1;
-}
-.menuClosed {
-  height: 0;
-  opacity: 0;
-}
-
-.menuItem {
-  font-size: 1.2rem;
-  font-family: 'Karla', sans-serif;
-  margin-bottom: 1rem;
-  transition: all 0.05s linear;
-}
-.menuItem:hover {
-  cursor: pointer;
-  color: #1ece77;
-}
-.menuItem:active {
-  transform: scaleX(0.9);
-}
-
 .carousel {
   display: flex;
   flex-direction: row;
@@ -91,4 +57,12 @@
   height: 20rem;
   background: white;
   margin: 0 1rem;
+}
+
+.lightIntensity {
+  grid-column: 0;
+}
+
+.waterFrequency {
+  grid-column: 1;
 }
