@@ -158,3 +158,11 @@
 .menuItem:active {
 	transform: scaleX(0.9);
 }
+
+.lightIntensity {
+	grid-column: 0;
+}
+
+.waterFrequency {
+	grid-column: 1;
+}
