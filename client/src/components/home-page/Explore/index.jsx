@@ -1,16 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { vibes } from './utils';
-import {
-  header,
-  chooseVibe,
-  caretUp,
-  caretDown,
-  menuOpen,
-  menuClosed,
-  menuItem,
-} from './styles.css';
+import Dropdown from './Dropdown';
+import { header, chooseVibe, caretUp, caretDown } from './styles.css';
 
 const Explore = () => {
   const [isOpen, toggle] = useState(false);
@@ -25,11 +17,7 @@ const Explore = () => {
           onClick={() => toggle(!isOpen)}
         />
       </div>
-      <ul className={isOpen ? menuOpen : menuClosed}>
-        {vibes.map(vibe => (
-          <li className={menuItem}>{vibe}</li>
-        ))}
-      </ul>
+      <Dropdown isOpen={isOpen} />
     </Fragment>
   );
 };
