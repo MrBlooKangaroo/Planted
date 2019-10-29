@@ -1,15 +1,15 @@
-const db = require('../../models')
+const db = require('../../../models')
 const { 
   cleanUpDb, 
   createQuery,
   createTestClient,
   closeDbConnection, 
-} = require('../../utils/testing')
+} = require('../../../utils/testing')
 const { 
     testUser, 
     testNook, 
     testPlantType
-} = require('../../utils/testing/testData')
+} = require('../../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -17,7 +17,7 @@ afterAll(closeDbConnection)
 describe('Plant Resolver', () => {
   const query = createQuery(
     __dirname, 
-    '../../utils/queries/wish.graphql'
+    '../../../utils/queries/wish.graphql'
   )
 
   it('returns data for the specified wish', async () => {

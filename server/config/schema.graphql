@@ -105,19 +105,6 @@ type Wish implements Node {
   updatedAt: Date
 }
 
-"""
-  The act of adding a kind of plant to a user's wishlist. 
-  Can be optionally tied to a nook.
-"""
-type Wish implements Node {
-  id: ID! 
-  user: User!
-  plantType: PlantType!
-  nook: Nook
-  createdAt: Date!
-  updatedAt: Date
-}
-
 type Mutation {
   createUser(input: CreateUserInput): UserPayload
   createPlant(input: CreatePlantInput): PlantPayload
