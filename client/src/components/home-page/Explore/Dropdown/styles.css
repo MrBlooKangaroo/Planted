@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+.menuOpen,
+.menuClosed {
+  background: white;
+  list-style: none;
+  margin: auto;
+  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 1rem 0.9rem;
+  border-radius: 4px;
+  width: 17.6rem;
+  padding: 0.7rem;
+  color: #212121;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Karla', sans-serif;
+}
+.menuOpen {
+  height: 16rem;
+  opacity: 1;
+}
+.menuClosed {
+  height: 0;
+  opacity: 0;
+}
+
+.lightIntensity {
+}
+
+.lightIntensityHeader {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.intensityList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sunWhole,
+.sunHollow {
+  display: inline-block;
+  margin: 0.2rem 0.4rem 0 0;
+}
