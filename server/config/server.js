@@ -10,7 +10,7 @@ const typeDefs = gql`
 
 const context = async ({ _req, connection }) => 
   (connection ? connection.context : {})
-
+	
 const onConnect = async (connectionParams) => true
 
 const isIntrospectionOn = 
