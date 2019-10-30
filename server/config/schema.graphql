@@ -25,6 +25,7 @@ type Query {
 type User implements Node {
   id: ID!
   firstName: String!
+  googleId: ID
   lastName: String 
   email: String
   photoUrl: String
@@ -111,6 +112,7 @@ type Mutation {
   createNook(input: CreateNookInput): NookPayload
   createWatering(input: CreateWateringInput): WateringPayload
   createWish(input: CreateWishInput): WishPayload
+  authGoogle(input: AuthInput!): AuthResponse
 }
 
 input CreateUserInput {
@@ -118,6 +120,7 @@ input CreateUserInput {
 	lastName: String
 	photoUrl: String
 	email: String
+  googleId: String
 }
 
 input CreatePlantInput {
@@ -159,6 +162,27 @@ type WateringPayload {
 }
 type WishPayload {
   wish: Wish
+}
+
+type AuthResponse {
+  token: String
+  user: AuthGooglePayload
+}
+
+type AuthGooglePayload {
+  id: ID!
+  firstName: String!
+  lastName: String 
+  googleId: String
+  email: String
+  photoUrl: String
+  accessToken: String
+  createdAt: Date!
+  updatedAt: Date
+}
+
+input AuthInput {
+  accessToken: String!
 }
 
 enum LuxLevel { 

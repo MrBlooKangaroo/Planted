@@ -2,7 +2,8 @@ exports.testUser = {
     firstName: 'Mook',
     lastName: 'Flexer',
     email: 'mookin@mook.com',
-    photoUrl: 'aplant.png'
+    photoUrl: 'aplant.png',
+    googleId: 'googletestid'
 }
 
 exports.testPlant = {

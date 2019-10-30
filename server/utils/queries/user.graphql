@@ -4,6 +4,7 @@ query getNook($id: ID!) {
     lastName
     email
     photoUrl
+    googleId
     nooks {
       id
     }
