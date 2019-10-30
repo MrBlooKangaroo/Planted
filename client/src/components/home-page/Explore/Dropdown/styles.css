@@ -5,7 +5,6 @@
   background: white;
   list-style: none;
   margin: auto;
-  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 1rem 0.9rem;
   border-radius: 4px;
   width: 16.1rem;
   padding: 1.4rem;
@@ -18,62 +17,74 @@
 .menuOpen {
   height: 19rem;
   opacity: 1;
+  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 1rem 0.9rem;
 }
 .menuClosed {
   height: 0;
   opacity: 0;
+  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 0rem 0rem;
 }
 
-.lightIntensityHeader {
+.subFilterHeader {
   font-size: 0.9rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
 }
 
-.intensityList {
+.subFilterList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.intensityListItem,
-.intensityListItemSelected {
-  width: 5.1rem;
+.filterUnselected,
+.filterSelected {
+  width: 5.3rem;
   height: 1.3rem;
-  padding: 0.2rem 0rem 0.2rem 0rem;
-  margin: 0.5rem 0;
+  padding: 0.4rem 0.4rem 0 0;
+  margin: 0.5rem 0 0 0rem;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.intensityListItem:active,
-.intensityListItemSelected:active {
+.filterUnselected:active,
+.filterSelected:active {
   transform: scale(0.9);
 }
 
-.intensityListItem:hover,
-.intensityListItemSelected {
+.filterUnselected:hover,
+.filterSelected {
   padding-left: 0.5rem;
   border-radius: 4px;
+}
+
+.filterUnselected:hover {
+  background: #7ff1a5;
+  box-shadow: #05f354 0rem 0.2rem 0.1rem;
+}
+
+.filterSelected {
   background: #fec32d;
   box-shadow: #a77b0b 0rem 0.2rem 0.1rem;
 }
 
-.intensityListItemSelected:hover {
+.filterSelected:hover {
   background: #ff7800;
   box-shadow: #bd600f 0rem 0.2rem 0.1rem;
 }
 
-.intensityListItemSelected:active,
-.intensityListItemSelected > svg:active {
+.filterSelected:active {
   background: #ec3434;
   box-shadow: #7a0d0d 0rem 0.2rem 0.1rem;
 }
 
-.sunWholeClass,
-.sunHollowClass {
+.gridItemOn,
+.gridItemOff {
+  flex: 0 0 32%;
   display: inline-block;
-  margin: 0 0.7rem 0 0;
+  margin: 0rem 0.3rem 0 0;
 }
 
-.sunHollowClass {
+.gridItemOff {
   color: #d8d8d8;
 }
