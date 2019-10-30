@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SubFilter from './SubFilter';
-import Categories from './Categories';
 import { menuOpen, menuClosed } from './styles.css';
 import {
   faSun as sunOn,
@@ -29,7 +28,6 @@ const Dropdown = ({ isOpen }) => {
         gridIconOn={dropOn}
         gridIconOff={dropOff}
       />
-      <Categories {...props} />
     </div>
   );
 };
