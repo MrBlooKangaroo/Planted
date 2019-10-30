@@ -52,30 +52,36 @@
   transform: scale(0.9);
 }
 
+.filterUnselected:active,
 .filterUnselected:hover,
 .filterSelected {
   padding-left: 0.5rem;
   border-radius: 4px;
 }
 
+.filterUnselected:active {
+  background: #11ff88 !important;
+  box-shadow: #088b34 0rem 0.1rem 0.1rem !important;
+}
+
 .filterUnselected:hover {
   background: #7ff1a5;
-  box-shadow: #05f354 0rem 0.2rem 0.1rem;
+  box-shadow: #146b31 0rem 0.1rem 0.2rem;
 }
 
 .filterSelected {
   background: #fec32d;
-  box-shadow: #a77b0b 0rem 0.2rem 0.1rem;
+  box-shadow: #a77b0b 0rem 0.2rem 0.2rem;
 }
 
 .filterSelected:hover {
   background: #ff7800;
-  box-shadow: #bd600f 0rem 0.2rem 0.1rem;
+  box-shadow: #bd600f 0rem 0.2rem 0.2rem;
 }
 
 .filterSelected:active {
   background: #ec3434;
-  box-shadow: #7a0d0d 0rem 0.2rem 0.1rem;
+  box-shadow: #3a0909 0rem 0.1rem 0.1rem;
 }
 
 .gridItemOn,
