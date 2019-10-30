@@ -1,43 +1,65 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun as sunWhole } from '@fortawesome/free-solid-svg-icons';
+import { faSun as sunHollow } from '@fortawesome/free-regular-svg-icons';
 import { amounts } from './utils';
 import {
   intensityList,
   intensityListItem,
   lightIntensity,
   lightIntensityHeader,
-  sunWhole,
-  sunHollow,
+  sunWholeClass,
+  sunHollowClass,
+  intensityListItemSelected,
 } from './styles.css';
 
-const LightIntensity = ({ filters, editFilters }) => (
-  <div className={lightIntensity}>
-    <dic className={lightIntensityHeader}>Light Intensity</dic>
-    <ul className={intensityList}>
-      {amounts.map((intensity, index) => (
-        <li
-          id={`light-${intensity}`}
-          key={intensity}
-          className={intensityListItem}
-          onClick={({ target }) =>
-            filters.includes(target.id)
-              ? editFilters(filters.filter(f => f !== target.id))
-              : editFilters(filters.push(target.id))
-          }
-        >
-          {[...new Array(index + 1)].map((_, i) => (
-            <div className={sunWhole} key={i}>
-              X
-            </div>
-          ))}
-          {[...new Array(3 - (index + 1))].map((_, i) => (
-            <div className={sunHollow} key={i}>
-              O
-            </div>
-          ))}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const LightIntensity = ({ filters, setFilters }) => {
+  const onIntensityClick = e => {
+    const filter = e.target.id === '' ? e.target.parentElement.id : e.target.id;
+    filters.includes(filter)
+      ? setFilters(filters.filter(f => f !== filter))
+      : setFilters([...filters, filter]);
+  };
+
+  return (
+    <div className={lightIntensity}>
+      <div className={lightIntensityHeader}>Light Intensity</div>
+      <ul className={intensityList}>
+        {amounts.map((intensity, index) => {
+          const id = `light-${intensity}`;
+          return (
+            <li
+              id={id}
+              key={intensity}
+              className={
+                filters.includes(id)
+                  ? intensityListItemSelected
+                  : intensityListItem
+              }
+              onClick={onIntensityClick}
+            >
+              {[...new Array(index + 1)].map((_, i) => (
+                <FontAwesomeIcon
+                  id={id}
+                  key={i}
+                  icon={sunWhole}
+                  className={sunWholeClass}
+                />
+              ))}
+              {[...new Array(3 - (index + 1))].map((_, i) => (
+                <FontAwesomeIcon
+                  id={id}
+                  key={i}
+                  icon={sunHollow}
+                  className={sunHollowClass}
+                />
+              ))}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default LightIntensity;
