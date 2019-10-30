@@ -9,12 +9,11 @@ const Explore = () => {
   return (
     <Fragment>
       <main className={header}>Find new plant friends.</main>
-      <div className={chooseVibe}>
+      <div className={chooseVibe} onClick={() => toggle(!isOpen)}>
         CHOOSE YOUR VIBE
         <FontAwesomeIcon
           icon={faAngleDown}
-          className={isOpen ? caretDown : caretUp}
-          onClick={() => toggle(!isOpen)}
+          className={isOpen ? caretUp : caretDown}
         />
       </div>
       <Dropdown isOpen={isOpen} />

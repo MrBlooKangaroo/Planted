@@ -7,8 +7,8 @@
   margin: auto;
   box-shadow: rgba(43, 76, 60, 0.25098) 0rem 1rem 0.9rem;
   border-radius: 4px;
-  width: 17.6rem;
-  padding: 0.7rem;
+  width: 16.1rem;
+  padding: 1.4rem;
   color: #212121;
   overflow: hidden;
   display: grid;
@@ -16,7 +16,7 @@
   font-family: 'Karla', sans-serif;
 }
 .menuOpen {
-  height: 16rem;
+  height: 19rem;
   opacity: 1;
 }
 .menuClosed {
@@ -24,13 +24,10 @@
   opacity: 0;
 }
 
-.lightIntensity {
-}
-
 .lightIntensityHeader {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 0.3rem;
 }
 
 .intensityList {
@@ -39,8 +36,44 @@
   margin: 0;
 }
 
-.sunWhole,
-.sunHollow {
+.intensityListItem,
+.intensityListItemSelected {
+  width: 5.1rem;
+  height: 1.3rem;
+  padding: 0.2rem 0rem 0.2rem 0rem;
+  margin: 0.5rem 0;
+}
+
+.intensityListItem:active,
+.intensityListItemSelected:active {
+  transform: scale(0.9);
+}
+
+.intensityListItem:hover,
+.intensityListItemSelected {
+  padding-left: 0.5rem;
+  border-radius: 4px;
+  background: #fec32d;
+  box-shadow: #a77b0b 0rem 0.2rem 0.1rem;
+}
+
+.intensityListItemSelected:hover {
+  background: #ff7800;
+  box-shadow: #bd600f 0rem 0.2rem 0.1rem;
+}
+
+.intensityListItemSelected:active,
+.intensityListItemSelected > svg:active {
+  background: #ec3434;
+  box-shadow: #7a0d0d 0rem 0.2rem 0.1rem;
+}
+
+.sunWholeClass,
+.sunHollowClass {
   display: inline-block;
-  margin: 0.2rem 0.4rem 0 0;
+  margin: 0 0.7rem 0 0;
+}
+
+.sunHollowClass {
+  color: #d8d8d8;
 }
