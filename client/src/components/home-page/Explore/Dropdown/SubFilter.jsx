@@ -2,13 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { amounts } from './utils';
 import {
+  header,
   gridItemOn,
   gridItemOff,
   filterSelected,
   filterUnselected,
   subFilterList,
-  subFilterHeader,
-  subFilterContainer,
+  subFilterWrapper,
 } from './styles.css';
 
 const SubFilter = ({
@@ -18,8 +18,8 @@ const SubFilter = ({
   gridIconOn,
   gridIconOff,
 }) => (
-  <div className={subFilterContainer}>
-    <div className={subFilterHeader}>{subFilterName}</div>
+  <div className={subFilterWrapper}>
+    <div className={header}>{subFilterName}</div>
     <ul className={subFilterList}>
       {amounts.map((amount, index) => {
         const id =
