@@ -14,7 +14,7 @@ const {
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
 
-describe('Plant Resolver', () => {
+describe('Wish Resolver', () => {
   const query = createQuery(
     __dirname, 
     '../../../utils/queries/wish.graphql'
