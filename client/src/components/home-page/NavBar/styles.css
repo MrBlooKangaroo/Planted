@@ -26,11 +26,6 @@
   color: #3e300f;
 }
 
-.searchBar {
-  font-family: 'Karla', sans-serif;
-  display: inline-flex;
-}
-
 .login {
   border-radius: 4px;
   border: solid 2px #212121;
@@ -44,15 +39,14 @@
 }
 
 input {
-  border: solid 1px #7a7a7a;
   padding: 0.7rem;
   font-family: FontAwesome, 'Karla', sans-serif;
   border-radius: 4px;
   width: 21rem;
   height: 1.7rem;
   font-size: 1.1rem;
+  border: none;
 }
-
 .input:focus,
 button:focus {
   outline: none;
@@ -60,7 +54,6 @@ button:focus {
 .input:focus::placeholder {
   filter: brightness(1.7);
 }
-
 ::placeholder {
   color: #7a7a7a;
   margin-left: 1rem;
