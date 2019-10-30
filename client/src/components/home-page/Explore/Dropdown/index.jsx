@@ -5,10 +5,10 @@ import Categories from './Categories';
 import { menuOpen, menuClosed } from './styles.css';
 
 const Dropdown = ({ isOpen }) => {
-  const [filters, editFilters] = useState([]);
+  const [filters, setFilters] = useState([]);
   const props = {
     filters,
-    editFilters,
+    setFilters,
   };
 
   return (

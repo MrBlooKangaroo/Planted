@@ -14,4 +14,4 @@ export const categories = [
   'Sweet',
 ];
 
-export const amounts = ['high', 'medium', 'low'];
+export const amounts = ['low', 'medium', 'high'];
