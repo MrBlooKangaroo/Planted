@@ -28,6 +28,14 @@
   box-shadow: rgba(43, 76, 60, 0.25098) 0rem 0.5rem 0.9rem;
   text-align: center;
 }
+.chooseVibe:hover {
+  background: #fec32d;
+  cursor: pointer;
+}
+.chooseVibe:active {
+  transform: scale(0.9);
+  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 0.3rem 0.3rem;
+}
 
 .caretUp,
 .caretDown {
@@ -43,26 +51,4 @@
 }
 .caretDown {
   transform: rotate(0deg);
-}
-
-.carousel {
-  display: flex;
-  flex-direction: row;
-}
-
-.card {
-  justify-content: space-between;
-  align-items: center;
-  width: 10rem;
-  height: 20rem;
-  background: white;
-  margin: 0 1rem;
-}
-
-.lightIntensity {
-  grid-column: 0;
-}
-
-.waterFrequency {
-  grid-column: 1;
 }
