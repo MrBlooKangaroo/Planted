@@ -26,6 +26,14 @@
 	border-radius: 4px;
 	box-shadow: #2b4c3c40 0rem 0.5rem 0.9rem;
 }
+.chooseVibe:hover {
+  background: #fec32d;
+  cursor: pointer;
+}
+.chooseVibe:active {
+  transform: scale(0.9);
+  box-shadow: rgba(43, 76, 60, 0.25098) 0rem 0.3rem 0.3rem;
+}
 
 .caretUp,
 .caretDown {
