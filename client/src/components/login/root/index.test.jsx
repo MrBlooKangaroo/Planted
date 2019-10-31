@@ -11,7 +11,7 @@ afterEach(cleanup);
 describe('Login', () => {
   let props, wrapper;
 
-  describe('when authenticated', () => {
+  describe('when user is not authenticated', () => {
     beforeEach(() => {
       props = {
         isAuthenticated: false,
@@ -22,17 +22,17 @@ describe('Login', () => {
 
     it('should mount a Login component', () => {
       const LoginComponent = wrapper.find(Login);
-      expect(LoginComponent).toBeDefined();
+      expect(LoginComponent).toExist();
     });
 
     it('should render a google signin button', () => {
       const button = wrapper.find(GoogleLogin);
-      expect(button).toBeDefined();
+      expect(button).toExist();
       expect(button.text()).toEqual('Login');
     });
   });
 
-  describe('when not authenticated', () => {
+  describe('when user is authenticated', () => {
     beforeEach(() => {
       props = {
         isAuthenticated: true,
@@ -43,8 +43,8 @@ describe('Login', () => {
 
     it('should render a google logout button', () => {
       const button = wrapper.find('button');
-      expect(button).toBeDefined();
       expect(button.text()).toEqual('Log out');
+      expect(button).toExist();
     });
   });
 });

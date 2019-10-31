@@ -33,9 +33,7 @@ describe('User Resolver', () => {
     it('should return a user with the same information as testUser', async () => {
         const { testClient } = await createTestClient();
         
-        console.log(testUser)
         const response = await testClient.mutate({ mutation: CREATE_USER, variables: {user:{...testUser}} })
-        console.log(response)
         const responseUser = response.data.createUser.user
     
         expect(responseUser).toBeDefined()

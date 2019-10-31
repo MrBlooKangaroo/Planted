@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { GoogleLogin } from 'react-google-login';
+import { findGoogleUser } from '../../../api/fetchGoogleUser';
 
-export function Login(props) {
+export const Login = props => {
+  let userInfo;
+  let tokenInfo;
+
+  const [name, setName] = useState('');
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     props.isAuthenticated || false,
   );
-  const [name, setName] = useState('');
 
   function logout() {
     toggleIsAuthenticated(false);
@@ -14,71 +18,61 @@ export function Login(props) {
   }
 
   async function googleResponse(response) {
-    const headers = {
-      'Content-Type': 'application/json',
-      authorization: localStorage.getItem('token'),
-    };
-
-    const query = JSON.stringify({
-      query: `mutation { authGoogle(input: { accessToken: "${
-        response.accessToken
-      }" }) {
-          token 
-          user {
-            id
-            googleId
-            firstName
-            lastName
-            email
-            accessToken
-            photoUrl
-          }
-         } } `,
-    });
-
-    const options = {
-      method: 'POST',
-      headers,
-      body: query,
-    };
-
-    const resourceResponse = await fetch('http://localhost:1337/', options);
-    const user = await resourceResponse.json();
-    const userInfo = user.data.authGoogle.user;
-    const tokenInfo = user.data.authGoogle.token;
+    const user = await findGoogleUser(response);
+    userInfo = user.data.authGoogle.user;
+    tokenInfo = user.data.authGoogle.token;
 
     window.localStorage.setItem('token', tokenInfo);
     window.localStorage.setItem('user', userInfo);
 
     if (user) {
       toggleIsAuthenticated(true);
-      setName(userInfo.firstName + ' ' + userInfo.lastName);
-      setToken(userInfo.accessToken);
+      setName(fullName);
     }
   }
 
-  function onFailure(error) {
+  const onFailure = error => {
     alert(error);
-  }
+  };
 
-  let content = isAuthenticated ? (
-    <div>
-      <p>Authenticated</p>
-      <div>{name}</div>
-      <div>
-        <button onClick={logout}>Log out</button>
-      </div>
-    </div>
-  ) : (
-    <div>
-      <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        buttonText="Login"
-        onSuccess={googleResponse}
-        onFailure={onFailure}
-      />
-    </div>
+  const fullName = () => {
+    return userInfo.firstName + ' ' + userInfo.lastName;
+  };
+
+  const baseProps = {
+    isAuthenticated,
+    name,
+    logout,
+    googleResponse,
+    onFailure,
+  };
+
+  return <BaseLogin {...baseProps} />;
+};
+
+export const BaseLogin = ({
+  isAuthenticated,
+  name,
+  logout,
+  googleResponse,
+  onFailure,
+}) => {
+  return (
+    <Fragment>
+      {isAuthenticated ? (
+        <div>
+          <p>Authenticated</p>
+          <p>{name}</p>
+          <button onClick={logout}>Log out</button>
+        </div>
+      ) : (
+        <GoogleLogin
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          buttonText="Login"
+          onSuccess={googleResponse}
+          onFailure={onFailure}
+        />
+      )}
+    </Fragment>
   );
-
-  return <div>{content}</div>;
-}
+};

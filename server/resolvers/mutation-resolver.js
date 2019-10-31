@@ -61,7 +61,6 @@ exports.authGoogle = async (_, { input: { accessToken } }, { req, res }) => {
         user = await db.user.create({ ...authPayLoad });
       }
       const userToken = jwt.sign(user.id, process.env.SECRET_KEY)
-      console.log(userToken)
       return { token: userToken, user: { ...user.dataValues, accessToken: data.accessToken } }
     }
 
