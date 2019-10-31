@@ -171,3 +171,9 @@
 .waterFrequency {
 	grid-column: 1;
 }
+
+.iconClass {
+  flex: 0 0 32%;
+  display: inline-block;
+  margin: 0rem 0.3rem 0 0;
+}
