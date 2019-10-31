@@ -8,18 +8,14 @@ module.exports = {
     const plantTypes = await db.plantType.findAll()
     const nooks = await db.nook.findAll()
     while (wishSeeds.length < 10) {
-      let repeat = false
       const userId = getRandomId(users)
       const plantTypeId = getRandomId(plantTypes)
       const nookId = Math.random() > 0.5
         ? getRandomId(nooks) : null
-      wishSeeds.forEach(seed => {
-        if (seed.plantTypeId === plantTypeId
-         && seed.userId === userId) {
-          repeat = true
-        }
-      })
-      if (!repeat) {
+      const isAlreadyAdded = wishSeeds.some(seed =>
+        seed.plantTypeId === plantTypeId && seed.userId === userId
+      )
+      if (!isAlreadyAdded) {
         wishSeeds.push({ 
           userId, 
           plantTypeId, 
