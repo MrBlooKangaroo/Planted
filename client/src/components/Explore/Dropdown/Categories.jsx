@@ -1,24 +1,27 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { categories } from './utils';
 import {
   header,
-  category,
+  categoryUnselected,
+  categorySelected,
   categoryListLeft,
   categoryListRight,
   categoriesWrapper,
-} from './styles.css';
+} from './dropdown.css';
 
 const Categories = ({ filters, setFilters }) => {
   const renderCategory = categoryName => (
     <li
       id={categoryName}
       key={categoryName}
-      className={category}
+      className={
+        filters.includes(categoryName) ? categorySelected : categoryUnselected
+      }
       onClick={e => {
-        const filter = e.target.id;
-        filters.includes(e)
-          ? setFilters(filters.filter(f => f !== filter))
-          : setFilters([...filters, filter]);
+        const category = e.target.id;
+        filters.includes(category)
+          ? setFilters(filters.filter(f => f !== category))
+          : setFilters([...filters, category]);
       }}
     >
       {categoryName}
