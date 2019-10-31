@@ -1,5 +1,5 @@
-import React from 'react'
-import { navBar, logo, navContentRight, login, input } from './styles.css'
+import React from 'react';
+import { navBar, logo, navContentRight, login, input } from './navbar.css';
 
 const NavBar = () => (
 	<main className={navBar}>

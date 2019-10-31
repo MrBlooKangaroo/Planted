@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SubFilter from './SubFilter';
 import Categories from './Categories';
-import { menuOpen, menuClosed } from './styles.css';
+import { menuOpen, menuClosed } from './dropdown.css';
 import {
   faSun as sunOn,
   faTint as dropOn,
@@ -9,14 +9,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faSun as sunOff } from '@fortawesome/free-regular-svg-icons';
 
-const Dropdown = ({ isOpen }) => {
-  const [filters, setFilters] = useState([]);
-  const props = {
-    filters,
-    setFilters,
-  };
+const Dropdown = props => {
   return (
-    <div className={isOpen ? menuOpen : menuClosed}>
+    <div className={props.isOpen ? menuOpen : menuClosed}>
       <SubFilter
         {...props}
         subFilterName="Light Intensity"
