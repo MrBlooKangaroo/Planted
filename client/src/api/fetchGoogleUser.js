@@ -1,4 +1,4 @@
-export const findGoogleUser = async response => {
+export const fetchGoogleUser = async response => {
   const headers = {
     'Content-Type': 'application/json',
     authorization: localStorage.getItem('token'),
@@ -7,9 +7,7 @@ export const findGoogleUser = async response => {
   const uri = 'http://localhost:1337/';
 
   const query = JSON.stringify({
-    query: `mutation { authGoogle(input: { accessToken: "${
-      response.accessToken
-    }" }) {
+    query: `mutation { authGoogle(input: { accessToken: "${response.accessToken}" }) {
             token 
             user {
               id
