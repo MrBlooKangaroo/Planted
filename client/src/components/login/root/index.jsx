@@ -2,14 +2,12 @@ import React, { useState, Fragment } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { findGoogleUser } from '../../../api/fetchGoogleUser';
 
-export const Login = props => {
+export const Login = () => {
   let userInfo;
   let tokenInfo;
 
   const [name, setName] = useState('');
-  const [isAuthenticated, toggleIsAuthenticated] = useState(
-    props.isAuthenticated || false,
-  );
+  const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 
   function logout() {
     toggleIsAuthenticated(false);

@@ -8,43 +8,21 @@ import { GoogleLogin } from 'react-google-login';
 
 afterEach(cleanup);
 
-describe('Login', () => {
-  let props, wrapper;
+describe('Login component at intial state', () => {
+  let wrapper;
 
-  describe('when user is not authenticated', () => {
-    beforeEach(() => {
-      props = {
-        isAuthenticated: false,
-      };
-
-      wrapper = mount(<Login {...props} />);
-    });
-
-    it('should mount a Login component', () => {
-      const LoginComponent = wrapper.find(Login);
-      expect(LoginComponent).toExist();
-    });
-
-    it('should render a google signin button', () => {
-      const button = wrapper.find(GoogleLogin);
-      expect(button).toExist();
-      expect(button.text()).toEqual('Login');
-    });
+  beforeEach(() => {
+    wrapper = mount(<Login />);
   });
 
-  describe('when user is authenticated', () => {
-    beforeEach(() => {
-      props = {
-        isAuthenticated: true,
-      };
+  it('should mount a Login component', () => {
+    const LoginComponent = wrapper.find(Login);
+    expect(LoginComponent).toExist();
+  });
 
-      wrapper = mount(<Login {...props} />);
-    });
-
-    it('should render a google logout button', () => {
-      const button = wrapper.find('button');
-      expect(button.text()).toEqual('Log out');
-      expect(button).toExist();
-    });
+  it('should render a google signin button', () => {
+    const button = wrapper.find(GoogleLogin);
+    expect(button).toExist();
+    expect(button.text()).toEqual('Login');
   });
 });
