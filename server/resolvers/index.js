@@ -8,7 +8,8 @@ const resolvers = {
   Nook: require('./associations/nook-associations'),
   Plant: require('./associations/plant-associations'),
   PlantType: require('./associations/plantType-associations'),
-  Watering: require('./associations/watering-associations')
+  Watering: require('./associations/watering-associations'),
+  Wish: require('./associations/wish-associations')
 }
 
 module.exports = resolvers

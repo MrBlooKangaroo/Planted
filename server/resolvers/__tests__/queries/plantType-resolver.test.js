@@ -1,16 +1,16 @@
-const db = require('../../models')
+const db = require('../../../models')
 const { 
   cleanUpDb, 
   createQuery,
   createTestClient,
   closeDbConnection, 
-} = require('../../utils/testing')
+} = require('../../../utils/testing')
 const { 
     testUser,
     testPlant,
     testNook,
     testPlantType 
-} = require('../../utils/testing/testData')
+} = require('../../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -18,7 +18,7 @@ afterAll(closeDbConnection)
 describe('Plant Type Resolver', () => {
   const query = createQuery(
     __dirname, 
-    '../../utils/queries/plantType.graphql'
+    '../../../utils/queries/plantType.graphql'
   )
 
   it('returns data for the specified plantType', async () => {

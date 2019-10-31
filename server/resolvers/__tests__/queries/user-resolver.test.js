@@ -1,11 +1,11 @@
-const db = require('../../models')
+const db = require('../../../models')
 const { 
   cleanUpDb, 
   createQuery,
   createTestClient,
   closeDbConnection, 
-} = require('../../utils/testing')
-const { testUser, testNook } = require('../../utils/testing/testData')
+} = require('../../../utils/testing')
+const { testUser, testNook } = require('../../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -13,7 +13,7 @@ afterAll(closeDbConnection)
 describe('User Resolver', () => {
   const query = createQuery(
     __dirname, 
-    '../../utils/queries/user.graphql'
+    '../../../utils/queries/user.graphql'
   )
 
   it('returns data for the specified user', async () => {

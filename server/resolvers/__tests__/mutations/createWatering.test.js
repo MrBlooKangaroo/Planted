@@ -1,25 +1,20 @@
-const gql = require('graphql-tag');
-const db = require('../../models')
-const { 
-  cleanUpDb, 
-  createQuery,
-  createTestClient,
-  closeDbConnection
-} = require('../../utils/testing')
+const gql = require('graphql-tag')
+const db = require('../../../models')
+const { cleanUpDb, createTestClient, closeDbConnection } = require('../../../utils/testing')
 const { 
     testUser,
     testNook,
     testPlantType,
     testPlant,
     testWatering
-} = require('../../utils/testing/testData')
+} = require('../../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
 
 const CREATE_WATERING = gql`
     mutation ($watering: CreateWateringInput!){
-        createWatering(input:$watering){
+        createWatering(input: $watering){
             watering {
                 id
                 expectedAt
@@ -27,10 +22,9 @@ const CREATE_WATERING = gql`
             }
         }
     }
-`;
+`
 
-describe('User Resolver', () => {
-
+describe('Create Watering Mutation Resolver', () => {
     it('should return the same information as passed in by testWatering', async () => {
         const { testClient } = await createTestClient()
         const plantType = await db.plantType.create(testPlantType)
@@ -41,12 +35,14 @@ describe('User Resolver', () => {
             nookId: nook.id,
             plantTypeId: plantType.id
         })
-        const response = await testClient.mutate({ mutation: CREATE_WATERING, variables: {watering:{
-            ...testWatering,
-            plantId: plant.id}} 
+        const response = await testClient.mutate({ 
+            mutation: CREATE_WATERING, 
+            variables: { watering: {
+                ...testWatering,
+                plantId: plant.id
+            }} 
         })
-
-        const responseWatering = response.data.createWatering.watering;
+        const responseWatering = response.data.createWatering.watering
         
         expect(responseWatering.id).toBeDefined()
         expect(responseWatering.expectedAt).toBe(testWatering.expectedAt)
@@ -55,16 +51,11 @@ describe('User Resolver', () => {
 
     it('should throw an error if plantId is not passed in', async () => {
         const { testClient } = await createTestClient()
-        const plantType = await db.plantType.create(testPlantType)
-        const user = await db.user.create(testUser)
-        const nook = await db.nook.create({...testNook, userId: user.id})
-        const plant = await db.plant.create({
-            ...testPlant,
-            nookId: nook.id,
-            plantTypeId: plantType.id
-        })
-        const response = await testClient.mutate({ mutation: CREATE_WATERING, variables: {watering:{
-            ...testWatering }} 
+        const response = await testClient.mutate({ 
+            mutation: CREATE_WATERING, 
+            variables: { watering: {
+                ...testWatering 
+            }} 
         })
 
         expect(response.errors).toBeDefined()
@@ -81,10 +72,13 @@ describe('User Resolver', () => {
             nookId: nook.id,
             plantTypeId: plantType.id
         })
-        const response = await testClient.mutate({ mutation: CREATE_WATERING, variables: {watering:{
-            ...testWatering,
-            expectedAt: null,
-            plantTypeId: plantType.id }} 
+        const response = await testClient.mutate({ 
+            mutation: CREATE_WATERING, 
+            variables: { watering: {
+                ...testWatering,
+                expectedAt: null,
+                plantId: plant.id 
+            }} 
         })
 
         expect(response.errors).toBeDefined()

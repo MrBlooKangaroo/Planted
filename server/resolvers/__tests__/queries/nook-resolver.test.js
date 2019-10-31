@@ -1,16 +1,16 @@
-const db = require('../../models')
+const db = require('../../../models')
 const { 
   cleanUpDb, 
   createQuery,
   createTestClient,
   closeDbConnection, 
-} = require('../../utils/testing')
+} = require('../../../utils/testing')
 const { 
   testUser, 
   testNook, 
   testPlant, 
   testPlantType 
-} = require('../../utils/testing/testData')
+} = require('../../../utils/testing/testData')
 
 afterEach(cleanUpDb)
 afterAll(closeDbConnection)
@@ -18,7 +18,7 @@ afterAll(closeDbConnection)
 describe('Nook Resolver', () => {
   const query = createQuery(
     __dirname, 
-    '../../utils/queries/nook.graphql'
+    '../../../utils/queries/nook.graphql'
   )
 
   it('returns data for the specified nook', async () => {

@@ -1,5 +1,5 @@
 const db = require('../models')
-const { raiseNotFoundError, getBuildNumber } = require('../utils')
+const { raiseNotFoundError} = require('../utils')
 
 exports.user = async (_obj, input) => {
   const user = await db.user.findOne({
@@ -59,4 +59,16 @@ exports.watering = async (_obj, { id }) => {
 
 exports.waterings = async () => {
   return await db.watering.findAll()
+}
+
+exports.wish = async (_obj, { id }) => {
+  const wish = await db.wish.findOne({
+    where: { id },
+    include: [db.user, db.nook, db.plantType]
+  })
+  return wish || raiseNotFoundError()
+}
+
+exports.wishes = async () => {
+  return await db.wish.findAll()
 }
