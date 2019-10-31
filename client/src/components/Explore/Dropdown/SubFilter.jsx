@@ -9,7 +9,7 @@ import {
   filterUnselected,
   subFilterList,
   subFilterWrapper,
-} from './styles.css';
+} from './dropdown.css';
 
 const SubFilter = ({
   filters,
