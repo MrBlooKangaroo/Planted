@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+.plantList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 3rem 4rem 0 4rem;
+}
+
+.card {
+  height: 35rem;
+  width: 29%;
+  background: white;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.photo {
+  height: 80%;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.luxLevelIcon {
+  display: block;
+  margin: 1rem auto;
+}
