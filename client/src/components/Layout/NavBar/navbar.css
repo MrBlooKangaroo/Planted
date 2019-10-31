@@ -43,6 +43,32 @@
 }
 
 .searchInput:focus::placeholder {
+  border-radius: 4px;
+  border: solid 2px #212121;
+  font-family: 'Karla', sans-serif;
+  background: none;
+  padding: 0.7rem 3.2rem;
+  margin-left: 3rem;
+  margin-right: 4rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.input {
+  font-family: FontAwesome, 'Karla', sans-serif;
+  border-radius: 4px;
+  height: 1.5rem;
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  width: 21rem;
+}
+
+.input:focus,
+button:focus {
+  outline: none;
+}
+
+.input:focus::placeholder {
   filter: brightness(1.7);
 }
 
