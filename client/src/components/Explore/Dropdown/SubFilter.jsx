@@ -1,31 +1,21 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { amounts } from './utils';
+import { amounts, chooseIcon } from '../utils';
 import {
   header,
-  gridItemOn,
-  gridItemOff,
   filterSelected,
   filterUnselected,
   subFilterList,
   subFilterWrapper,
 } from './dropdown.css';
 
-const SubFilter = ({
-  filters,
-  setFilters,
-  subFilterName,
-  gridIconOn,
-  gridIconOff,
-}) => (
+const SubFilter = ({ filters, setFilters, subFilterName }) => (
   <div className={subFilterWrapper}>
     <div className={header}>{subFilterName}</div>
     <ul className={subFilterList}>
-      {amounts.map((amount, index) => {
-        const id =
-          `${subFilterName[0].toLowerCase()}` +
-          `${subFilterName.slice(1).trim()}` +
-          `:${amount}`;
+      {amounts.map(amount => {
+        const id = `${subFilterName[0].toLowerCase()}${subFilterName
+          .slice(1)
+          .trim()}:${amount}`;
         return (
           <li
             id={id}
@@ -39,22 +29,11 @@ const SubFilter = ({
             }}
             className={filters.includes(id) ? filterSelected : filterUnselected}
           >
-            {[...new Array(index + 1)].map((_, i) => (
-              <FontAwesomeIcon
-                id={id}
-                key={i}
-                icon={gridIconOn}
-                className={gridItemOn}
-              />
-            ))}
-            {[...new Array(3 - (index + 1))].map((_, i) => (
-              <FontAwesomeIcon
-                id={id}
-                key={i}
-                icon={gridIconOff}
-                className={gridItemOff}
-              />
-            ))}
+            {chooseIcon(
+              subFilterName,
+              amount,
+              filters.includes(id) ? filterSelected : filterUnselected,
+            )}
           </li>
         );
       })}
