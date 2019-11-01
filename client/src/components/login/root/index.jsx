@@ -17,7 +17,6 @@ export const Login = () => {
 
   const googleResponse = async response => {
     const user = await fetchGoogleUser(response);
-    console.log(user);
     userInfo = user.data.authGoogle.user;
     tokenInfo = user.data.authGoogle.token;
 

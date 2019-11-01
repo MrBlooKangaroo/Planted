@@ -38,8 +38,6 @@ exports.createWish = async (obj, { input }) => {
   return { wish }
 }
 
-
-
 exports.authGoogle = async (_, { input: { accessToken } }, { req, res }) => {
   req.body = {
     ...req.body,

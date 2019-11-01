@@ -32,8 +32,6 @@ const context = ({ req, res }) => {
   return { req, res, currentUser };
 };
 
-
-
 const onConnect = async (connectionParams) => true
 
 const isIntrospectionOn =
