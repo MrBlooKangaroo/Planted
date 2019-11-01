@@ -45,9 +45,3 @@
 .caretDown {
   transform: rotate(0deg);
 }
-
-.iconClass {
-  flex: 0 0 32%;
-  display: inline-block;
-  margin: 0rem 0.3rem 0 0;
-}
