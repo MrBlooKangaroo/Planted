@@ -39,7 +39,7 @@ describe('Explore Component', () => {
     expect(header).toIncludeText(headerText);
   });
 
-  it("should NOT render the Dropdown component if it's not open", () => {
+  it('should NOT render the Dropdown component isOpen is false', () => {
     wrapper.setProps({ isOpen: false });
     const dropdownComponent = wrapper.find(Dropdown);
     expect(Object.keys(dropdownComponent).length).toBe(0);
