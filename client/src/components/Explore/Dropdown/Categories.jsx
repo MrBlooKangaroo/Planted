@@ -18,10 +18,9 @@ const Categories = ({ filters, setFilters }) => {
         filters.includes(categoryName) ? categorySelected : categoryUnselected
       }
       onClick={e => {
-        const category = e.target.id;
-        filters.includes(category)
-          ? setFilters(filters.filter(f => f !== category))
-          : setFilters([...filters, category]);
+        filters.includes(e.target.id)
+          ? setFilters(filters.filter(f => f !== e.target.id))
+          : setFilters([...filters, e.target.id]);
       }}
     >
       {categoryName}
