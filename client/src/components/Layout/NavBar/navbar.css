@@ -2,51 +2,103 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 .navBar {
-	align-items: center;
-	background-color: #ffc32d;
-	display: flex;
-	height: 73px;
-	justify-content: space-between;
+  align-items: center;
+  background-color: #ffc32d;
+  display: flex;
+  height: 73px;
+  justify-content: space-between;
 }
 
 .logo {
-	color: rgba(33, 33, 33, 0.9);
-	font-family: 'Halant', serif;
-	font-size: 2.2rem;
-	margin-left: 3.4rem;
+  color: rgba(33, 33, 33, 0.9);
+  font-family: 'Halant', serif;
+  font-size: 2.2rem;
+  margin-left: 3.4rem;
 }
 
 .login {
-	background: none;
-	border: solid 2px #212121;
-	border-radius: 4px;
-	font-family: 'Karla', sans-serif;
-	font-size: 1.3rem;
-	font-weight: bold;
-	margin-left: 3rem;
-	margin-right: 4rem;
-	padding: 0.4rem 3.2rem;
+  background: none;
+  border: solid 2px #212121;
+  border-radius: 4px;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 3rem;
+  margin-right: 4rem;
+  padding: 0.4rem 3.2rem;
 }
 
 .searchInput {
-	border: none;
-	border-radius: 4px;
-	font-family: FontAwesome, 'Karla', sans-serif;
-	font-size: 1.1rem;
-	padding: 0.7rem;
-	width: 21rem;
+  border: none;
+  border-radius: 4px;
+  font-family: FontAwesome, 'Karla', sans-serif;
+  font-size: 1.1rem;
+  padding: 0.7rem;
+  width: 21rem;
 }
 
 button:focus,
 .searchInput:focus {
-	outline: none;
+  outline: none;
 }
 
 .searchInput:focus::placeholder {
-	filter: brightness(1.7);
+  filter: brightness(1.7);
 }
 
 ::placeholder {
-	color: #7a7a7a;
-	margin-left: 1rem;
+  color: #7a7a7a;
+  margin-left: 1rem;
+}
+@import url('https://fonts.googleapis.com/css?family=Halant:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+.navBar {
+  align-items: center;
+  background-color: #ffc32d;
+  display: flex;
+  height: 73px;
+  justify-content: space-between;
+}
+
+.logo {
+  color: rgba(33, 33, 33, 0.9);
+  font-family: 'Halant', serif;
+  font-size: 2.2rem;
+  margin-left: 3.4rem;
+}
+
+.login {
+  background: none;
+  border: solid 2px #212121;
+  border-radius: 4px;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 3rem;
+  margin-right: 4rem;
+  padding: 0.4rem 3.2rem;
+}
+
+.searchInput {
+  border: none;
+  border-radius: 4px;
+  font-family: FontAwesome, 'Karla', sans-serif;
+  font-size: 1.1rem;
+  padding: 0.7rem;
+  width: 21rem;
+}
+
+button:focus,
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInput:focus::placeholder {
+  filter: brightness(1.7);
+}
+
+::placeholder {
+  color: #7a7a7a;
+  margin-left: 1rem;
 }
