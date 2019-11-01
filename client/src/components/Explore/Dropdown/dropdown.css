@@ -3,51 +3,37 @@
 .menuOpen,
 .menuClosed {
   background: white;
-  list-style: none;
-  margin: auto;
   border-radius: 4px;
-  width: 19.3rem;
-  padding: 1.4rem;
-  color: #212121;
-  overflow: hidden;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  color: rgba(33, 33, 33, 0.9);
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Karla', sans-serif;
-  position: absolute;
+  font-size: 0.9rem;
   left: 50%;
   margin-left: -11.1rem;
-}
-.menuOpen {
-  height: 24.75rem;
-  opacity: 1;
-  box-shadow: 0 -12px 19px 0px rgba(0, 0, 0, 0.03);
-}
-.menuClosed {
-  height: 0;
-  opacity: 0;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.03);
+  padding: 1.4rem;
+  position: absolute;
+  width: 19.3rem;
 }
 
 .header {
-  font-size: 0.9rem;
   font-weight: bold;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 .subFilterList {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .filterUnselected,
 .filterSelected {
-  width: 5.3rem;
-  height: 1.3rem;
-  padding: 0.4rem 0.4rem 0 0;
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: space-evenly;
+  height: 1.4rem;
+  margin-top: 0.4rem;
+  width: 4.3rem;
 }
 
 .categorySelected:hover,
@@ -57,18 +43,16 @@
   cursor: pointer;
 }
 
-.categorySelected:hover,
-.filterSelected:hover,
-.categoryUnselected:hover,
-.filterUnselected:hover,
 .categorySelected,
-.filterSelected {
+.filterSelected,
+.categoryUnselected:hover,
+.filterUnselected:hover {
   color: #00736a;
 }
 
-.categoriesWrapper {
-  grid-column: 1/3;
+.categoriesContainer {
   display: grid;
+  grid-column: 1/3;
   margin-top: 2rem;
 }
 
@@ -92,6 +76,5 @@
 
 .categoryUnselected,
 .categorySelected {
-  font-size: 0.9rem;
   margin: 0.9rem 0;
 }
