@@ -8,9 +8,9 @@
     0 -12px 19px 0 rgba(0, 0, 0, 0.03);
   color: rgba(33, 33, 33, 0.9);
   display: grid;
+  grid-template-columns: 1fr 1fr;
   font-family: 'Karla', sans-serif;
   font-size: 0.9rem;
-  grid-template-columns: 1fr 1fr;
   left: 50%;
   margin-left: -11.1rem;
   padding: 1.4rem;
