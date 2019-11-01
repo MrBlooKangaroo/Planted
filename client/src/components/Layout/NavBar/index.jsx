@@ -8,7 +8,7 @@ import {
 } from './navbar.css';
 
 const NavBar = () => (
-  <main className={navBar}>
+  <nav className={navBar}>
     <div className={logo}>Planted</div>
     <div className={navContentRight}>
       <input
@@ -18,7 +18,7 @@ const NavBar = () => (
       />
       <button className={login}>Log in</button>
     </div>
-  </main>
+  </nav>
 );
 
 export default NavBar;

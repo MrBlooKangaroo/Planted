@@ -34,7 +34,7 @@ const Explore = () => {
           className={isOpen ? caretUp : caretDown}
         />
       </div>
-      {isOpen ? <Dropdown {...props} /> : null}
+      {isOpen && <Dropdown {...props} />}
       <PlantList {...props} />
     </Fragment>
   );
