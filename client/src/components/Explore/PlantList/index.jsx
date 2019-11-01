@@ -1,18 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import Card from './Card';
 import { plantList } from './plantList.css';
+import { GET_PLANT_TYPES } from '../utils';
+import Card from './Card';
 
-const GET_PLANT_TYPES = gql`
-  {
-    plantTypes {
-      name
-      photoUrl
-      luxLevel
-    }
-  }
-`;
 const PlantList = props => {
   const { loading, errors, data } = useQuery(GET_PLANT_TYPES);
   return (
