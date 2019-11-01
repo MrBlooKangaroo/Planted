@@ -9,13 +9,13 @@ export const Login = () => {
   const [name, setName] = useState('');
   const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 
-  function logout() {
+  const logout = () => {
     toggleIsAuthenticated(false);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-  }
+  };
 
-  async function googleResponse(response) {
+  const googleResponse = async response => {
     const user = await fetchGoogleUser(response);
     console.log(user);
     userInfo = user.data.authGoogle.user;
@@ -28,15 +28,13 @@ export const Login = () => {
       toggleIsAuthenticated(true);
       setName(fullName);
     }
-  }
+  };
 
   const onFailure = error => {
     alert(error);
   };
 
-  const fullName = () => {
-    return userInfo.firstName + ' ' + userInfo.lastName;
-  };
+  const fullName = () => userInfo.firstName + ' ' + userInfo.lastName;
 
   const baseProps = {
     isAuthenticated,
@@ -55,23 +53,21 @@ export const BaseLogin = ({
   logout,
   googleResponse,
   onFailure,
-}) => {
-  return (
-    <Fragment>
-      {isAuthenticated ? (
-        <div>
-          <p>Authenticated</p>
-          <p>{name}</p>
-          <button onClick={logout}>Log out</button>
-        </div>
-      ) : (
-        <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          onSuccess={googleResponse}
-          onFailure={onFailure}
-        />
-      )}
-    </Fragment>
-  );
-};
+}) => (
+  <Fragment>
+    {isAuthenticated ? (
+      <div>
+        <p>Authenticated</p>
+        <p>{name}</p>
+        <button onClick={logout}>Log out</button>
+      </div>
+    ) : (
+      <GoogleLogin
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+        buttonText="Login"
+        onSuccess={googleResponse}
+        onFailure={onFailure}
+      />
+    )}
+  </Fragment>
+);
