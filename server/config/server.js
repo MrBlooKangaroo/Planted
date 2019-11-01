@@ -9,23 +9,26 @@ const typeDefs = gql`
   ${schema}
 `
 
-const whitelistedQueries = ['authGoogle', 'IntrospectionQuery'];
-
-const isWhitelisted = query => whitelistedQueries.includes(query)
-
 const context = ({ req, res }) => {
-  let currentUser;
-  const token = req.headers.authorization;
-  if (Boolean(token))
-    currentUser = jwt.verify(
-      token,
-      process.env.SECRET_KEY,
-      (err, decoded) => {
-        const { query } = req.body
-        if (err && !isWhitelisted(query)) throw new AuthenticationError('Unauthorized');
-        return decoded
+  const token = req.headers.authorization || '';
+  const currentUser = jwt.verify(
+    token,
+    process.env.SECRET_KEY,
+    (err, decoded) => {
+      const whitelist = ['authGoogle', 'IntrospectionQuery'];
+      let isWhitelisted = req.body.query === '';
+      if (!isWhitelisted) {
+        for (let i in whitelist) {
+          isWhitelisted = req.body.query.includes(whitelist[i]);
+          if (isWhitelisted) break;
+        }
       }
-    );
+      if (err && !isWhitelisted) {
+        throw new AuthenticationError('Unauthorized');
+      }
+      return decoded;
+    }
+  );
   return { req, res, currentUser };
 };
 

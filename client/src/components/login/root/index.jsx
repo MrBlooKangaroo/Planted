@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { fetchGoogleUser } from '../../../api/users/fetchGoogleUser';
+import { fetchGoogleUser } from '../../../api/fetchGoogleUser';
 
 export const Login = () => {
   let userInfo;
