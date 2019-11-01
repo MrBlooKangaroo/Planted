@@ -1,43 +1,47 @@
 import React from 'react';
-import sunLow from '../../assets/sunLow.svg';
-import sunMedium from '../../assets/sunMedium.svg';
-import sunHigh from '../../assets/sunHigh.svg';
-import waterLow from '../../assets/waterLow.svg';
-import waterMedium from '../../assets/waterMedium.svg';
-import waterHigh from '../../assets/waterHigh.svg';
-import { iconClass } from './explore.css';
+import { gql } from 'apollo-boost';
+import * as icons from '../../assets/icons';
 
-export const chooseIcon = (name, amount, className = iconClass) => {
-  let icon;
-  debugger;
-  if (name === 'Light Intensity') {
-    switch (amount) {
-      case 'LOW':
-        icon = sunLow;
-        break;
-      default:
-      case 'MEDIUM':
-        icon = sunMedium;
-        break;
-      case 'HIGH':
-        icon = sunHigh;
-        break;
-    }
-  } else {
-    switch (amount) {
-      case 'LOW':
-        icon = waterLow;
-        break;
-      default:
-      case 'MEDIUM':
-        icon = waterMedium;
-        break;
-      case 'HIGH':
-        icon = waterHigh;
-        break;
+export const GET_PLANT_TYPES = gql`
+  {
+    plantTypes {
+      name
+      photoUrl
+      luxLevel
     }
   }
-  return <img src={icon} alt={`${name}:${amount}`} className={className} />;
+`;
+
+export const chooseIcon = (type, amount, selection, className) => {
+  amount = amount.toUpperCase();
+  const iconDict = {
+    luxLevel: {
+      unselected: {
+        LOW: icons.luxUnselectedLow,
+        MEDIUM: icons.luxUnselectedMedium,
+        HIGH: icons.luxUnselectedHigh,
+      },
+      selected: {
+        LOW: icons.luxSelectedLow,
+        MEDIUM: icons.luxSelectedMedium,
+        HIGH: icons.luxSelectedHigh,
+      },
+    },
+    waterCycle: {
+      unselected: {
+        LOW: icons.cycleUnselectedLow,
+        MEDIUM: icons.cycleUnselectedMedium,
+        HIGH: icons.cycleUnselectedHigh,
+      },
+      selected: {
+        LOW: icons.cycleSelectedLow,
+        MEDIUM: icons.cycleSelectedMedium,
+        HIGH: icons.cycleSelectedHigh,
+      },
+    },
+  };
+  const icon = iconDict[type][selection][amount];
+  return <img src={icon} alt={`${type}:${amount}`} className={className} />;
 };
 
 export const categories = [
@@ -57,4 +61,4 @@ export const categories = [
   'Sweet',
 ];
 
-export const amounts = ['low', 'medium', 'high'];
+export const amounts = ['LOW', 'MEDIUM', 'HIGH'];
