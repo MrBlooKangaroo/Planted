@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { fetchGoogleUser } from '../../../api/fetchGoogleUser';
+import { fetchGoogleUser } from '../../../api/users/fetchGoogleUser';
 
 export const Login = () => {
   let userInfo;
@@ -17,6 +17,7 @@ export const Login = () => {
 
   async function googleResponse(response) {
     const user = await fetchGoogleUser(response);
+    console.log(user);
     userInfo = user.data.authGoogle.user;
     tokenInfo = user.data.authGoogle.token;
 
