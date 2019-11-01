@@ -2,6 +2,7 @@ module.exports = (sequelize, {
 	STRING
 }) => {
 	const user = sequelize.define('user', {
+		googleId: STRING,
 		firstName: STRING,
 		lastName: STRING,
 		photoUrl: STRING,

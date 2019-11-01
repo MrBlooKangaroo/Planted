@@ -55,10 +55,15 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "graphql": "^14.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
+    "jest-enzyme": "^7.1.1",
+    "raw-loader": "^3.1.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-google-login": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-testing-library": "^6.0.0",
     "serve": "^11.0.1"
@@ -114,7 +119,8 @@
       "styles.css$": "identity-obj-proxy"
     },
     "setupFiles": [
-      "<rootDir>/build-utils/jest/polyfills.js"
+      "<rootDir>/build-utils/jest/polyfills.js",
+      "<rootDir>/build-utils/jest/setUpEnzyme.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|scripts|server)[/\\\\]"

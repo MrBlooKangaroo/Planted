@@ -31,6 +31,10 @@ module.exports = {
           name: 'static/[name].[hash:8].[ext]',
         },
       },
+      {
+        test: /\.graphql$/,
+        loader: 'raw-loader',
+      },
     ],
   },
   plugins: [
