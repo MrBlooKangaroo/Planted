@@ -12,7 +12,7 @@ import {
 } from './explore.css';
 
 const Explore = () => {
-  const [isOpen, toggle] = useState(false);
+  const [isOpen, toggleDropdown] = useState(false);
   const [filters, setFilters] = useState([]);
   const props = {
     filters,
@@ -21,12 +21,12 @@ const Explore = () => {
   };
   return (
     <Fragment>
-      <main className={header}>Find new plant friends.</main>
+      <div className={header}>Find new plant friends.</div>
       <div
+        onClick={() => toggleDropdown(!isOpen)}
         className={
           filters.length > 0 ? chooseVibeFiltered : chooseVibeUnfiltered
         }
-        onClick={() => toggle(!isOpen)}
       >
         CHOOSE YOUR VIBE
         <FontAwesomeIcon
@@ -34,7 +34,7 @@ const Explore = () => {
           className={isOpen ? caretUp : caretDown}
         />
       </div>
-      <Dropdown {...props} />
+      {isOpen ? <Dropdown {...props} /> : null}
       <PlantList {...props} />
     </Fragment>
   );

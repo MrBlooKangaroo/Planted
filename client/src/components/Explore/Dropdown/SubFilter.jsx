@@ -1,42 +1,17 @@
 import React from 'react';
-import { amounts, chooseIcon } from '../utils';
-import {
-  header,
-  filterSelected,
-  filterUnselected,
-  subFilterList,
-  subFilterWrapper,
-} from './dropdown.css';
+import { amounts } from '../utils';
+import Icon from './Icon';
+import { header, subFilterList, subFilterWrapper } from './dropdown.css';
 
-const SubFilter = ({ filters, setFilters, subFilterName }) => (
+const SubFilter = props => (
   <div className={subFilterWrapper}>
-    <div className={header}>{subFilterName}</div>
+    <div className={header}>
+      {props.type === 'luxLevel' ? 'Light Intensity' : 'Water Frequency'}
+    </div>
     <ul className={subFilterList}>
-      {amounts.map(amount => {
-        const id = `${subFilterName[0].toLowerCase()}${subFilterName
-          .slice(1)
-          .trim()}:${amount}`;
-        return (
-          <li
-            id={id}
-            key={id}
-            onClick={e => {
-              const filter =
-                e.target.id === '' ? e.target.parentElement.id : e.target.id;
-              filters.includes(filter)
-                ? setFilters(filters.filter(f => f !== filter))
-                : setFilters([...filters, filter]);
-            }}
-            className={filters.includes(id) ? filterSelected : filterUnselected}
-          >
-            {chooseIcon(
-              subFilterName,
-              amount,
-              filters.includes(id) ? filterSelected : filterUnselected,
-            )}
-          </li>
-        );
-      })}
+      {amounts.map(amount => (
+        <Icon {...props} amount={amount} key={amount} />
+      ))}
     </ul>
   </div>
 );

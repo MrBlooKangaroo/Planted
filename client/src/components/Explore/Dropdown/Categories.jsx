@@ -6,7 +6,7 @@ import {
   categorySelected,
   categoryListLeft,
   categoryListRight,
-  categoriesWrapper,
+  categoriesContainer,
 } from './dropdown.css';
 
 const Categories = ({ filters, setFilters }) => {
@@ -28,7 +28,7 @@ const Categories = ({ filters, setFilters }) => {
     </li>
   );
   return (
-    <div className={categoriesWrapper}>
+    <div className={categoriesContainer}>
       <div className={header}>Categories</div>
       <ul className={categoryListLeft}>
         {categories
@@ -43,4 +43,5 @@ const Categories = ({ filters, setFilters }) => {
     </div>
   );
 };
+
 export default Categories;
