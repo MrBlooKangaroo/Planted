@@ -1,57 +1,47 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, configure } from 'enzyme';
+import { cleanup } from '@testing-library/react';
+import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import { greetings, buttons } from '../../../constants/texts';
-import { cleanup } from 'react-testing-library';
-import HomePageRoot from './index';
+import Explore from './index';
+import Dropdown from './Dropdown';
+import PlantList from './PlantList';
 
+configure({ adapter: new Adapter() });
 afterEach(cleanup);
 
-describe('HomePageRoot', () => {
+describe('Explore Component', () => {
   let wrapper, props;
-
   beforeEach(() => {
-    props = {
-      history: {
-        push: jest.fn(),
-      },
-    };
-    wrapper = shallow(<HomePageRoot {...props} />);
+    props = { isOpen: true };
+    wrapper = shallow(<Explore {...props} />);
   });
 
-  it('should mount a HomePageRoot component', () => {
-    wrapper.setState({ hideLogin: false });
-    const homePageRootComponent = wrapper.find(HomePageRoot);
-    expect(homePageRootComponent).toBeDefined();
+  it('should mount the Explore component', () => {
+    const explore = wrapper.find(Explore);
+    expect(explore).toBeDefined();
   });
 
-  it('should render a signin with spotify button when a user is not signed in', () => {
-    wrapper.setState({ hideLogin: false });
-    const button = wrapper.find('button');
-    expect(button).toIncludeText(buttons.signin);
+  it('should mount the Dropdown component', () => {
+    const dropdown = wrapper.find(Dropdown);
+    expect(dropdown).toBeDefined();
   });
 
-  it('should not render a signin button when a user is logged in', () => {
-    wrapper.setState({ hideLogin: true });
-    const button = wrapper.find('button');
-    expect(button).not.toIncludeText(buttons.signin);
+  it('should mount the PlantList component', () => {
+    const plantList = wrapper.find(PlantList);
+    expect(plantList).toBeDefined();
   });
 
-  it('should render a standard greeting message', () => {
-    wrapper.setState({ loginFailed: false });
-    const greeting = wrapper.find('.greeting');
-    expect(greeting).toExist();
-    expect(greeting).toIncludeText(greetings.welcome);
+  it('should render the greeting message', () => {
+    const headerText = 'Find new plant friends.';
+    const header = wrapper.find('.header');
+    expect(header).toExist();
+    expect(header).toIncludeText(headerText);
   });
 
-  it('should render an error message if user does not approve app for spotify access', () => {
-    wrapper.setState({ loginFailed: true });
-    const greeting = wrapper.find('.greeting');
-    const errorMessage = wrapper.find('.errorMessage');
-    expect(greeting).toExist();
-    expect(greeting).toIncludeText(greetings.authError);
-    expect(errorMessage).toIncludeText(
-      'Please agree to allow access in order to read reviews of your favorite artists',
-    );
+  it("should NOT render the Dropdown component if it's not open", () => {
+    wrapper.setProps({ isOpen: false });
+    const dropdownComponent = wrapper.find(Dropdown);
+    expect(Object.keys(dropdownComponent).length).toBe(0);
   });
 });
