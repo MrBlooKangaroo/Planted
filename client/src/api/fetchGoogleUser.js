@@ -10,17 +10,17 @@ export const fetchGoogleUser = async response => {
     query: `mutation { authGoogle(input: { accessToken: "${
       response.accessToken
     }" }) {
-              token 
-              user {
-                id
-                googleId
-                firstName
-                lastName
-                email
-                accessToken
-                photoUrl
-              }
-             } } `,
+      token 
+      user {
+        id
+        googleId
+        firstName
+        lastName
+        email
+        accessToken
+        photoUrl
+      }
+      } } `,
   });
 
   const options = {
