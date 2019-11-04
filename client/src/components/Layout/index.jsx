@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 
 export default props => (
   <Fragment>
-    <NavBar />
+    <NavBar {...props} />
     {props.children}
   </Fragment>
 );
