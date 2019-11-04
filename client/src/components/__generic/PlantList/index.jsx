@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { plantList } from './plantList.css';
-import { GET_PLANT_TYPES } from '../utils';
+import { GET_PLANT_TYPES } from '../../Explore/utils';
 import Card from './Card';
 
 const PlantList = props => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { chooseIcon } from '../utils';
+import { chooseIcon } from '../../Explore/utils';
 import { card, cardPhoto, luxLevelIcon } from './plantList.css';
 
 const Card = ({ plantType: { name, luxLevel, photoUrl } }) => (

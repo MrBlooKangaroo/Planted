@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from './Dropdown';
-import PlantList from './PlantList';
+import PlantList from '../__generic/PlantList';
 import {
   header,
   chooseVibeFiltered,

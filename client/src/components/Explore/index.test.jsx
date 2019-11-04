@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import Explore from './index';
 import Dropdown from './Dropdown';
-import PlantList from './PlantList';
+import PlantList from '../__generic/PlantList';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);
