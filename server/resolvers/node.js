@@ -1,18 +1,18 @@
 exports.__resolveType = (object, context) => {
   switch (object._modelOptions.name.singular) {
     case 'user':
-      return 'User'
+      return 'User';
     case 'nook':
-      return 'Nook'
+      return 'Nook';
     case 'plant':
-      return 'Plant'
+      return 'Plant';
     case 'plantType':
-      return 'PlantType'
+      return 'PlantType';
     case 'watering':
-      return 'Watering'
+      return 'Watering';
     case 'wish':
-      return 'Wish'
+      return 'Wish';
     default:
-      return null
+      return null;
   }
-}
+};

@@ -3,5 +3,5 @@ module.exports = {
   closeDbConnection: require('./close-db-connection'),
   createQuery: require('./create-query'),
   createTestClient: require('./create-test-client'),
-  testData: require('./testData')
-}
+  testData: require('./testData'),
+};

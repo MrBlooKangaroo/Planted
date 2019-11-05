@@ -148,6 +148,10 @@ input CreateWishInput {
   nookId: ID
 }
 
+input AuthInput {
+  accessToken: String!
+}
+
 type UserPayload {
   user: User
 }
@@ -179,10 +183,6 @@ type AuthGooglePayload {
   accessToken: String
   createdAt: Date!
   updatedAt: Date
-}
-
-input AuthInput {
-  accessToken: String!
 }
 
 enum LuxLevel {

@@ -1,13 +1,11 @@
 module.exports = {
-  up: (queryInterface, {
-    UUID, DATE, STRING, literal
-  }) => {
+  up: (queryInterface, { UUID, DATE, STRING, literal }) => {
     return queryInterface.createTable('users', {
       id: {
         type: UUID,
         primaryKey: true,
         allowNull: false,
-        defaultValue: literal('uuid_generate_v4()')
+        defaultValue: literal('uuid_generate_v4()'),
       },
       createdAt: {
         allowNull: false,
@@ -37,9 +35,8 @@ module.exports = {
         allowNull: false,
         type: STRING,
         unique: true,
-      }
-    })
+      },
+    });
   },
-  down: queryInterface =>
-    queryInterface.dropTable('users')
-}
+  down: queryInterface => queryInterface.dropTable('users'),
+};
