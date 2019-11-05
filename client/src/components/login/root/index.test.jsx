@@ -1,10 +1,9 @@
 import React from 'react';
-import { cleanup } from 'react-testing-library';
+import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import 'jest-enzyme';
-import { Login } from './index';
-
 import { GoogleLogin } from 'react-google-login';
+import { Login, text } from './index';
 
 afterEach(cleanup);
 
@@ -23,6 +22,6 @@ describe('Login component at intial state', () => {
   it('should render a google signin button', () => {
     const button = wrapper.find(GoogleLogin);
     expect(button).toExist();
-    expect(button.text()).toEqual('Login');
+    expect(button.text()).toEqual(text.login);
   });
 });

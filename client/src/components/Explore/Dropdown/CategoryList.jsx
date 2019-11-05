@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryListItem from './CategoryListItem';
-import categories from '../../../constants/categories';
+import { leftCategories, rightCategories } from '../../../constants/categories';
 import {
   header,
   categoryListLeft,
@@ -8,8 +8,8 @@ import {
   categoryListContainer,
 } from './dropdown.css';
 
-export const text = {
-  categories: 'Categories',
+export const categoryListText = {
+  header: 'Categories',
 };
 
 const CategoryList = props => {

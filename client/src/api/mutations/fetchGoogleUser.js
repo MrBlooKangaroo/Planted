@@ -1,26 +1,28 @@
-import { localUri } from '../../constants/config';
-
 export default async response => {
   const headers = {
     'Content-Type': 'application/json',
     authorization: localStorage.getItem('token'),
   };
 
-  const uri = 'http://localhost:1337/';
-
   const query = JSON.stringify({
-    query: `mutation { authGoogle(input: { accessToken: "${response.accessToken}" }) {
-              token 
-              user {
-                id
-                googleId
-                firstName
-                lastName
-                email
-                accessToken
-                photoUrl
-              }
-             } } `,
+    query: `
+      mutation { 
+        authGoogle(input: {
+          accessToken: "${response.accessToken}" 
+        }) {
+          token 
+          user {
+            id
+            googleId
+            firstName
+            lastName
+            email
+            accessToken
+            photoUrl
+          }
+        }
+      }
+    `,
   });
 
   const options = {
@@ -29,7 +31,10 @@ export default async response => {
     body: query,
   };
 
-  const resourceResponse = await fetch(localUri, options);
+  const resourceResponse = await fetch(
+    process.env.REACT_APP_BACKEND_URL,
+    options,
+  );
   const user = await resourceResponse.json();
   return user;
 };

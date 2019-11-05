@@ -22,10 +22,11 @@ const Explore = () => {
 
   const isSelected = filter => activeFilters.includes(filter);
   const onFilterClick = e => {
-    const filter = e.target.id === '' ? e.target.parentElement.id : e.target.id;
-    isSelected(filter)
-      ? setActiveFilters(activeFilters.filter(f => f !== filter))
-      : setActiveFilters([...activeFilters, filter]);
+    const filterId =
+      e.target.id === '' ? e.target.parentElement.id : e.target.id;
+    isSelected(filterId)
+      ? setActiveFilters(activeFilters.filter(f => f !== filterId))
+      : setActiveFilters([...activeFilters, filterId]);
   };
 
   const baseProps = {

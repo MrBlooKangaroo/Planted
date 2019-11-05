@@ -1,4 +1,4 @@
-export default [
+export const categories = [
   'Airy and Fresh',
   'Daydream',
   'Dark and Moody',
@@ -14,3 +14,6 @@ export default [
   'Quintessential',
   'Sweet',
 ];
+
+export const leftCategories = categories.slice(0, categories.length / 2);
+export const rightCategories = categories.slice(categories.length / 2);
