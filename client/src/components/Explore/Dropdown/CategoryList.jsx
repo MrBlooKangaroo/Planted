@@ -20,12 +20,20 @@ const CategoryList = props => {
       <div className={header}>{text.categories}</div>
       <ul className={categoryListLeft}>
         {leftCategories.map(categoryName => (
-          <CategoryListItem {...props} categoryName={categoryName} />
+          <CategoryListItem
+            {...props}
+            categoryName={categoryName}
+            key={categoryName}
+          />
         ))}
       </ul>
       <ul className={categoryListRight}>
         {rightCategories.map(categoryName => (
-          <CategoryListItem {...props} categoryName={categoryName} />
+          <CategoryListItem
+            {...props}
+            categoryName={categoryName}
+            key={categoryName}
+          />
         ))}
       </ul>
     </div>
