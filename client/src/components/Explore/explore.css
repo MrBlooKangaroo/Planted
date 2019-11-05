@@ -9,8 +9,8 @@
   text-align: center;
 }
 
-.chooseVibeUnfiltered,
-.chooseVibeFiltered {
+.promptUnfiltered,
+.promptFiltered {
   background: white;
   border-radius: 4px;
   box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
@@ -24,12 +24,12 @@
   text-align: center;
   width: 17rem;
 }
-.chooseVibeUnfiltered:hover,
-.chooseVibeFiltered:hover {
+.promptUnfiltered:hover,
+.promptFiltered:hover {
   cursor: pointer;
 }
 
-.chooseVibeFiltered {
+.promptFiltered {
   border: 0.1rem solid rgb(0, 115, 106);
   padding: 0.5rem 2.4rem;
 }

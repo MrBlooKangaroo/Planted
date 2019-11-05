@@ -1,6 +1,13 @@
 import React, { useState, Fragment } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { fetchGoogleUser } from '../../../api/fetchGoogleUser';
+import { fetchGoogleUser } from '../../../api/mutations';
+import { googleClientId } from '../../../constants/config';
+
+const logText = {
+  login: 'Log in',
+  logout: 'Log out',
+  authenticated: 'Authenticated',
+};
 
 export const Login = () => {
   let userInfo;
@@ -56,14 +63,14 @@ export const BaseLogin = ({
   <Fragment>
     {isAuthenticated ? (
       <div>
-        <p>Authenticated</p>
+        <p>{logText.authenticated}</p>
         <p>{name}</p>
-        <button onClick={logout}>Log out</button>
+        <button onClick={logout}>{logText.logout}</button>
       </div>
     ) : (
       <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        buttonText="Login"
+        clientId={googleClientId}
+        buttonText={logText.login}
         onSuccess={googleResponse}
         onFailure={onFailure}
       />

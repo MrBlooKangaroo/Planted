@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-.plantList {
+.plantTypeList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

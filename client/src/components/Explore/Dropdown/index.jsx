@@ -1,13 +1,13 @@
 import React from 'react';
 import SubFilter from './SubFilter';
-import Categories from './Categories';
+import CategoryList from './CategoryList';
 import { menuOpen, menuClosed } from './dropdown.css';
 
 const Dropdown = props => (
   <div className={props.isOpen ? menuOpen : menuClosed}>
     <SubFilter {...props} type="luxLevel" />
     <SubFilter {...props} type="waterCycle" />
-    <Categories {...props} />
+    <CategoryList {...props} />
   </div>
 );
 
