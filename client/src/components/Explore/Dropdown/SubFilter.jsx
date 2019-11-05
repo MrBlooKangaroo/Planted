@@ -1,6 +1,6 @@
 import React from 'react';
-import { amounts } from '../utils';
-import Icon from './Icon';
+import levels from '../../../constants/levels';
+import FilterIcon from './FilterIcon';
 import { header, subFilterList, subFilterWrapper } from './dropdown.css';
 
 const SubFilter = props => (
@@ -9,8 +9,8 @@ const SubFilter = props => (
       {props.type === 'luxLevel' ? 'Light Intensity' : 'Water Frequency'}
     </div>
     <ul className={subFilterList}>
-      {amounts.map(amount => (
-        <Icon {...props} amount={amount} key={amount} />
+      {levels.map(level => (
+        <FilterIcon {...props} level={level} key={level} />
       ))}
     </ul>
   </div>

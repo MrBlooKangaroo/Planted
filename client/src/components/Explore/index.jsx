@@ -2,40 +2,60 @@ import React, { Fragment, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from './Dropdown';
-import PlantList from './PlantList';
+import PlantTypeList from './PlantTypeList';
 import {
-  header,
-  chooseVibeFiltered,
-  chooseVibeUnfiltered,
+  header as headerClass,
+  promptFiltered,
+  promptUnfiltered,
   caretUp,
   caretDown,
 } from './explore.css';
 
+export const exploreText = {
+  header: 'Find new plant friends.',
+  prompt: 'CHOOSE YOUR VIBE',
+};
+
 const Explore = () => {
-  const [isOpen, toggleDropdown] = useState(false);
-  const [filters, setFilters] = useState([]);
-  const props = {
-    filters,
-    setFilters,
-    isOpen,
+  const [isDropdownOpen, toggleDropdown] = useState(false);
+  const [activeFilters, setActiveFilters] = useState([]);
+
+  const isSelected = filter => activeFilters.includes(filter);
+  const onFilterClick = e => {
+    const filter = e.target.id === '' ? e.target.parentElement.id : e.target.id;
+    isSelected(filter)
+      ? setActiveFilters(activeFilters.filter(f => f !== filter))
+      : setActiveFilters([...activeFilters, filter]);
   };
+
+  const baseProps = {
+    isDropdownOpen,
+    toggleDropdown,
+    activeFilters,
+    onFilterClick,
+    isSelected,
+  };
+  return <BaseExplore {...baseProps} />;
+};
+
+const BaseExplore = props => {
+  const { isDropdownOpen, activeFilters, toggleDropdown } = props;
+  const { header, prompt } = exploreText;
   return (
     <Fragment>
-      <div className={header}>Find new plant friends.</div>
+      <div className={headerClass}>{header}</div>
       <div
-        onClick={() => toggleDropdown(!isOpen)}
-        className={
-          filters.length > 0 ? chooseVibeFiltered : chooseVibeUnfiltered
-        }
+        onClick={() => toggleDropdown(!isDropdownOpen)}
+        className={activeFilters.length > 0 ? promptFiltered : promptUnfiltered}
       >
-        CHOOSE YOUR VIBE
+        {prompt}
         <FontAwesomeIcon
           icon={faAngleDown}
-          className={isOpen ? caretUp : caretDown}
+          className={isDropdownOpen ? caretUp : caretDown}
         />
       </div>
-      {isOpen && <Dropdown {...props} />}
-      <PlantList {...props} />
+      {isDropdownOpen && <Dropdown {...props} />}
+      <PlantTypeList {...props} />
     </Fragment>
   );
 };

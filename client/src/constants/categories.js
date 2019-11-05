@@ -1,0 +1,16 @@
+export default [
+  'Airy and Fresh',
+  'Daydream',
+  'Dark and Moody',
+  'Botanical Garden',
+  'Bold Branches',
+  'French Bistro',
+  'Jungle',
+  'Herbs',
+  'Urban Jungle',
+  'Monsters',
+  'Purifies Air',
+  'Indie',
+  'Quintessential',
+  'Sweet',
+];

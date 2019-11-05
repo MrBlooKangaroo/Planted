@@ -37,7 +37,7 @@
   width: 21rem;
 }
 
-button:focus,
+.login:focus,
 .searchInput:focus {
   outline: none;
 }
