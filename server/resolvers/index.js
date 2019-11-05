@@ -3,13 +3,13 @@ const resolvers = {
   Mutation: require('./mutation-resolver'),
   Node: require('./node'),
   Date: require('./date-resolver'),
-  
+
   User: require('./associations/user-associations'),
   Nook: require('./associations/nook-associations'),
   Plant: require('./associations/plant-associations'),
   PlantType: require('./associations/plantType-associations'),
   Watering: require('./associations/watering-associations'),
-  Wish: require('./associations/wish-associations')
-}
+  Wish: require('./associations/wish-associations'),
+};
 
-module.exports = resolvers
+module.exports = resolvers;
