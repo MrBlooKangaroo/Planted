@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import Explore from './index';
 import Dropdown from './Dropdown';
-import PlantList from './PlantList';
+import PlantTypeList from './PlantTypeList';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);
@@ -13,7 +13,7 @@ afterEach(cleanup);
 describe('Explore Component', () => {
   let wrapper, props;
   beforeEach(() => {
-    props = { isOpen: true };
+    props = { isDropdownOpen: true };
     wrapper = shallow(<Explore {...props} />);
   });
 
@@ -27,20 +27,13 @@ describe('Explore Component', () => {
     expect(dropdown).toBeDefined();
   });
 
-  it('should mount the PlantList component', () => {
-    const plantList = wrapper.find(PlantList);
-    expect(plantList).toBeDefined();
+  it('should mount the PlantTypeList component', () => {
+    const plantTypeList = wrapper.find(PlantTypeList);
+    expect(plantTypeList).toBeDefined();
   });
 
-  it('should render the greeting message', () => {
-    const headerText = 'Find new plant friends.';
-    const header = wrapper.find('.header');
-    expect(header).toExist();
-    expect(header).toIncludeText(headerText);
-  });
-
-  it('should NOT render the Dropdown component isOpen is false', () => {
-    wrapper.setProps({ isOpen: false });
+  it('should NOT render the Dropdown component isDropdownOpen is false', () => {
+    wrapper.setProps({ isDropdownOpen: false });
     const dropdownComponent = wrapper.find(Dropdown);
     expect(Object.keys(dropdownComponent).length).toBe(0);
   });
