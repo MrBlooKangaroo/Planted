@@ -54,8 +54,6 @@ button:focus,
   background: none !important;
   border: solid 2px #212121 !important;
   border-radius: 4px !important;
-  box-shadow: none !important;
-  color: #212121 !important;
   display: inline-block !important;
   font-family: 'Karla', sans-serif !important;
   font-size: 1.3rem !important;
@@ -63,7 +61,7 @@ button:focus,
   padding: 0.4rem 3.2rem !important;
 }
 .googleButton:hover {
-  background: #212121 !important;
+  background: black !important;
   color: white !important;
   cursor: pointer !important;
 }
@@ -93,7 +91,7 @@ button:focus,
   font-weight: bold;
 }
 .logoutButton:hover {
-  background: #212121;
+  background: black;
   color: white;
   cursor: pointer;
 }

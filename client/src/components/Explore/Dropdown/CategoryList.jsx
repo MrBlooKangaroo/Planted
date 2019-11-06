@@ -12,24 +12,28 @@ export const categoryListText = {
   header: 'Categories',
 };
 
-const CategoryList = props => {
-  const leftCategories = categories.slice(0, categories.length / 2);
-  const rightCategories = categories.slice(categories.length / 2);
-  return (
-    <div className={categoryListContainer}>
-      <div className={header}>{text.categories}</div>
-      <ul className={categoryListLeft}>
-        {leftCategories.map(categoryName => (
-          <CategoryListItem {...props} categoryName={categoryName} />
-        ))}
-      </ul>
-      <ul className={categoryListRight}>
-        {rightCategories.map(categoryName => (
-          <CategoryListItem {...props} categoryName={categoryName} />
-        ))}
-      </ul>
-    </div>
-  );
-};
+const CategoryList = props => (
+  <div className={categoryListContainer}>
+    <div className={header}>{categoryListText.header}</div>
+    <ul className={categoryListLeft}>
+      {leftCategories.map(categoryName => (
+        <CategoryListItem
+          {...props}
+          categoryName={categoryName}
+          key={categoryName}
+        />
+      ))}
+    </ul>
+    <ul className={categoryListRight}>
+      {rightCategories.map(categoryName => (
+        <CategoryListItem
+          {...props}
+          categoryName={categoryName}
+          key={categoryName}
+        />
+      ))}
+    </ul>
+  </div>
+);
 
 export default CategoryList;

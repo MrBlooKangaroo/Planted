@@ -6,7 +6,6 @@ import UserInfo from './UserInfo';
 
 export const loginText = {
   login: 'Log in',
-  authenticated: 'Authenticated',
 };
 
 export const Login = () => {

@@ -35,6 +35,5 @@ export default async response => {
     process.env.REACT_APP_BACKEND_URL,
     options,
   );
-  const user = await resourceResponse.json();
-  return user;
+  return await resourceResponse.json();
 };
