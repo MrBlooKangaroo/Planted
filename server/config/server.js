@@ -1,43 +1,38 @@
-require('dotenv').config()
-const { ApolloServer, gql, AuthenticationError } = require('apollo-server')
-const fs = require('fs')
-const resolvers = require('../resolvers')
-const jwt = require('jsonwebtoken')
+require('dotenv').config();
+const { ApolloServer, gql, AuthenticationError } = require('apollo-server');
+const fs = require('fs');
+const resolvers = require('../resolvers');
+const jwt = require('jsonwebtoken');
 
-const schema = fs.readFileSync('./config/schema.graphql')
+const schema = fs.readFileSync('./config/schema.graphql');
 const typeDefs = gql`
   ${schema}
-`
+`;
 
 const context = ({ req, res }) => {
   const token = req.headers.authorization || '';
-  const currentUser = jwt.verify(
-    token,
-    process.env.SECRET_KEY,
-    (err, decoded) => {
-      const whitelist = ['authGoogle', 'IntrospectionQuery'];
-      let isWhitelisted = req.body.query === '';
-      if (!isWhitelisted) {
-        for (let i in whitelist) {
-          isWhitelisted = req.body.query.includes(whitelist[i]);
-          if (isWhitelisted) break;
-        }
+  const currentUser = jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+    const whitelist = ['authGoogle', 'IntrospectionQuery', 'plantTypes'];
+    let isWhitelisted = req.body.query === '';
+    if (!isWhitelisted) {
+      for (let i in whitelist) {
+        isWhitelisted = req.body.query.includes(whitelist[i]);
+        if (isWhitelisted) break;
       }
-      if (err && !isWhitelisted) {
-        throw new AuthenticationError('Unauthorized');
-      }
-      return decoded;
     }
-  );
+    if (err && !isWhitelisted) {
+      throw new AuthenticationError('Unauthorized');
+    }
+    return decoded;
+  });
   return { req, res, currentUser };
 };
 
-const onConnect = async (connectionParams) => true
+const onConnect = async connectionParams => true;
 
 const isIntrospectionOn =
   process.env.NODE_ENV !== 'production' ||
-  (process.env.NODE_ENV === 'production'
-    && process.env.IS_INTROSPECTION_ON === 'true')
+  (process.env.NODE_ENV === 'production' && process.env.IS_INTROSPECTION_ON === 'true');
 
 const server = new ApolloServer({
   typeDefs,
@@ -46,6 +41,6 @@ const server = new ApolloServer({
   introspection: isIntrospectionOn,
   playground: isIntrospectionOn,
   subscriptions: { onConnect },
-})
+});
 
-module.exports = server
+module.exports = server;

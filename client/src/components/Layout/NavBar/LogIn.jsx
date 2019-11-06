@@ -1,6 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import fetchGoogleUser from '../../../api/mutations/fetchGoogleUser';
+import { loginContainer, googleButton } from './navbar.css';
+import UserInfo from './UserInfo';
 
 export const loginText = {
   login: 'Log in',
@@ -9,13 +11,11 @@ export const loginText = {
 };
 
 export const Login = () => {
-  let userInfo;
-  let tokenInfo;
-
-  const [name, setName] = useState('');
+  let userInfo, tokenInfo;
+  const [photoUrl, setPhotoUrl] = useState('');
   const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 
-  const logout = () => {
+  const onLogout = () => {
     toggleIsAuthenticated(false);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -25,28 +25,19 @@ export const Login = () => {
     const user = await fetchGoogleUser(response);
     userInfo = user.data.authGoogle.user;
     tokenInfo = user.data.authGoogle.token;
-
     window.localStorage.setItem('token', tokenInfo);
     window.localStorage.setItem('user', userInfo);
-
     if (user) {
       toggleIsAuthenticated(true);
-      setName(fullName);
+      setPhotoUrl(userInfo.photoUrl);
     }
   };
 
-  const onFailure = error => {
-    alert(error);
-  };
-
-  const fullName = () => userInfo.firstName + ' ' + userInfo.lastName;
-
   const baseProps = {
     isAuthenticated,
-    name,
-    logout,
     googleResponse,
-    onFailure,
+    onLogout,
+    photoUrl,
   };
 
   return <BaseLogin {...baseProps} />;
@@ -54,25 +45,22 @@ export const Login = () => {
 
 export const BaseLogin = ({
   isAuthenticated,
-  name,
-  logout,
   googleResponse,
-  onFailure,
+  onLogout,
+  name,
+  photoUrl,
 }) => (
-  <Fragment>
+  <div className={loginContainer}>
     {isAuthenticated ? (
-      <div>
-        <p>{loginText.authenticated}</p>
-        <p>{name}</p>
-        <button onClick={logout}>{loginText.logout}</button>
-      </div>
+      <UserInfo name={name} onLogout={onLogout} photoUrl={photoUrl} />
     ) : (
       <GoogleLogin
+        className={googleButton}
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText={loginText.login}
         onSuccess={googleResponse}
-        onFailure={onFailure}
+        onFailure={error => alert(error)}
       />
     )}
-  </Fragment>
+  </div>
 );

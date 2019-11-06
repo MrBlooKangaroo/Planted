@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  navBar,
-  logo,
-  navContentRight,
-  login,
-  searchInput,
-} from './navbar.css';
+import { Login } from './LogIn';
+import { navBar, logo, navContentRight, searchInput } from './navbar.css';
 
 export const navBarText = {
   logo: 'Planted',
@@ -21,7 +16,7 @@ const NavBar = () => (
         type="text"
         placeholder=" &#xf002;    Search Plant Names"
       />
-      <button className={login}>{navBarText.login}</button>
+      <Login />
     </div>
   </nav>
 );
