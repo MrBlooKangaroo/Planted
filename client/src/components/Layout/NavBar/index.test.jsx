@@ -1,18 +1,19 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
+import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
+import { GoogleLogin } from 'react-google-login';
 import 'jest-enzyme';
 import NavBar from './index';
+import { Login, loginText } from '../Login';
 
 configure({ adapter: new Adapter() });
-
 afterEach(cleanup);
 
 describe('NavBar Component', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<NavBar />);
+    wrapper = mount(<NavBar />);
   });
 
   it('should mount the NavBar component', () => {
@@ -23,5 +24,16 @@ describe('NavBar Component', () => {
   it('should render a search bar', () => {
     const searchBar = wrapper.find('input[type="text"]');
     expect(searchBar.length).toBe(1);
+  });
+
+  it('should mount a Login component', () => {
+    const LoginComponent = wrapper.find(Login);
+    expect(LoginComponent).toExist();
+  });
+
+  it('should render a google signin button', () => {
+    const button = wrapper.find(GoogleLogin);
+    expect(button).toExist();
+    expect(button.text()).toEqual(loginText.login);
   });
 });
