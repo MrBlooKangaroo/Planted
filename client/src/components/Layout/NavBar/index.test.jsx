@@ -5,30 +5,26 @@ import Adapter from 'enzyme-adapter-react-16';
 import { GoogleLogin } from 'react-google-login';
 import 'jest-enzyme';
 import NavBar from './index';
-import { Login, loginText } from '../Login';
+import { loginText } from './Login';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);
 
 describe('NavBar Component', () => {
-  let wrapper;
+  let wrapper, props;
   beforeEach(() => {
-    wrapper = mount(<NavBar />);
+    props = { isAuthenticated: false };
+    wrapper = mount(<NavBar {...props} />);
   });
 
   it('should mount the NavBar component', () => {
     const navBar = wrapper.find(NavBar);
-    expect(navBar).toBeDefined();
+    expect(navBar).toExist();
   });
 
   it('should render a search bar', () => {
     const searchBar = wrapper.find('input[type="text"]');
     expect(searchBar.length).toBe(1);
-  });
-
-  it('should mount a Login component', () => {
-    const LoginComponent = wrapper.find(Login);
-    expect(LoginComponent).toExist();
   });
 
   it('should render a google signin button', () => {
