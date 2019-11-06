@@ -17,22 +17,30 @@ describe('Explore Component', () => {
     wrapper = shallow(<Explore {...props} />);
   });
 
-  it('should mount the Explore component', () => {
+  it('should define the Explore component', () => {
     const explore = wrapper.find(Explore);
     expect(explore).toBeDefined();
   });
 
-  it('should mount the Dropdown component', () => {
+  it('should be passed all required props', async () => {
+    expect(wrapper.props().isDropdownOpen).toBeDefined();
+    expect(wrapper.props().toggleDropdown).toBeDefined();
+    expect(wrapper.props().activeFilters).toBeDefined();
+    expect(wrapper.props().onFilterClick).toBeDefined();
+    expect(wrapper.props().isSelected).toBeDefined();
+  });
+
+  it('should define the Dropdown component', () => {
     const dropdown = wrapper.find(Dropdown);
     expect(dropdown).toBeDefined();
   });
 
-  it('should mount the PlantTypeList component', () => {
+  it('should define the PlantTypeList component', () => {
     const plantTypeList = wrapper.find(PlantTypeList);
     expect(plantTypeList).toBeDefined();
   });
 
-  it('should NOT render the Dropdown component isDropdownOpen is false', () => {
+  it('should NOT render the Dropdown component when isDropdownOpen is false', () => {
     wrapper.setProps({ isDropdownOpen: false });
     const dropdownComponent = wrapper.find(Dropdown);
     expect(Object.keys(dropdownComponent).length).toBe(0);

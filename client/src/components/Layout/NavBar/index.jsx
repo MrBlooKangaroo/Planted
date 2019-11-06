@@ -1,10 +1,9 @@
 import React from 'react';
-import { Login } from './LogIn';
+import { Login } from './Login';
 import { navBar, logo, navContentRight, searchInput } from './navbar.css';
 
 export const navBarText = {
   logo: 'Planted',
-  login: 'Log in',
 };
 
 const NavBar = () => (
