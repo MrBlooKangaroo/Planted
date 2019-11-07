@@ -54,6 +54,7 @@ button:focus,
   background: none !important;
   border: solid 2px #212121 !important;
   border-radius: 4px !important;
+  color: #212121 !important;
   display: inline-block !important;
   font-family: 'Karla', sans-serif !important;
   font-size: 1.3rem !important;

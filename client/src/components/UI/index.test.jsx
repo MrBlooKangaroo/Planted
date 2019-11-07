@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup } from 'react-testing-library';
+import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import PlantCardSmall from './PlantCardSmall';
 import styles from './styles.css';
