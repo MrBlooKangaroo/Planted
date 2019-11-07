@@ -3,8 +3,8 @@ import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import Layout from './index';
-import NavBar from './NavBar';
+import Layout from '../../Layout';
+import NavBar from '../NavBar';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

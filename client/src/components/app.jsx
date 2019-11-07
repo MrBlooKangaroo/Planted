@@ -5,7 +5,6 @@ import ApolloClient from 'apollo-boost';
 import Layout from './Layout';
 import Explore from './Explore';
 import { rootPath } from '../constants/paths';
-import './app.css';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_BACKEND_URL,

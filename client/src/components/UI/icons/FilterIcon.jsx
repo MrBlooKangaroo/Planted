@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import getLuxOrCycleIcon from '../../../utils/getLuxOrCycleIcon';
-import { filterUnselected, filterSelected } from './dropdown.css';
+import { filterUnselected, filterSelected } from '../_styles/icons.css';
 
 const FilterIcon = ({ type, level, isSelected, onFilterClick }) => {
   const [isHovering, toggleHover] = useState(false);

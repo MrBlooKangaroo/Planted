@@ -1,7 +1,11 @@
 import React from 'react';
-import levels from '../../../constants/levels';
-import FilterIcon from './FilterIcon';
-import { header, subFilterList, subFilterWrapper } from './dropdown.css';
+import levels from '../../../../constants/levels';
+import FilterIcon from '../../../UI/icons/FilterIcon';
+import {
+  header,
+  subFilterList,
+  subFilterWrapper,
+} from '../../_styles/dropdown.css';
 
 export const subFilterText = {
   lightIntensity: 'Light Intensity',

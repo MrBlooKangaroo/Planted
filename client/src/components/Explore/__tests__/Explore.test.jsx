@@ -3,9 +3,9 @@ import { shallow, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import Explore from './index';
-import Dropdown from './Dropdown';
-import PlantTypeList from './PlantTypeList';
+import Explore, { exploreText } from '../../Explore';
+import Dropdown from '../Dropdown';
+import PlantTypeList from '../PlantTypeList';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);
@@ -38,6 +38,14 @@ describe('Explore Component', () => {
   it('should define the PlantTypeList component', () => {
     const plantTypeList = wrapper.find(PlantTypeList);
     expect(plantTypeList).toBeDefined();
+  });
+
+  it('should have the prompt text', () => {
+    expect(wrapper.dive().text()).toContain(exploreText.prompt);
+  });
+
+  it('should have the header text', () => {
+    expect(wrapper.dive().text()).toContain(exploreText.header);
   });
 
   it('should NOT render the Dropdown component when isDropdownOpen is false', () => {

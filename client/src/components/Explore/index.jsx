@@ -9,7 +9,7 @@ import {
   promptUnfiltered,
   caretUp,
   caretDown,
-} from './explore.css';
+} from './_styles/explore.css';
 
 export const exploreText = {
   header: 'Find new plant friends.',

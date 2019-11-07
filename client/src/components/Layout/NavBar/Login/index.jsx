@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import fetchGoogleUser from '../../../api/mutations/fetchGoogleUser';
-import { loginContainer, googleButton } from './navbar.css';
-import UserInfo from './UserInfo';
+import fetchGoogleUser from '../../../../api/mutations/fetchGoogleUser';
+import { loginContainer, googleButton } from '../../_styles/navbar.css';
+import UserInfo from '../UserInfo';
 
 export const loginText = {
   login: 'Log in',

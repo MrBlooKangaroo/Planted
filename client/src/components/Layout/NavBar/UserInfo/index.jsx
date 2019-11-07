@@ -1,5 +1,9 @@
 import React from 'react';
-import { userInfoContainer, userPhoto, logoutButton } from './navbar.css';
+import {
+  userInfoContainer,
+  userPhoto,
+  logoutButton,
+} from '../../_styles/navbar.css';
 
 export const userInfoText = {
   logout: 'Log out',
