@@ -5,16 +5,12 @@
   width: 4.3rem;
 }
 
-.categorySelected:hover,
 .filterSelected:hover,
-.categoryUnselected:hover,
 .filterUnselected:hover {
   cursor: pointer;
 }
 
-.categorySelected,
 .filterSelected,
-.categoryUnselected:hover,
 .filterUnselected:hover {
   color: #00736a;
 }
