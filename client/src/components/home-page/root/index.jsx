@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.css';
-import { Login } from '../../login/root/index';
+import { Login } from 'components/login/root/index';
 
 export const text = {
   headline: 'Graphql Starter Kit',
