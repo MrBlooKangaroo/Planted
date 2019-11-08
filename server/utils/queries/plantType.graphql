@@ -2,13 +2,30 @@ query getPlantType($id: ID!) {
   plantType(id: $id) {
     id
     name
-    description
-    instructions
     photoUrl
+    photoUrlVerticalCrop
+    photoUrlHorizontalCrop
+    featuresWeb
+    instructionsWeb
+    featuresiOS
+    instructionsiOS
+    petToxicity
+    colorPalette
+    humidityAdvice
+    travelAdvice
+    careAdvice
+    luxLevelInfo
+    waterCycleInfo
+    jungleVibes
+    airyFresh
+    purifiesAir
     luxLevel
     waterLevel
     waterCycle
     plants {
+      id
+    }
+    wishes {
       id
     }
   }
