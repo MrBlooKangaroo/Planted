@@ -1,2 +1,1 @@
-module.exports = array =>
-    array[Math.floor(Math.random() * array.length)].id
+module.exports = array => array[Math.floor(Math.random() * array.length)].id;

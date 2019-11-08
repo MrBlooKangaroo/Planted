@@ -36,6 +36,37 @@ type User implements Node {
 }
 
 """
+  A particular kind of a plant.
+  Contains most of the static data.
+"""
+type PlantType implements Node {
+  id: ID!
+  name: String!
+  photoUrl: String!
+  photoUrlVerticalCrop: String!
+  photoUrlHorizontalCrop: String!
+  featuresWeb: String!
+  instructionsWeb: String!
+  featuresiOS: String!
+  instructionsiOS: String!
+  petToxicity: String!
+  colorPalette: String!
+  humidityAdvice: String!
+  travelAdvice: String!
+  careAdvice: String!
+  luxLevelInfo: String!
+  waterCycleInfo: String!
+  jungleVibes: Boolean!
+  airyFresh: Boolean!
+  purifiesAir: Boolean!
+  luxLevel: LuxLevel!
+  waterLevel: WaterLevel!
+  waterCycle: WaterCycle!
+  plants: [Plant!]
+  wishes: [Wish!]
+}
+
+"""
   The instance of a user owning a plant.
   Has to be tied to a nook.
 """
@@ -63,23 +94,6 @@ type Nook implements Node {
   wishes: [Wish!]
   createdAt: Date!
   updatedAt: Date
-}
-
-"""
-  A particular kind of a plant.
-  Contains most of the static data.
-"""
-type PlantType implements Node {
-  id: ID!
-  name: String!
-  description: String!
-  instructions: String!
-  photoUrl: String!
-  luxLevel: LuxLevel!
-  waterLevel: WaterLevel!
-  waterCycle: WaterCycle!
-  plants: [Plant!]
-  wishes: [Wish!]
 }
 
 """
@@ -146,6 +160,10 @@ input CreateWishInput {
   userId: ID!
   plantTypeId: ID!
   nookId: ID
+}
+
+input AuthInput {
+  accessToken: String!
 }
 
 type UserPayload {
