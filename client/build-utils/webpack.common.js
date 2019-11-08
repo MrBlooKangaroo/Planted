@@ -2,6 +2,7 @@ const path = require('path');
 const getClientEnvironment = require('./get-client-environment');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const commonPaths = require('./commonPaths');
 
 module.exports = {
   module: {
@@ -51,6 +52,12 @@ module.exports = {
       path.resolve('src'),
       path.resolve('.'),
     ],
+    alias: {
+      api: commonPaths.apiFolder,
+      components: commonPaths.componentsFolder,
+      constants: commonPaths.constantsFolder,
+      utils: commonPaths.utilsFolder,
+    },
     extensions: ['.wasm', '.mjs', '.js', '.jsx', '.json', '*'],
   },
 };
