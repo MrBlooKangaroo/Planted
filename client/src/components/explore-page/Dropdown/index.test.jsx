@@ -13,7 +13,7 @@ afterEach(cleanup);
 describe('Dropdown Component', () => {
   let wrapper, element, props;
   beforeEach(() => {
-    props = { isSelected: () => {} };
+    props = { checkIfSelected: () => true };
     wrapper = shallow(<Dropdown {...props} />);
     element = mount(<Dropdown {...props} />);
   });
@@ -23,8 +23,9 @@ describe('Dropdown Component', () => {
     expect(dropdown).toExist();
   });
 
-  it('should be passed isSelected props', () => {
-    expect(element.props().isSelected).toBeDefined();
+  it('should be passed checkIfSelected props', () => {
+    expect(element.props().checkIfSelected).toBeDefined();
+    expect(element.props().checkIfSelected()).toBe(true);
   });
 
   it('should mount the SubFilter components', () => {

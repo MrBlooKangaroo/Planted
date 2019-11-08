@@ -13,7 +13,7 @@ afterEach(cleanup);
 describe('SubFilter Component', () => {
   let element, props;
   beforeEach(() => {
-    props = { isSelected: () => {}, type: 'luxLevel' };
+    props = { checkIfSelected: () => {}, type: 'luxLevel' };
     element = mount(<SubFilter {...props} />);
   });
 
@@ -22,8 +22,8 @@ describe('SubFilter Component', () => {
     expect(subFilter).toExist();
   });
 
-  it('should pass the isSelected and type props', () => {
-    expect(element.props().isSelected).toBeDefined();
+  it('should pass the checkIfSelected and type props', () => {
+    expect(element.props().checkIfSelected).toBeDefined();
     expect(element.props().type).toBeDefined();
   });
 

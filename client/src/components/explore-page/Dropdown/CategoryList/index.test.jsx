@@ -12,7 +12,7 @@ afterEach(cleanup);
 describe('Category List Component', () => {
   let wrapper, element, props;
   beforeEach(() => {
-    props = { isSelected: () => {} };
+    props = { checkIfSelected: () => {} };
     wrapper = shallow(<CategoryList {...props} />);
     element = mount(<CategoryList {...props} />);
   });
@@ -33,7 +33,7 @@ describe('Category List Component', () => {
     categoryListItems.forEach(
       categoryListItem =>
         expect(categoryListItem.props().categoryName).toBeDefined() &&
-        expect(categoryListItem.props().isSelected).toBeDefined() &&
+        expect(categoryListItem.props().checkIfSelected).toBeDefined() &&
         expect(categoryListItem.props().onFilterClick).toBeDefined(),
     );
   });
@@ -44,7 +44,10 @@ describe('Category List Component', () => {
 
   it("should have the category list item's name", () => {
     const category = shallow(
-      <CategoryListItem isSelected={() => {}} categoryName="Jungle Vibes" />,
+      <CategoryListItem
+        checkIfSelected={() => {}}
+        categoryName="Jungle Vibes"
+      />,
     );
     expect(category.text()).toContain('Jungle Vibes');
   });

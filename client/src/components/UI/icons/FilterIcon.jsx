@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import getLuxOrCycleIcon from '../../../utils/getLuxOrCycleIcon';
 import { filterUnselected, filterSelected } from './styles.css';
 
-const FilterIcon = ({ type, level, isSelected, onFilterClick }) => {
+const FilterIcon = ({ type, level, checkIfSelected, onFilterClick }) => {
   const [isHovering, toggleHover] = useState(false);
   const filterId = `${type}:${level}`;
   const selection =
-    isHovering || isSelected(filterId) ? 'selected' : 'unselected';
-  const className = isSelected(filterId) ? filterSelected : filterUnselected;
+    isHovering || checkIfSelected(filterId) ? 'selected' : 'unselected';
+  const className = checkIfSelected(filterId)
+    ? filterSelected
+    : filterUnselected;
   return (
     <li
       id={filterId}

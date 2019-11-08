@@ -1,12 +1,14 @@
 import React from 'react';
 import { categorySelected, categoryUnselected } from './styles.css';
 
-const CategoryListItem = ({ categoryName, isSelected, onFilterClick }) => (
+const CategoryListItem = ({ categoryName, checkIfSelected, onFilterClick }) => (
   <li
     id={categoryName}
     key={categoryName}
     onClick={onFilterClick}
-    className={isSelected(categoryName) ? categorySelected : categoryUnselected}
+    className={
+      checkIfSelected(categoryName) ? categorySelected : categoryUnselected
+    }
   >
     {categoryName}
   </li>

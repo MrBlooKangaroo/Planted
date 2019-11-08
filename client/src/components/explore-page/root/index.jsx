@@ -20,11 +20,11 @@ const Explore = () => {
   const [isDropdownOpen, toggleDropdown] = useState(false);
   const [activeFilters, setActiveFilters] = useState([]);
 
-  const isSelected = filter => activeFilters.includes(filter);
+  const checkIfSelected = filter => activeFilters.includes(filter);
   const onFilterClick = e => {
     const filterId =
       e.target.id === '' ? e.target.parentElement.id : e.target.id;
-    isSelected(filterId)
+    checkIfSelected(filterId)
       ? setActiveFilters(activeFilters.filter(f => f !== filterId))
       : setActiveFilters([...activeFilters, filterId]);
   };
@@ -34,7 +34,7 @@ const Explore = () => {
     toggleDropdown,
     activeFilters,
     onFilterClick,
-    isSelected,
+    checkIfSelected,
   };
   return <BaseExplore {...baseProps} />;
 };

@@ -13,7 +13,6 @@ afterEach(cleanup);
 describe('Explore Component', () => {
   let wrapper, props;
   beforeEach(() => {
-    props = { isDropdownOpen: true };
     wrapper = shallow(<Explore {...props} />);
   });
 
@@ -24,10 +23,15 @@ describe('Explore Component', () => {
 
   it('should be passed all required props', async () => {
     expect(wrapper.props().isDropdownOpen).toBeDefined();
+    expect(wrapper.props().isDropdownOpen).toBe(false);
     expect(wrapper.props().toggleDropdown).toBeDefined();
+    expect(typeof wrapper.props().toggleDropdown).toBe('function');
     expect(wrapper.props().activeFilters).toBeDefined();
+    expect(typeof wrapper.props().activeFilters).toBe('object');
     expect(wrapper.props().onFilterClick).toBeDefined();
-    expect(wrapper.props().isSelected).toBeDefined();
+    expect(typeof wrapper.props().onFilterClick).toBe('function');
+    expect(wrapper.props().checkIfSelected).toBeDefined();
+    expect(typeof wrapper.props().checkIfSelected).toBe('function');
   });
 
   it('should define the Dropdown component', () => {
