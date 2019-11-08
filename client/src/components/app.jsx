@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import Layout from './layout';
+import Layout from './layout/root';
 import Explore from './explore-page/root';
 import { rootPath } from '../constants/paths';
 
