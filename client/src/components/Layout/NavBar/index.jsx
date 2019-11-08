@@ -1,11 +1,6 @@
 import React from 'react';
 import { Login } from './Login';
-import {
-  navBar,
-  logo,
-  navContentRight,
-  searchInput,
-} from '../_styles/navbar.css';
+import { navBar, logo, navContentRight, searchInput } from './styles.css';
 
 export const navBarText = {
   logo: 'Planted',

@@ -3,7 +3,7 @@ import {
   plantCardSmall,
   plantCardSmallPhoto,
   plantCardSmallName,
-} from '../_styles/plant-cards.css';
+} from './styles.css';
 
 export default ({ name, photoUrl }) => (
   <div className={plantCardSmall}>

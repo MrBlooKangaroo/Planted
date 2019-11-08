@@ -3,9 +3,9 @@ import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import SubFilter, { subFilterText } from '../Dropdown/SubFilter';
-import FilterIcon from '../../UI/icons/FilterIcon';
-import getLuxOrCycleIcon from '../../../utils/getLuxOrCycleIcon';
+import SubFilter, { subFilterText } from '.';
+import FilterIcon from '../../../UI/icons/FilterIcon';
+import getLuxOrCycleIcon from '../../../../utils/getLuxOrCycleIcon';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

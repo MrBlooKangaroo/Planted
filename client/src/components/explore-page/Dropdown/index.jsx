@@ -1,7 +1,7 @@
 import React from 'react';
 import SubFilter from './SubFilter';
 import CategoryList from './CategoryList';
-import { dropdownContainer } from '../_styles/dropdown.css';
+import { dropdownContainer } from './styles.css';
 
 const Dropdown = props => (
   <div className={dropdownContainer}>

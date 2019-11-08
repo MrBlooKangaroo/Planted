@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  categorySelected,
-  categoryUnselected,
-} from '../../_styles/dropdown.css';
+import { categorySelected, categoryUnselected } from './styles.css';
 
 const CategoryListItem = ({ categoryName, isSelected, onFilterClick }) => (
   <li

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import NavBar from './NavBar';
-import './_styles/layout.css';
+import './styles.css';
 
 export default props => (
   <Fragment>

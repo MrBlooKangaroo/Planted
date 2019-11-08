@@ -3,7 +3,7 @@ import { shallow, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import Explore, { exploreText } from '../../Explore';
+import Explore, { exploreText } from '.';
 import Dropdown from '../Dropdown';
 import PlantTypeList from '../PlantTypeList';
 

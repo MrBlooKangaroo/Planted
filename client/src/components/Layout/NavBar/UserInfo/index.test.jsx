@@ -3,7 +3,7 @@ import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import UserInfo, { userInfoText } from '../NavBar/UserInfo';
+import UserInfo, { userInfoText } from '.';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

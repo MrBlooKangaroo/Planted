@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
-import FilterIcon from '../icons/FilterIcon';
+import FilterIcon from './FilterIcon';
 import getLuxOrCycleIcon from '../../../utils/getLuxOrCycleIcon';
 import 'jest-enzyme';
 

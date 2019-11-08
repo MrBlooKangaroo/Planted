@@ -1,0 +1,35 @@
+.loginContainer {
+  margin-left: 3rem;
+  margin-right: 4rem;
+}
+
+.loginContainer {
+  display: inline-flex;
+}
+
+.googleButton {
+  background: none !important;
+  border: solid 2px #212121 !important;
+  border-radius: 4px !important;
+  color: #212121 !important;
+  display: inline-block !important;
+  font-family: 'Karla', sans-serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  padding: 0.4rem 3.2rem !important;
+}
+.googleButton:hover {
+  background: black !important;
+  color: white !important;
+  cursor: pointer !important;
+}
+.googleButton:active,
+.googleButton:focus {
+  outline: none !important;
+}
+.googleButton > div {
+  display: none !important;
+}
+.googleButton > span {
+  font-weight: bold !important;
+}

@@ -9,7 +9,7 @@ import {
   categoryListLeft,
   categoryListRight,
   categoryListContainer,
-} from '../../_styles/dropdown.css';
+} from './styles.css';
 
 export const categoryListText = {
   header: 'Categories',

@@ -4,7 +4,7 @@ import {
   plantCardLarge,
   plantCardLargePhoto,
   plantCardLargeLuxLevel,
-} from '../_styles/plant-cards.css';
+} from './styles.css';
 
 const PlantCardLarge = ({ name, luxLevel, photoUrl }) => (
   <div className={plantCardLarge}>

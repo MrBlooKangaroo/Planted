@@ -1,0 +1,35 @@
+.categoryListContainer {
+  display: grid;
+  grid-column: 1/3;
+  margin-top: 2rem;
+}
+
+.header {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.categoryListLeft,
+.categoryListRight {
+  margin: 0;
+  padding: 0;
+}
+.categoryListLeft {
+  grid-column: 1;
+}
+.categoryListRight {
+  grid-column: 2;
+}
+
+.categoryUnselected,
+.categorySelected {
+  margin: 0.9rem 0;
+}
+.categorySelected:hover,
+.categoryUnselected:hover {
+  cursor: pointer;
+}
+.categorySelected,
+.categoryUnselected:hover {
+  color: #00736a;
+}

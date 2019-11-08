@@ -3,9 +3,9 @@ import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import NavBar, { navBarText } from '../NavBar';
-import UserInfo from '../NavBar/UserInfo';
-import { Login } from '../NavBar/Login';
+import NavBar, { navBarText } from '.';
+import UserInfo from './UserInfo';
+import { Login } from './Login';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

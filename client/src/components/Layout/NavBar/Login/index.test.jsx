@@ -4,7 +4,7 @@ import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import { GoogleLogin } from 'react-google-login';
 import 'jest-enzyme';
-import { Login, loginText } from '../NavBar/Login';
+import { Login, loginText } from '.';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

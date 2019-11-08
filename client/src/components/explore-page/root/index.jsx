@@ -1,15 +1,15 @@
 import React, { Fragment, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import Dropdown from './Dropdown';
-import PlantTypeList from './PlantTypeList';
+import Dropdown from '../Dropdown';
+import PlantTypeList from '../PlantTypeList';
 import {
   header as headerClass,
   promptFiltered,
   promptUnfiltered,
   caretUp,
   caretDown,
-} from './_styles/explore.css';
+} from './styles.css';
 
 export const exploreText = {
   header: 'Find new plant friends.',

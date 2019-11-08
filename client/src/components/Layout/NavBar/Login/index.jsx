@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import fetchGoogleUser from '../../../../api/mutations/fetchGoogleUser';
-import { loginContainer, googleButton } from '../../_styles/navbar.css';
+import { loginContainer, googleButton } from './styles.css';
 import UserInfo from '../UserInfo';
 
 export const loginText = {

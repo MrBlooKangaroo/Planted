@@ -3,9 +3,9 @@ import { shallow, mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import Dropdown from '../Dropdown';
-import SubFilter from '../Dropdown/SubFilter';
-import CategoryList from '../Dropdown/CategoryList';
+import Dropdown from '.';
+import SubFilter from './SubFilter';
+import CategoryList from './CategoryList';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

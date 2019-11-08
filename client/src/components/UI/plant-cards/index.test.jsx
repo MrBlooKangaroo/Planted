@@ -1,9 +1,9 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
-import PlantCardSmall from '../plant-cards/PlantCardSmall';
-import PlantCardLarge from '../plant-cards/PlantCardLarge';
-import styles from '../plant-cards/index.css';
+import PlantCardSmall from './PlantCardSmall';
+import PlantCardLarge from './PlantCardLarge';
+import styles from './styles.css';
 import 'jest-enzyme';
 
 afterEach(cleanup);

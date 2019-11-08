@@ -14,14 +14,9 @@ const context = ({ req, res }) => {
   const currentUser = jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
     const whitelist = ['authGoogle', 'IntrospectionQuery', 'plantTypes'];
     let isWhitelisted = req.body.query === '';
-    // console.log(req.body.operationName);
-    // console.log('body', req.body.query);
     if (!isWhitelisted) {
       for (let i in whitelist) {
-        // console.log(whitelist[i]);
         isWhitelisted = req.body.query.includes(whitelist[i]);
-        console.log(whitelist[i] + ': ' + isWhitelisted);
-        console.log(typeof req.body.query);
         if (isWhitelisted) break;
       }
     }
@@ -46,10 +41,6 @@ const server = new ApolloServer({
   introspection: isIntrospectionOn,
   playground: isIntrospectionOn,
   subscriptions: { onConnect },
-  formatError: err => {
-    console.log(err.stack);
-    return err;
-  },
 });
 
 module.exports = server;
