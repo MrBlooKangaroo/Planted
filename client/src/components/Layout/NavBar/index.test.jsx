@@ -1,27 +1,44 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
+import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import NavBar from './index';
+import NavBar, { navBarText } from '.';
+import UserInfo from './UserInfo';
+import { Login } from './Login';
 
 configure({ adapter: new Adapter() });
-
 afterEach(cleanup);
 
 describe('NavBar Component', () => {
-  let wrapper;
+  let element, props;
   beforeEach(() => {
-    wrapper = shallow(<NavBar />);
+    props = { isAuthenticated: false };
+    element = mount(<NavBar {...props} />);
   });
 
   it('should mount the NavBar component', () => {
-    const navBar = wrapper.find(NavBar);
-    expect(navBar).toBeDefined();
+    const navBarComponent = element.find(NavBar);
+    expect(navBarComponent).toExist();
+  });
+
+  it('should mount the Login component', () => {
+    const loginComponent = element.find(Login);
+    expect(loginComponent).toExist();
+  });
+
+  it('should define the UserInfo component', () => {
+    const userInfoComponent = element.find(UserInfo);
+    expect(userInfoComponent).toBeDefined();
   });
 
   it('should render a search bar', () => {
-    const searchBar = wrapper.find('input[type="text"]');
+    const searchBar = element.find('input[type="text"]');
     expect(searchBar.length).toBe(1);
+  });
+
+  it('should have logo text', () => {
+    const navBar = element.find(NavBar);
+    expect(navBar.text()).toContain(navBarText.logo);
   });
 });

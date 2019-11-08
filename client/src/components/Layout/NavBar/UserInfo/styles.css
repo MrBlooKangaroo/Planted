@@ -1,0 +1,23 @@
+.userInfoContainer {
+  display: inline-flex;
+}
+
+.userPhoto {
+  border-radius: 50%;
+  margin-right: 2.5rem;
+  width: 2.8rem;
+}
+
+.logoutButton {
+  background: none;
+  border: solid 2px #212121;
+  border-radius: 4px;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.logoutButton:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}

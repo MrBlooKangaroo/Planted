@@ -1,42 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Login } from './Login';
 import { Link } from 'react-router-dom';
-import routes from '../../../constants/routes';
+import paths from '../../../constants/paths';
 import {
   navBar,
   logo,
   navContentRight,
-  login,
   searchInput,
-  // navContentLeft,
-  navRoutesContainer,
-  navRoute,
-  navRouteSelected,
-} from './navbar.css';
+  navPathsContainer,
+  navPath,
+  navPathSelected,
+} from './styles.css';
 
-const renderRoute = (route, pathname) => {
-  const navText = route === '/' ? 'EXPLORE' : route.slice(1).toUpperCase();
-  const className = pathname === route ? navRouteSelected : navRoute;
+const renderPath = (path, pathname) => {
+  const navText = path === '/' ? 'EXPLORE' : path.slice(1).toUpperCase();
+  const className = pathname === path ? navPathSelected : navPath;
   return (
-    <Link to={route} key={route} id={route} className={className}>
+    <Link to={path} key={path} id={path} className={className}>
       {navText}
     </Link>
   );
 };
 
 const NavBar = ({ location: { pathname } }) => {
+  const [isAuthenticated, toggleIsAuthenticated] = useState(false);
+  const props = { isAuthenticated, toggleIsAuthenticated };
   return (
     <nav className={navBar}>
       <div className={logo}>Planted</div>
-      <div className={navRoutesContainer}>
-        {routes.map(route => renderRoute(route, pathname))}
-      </div>
+      {isAuthenticated && (
+        <div className={navPathsContainer}>
+          {paths.map(path => renderPath(path, pathname))}
+        </div>
+      )}
       <div className={navContentRight}>
         <input
           className={searchInput}
           type="text"
           placeholder=" &#xf002;    Search Plant Names"
         />
-        <button className={login}>Log out</button>
+        <Login {...props} />
       </div>
     </nav>
   );
