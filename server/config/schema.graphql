@@ -10,7 +10,7 @@ type Query {
   plant(id: ID!): Plant
   plants: [Plant!]
   nook(id: ID!): Nook
-  nooks: [Nook!]
+  nooks(userId: ID): [Nook!]
   plantType(id: ID!): PlantType
   plantTypes: [PlantType!]
   watering(id: ID!): Watering
@@ -197,10 +197,6 @@ type AuthGooglePayload {
   accessToken: String
   createdAt: Date!
   updatedAt: Date
-}
-
-input AuthInput {
-  accessToken: String!
 }
 
 enum LuxLevel {

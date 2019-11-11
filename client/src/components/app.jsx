@@ -9,6 +9,7 @@ import { rootPath, gardenPath } from '../constants/paths';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_BACKEND_URL,
+  headers: { authorization: localStorage.getItem('token') },
 });
 
 export const App = () => (

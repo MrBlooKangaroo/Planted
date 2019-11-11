@@ -33,8 +33,8 @@ exports.nook = async (_obj, { id }) => {
   return nook || raiseNotFoundError();
 };
 
-exports.nooks = async () => {
-  return await db.nook.findAll();
+exports.nooks = async (_obj, { userId }) => {
+  return userId ? await db.nook.findAll() : await db.nook.findAll({ where: userId });
 };
 
 exports.plantType = async (_obj, { id }) => {

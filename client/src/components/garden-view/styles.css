@@ -4,4 +4,11 @@
   font-size: 3.6rem;
   margin-top: 2.5rem;
   text-align: center;
+  display: block;
+}
+
+.nooksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
