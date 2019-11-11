@@ -1,0 +1,16 @@
+.filterUnselected,
+.filterSelected {
+  height: 1.4rem;
+  margin-top: 0.4rem;
+  width: 4.3rem;
+}
+
+.filterSelected:hover,
+.filterUnselected:hover {
+  cursor: pointer;
+}
+
+.filterSelected,
+.filterUnselected:hover {
+  color: #00736a;
+}

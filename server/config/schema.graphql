@@ -1,7 +1,7 @@
 scalar Date
 
 interface Node {
-	id: ID
+  id: ID
 }
 
 type Query {
@@ -26,7 +26,7 @@ type User implements Node {
   id: ID!
   firstName: String!
   googleId: ID
-  lastName: String 
+  lastName: String
   email: String
   photoUrl: String
   nooks: [Nook!]
@@ -40,13 +40,13 @@ type User implements Node {
   Has to be tied to a nook.
 """
 type Plant implements Node {
-	id: ID!
-	photoUrl: String
-	nook: Nook!
-	plantType: PlantType!
-	waterings: [Watering!]
-	createdAt: Date!
-	updatedAt: Date
+  id: ID!
+  photoUrl: String
+  nook: Nook!
+  plantType: PlantType!
+  waterings: [Watering!]
+  createdAt: Date!
+  updatedAt: Date
 }
 
 """
@@ -69,13 +69,13 @@ type Nook implements Node {
   A particular kind of a plant.
   Contains most of the static data.
 """
-type PlantType implements Node { 
-  id: ID! 
+type PlantType implements Node {
+  id: ID!
   name: String!
-  description: String! 
-  instructions: String! 
+  description: String!
+  instructions: String!
   photoUrl: String!
-  luxLevel: LuxLevel! 
+  luxLevel: LuxLevel!
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!
   plants: [Plant!]
@@ -87,7 +87,7 @@ type PlantType implements Node {
   Can be marked as executed.
 """
 type Watering implements Node {
-  id: ID! 
+  id: ID!
   plant: Plant!
   expectedAt: Date!
   executedAt: Date
@@ -98,7 +98,7 @@ type Watering implements Node {
   Can be optionally tied to a nook.
 """
 type Wish implements Node {
-  id: ID! 
+  id: ID!
   user: User!
   plantType: PlantType!
   nook: Nook
@@ -125,21 +125,21 @@ input CreateUserInput {
 
 input CreatePlantInput {
   photoUrl: String
-	nookId: ID!
-	plantTypeId: ID!
+  nookId: ID!
+  plantTypeId: ID!
 }
 
 input CreateNookInput {
-	name: String!
+  name: String!
   photoUrl: String
   luxLevel: LuxLevel
-	userId: ID!
+  userId: ID!
 }
 
 input CreateWateringInput {
-	expectedAt: Date!
+  expectedAt: Date!
   executedAt: Date
-	plantId: ID!
+  plantId: ID!
 }
 
 input CreateWishInput {
@@ -172,7 +172,7 @@ type AuthResponse {
 type AuthGooglePayload {
   id: ID!
   firstName: String!
-  lastName: String 
+  lastName: String
   googleId: String
   email: String
   photoUrl: String
@@ -185,20 +185,20 @@ input AuthInput {
   accessToken: String!
 }
 
-enum LuxLevel { 
-  HIGH 
-  MEDIUM 
+enum LuxLevel {
+  HIGH
+  MEDIUM
   LOW
 }
 
 enum WaterLevel {
-	HIGH
-	MEDIUM
-	LOW
+  HIGH
+  MEDIUM
+  LOW
 }
 
 enum WaterCycle {
-	WEEKLY
-	BIWEEKLY
-	MONTHLY
+  WEEKLY
+  BIWEEKLY
+  MONTHLY
 }

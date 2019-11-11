@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppRoot } from './components/app/root';
+import { App } from './components/app';
 import { outputBuild } from './utils/output-build';
 
 outputBuild();
 
-const container = document.getElementById('app');
+const root = document.getElementById('app');
 
-ReactDOM.render(<AppRoot />, container);
+ReactDOM.render(<App />, root);
 
 if (module.hot) {
   module.hot.accept();
   module.hot.dispose(() => {
-    ReactDOM.unmountComponentAtNode(container);
+    ReactDOM.unmountComponentAtNode(root);
   });
 }
