@@ -107,6 +107,9 @@
     }
   },
   "jest": {
+    "modulePaths": [
+      "./src"
+    ],
     "coverageReporters": [
       "text",
       "cobertura"
