@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from '../Dropdown';
@@ -43,7 +43,7 @@ const BaseExplore = props => {
   const { isDropdownOpen, activeFilters, toggleDropdown } = props;
   const { header, prompt } = exploreText;
   return (
-    <Fragment>
+    <>
       <div className={headerClass}>{header}</div>
       <div
         onClick={() => toggleDropdown(!isDropdownOpen)}
@@ -57,7 +57,7 @@ const BaseExplore = props => {
       </div>
       {isDropdownOpen && <Dropdown {...props} />}
       <PlantTypeList {...props} />
-    </Fragment>
+    </>
   );
 };
 
