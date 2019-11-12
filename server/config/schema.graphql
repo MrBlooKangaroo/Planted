@@ -56,9 +56,9 @@ type PlantType implements Node {
   careAdvice: String!
   luxLevelInfo: String!
   waterCycleInfo: String!
-  jungleVibes: Boolean!
-  airyFresh: Boolean!
-  purifiesAir: Boolean!
+  hasJungleVibes: Boolean!
+  isAiryFresh: Boolean!
+  isAirPurifying: Boolean!
   luxLevel: LuxLevel!
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!

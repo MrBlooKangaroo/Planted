@@ -55,15 +55,15 @@ module.exports = {
         type: STRING,
         allowNull: false,
       }),
-      queryInterface.addColumn('plantTypes', 'jungleVibes', {
+      queryInterface.addColumn('plantTypes', 'hasJungleVibes', {
         type: BOOLEAN,
         allowNull: false,
       }),
-      queryInterface.addColumn('plantTypes', 'airyFresh', {
+      queryInterface.addColumn('plantTypes', 'isAiryFresh', {
         type: BOOLEAN,
         allowNull: false,
       }),
-      queryInterface.addColumn('plantTypes', 'purifiesAir', {
+      queryInterface.addColumn('plantTypes', 'isAirPurifying', {
         type: BOOLEAN,
         allowNull: false,
       }),
@@ -83,8 +83,8 @@ module.exports = {
     queryInterface.removeColumn('plantTypes', 'careAdvice'),
     queryInterface.removeColumn('plantTypes', 'luxLevelInfo'),
     queryInterface.removeColumn('plantTypes', 'waterCycleInfo'),
-    queryInterface.removeColumn('plantTypes', 'jungleVibes'),
-    queryInterface.removeColumn('plantTypes', 'airyFresh'),
-    queryInterface.removeColumn('plantTypes', 'purifiesAir'),
+    queryInterface.removeColumn('plantTypes', 'hasJungleVibes'),
+    queryInterface.removeColumn('plantTypes', 'isAiryFresh'),
+    queryInterface.removeColumn('plantTypes', 'isAirPurifying'),
   ],
 };

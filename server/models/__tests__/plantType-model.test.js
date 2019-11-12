@@ -27,9 +27,9 @@ describe('Plant Type Model', () => {
       expect(plantType.careAdvice).toBe(testPlantType.careAdvice);
       expect(plantType.luxLevelInfo).toBe(testPlantType.luxLevelInfo);
       expect(plantType.waterCycleInfo).toBe(testPlantType.waterCycleInfo);
-      expect(plantType.jungleVibes).toBe(testPlantType.jungleVibes);
-      expect(plantType.airyFresh).toBe(testPlantType.airyFresh);
-      expect(plantType.purifiesAir).toBe(testPlantType.purifiesAir);
+      expect(plantType.hasJungleVibes).toBe(testPlantType.hasJungleVibes);
+      expect(plantType.isAiryFresh).toBe(testPlantType.isAiryFresh);
+      expect(plantType.isAirPurifying).toBe(testPlantType.isAirPurifying);
       expect(plantType.luxLevel).toBe(testPlantType.luxLevel);
       expect(plantType.waterLevel).toBe(testPlantType.waterLevel);
       expect(plantType.waterCycle).toBe(testPlantType.waterCycle);
@@ -112,23 +112,23 @@ describe('Plant Type Model', () => {
       expect(plantType).toBe('SequelizeDatabaseError');
     });
 
-    it('should require presence of jungleVibes', async () => {
+    it('should require presence of hasJungleVibes', async () => {
       const plantType = await db.plantType
-        .create({ ...testPlantType, jungleVibes: null })
+        .create({ ...testPlantType, hasJungleVibes: null })
         .catch(({ name: errorName }) => errorName);
       expect(plantType).toBe('SequelizeDatabaseError');
     });
 
-    it('should require presence of airyFresh', async () => {
+    it('should require presence of isAiryFresh', async () => {
       const plantType = await db.plantType
-        .create({ ...testPlantType, airyFresh: null })
+        .create({ ...testPlantType, isAiryFresh: null })
         .catch(({ name: errorName }) => errorName);
       expect(plantType).toBe('SequelizeDatabaseError');
     });
 
-    it('should require presence of purifiesAir', async () => {
+    it('should require presence of isAirPurifying', async () => {
       const plantType = await db.plantType
-        .create({ ...testPlantType, purifiesAir: null })
+        .create({ ...testPlantType, isAirPurifying: null })
         .catch(({ name: errorName }) => errorName);
       expect(plantType).toBe('SequelizeDatabaseError');
     });
