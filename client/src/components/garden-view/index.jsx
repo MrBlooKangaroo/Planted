@@ -18,17 +18,27 @@ import {
 
 export const gardenText = {
   header: 'Garden',
-  alphaSort: 'A to Z',
+  forwardsSort: 'A to Z',
+  backwardsSort: 'Z to A',
+};
+
+export const sortByName = (a, b) => {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
 };
 
 const Garden = props => {
+  let nooks = [];
   const [isDropdownOpen, toggleDropdown] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const { loading, errors, data } = useQuery(
     GET_NOOKS_BY_USERID(currentUser.id),
   );
-  const sortByName = (a, b) => a.name > b.name;
-  const nooks = data && data.nooks.sort(sortByName);
+  if (data)
+    nooks = isDropdownOpen
+      ? data.nooks.sort(sortByName)
+      : data.nooks.sort(sortByName).reverse();
   const plantTotalReducer = (total, nook) => total + nook.plants.length;
   const plantTotal = data && data.nooks.reduce(plantTotalReducer, 0);
 
@@ -44,7 +54,7 @@ const Garden = props => {
 };
 
 const BaseGarden = ({ nooks, plantTotal, isDropdownOpen, toggleDropdown }) => {
-  const { header, alphaSort } = gardenText;
+  const { header, forwardsSort, backwardsSort } = gardenText;
   return (
     <div className={gardenContainer}>
       <div className={headerClass}>{header}</div>
@@ -52,7 +62,9 @@ const BaseGarden = ({ nooks, plantTotal, isDropdownOpen, toggleDropdown }) => {
         {nooks.length} nooks • {plantTotal} plants
       </div>
       <div className={sortMenu} onClick={() => toggleDropdown(!isDropdownOpen)}>
-        <span className={alphaSortText}>{alphaSort}</span>
+        <span className={alphaSortText}>
+          {isDropdownOpen ? forwardsSort : backwardsSort}
+        </span>
         <FontAwesomeIcon
           icon={faAngleDown}
           className={isDropdownOpen ? caretUp : caretDown}

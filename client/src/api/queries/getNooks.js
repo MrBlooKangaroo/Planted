@@ -8,7 +8,10 @@ export const GET_NOOKS_BY_USERID = userId => {
         plants {
           plantType {
             name
-            photoUrl
+            photoUrlHorizontalCrop
+            luxLevel
+          }
+          nook {
             luxLevel
           }
         }
