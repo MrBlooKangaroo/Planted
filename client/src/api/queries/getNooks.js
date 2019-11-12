@@ -5,6 +5,7 @@ export const GET_NOOKS_BY_USERID = userId => {
     {
       nooks(userId: "${userId}") {
         name
+        luxLevel
         plants {
           plantType {
             name

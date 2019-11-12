@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { GET_NOOKS_BY_USERID } from '../../api/queries/getNooks';
-import NookCardSmall from '../UI/nook-cards/NookCardSmall';
+import { GET_NOOKS_BY_USERID } from '../../../api/queries/getNooks';
+import NookList from '../NookList';
 import {
   gardenContainer,
   header as headerClass,
-  subHeaderWrapper,
   gardenStats,
   sortMenu,
   alphaSortText,
   caretUp,
   caretDown,
-  nooksContainer,
 } from './styles.css';
 
 export const gardenText = {
@@ -30,13 +28,18 @@ export const sortByName = (a, b) => {
 
 const Garden = props => {
   let nooks = [];
-  const [isDropdownOpen, toggleDropdown] = useState(false);
+  const [isForwardSort, toggleSort] = useState(true);
   const currentUser = JSON.parse(localStorage.getItem('user'));
-  const { loading, errors, data } = useQuery(
-    GET_NOOKS_BY_USERID(currentUser.id),
-  );
+  const token = localStorage.getItem('token');
+  const { loading, errors, data } =
+    token &&
+    useQuery(
+      GET_NOOKS_BY_USERID(currentUser.id, {
+        context: { headers: { authorization: token } },
+      }),
+    );
   if (data)
-    nooks = isDropdownOpen
+    nooks = isForwardSort
       ? data.nooks.sort(sortByName)
       : data.nooks.sort(sortByName).reverse();
   const plantTotalReducer = (total, nook) => total + nook.plants.length;
@@ -46,14 +49,14 @@ const Garden = props => {
     ...props,
     nooks,
     plantTotal,
-    isDropdownOpen,
-    toggleDropdown,
+    isForwardSort,
+    toggleSort,
   };
 
   return !loading && !errors && <BaseGarden {...baseProps} />;
 };
 
-const BaseGarden = ({ nooks, plantTotal, isDropdownOpen, toggleDropdown }) => {
+const BaseGarden = ({ nooks, plantTotal, isForwardSort, toggleSort }) => {
   const { header, forwardsSort, backwardsSort } = gardenText;
   return (
     <div className={gardenContainer}>
@@ -61,20 +64,16 @@ const BaseGarden = ({ nooks, plantTotal, isDropdownOpen, toggleDropdown }) => {
       <div className={gardenStats}>
         {nooks.length} nooks • {plantTotal} plants
       </div>
-      <div className={sortMenu} onClick={() => toggleDropdown(!isDropdownOpen)}>
+      <div className={sortMenu} onClick={() => toggleSort(!isForwardSort)}>
         <span className={alphaSortText}>
-          {isDropdownOpen ? forwardsSort : backwardsSort}
+          {isForwardSort ? forwardsSort : backwardsSort}
         </span>
         <FontAwesomeIcon
           icon={faAngleDown}
-          className={isDropdownOpen ? caretUp : caretDown}
+          className={isForwardSort ? caretUp : caretDown}
         />
       </div>
-      <div className={nooksContainer}>
-        {nooks.map(nook => (
-          <NookCardSmall key={nook.name} {...nook} />
-        ))}
-      </div>
+      <NookList nooks={nooks} />
     </div>
   );
 };

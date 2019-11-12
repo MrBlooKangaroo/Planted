@@ -23,8 +23,10 @@ const renderPath = (path, pathname) => {
 };
 
 const NavBar = ({ location: { pathname } }) => {
-  const [isAuthenticated, toggleIsAuthenticated] = useState(false);
-  const props = { isAuthenticated, toggleIsAuthenticated };
+  const [isAuthenticated, toggleIsAuthenticated] = useState(
+    localStorage.getItem('user') !== null,
+  );
+  const loginProps = { isAuthenticated, toggleIsAuthenticated };
   return (
     <nav className={navBar}>
       <div className={logo}>Planted</div>
@@ -39,7 +41,7 @@ const NavBar = ({ location: { pathname } }) => {
           type="text"
           placeholder=" &#xf002;    Search Plant Names"
         />
-        <Login {...props} />
+        <Login {...loginProps} />
       </div>
     </nav>
   );

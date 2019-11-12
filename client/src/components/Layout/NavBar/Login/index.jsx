@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
+import { withRouter } from 'react-router-dom';
 import fetchGoogleUser from '../../../../api/mutations/fetchGoogleUser';
 import { loginContainer, googleButton } from './styles.css';
 import UserInfo from '../UserInfo';
@@ -8,37 +9,44 @@ export const loginText = {
   login: 'Log in',
 };
 
-export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
-  let userInfo, tokenInfo;
-  const [photoUrl, setPhotoUrl] = useState('');
+export const Login = withRouter(
+  ({ isAuthenticated, toggleIsAuthenticated, history }) => {
+    let userInfo, tokenInfo;
+    const [photoUrl, setPhotoUrl] = useState('');
+    const localUser = localStorage.getItem('user');
+    if (localUser && photoUrl.length === 0)
+      setPhotoUrl(JSON.parse(localUser).photoUrl);
 
-  const onLogout = () => {
-    toggleIsAuthenticated(false);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-  };
+    const onLogout = history => {
+      toggleIsAuthenticated(false);
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      history.push('/');
+    };
 
-  const googleResponse = async response => {
-    const user = await fetchGoogleUser(response);
-    userInfo = user.data.authGoogle.user;
-    tokenInfo = user.data.authGoogle.token;
-    window.localStorage.setItem('token', tokenInfo);
-    window.localStorage.setItem('user', JSON.stringify(userInfo));
-    if (user) {
-      toggleIsAuthenticated(true);
-      setPhotoUrl(userInfo.photoUrl);
-    }
-  };
+    const googleResponse = async response => {
+      const user = await fetchGoogleUser(response);
+      userInfo = user.data.authGoogle.user;
+      tokenInfo = user.data.authGoogle.token;
+      localStorage.setItem('token', tokenInfo);
+      localStorage.setItem('user', JSON.stringify(userInfo));
+      if (user) {
+        toggleIsAuthenticated(true);
+        setPhotoUrl(userInfo.photoUrl);
+      }
+    };
 
-  const baseProps = {
-    isAuthenticated,
-    googleResponse,
-    onLogout,
-    photoUrl,
-  };
+    const baseProps = {
+      isAuthenticated,
+      googleResponse,
+      onLogout,
+      photoUrl,
+      history,
+    };
 
-  return <BaseLogin {...baseProps} />;
-};
+    return <BaseLogin {...baseProps} />;
+  },
+);
 
 export const BaseLogin = ({
   isAuthenticated,
@@ -46,10 +54,17 @@ export const BaseLogin = ({
   onLogout,
   name,
   photoUrl,
+  history,
 }) => (
   <div className={loginContainer}>
     {isAuthenticated ? (
-      <UserInfo name={name} onLogout={onLogout} photoUrl={photoUrl} />
+      <UserInfo
+        name={name}
+        onLogout={() => {
+          onLogout(history);
+        }}
+        photoUrl={photoUrl}
+      />
     ) : (
       <GoogleLogin
         className={googleButton}

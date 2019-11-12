@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import Layout from './layout/root';
 import Explore from './explore-page/root';
-import Garden from './garden-view';
+import Garden from './garden-view/root';
 import { rootPath, gardenPath } from '../constants/paths';
 
 const client = new ApolloClient({

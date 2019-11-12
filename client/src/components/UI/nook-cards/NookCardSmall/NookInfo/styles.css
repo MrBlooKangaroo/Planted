@@ -1,0 +1,31 @@
+.nookInfoTop,
+.nookInfoBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.nookInfoTop {
+  margin-top: -2.6rem;
+}
+
+.nookInfoBottom {
+  margin-top: -2rem;
+}
+
+.nookCardName {
+  font-family: 'Halant';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.userPhoto {
+  border-radius: 50%;
+  width: 2rem;
+}
+
+.plantTotal {
+  font-family: 'Karla';
+  font-size: 14px;
+}

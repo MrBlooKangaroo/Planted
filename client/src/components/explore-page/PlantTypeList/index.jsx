@@ -6,7 +6,6 @@ import PlantCardLarge from '../../UI/plant-cards/PlantCardLarge';
 
 const PlantTypeList = () => {
   const { loading, errors, data } = useQuery(GET_PLANT_TYPES);
-  if (errors) debugger;
   return (
     <div className={plantTypeList}>
       {!loading &&

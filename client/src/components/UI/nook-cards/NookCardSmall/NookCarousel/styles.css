@@ -1,0 +1,23 @@
+.nookCardPhoto {
+  width: 100%;
+}
+
+.carouselContainer {
+  position: relative;
+}
+
+.arrowRightClass,
+.arrowLeftClass {
+  position: absolute;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+.arrowRightClass {
+  top: 45%;
+  left: 85%;
+}
+
+.arrowLeftClass {
+  top: 45%;
+  left: 7%;
+}
