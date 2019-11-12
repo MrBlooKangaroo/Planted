@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from 'components/app';
-import { outputBuild } from 'utils/output-build';
+import { App } from './components/app';
+import { outputBuild } from './utils/output-build';
 
 outputBuild();
 

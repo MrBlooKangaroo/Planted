@@ -1,5 +1,5 @@
 import React from 'react';
-import * as icons from 'assets/icons';
+import * as icons from '../assets/icons';
 
 export default (type, level, selection, className) => {
   level = level.toUpperCase();

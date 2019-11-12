@@ -1,5 +1,5 @@
 import React from 'react';
-import getLuxOrCycleIcon from 'utils/getLuxOrCycleIcon';
+import getLuxOrCycleIcon from '../../../utils/getLuxOrCycleIcon';
 import {
   plantCardLarge,
   plantCardLargePhoto,
