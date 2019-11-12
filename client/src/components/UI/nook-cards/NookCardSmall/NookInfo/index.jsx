@@ -9,16 +9,15 @@ import {
   nookInfoBottom,
 } from './styles.css';
 
-const NookInfo = ({ nookName, currentPlant, currentUser, plantTotalText }) => (
+const NookInfo = ({
+  nook: { name: nookName, luxLevel },
+  currentUser,
+  plantTotalText,
+}) => (
   <>
     <div className={nookInfoTop}>
       <span className={nookCardName}>{nookName}</span>
-      {getLuxOrCycleIcon(
-        'luxLevel',
-        currentPlant.nook.luxLevel,
-        'unselected',
-        luxLevelIcon,
-      )}
+      {getLuxOrCycleIcon('luxLevel', luxLevel, 'unselected', luxLevelIcon)}
     </div>
     <div className={nookInfoBottom}>
       <img

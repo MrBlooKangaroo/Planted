@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import NookCarousel from './NookCarousel';
 import NookInfo from './NookInfo';
-import { nookCard } from './styles.css';
+import { nookCardSmall } from './styles.css';
 
-const NookCardSmall = ({ name: nookName, plants }) => {
+const NookCardSmall = ({ nook }) => {
+  const { plants } = nook;
   const [carouselIndex, setCarouselIndex] = useState(0);
   const currentPlant = plants[carouselIndex];
   const currentUser = JSON.parse(localStorage.getItem('user'));
@@ -14,7 +15,7 @@ const NookCardSmall = ({ name: nookName, plants }) => {
   const plantTotalText =
     plants.length === 1 ? `1 plant` : `${plants.length} plants`;
   const baseProps = {
-    nookName,
+    nook,
     plants,
     currentUser,
     currentPlant,
@@ -26,7 +27,7 @@ const NookCardSmall = ({ name: nookName, plants }) => {
 };
 
 const BaseNookCardSmall = props => (
-  <div className={nookCard}>
+  <div className={nookCardSmall}>
     <NookCarousel {...props} />
     <NookInfo {...props} />
   </div>

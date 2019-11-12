@@ -5,10 +5,11 @@ import {
   carouselContainer,
   arrowRightClass,
   arrowLeftClass,
+  emptyNook,
 } from './styles.css';
 
 export default ({
-  nookName,
+  nook: { name: nookName },
   currentPlant,
   plants,
   carouselIndex,
@@ -23,11 +24,16 @@ export default ({
         onClick={() => onArrowClick('left')}
       />
     )}
-    <img
-      alt={nookName}
-      className={nookCardPhoto}
-      src={currentPlant && currentPlant.plantType.photoUrlHorizontalCrop}
-    />
+    {currentPlant ? (
+      <img
+        alt={nookName}
+        className={nookCardPhoto}
+        src={currentPlant && currentPlant.plantType.photoUrlHorizontalCrop}
+      />
+    ) : (
+      <div className={emptyNook} />
+    )}
+
     {carouselIndex < plants.length - 1 && (
       <img
         alt="arrowRight"
