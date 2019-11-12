@@ -8,7 +8,7 @@ afterAll(closeDbConnection);
 
 describe('Plant Type Model', () => {
   describe('validations', () => {
-    it('should return name, description, instructions, photoUrl, luxLevel, waterLevel and waterCycle in response', async () => {
+    it('should return all 21 fields in response', async () => {
       const plantType = await db.plantType.create(testPlantType);
 
       expect(plantType).toBeDefined();
