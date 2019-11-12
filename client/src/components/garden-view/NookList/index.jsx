@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NookCardSmall from '../../UI/nook-cards/NookCardSmall';
 import { nooksContainer } from './styles.css';
 
