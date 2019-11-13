@@ -16,7 +16,7 @@ describe("Suggested PlantTypes Resolver", () => {
     "../../../utils/queries/suggestedPlantTypes.graphql"
   );
 
-  it("returns all plantTypes with same luxLevel", async () => {
+  it("returns all plantTypes that have the same luxLevel", async () => {
     const { testClient } = await createTestClient();
     for (let i = 0; i < 4; i++) {
       await db.plantType.create(testPlantType);
