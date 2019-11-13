@@ -8,6 +8,7 @@ type Query {
   user(id: ID!): User
   users: [User!]
   plant(id: ID!): Plant
+  plants: [Plant!]
   nook(id: ID!): Nook
   nooks(userId: ID): [Nook!]
   plantType(id: ID!): PlantType
