@@ -91,7 +91,7 @@ describe("Nook Resolver", () => {
       "../../../utils/queries/getNooksByUserId.graphql"
     );
 
-    it("should return data for the specified nook", async () => {
+    it("should return all nooks owned by that user", async () => {
       const { testClient } = await createTestClient();
       const user = await db.user.create(testUser);
       for (let i = 0; i < 5; i++) {
