@@ -4,12 +4,12 @@ import { LightLevelPicture } from 'components/UI/lightLevelPicture';
 import { NookPlants } from '../NookPlants';
 import { SuggestionsList } from '../SuggestionsList';
 import { WishlistCarousel } from '../WishlistCarousel';
-import { FetchNook } from '../../../api/queries/fetchNook';
+import { fetchNook } from '../../../api/queries/fetchNook';
 import { userPhotoUrl } from 'src/constants/variables';
 
 export const NookDetail = ({ match }) => {
   const { nookId } = match.params;
-  const { loading, error, data } = FetchNook(nookId);
+  const { loading, error, data } = fetchNook(nookId);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 

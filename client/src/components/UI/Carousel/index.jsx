@@ -5,35 +5,30 @@ import { PlantCard } from '../../UI/plant-card';
 
 const LeftButton = ({ distance, setDistance }) => {
   const clickLeft = () => {
-    if (distance < 0) {
-      setDistance(distance + 350);
-    }
+    if (distance < 0) setDistance(distance + 350);
   };
-  if (distance !== 0) {
-    return (
-      <button onClick={clickLeft} className={styles.leftClick}>
-        <img src={arrowRight} alt="left click" />
-      </button>
-    );
-  } else {
-    return <div className={styles.leftSideSpace} />;
-  }
+
+  return distance !== 0 ? (
+    <button onClick={clickLeft} className={styles.leftClick}>
+      <img src={arrowLeft} alt="left click" />
+    </button>
+  ) : (
+    <div className={styles.leftSideSpace} />
+  );
 };
 
 const RightButton = ({ distance, setDistance, max }) => {
   const clickRight = () => {
-    if (distance > -max) {
-      setDistance(distance - 350);
-    }
+    if (distance > -max) setDistance(distance - 350);
   };
 
   const farRight = -max;
+  const isAtFarRight = max >= 350 && distance !== farRight;
 
   return (
-    max >= 350 &&
-    distance !== farRight && (
+    isAtFarRight && (
       <button onClick={clickRight} className={styles.rightClick}>
-        <img src={arrowLeft} alt="left click" />
+        <img src={arrowRight} alt="right click" />
       </button>
     )
   );
@@ -42,6 +37,8 @@ const RightButton = ({ distance, setDistance, max }) => {
 export const Carousel = ({ plants }) => {
   const [distance, setDistance] = useState(0);
   const max = (plants.length - 4) * 350;
+  const translate = `translatex(${distance}px)`;
+  const transform = { transform: translate };
 
   const states = {
     distance,
@@ -55,7 +52,7 @@ export const Carousel = ({ plants }) => {
       <div className={styles.suggestionsContainer}>
         <div className={styles.carouselContainer}>
           {plants.map(plant => (
-            <div style={{ transform: `translatex(${distance}px)` }}>
+            <div style={transform}>
               <PlantCard {...plant} />
             </div>
           ))}

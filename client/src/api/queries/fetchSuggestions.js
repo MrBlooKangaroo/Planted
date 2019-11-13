@@ -5,7 +5,7 @@ export const FETCH_SUGGESTIONS = gql`
   query fetchSuggestions($luxInput: LuxLevel) {
     suggestedPlantTypes(luxInput: $luxInput) {
       name
-      photoUrl
+      photoUrlVerticalCrop
     }
   }
 `;

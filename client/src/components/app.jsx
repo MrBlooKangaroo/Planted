@@ -8,7 +8,7 @@ import { rootPath, nookPath } from 'constants/paths';
 import { NookDetail } from '../components/nook-view/root';
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_LOCAL_URL,
+  uri: process.env.REACT_APP_BACKEND_URL,
   headers: {
     authorization: localStorage.getItem('token'),
   },

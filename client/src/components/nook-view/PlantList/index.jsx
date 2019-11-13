@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.css';
-import { arrowRight } from 'assets/icons';
+import { arrowLeft } from 'assets/icons';
 import { WidePlantGrid } from '../../UI/wide-plant-grid';
 import { EmptyBanner } from '../EmptyBanner';
 
@@ -15,7 +15,7 @@ const PaginationButton = ({ showAll, toggleShowAll }) => {
 
   return (
     <button className={style} onClick={toggleShowAll}>
-      <img src={arrowRight} alt={alt} />
+      <img src={arrowLeft} alt={alt} />
     </button>
   );
 };
