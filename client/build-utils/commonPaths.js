@@ -6,4 +6,5 @@ module.exports = {
   constantsFolder: path.resolve('src/constants'),
   srcFolder: path.resolve('src'),
   utilsFolder: path.resolve('src/utils'),
+  assetsFolder: path.resolve('src/assets'),
 };

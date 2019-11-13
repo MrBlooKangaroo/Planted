@@ -1,0 +1,26 @@
+.plantBox {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  height: 425px;
+  justify-content: space-around;
+  margin-top: 30px;
+  width: 320px;
+}
+
+.plantName {
+  font-family: 'Karla';
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+}
+
+.plantPic {
+  height: 80%;
+  width: 251px;
+}

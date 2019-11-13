@@ -1,0 +1,26 @@
+.lux {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 82px;
+  vertical-align: center;
+}
+
+.proPic {
+  border-radius: 50%;
+  height: 32px;
+  margin-left: 32px;
+  width: 32px;
+}
+
+.suns {
+  height: 21px;
+  padding-top: 5px;
+}
+
+.title {
+  display: flex;
+  font-family: 'Halant';
+  font-size: 60px;
+  justify-content: center;
+  margin-top: 45px;
+}
