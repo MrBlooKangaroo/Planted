@@ -1,9 +1,6 @@
 import React from 'react';
 import CategoryListItem from './CategoryListItem';
-import {
-  leftCategories,
-  rightCategories,
-} from '../../../../constants/categories';
+import { leftCategories, rightCategories } from 'constants/categories';
 import {
   header,
   categoryListLeft,
