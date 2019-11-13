@@ -10,13 +10,14 @@ type Query {
   plant(id: ID!): Plant
   plants: [Plant!]
   nook(id: ID!): Nook
-  nooks: [Nook!]
+  nooks(userId: ID): [Nook!]
   plantType(id: ID!): PlantType
   plantTypes: [PlantType!]
   watering(id: ID!): Watering
   waterings: [Watering!]
   wish(id: ID!): Wish
   wishes: [Wish!]
+  suggestedPlantTypes(luxInput: LuxLevel): [PlantType!]
 }
 
 """
