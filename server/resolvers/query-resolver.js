@@ -64,11 +64,22 @@ exports.waterings = async () => {
 exports.wish = async (_obj, { id }) => {
   const wish = await db.wish.findOne({
     where: { id },
-    include: [db.user, db.nook, db.plantType],
-  });
-  return wish || raiseNotFoundError();
-};
+    include: [db.user, db.nook, db.plantType]
+  })
+  return wish || raiseNotFoundError()
+}
 
 exports.wishes = async () => {
-  return await db.wish.findAll();
-};
+  return await db.wish.findAll()
+}
+
+exports.suggestedPlantTypes = async (_obj, { luxInput }) => {
+  const plantType = await db.plantType.findAll(
+    {
+      where: {
+        luxLevel: luxInput
+      }
+    },
+  )
+  return plantType || raiseNotFoundError()
+}

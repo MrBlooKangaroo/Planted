@@ -1,0 +1,16 @@
+.cactusContainer {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.cactusPicture {
+  margin-top: 63px;
+}
+
+.noPlantsText {
+  font-family: 'Karla';
+  font-size: 20px;
+  justify-content: center;
+  padding-top: 35px;
+}

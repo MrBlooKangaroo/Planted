@@ -1,0 +1,64 @@
+.carousel {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  margin-bottom: 135px;
+}
+
+.carouselContainer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 30px;
+  overflow: hidden;
+}
+
+.carouselTitle {
+  margin-left: 145px;
+}
+
+.categoryNames {
+  font-family: 'Halant';
+  font-size: 24px;
+  margin-bottom: 135px;
+}
+
+.count {
+  font-family: 'Karla';
+  font-size: 12px;
+  margin-left: 24px;
+}
+
+.leftClick {
+  background-color: #f5f8f6;
+  border: none;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  height: 30px;
+  margin-left: 85px;
+  margin-right: 30px;
+  padding: 0;
+}
+
+.leftSideSpace {
+  margin-left: 145px;
+}
+
+.rightClick {
+  background-color: #f5f8f6;
+  border: none;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  height: 30px;
+  margin-left: auto;
+  margin-right: 90px;
+  padding: 0px;
+}
+
+.suggestionsContainer {
+  max-width: 1370px;
+}
+
+* {
+  transition: all 700ms ease;
+}
