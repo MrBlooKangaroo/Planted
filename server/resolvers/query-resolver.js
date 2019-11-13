@@ -34,7 +34,7 @@ exports.nook = async (_obj, { id }) => {
 };
 
 exports.nooks = async (_obj, { userId }) => {
-  let nooks = db.nook.findAll();
+  let nooks = await db.nook.findAll();
   if (userId) nooks = nooks.filter(nook => nook.userId === userId);
   return nooks;
 };
