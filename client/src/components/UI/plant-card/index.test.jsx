@@ -39,7 +39,7 @@ describe('PlantCard component', () => {
   it('should render a img element with same src as prop photoUrl', () => {
     const element = wrapper.find('img');
     expect(element).toExist();
-    expect(element.prop('src')).toEqual(plant.photoUrl);
+    expect(element.prop('src')).toEqual(plant.photoUrlVerticalCrop);
     expect(element.prop('className')).toEqual(styles.plantPic);
   });
 });
