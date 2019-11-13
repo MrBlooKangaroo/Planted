@@ -8,16 +8,14 @@ type Query {
   user(id: ID!): User
   users: [User!]
   plant(id: ID!): Plant
-  plants(start: Int end: Int): [Plant!]
   nook(id: ID!): Nook
-  nooks: [Nook!]
+  nooks(userId: ID): [Nook!]
   plantType(id: ID!): PlantType
   plantTypes: [PlantType!]
   watering(id: ID!): Watering
   waterings: [Watering!]
   wish(id: ID!): Wish
   wishes: [Wish!]
-  nookTest(id: ID! start: Int end: Int): Nook
   suggestedPlantTypes(luxInput: LuxLevel): [PlantType!]
 }
 
