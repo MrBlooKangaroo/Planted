@@ -1,87 +1,87 @@
-const gql = require('graphql-tag')
-const db = require('../../../models')
-const { cleanUpDb, createTestClient, closeDbConnection } = require('../../../utils/testing')
-const { 
-    testUser,
-    testNook,
-    testPlantType,
-    testPlant,
-    testWatering
-} = require('../../../utils/testing/testData')
+const gql = require('graphql-tag');
+const db = require('../../../models');
+const { cleanUpDb, createTestClient, closeDbConnection } = require('../../../utils/testing');
+const { testUser, testNook, testPlantType, testPlant, testWatering } = require('../../../utils/testing/testData');
 
-afterEach(cleanUpDb)
-afterAll(closeDbConnection)
+afterEach(cleanUpDb);
+afterAll(closeDbConnection);
 
 const CREATE_WATERING = gql`
-    mutation ($watering: CreateWateringInput!){
-        createWatering(input: $watering){
-            watering {
-                id
-                expectedAt
-                executedAt
-            }
-        }
+  mutation($watering: CreateWateringInput!) {
+    createWatering(input: $watering) {
+      watering {
+        id
+        expectedAt
+        executedAt
+      }
     }
-`
+  }
+`;
 
 describe('Create Watering Mutation Resolver', () => {
-    it('should return the same information as passed in by testWatering', async () => {
-        const { testClient } = await createTestClient()
-        const plantType = await db.plantType.create(testPlantType)
-        const user = await db.user.create(testUser)
-        const nook = await db.nook.create({...testNook, userId: user.id})
-        const plant = await db.plant.create({
-            ...testPlant,
-            nookId: nook.id,
-            plantTypeId: plantType.id
-        })
-        const response = await testClient.mutate({ 
-            mutation: CREATE_WATERING, 
-            variables: { watering: {
-                ...testWatering,
-                plantId: plant.id
-            }} 
-        })
-        const responseWatering = response.data.createWatering.watering
-        
-        expect(responseWatering.id).toBeDefined()
-        expect(responseWatering.expectedAt).toBe(testWatering.expectedAt)
-        expect(responseWatering.executedAt).toBe(null)
-    })
+  it('should return the same information as passed in by testWatering', async () => {
+    const { testClient } = await createTestClient();
+    const plantType = await db.plantType.create(testPlantType);
+    const user = await db.user.create(testUser);
+    const nook = await db.nook.create({ ...testNook, userId: user.id });
+    const plant = await db.plant.create({
+      ...testPlant,
+      nookId: nook.id,
+      plantTypeId: plantType.id,
+    });
+    const response = await testClient.mutate({
+      mutation: CREATE_WATERING,
+      variables: {
+        watering: {
+          ...testWatering,
+          plantId: plant.id,
+        },
+      },
+    });
+    const responseWatering = response.data.createWatering.watering;
 
-    it('should throw an error if plantId is not passed in', async () => {
-        const { testClient } = await createTestClient()
-        const response = await testClient.mutate({ 
-            mutation: CREATE_WATERING, 
-            variables: { watering: {
-                ...testWatering 
-            }} 
-        })
+    expect(responseWatering.id).toBeDefined();
+    expect(responseWatering.expectedAt).toBe(testWatering.expectedAt);
+    expect(responseWatering.executedAt).toBe(null);
+  });
 
-        expect(response.errors).toBeDefined()
-        expect(response.errors[0].extensions.code).toBe('INTERNAL_SERVER_ERROR')
-    })
+  it('should throw an error if plantId is not passed in', async () => {
+    const { testClient } = await createTestClient();
+    const response = await testClient.mutate({
+      mutation: CREATE_WATERING,
+      variables: {
+        watering: {
+          ...testWatering,
+        },
+      },
+    });
 
-    it('should throw an error if expected as is null', async () => {
-        const { testClient } = await createTestClient()
-        const plantType = await db.plantType.create(testPlantType)
-        const user = await db.user.create(testUser)
-        const nook = await db.nook.create({...testNook, userId: user.id})
-        const plant = await db.plant.create({
-            ...testPlant,
-            nookId: nook.id,
-            plantTypeId: plantType.id
-        })
-        const response = await testClient.mutate({ 
-            mutation: CREATE_WATERING, 
-            variables: { watering: {
-                ...testWatering,
-                expectedAt: null,
-                plantId: plant.id 
-            }} 
-        })
+    expect(response.errors).toBeDefined();
+    expect(response.errors[0].extensions.code).toBe('INTERNAL_SERVER_ERROR');
+  });
 
-        expect(response.errors).toBeDefined()
-        expect(response.errors[0].extensions.code).toBe('INTERNAL_SERVER_ERROR')
-    })
-})
+  it('should throw an error if expectedAt is null', async () => {
+    const { testClient } = await createTestClient();
+    const plantType = await db.plantType.create(testPlantType);
+    const user = await db.user.create(testUser);
+    const nook = await db.nook.create({ ...testNook, userId: user.id });
+    const plant = await db.plant.create({
+      ...testPlant,
+      nookId: nook.id,
+      plantTypeId: plantType.id,
+    });
+    const response = await testClient.mutate({
+      mutation: CREATE_WATERING,
+      variables: {
+        watering: {
+          ...testWatering,
+          expectedAt: null,
+          plantId: plant.id,
+        },
+      },
+    });
+
+    expect(response.errors).toBeDefined();
+    expect(response.errors[0].extensions.code).toBe('INTERNAL_SERVER_ERROR');
+  });
+});
