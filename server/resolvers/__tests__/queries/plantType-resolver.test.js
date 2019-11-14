@@ -1,28 +1,28 @@
-const db = require('../../../models');
+const db = require("../../../models");
 const {
   cleanUpDb,
   createQuery,
   createTestClient,
   closeDbConnection,
-} = require('../../../utils/testing');
+} = require("../../../utils/testing");
 const {
   testUser,
   testPlant,
   testNook,
   testPlantType,
-} = require('../../../utils/testing/testData');
+} = require("../../../utils/testing/testData");
 
 afterEach(cleanUpDb);
 afterAll(closeDbConnection);
 
-describe('Plant Type Resolver', () => {
-  describe('when no luxLevel is passed in', () => {
+describe("Plant Type Resolver", () => {
+  describe("when no luxLevel is passed in", () => {
     const query = createQuery(
       __dirname,
-      '../../../utils/queries/plantType.graphql',
+      "../../../utils/queries/plantType.graphql",
     );
 
-    it('returns data for the specified plantType', async () => {
+    it("returns data for the specified plantType", async () => {
       const { testClient } = await createTestClient();
       const plantType = await db.plantType.create(testPlantType);
       const variables = { id: plantType.id };
@@ -70,17 +70,17 @@ describe('Plant Type Resolver', () => {
       expect(responsePlantType.waterCycle).toBe(testPlantType.waterCycle);
     });
 
-    it('should return NOT_FOUND error if invalid plantType id supplied', async () => {
+    it("should return NOT_FOUND error if invalid plantType id supplied", async () => {
       const { testClient } = await createTestClient();
-      const variables = { id: '0b9f38f1-333f-42db-b0c7-3939cab66bc8' };
+      const variables = { id: "0b9f38f1-333f-42db-b0c7-3939cab66bc8" };
       const response = await testClient.query({ query, variables });
       const { errors } = response;
 
       expect(errors.length).toBe(1);
-      expect(errors[0].extensions.code).toBe('NOT_FOUND');
+      expect(errors[0].extensions.code).toBe("NOT_FOUND");
     });
 
-    it('should include associated plants in the response', async () => {
+    it("should include associated plants in the response", async () => {
       const { testClient } = await createTestClient();
       const user = await db.user.create(testUser);
       const plantType = await db.plantType.create(testPlantType);
@@ -102,42 +102,42 @@ describe('Plant Type Resolver', () => {
     });
   });
 
-  describe('when a luxLevel variable is passed in', () => {
+  describe("when a luxLevel variable is passed in", () => {
     const query = createQuery(
       __dirname,
-      '../../../utils/queries/getPlantTypeSuggestions.graphql',
+      "../../../utils/queries/getPlantTypeSuggestions.graphql",
     );
 
     it('returns all plantTypes that have the "HIGH" luxLevel', async () => {
       const { testClient } = await createTestClient();
-      const variables = { luxLevel: 'HIGH' };
+      const variables = { luxLevel: "HIGH" };
       const response = await testClient.query({ query, variables });
       const responsePlantTypes = response.data.plantTypes;
       expect(response.errors).toBe(undefined);
       responsePlantTypes.forEach(responsePlantType => {
-        expect(responsePlantType.luxLevel).toBe('HIGH');
+        expect(responsePlantType.luxLevel).toBe("HIGH");
       });
     });
 
     it('returns all plantTypes that have the "MEDIUM" luxLevel', async () => {
       const { testClient } = await createTestClient();
-      const variables = { luxLevel: 'MEDIUM' };
+      const variables = { luxLevel: "MEDIUM" };
       const response = await testClient.query({ query, variables });
       const responsePlantTypes = response.data.plantTypes;
       expect(response.errors).toBe(undefined);
       responsePlantTypes.forEach(responsePlantType => {
-        expect(responsePlantType.luxLevel).toBe('MEDIUM');
+        expect(responsePlantType.luxLevel).toBe("MEDIUM");
       });
     });
 
     it('returns all plantTypes that have the "LOW" luxLevel', async () => {
       const { testClient } = await createTestClient();
-      const variables = { luxLevel: 'LOW' };
+      const variables = { luxLevel: "LOW" };
       const response = await testClient.query({ query, variables });
       const responsePlantTypes = response.data.plantTypes;
       expect(response.errors).toBe(undefined);
       responsePlantTypes.forEach(responsePlantType => {
-        expect(responsePlantType.luxLevel).toBe('LOW');
+        expect(responsePlantType.luxLevel).toBe("LOW");
       });
     });
   });
