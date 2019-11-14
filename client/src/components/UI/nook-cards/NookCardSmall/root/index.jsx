@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NookCarousel from './NookCarousel';
-import NookInfo from './NookInfo';
+import NookCarousel from '../NookCarousel';
+import NookInfo from '../NookInfo';
 import { nookCardSmall } from './styles.css';
 
 const NookCardSmall = ({ nook }) => {
@@ -13,7 +13,7 @@ const NookCardSmall = ({ nook }) => {
     if (direction === 'right') setCarouselIndex(carouselIndex + 1);
   };
   const plantTotalText =
-    plants.length === 1 ? `1 plant` : `${plants.length} plants`;
+    plants.length === 1 ? '1 plant' : `${plants.length} plants`;
   const baseProps = {
     nook,
     plants,
