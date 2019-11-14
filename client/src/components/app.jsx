@@ -4,13 +4,11 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import Layout from './layout/root';
 import Explore from './explore-page/root';
-import Garden from './garden-view/root';
 import { NookDetail } from './nook-view/root';
 import { PlantTypePage } from './plant-page/root';
 import { WishlistView } from './wishlist-view/root';
 import {
   rootPath,
-  gardenPath,
   nookPath,
   plantTypePath,
   wishlistPath,
@@ -29,7 +27,6 @@ export const App = () => (
       <Switch>
         <Layout>
           <Route component={Explore} exact path={rootPath} />
-          <Route component={Garden} path={gardenPath} />
           <Route component={NookDetail} path={nookPath} />
           <Route component={PlantTypePage} path={plantTypePath} />
           <Route component={WishlistView} exact path={wishlistPath} />
