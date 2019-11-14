@@ -1,0 +1,13 @@
+.header {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.proTipsCard {
+  font-family: 'Karla';
+  display: flex;
+  flex-direction: column;
+  padding-left: 245px;
+  padding-top: 61px;
+}
