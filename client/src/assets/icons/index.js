@@ -17,6 +17,7 @@ import diamond from './unselected/diamond.svg';
 import travel from './unselected/travel.svg';
 import humidity from './unselected/humidity.svg';
 import pets from './unselected/pets.svg';
+import heartUnselected from './unselected/stroke-small.svg';
 
 export {
   luxUnselectedLow,
@@ -38,4 +39,5 @@ export {
   travel,
   humidity,
   pets,
+  heartUnselected,
 };
