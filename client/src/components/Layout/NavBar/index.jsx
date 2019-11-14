@@ -31,7 +31,6 @@ const NavBar = props => {
     localStorage.getItem('user') !== null,
   );
   const currentPath = 'location' in props ? props.location.pathname : '/';
-  const loginProps = { isAuthenticated, toggleIsAuthenticated };
   return (
     <nav className={navBar}>
       <div className={logo}>{navBarText.logo}</div>
@@ -46,7 +45,10 @@ const NavBar = props => {
           type="text"
           placeholder=" &#xf002;    Search Plant Names"
         />
-        <Login {...loginProps} />
+        <Login
+          isAuthenticated={isAuthenticated}
+          toggleIsAuthenticated={toggleIsAuthenticated}
+        />
       </div>
     </nav>
   );

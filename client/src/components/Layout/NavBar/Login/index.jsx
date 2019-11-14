@@ -11,9 +11,9 @@ export const loginText = {
 export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
   let userInfo, tokenInfo;
   const [photoUrl, setPhotoUrl] = useState('');
-  const localUser = localStorage.getItem('user');
-  if (localUser && photoUrl.length === 0)
-    setPhotoUrl(JSON.parse(localUser).photoUrl);
+  const cachedUser = localStorage.getItem('user');
+  if (cachedUser && photoUrl.length === 0)
+    setPhotoUrl(JSON.parse(cachedUser).photoUrl);
 
   const onLogout = () => {
     toggleIsAuthenticated(false);
