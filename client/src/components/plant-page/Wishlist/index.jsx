@@ -22,7 +22,7 @@ export const Wishlist = ({ nooks, togglePopUp }) => {
       <div className={styles.wishlistContainer}>
         <div className={styles.wishlistHeaderContainer}>
           <h5 className={styles.header}>{text.wishlistHeader}</h5>
-          <button className={styles.exit} onClick={togglePopUp} src={exit}>
+          <button className={styles.exit} onClick={togglePopUp}>
             <img src={exit} alt={text.closeButtonHeader} />
           </button>
         </div>

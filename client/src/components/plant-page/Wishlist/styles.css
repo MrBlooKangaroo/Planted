@@ -1,13 +1,11 @@
-.optionList {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
 .exit {
   border: none;
+}
+
+.header {
   font-family: 'Halant';
   font-size: 18px;
+  margin-right: 70px;
 }
 
 .listItem {
@@ -28,32 +26,10 @@
   margin-left: 14px;
 }
 
-.wishlistContainer {
-  background-color: white;
-  height: auto;
-  position: absolute;
-  top: -40px;
-  left: 160px;
-  width: 240px;
-  padding: 0px 30px 30px 30px;
-  z-index: 100;
-  border-radius: 7px;
-  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
-    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
-}
-
-.wishlistConnector {
-  height: 25px;
-  position: absolute;
-  top: 0px;
-  left: 130px;
-  width: 33px;
-  z-index: 110;
-}
-
-.wishlistHeaderContainer {
+.optionList {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .smallBox {
@@ -77,10 +53,32 @@
   justify-content: center;
 }
 
-.header {
-  font-family: 'Halant';
-  font-size: 18px;
-  margin-right: 70px;
+.wishlistContainer {
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  height: auto;
+  left: 160px;
+  padding: 0px 30px 30px 30px;
+  position: absolute;
+  top: -40px;
+  width: 240px;
+  z-index: 1;
+}
+
+.wishlistConnector {
+  height: 25px;
+  left: 130px;
+  position: absolute;
+  top: 0px;
+  width: 33px;
+  z-index: 2;
+}
+
+.wishlistHeaderContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .wishListItem {
