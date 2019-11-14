@@ -13,17 +13,16 @@ export const WishlistView = () => {
   if (error) return `Error! ${error.message}`;
 
   const { nooks } = data;
+  const wishlistNooks = nooks
+    ? nooks.filter(nook => nook.wishes.length > 0)
+    : [];
 
   return (
     <div>
       <h1 className={styles.title}>{text.wishlist}</h1>
-      {nooks &&
-        nooks.map(
-          nook =>
-            nook.wishes.length > 0 && (
-              <NookWishlist nook={nook} key={nook.id} />
-            ),
-        )}
+      {wishlistNooks.map(nook => (
+        <NookWishlist nook={nook} key={nook.id} />
+      ))}
     </div>
   );
 };

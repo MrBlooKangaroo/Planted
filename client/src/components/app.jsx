@@ -27,8 +27,8 @@ export const App = () => (
       <Switch>
         <Layout>
           <Route component={Explore} exact path={rootPath} />
-          <Route component={NookDetail} exact path={nookPath} />
-          <Route component={PlantTypePage} exact path={plantTypePath} />
+          <Route component={NookDetail} path={nookPath} />
+          <Route component={PlantTypePage} path={plantTypePath} />
           <Route component={WishlistView} exact path={wishlistPath} />
         </Layout>
       </Switch>
