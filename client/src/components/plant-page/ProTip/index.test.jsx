@@ -24,14 +24,14 @@ describe('ProTip component', () => {
     expect(element).toExist();
   });
 
-  it('should mount a div elment with proTip container stlye', () => {
+  it('should mount a div elment with proTip container style', () => {
     const element = wrapper
       .find('div')
       .find({ className: styles.proTipContainer });
     expect(element).toExist();
   });
 
-  it('should mount a div elment with icons container stlye', () => {
+  it('should mount a div elment with icons container style', () => {
     const element = wrapper
       .find('div')
       .find({ className: styles.iconsContainer });
