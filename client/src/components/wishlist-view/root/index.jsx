@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles.css';
 import { fetchNooks } from 'api/queries/fetchNooks';
 import { NookWishlist } from '../nook-wishlist';
+import { DropDown } from '../drop-down';
 
 const text = {
   wishlist: 'Wishlist',
@@ -17,6 +18,7 @@ export const WishlistView = () => {
   return (
     <div>
       <h1 className={styles.title}>{text.wishlist}</h1>
+      <DropDown />
       {nooks &&
         nooks.map(
           nook =>
