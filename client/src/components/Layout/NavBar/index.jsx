@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Login } from './Login';
 import { Link } from 'react-router-dom';
-import { navLinkPaths } from '../../../constants/paths';
+import { rootPath, navLinkPaths } from '../../../constants/paths';
 import {
   navBar,
   logo,
@@ -17,7 +17,7 @@ export const navBarText = {
 };
 
 const renderPath = (path, currentPath) => {
-  const navText = path === '/' ? 'EXPLORE' : path.slice(1).toUpperCase();
+  const navText = path === rootPath ? 'EXPLORE' : path.slice(1).toUpperCase();
   const className = currentPath === path ? navPathSelected : navPath;
   return (
     <Link to={path} key={path} id={path} className={className}>
@@ -26,11 +26,11 @@ const renderPath = (path, currentPath) => {
   );
 };
 
-const NavBar = props => {
+const NavBar = ({ location }) => {
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
-  const currentPath = 'location' in props ? props.location.pathname : '/';
+  const currentPath = location ? location.pathname : rootPath;
   return (
     <nav className={navBar}>
       <div className={logo}>{navBarText.logo}</div>
