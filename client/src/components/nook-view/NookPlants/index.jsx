@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.css';
-import { CarouselHeader } from '../CarouselHeader';
+import { SubHeader } from 'components/UI/SubHeader';
 import { PlantList } from '../PlantList';
 
 export const text = {
@@ -9,7 +9,7 @@ export const text = {
 
 export const NookPlants = ({ plants }) => (
   <div className={styles.nookPlants}>
-    <CarouselHeader title={text.YourPlants} plantCount={plants.length} />
+    <SubHeader title={text.YourPlants} plantCount={plants.length} />
     <PlantList plants={plants} />
   </div>
 );

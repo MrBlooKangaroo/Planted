@@ -62,8 +62,8 @@ describe('WishlistCarouselBase component', () => {
     expect(element).toExist();
   });
 
-  it('should mount a CarouselHeader component', () => {
-    const element = wrapper.find('CarouselHeader');
+  it('should mount a SubHeader component', () => {
+    const element = wrapper.find('SubHeader');
     expect(element).toExist();
     expect(element.prop('title')).toEqual(text.header);
     expect(element.prop('plantCount')).toEqual(props.plants.length);

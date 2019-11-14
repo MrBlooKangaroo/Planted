@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'components/UI/Carousel';
-import { CarouselHeader } from '../CarouselHeader';
+import { SubHeader } from 'components/UI/SubHeader';
 
 const text = {
   header: 'Wishlist',
@@ -21,7 +21,7 @@ export const WishlistCarousel = ({ plants }) => {
 export const WishlistCarouselBase = ({ plants, plantCount }) => (
   <div>
     {plantCount > 0 && (
-      <CarouselHeader title={text.header} plantCount={plantCount} />
+      <SubHeader title={text.header} plantCount={plantCount} />
     )}
     <Carousel plants={plants} />
   </div>

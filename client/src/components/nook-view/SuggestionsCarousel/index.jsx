@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'components/UI/Carousel';
-import { CarouselHeader } from '../CarouselHeader';
+import { SubHeader } from 'components/UI/SubHeader';
 
 export const text = {
   header: 'Suggestions',
@@ -16,7 +16,7 @@ export const SuggestionsCarousel = ({ plants }) => {
 
 export const SuggestionsCarouselBase = ({ plants }) => (
   <div>
-    <CarouselHeader title={text.header} />
+    <SubHeader title={text.header} />
     <Carousel plants={plants} />
   </div>
 );

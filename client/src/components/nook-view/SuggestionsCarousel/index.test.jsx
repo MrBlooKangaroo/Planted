@@ -44,8 +44,8 @@ describe('SuggestionsCarouselBase component', () => {
     wrapper = mount(<SuggestionsCarouselBase {...props} />);
   });
 
-  it('should mount a CarouselHeader component', () => {
-    const element = wrapper.find('CarouselHeader');
+  it('should mount a SubHeader component', () => {
+    const element = wrapper.find('SubHeader');
     expect(element).toExist();
     expect(element.prop('title')).toEqual(text.header);
   });

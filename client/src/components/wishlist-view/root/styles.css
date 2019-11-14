@@ -1,0 +1,7 @@
+.title {
+  display: flex;
+  font-family: 'Halant';
+  font-size: 60px;
+  justify-content: center;
+  margin-top: 45px;
+}
