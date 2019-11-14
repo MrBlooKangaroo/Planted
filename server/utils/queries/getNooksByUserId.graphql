@@ -2,6 +2,9 @@ query getNooksByUserId($userId: ID!) {
   nooks(userId: $userId) {
     name
     luxLevel
+    user {
+      id
+    }
     plants {
       plantType {
         name
