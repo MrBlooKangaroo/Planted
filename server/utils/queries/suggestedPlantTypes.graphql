@@ -1,6 +1,0 @@
-query fetchSuggestions($luxInput: LuxLevel) {
-  suggestedPlantTypes(luxInput: $luxInput) {
-    name
-    photoUrl
-  }
-}

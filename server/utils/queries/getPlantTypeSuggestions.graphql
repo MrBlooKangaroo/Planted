@@ -1,0 +1,7 @@
+query getPlantTypeSuggestions($luxLevel: LuxLevel) {
+  plantTypes(luxLevel: $luxLevel) {
+    name
+    photoUrl
+    luxLevel
+  }
+}

@@ -12,12 +12,11 @@ type Query {
   nook(id: ID!): Nook
   nooks(userId: ID): [Nook!]
   plantType(id: ID!): PlantType
-  plantTypes: [PlantType!]
+  plantTypes(luxLevel: LuxLevel): [PlantType!]
   watering(id: ID!): Watering
   waterings: [Watering!]
   wish(id: ID!): Wish
   wishes: [Wish!]
-  suggestedPlantTypes(luxInput: LuxLevel): [PlantType!]
 }
 
 """
