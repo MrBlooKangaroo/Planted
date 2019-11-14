@@ -12,9 +12,13 @@ import {
   navPathSelected,
 } from './styles.css';
 
-const renderPath = (path, pathname) => {
+export const navBarText = {
+  logo: 'Planted',
+};
+
+const renderPath = (path, currentPath) => {
   const navText = path === '/' ? 'EXPLORE' : path.slice(1).toUpperCase();
-  const className = pathname === path ? navPathSelected : navPath;
+  const className = currentPath === path ? navPathSelected : navPath;
   return (
     <Link to={path} key={path} id={path} className={className}>
       {navText}
@@ -22,17 +26,18 @@ const renderPath = (path, pathname) => {
   );
 };
 
-const NavBar = ({ location: { pathname } }) => {
+const NavBar = props => {
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
+  const currentPath = 'location' in props ? props.location.pathname : '/';
   const loginProps = { isAuthenticated, toggleIsAuthenticated };
   return (
     <nav className={navBar}>
-      <div className={logo}>Planted</div>
+      <div className={logo}>{navBarText.logo}</div>
       {isAuthenticated && (
         <div className={navPathsContainer}>
-          {paths.map(path => renderPath(path, pathname))}
+          {paths.map(path => renderPath(path, currentPath))}
         </div>
       )}
       <div className={navContentRight}>

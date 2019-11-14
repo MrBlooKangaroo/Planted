@@ -6,6 +6,7 @@ export const GET_NOOKS_BY_USER_ID = gql`
       name
       luxLevel
       plants {
+        photoUrl
         plantType {
           name
           photoUrlHorizontalCrop

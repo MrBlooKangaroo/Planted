@@ -11,9 +11,9 @@ configure({ adapter: new Adapter() });
 afterEach(cleanup);
 
 describe('Explore Component', () => {
-  let wrapper, props;
+  let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Explore {...props} />);
+    wrapper = shallow(<Explore />);
   });
 
   it('should define the Explore component', () => {

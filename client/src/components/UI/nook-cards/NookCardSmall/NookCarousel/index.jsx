@@ -28,7 +28,11 @@ export default ({
       <img
         alt={nookName}
         className={nookCardPhoto}
-        src={currentPlant && currentPlant.plantType.photoUrlHorizontalCrop}
+        src={
+          currentPlant &&
+          (currentPlant.photoUrl ||
+            currentPlant.plantType.photoUrlHorizontalCrop)
+        }
       />
     ) : (
       <div className={emptyNook} />
