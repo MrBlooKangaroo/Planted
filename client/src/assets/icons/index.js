@@ -18,26 +18,30 @@ import travel from './unselected/travel.svg';
 import humidity from './unselected/humidity.svg';
 import pets from './unselected/pets.svg';
 import heartUnselected from './unselected/heartUnfilled.svg';
+import heartSelected from './selected/filled-large.svg';
+import arrowConnecting from './unselected/arrowConnecting.svg';
 
 export {
-  luxUnselectedLow,
-  luxUnselectedMedium,
-  luxUnselectedHigh,
-  luxSelectedLow,
-  luxSelectedMedium,
-  luxSelectedHigh,
-  cycleUnselectedLow,
-  cycleUnselectedMedium,
-  cycleUnselectedHigh,
-  cycleSelectedLow,
-  cycleSelectedMedium,
-  cycleSelectedHigh,
+  arrowConnecting,
   arrowLeft,
   arrowRight,
   cactus,
+  cycleSelectedHigh,
+  cycleSelectedLow,
+  cycleSelectedMedium,
+  cycleUnselectedHigh,
+  cycleUnselectedLow,
+  cycleUnselectedMedium,
   diamond,
-  travel,
-  humidity,
-  pets,
+  heartSelected,
   heartUnselected,
+  humidity,
+  luxSelectedHigh,
+  luxSelectedLow,
+  luxSelectedMedium,
+  luxUnselectedHigh,
+  luxUnselectedLow,
+  luxUnselectedMedium,
+  pets,
+  travel,
 };
