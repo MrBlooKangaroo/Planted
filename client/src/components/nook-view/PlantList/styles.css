@@ -1,0 +1,27 @@
+.controlPagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.downArrow {
+  background-color: #f5f8f6;
+  border: none;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  height: 30px;
+  padding: 0px;
+  transform: rotate(270deg);
+  width: 30px;
+}
+
+.upArrow {
+  background-color: #f5f8f6;
+  border: none;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  height: 30px;
+  padding: 0px;
+  transform: rotate(90deg);
+  width: 30px;
+}

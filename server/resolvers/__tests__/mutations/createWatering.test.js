@@ -60,7 +60,7 @@ describe('Create Watering Mutation Resolver', () => {
     expect(response.errors[0].extensions.code).toBe('INTERNAL_SERVER_ERROR');
   });
 
-  it('should throw an error if expected as is null', async () => {
+  it('should throw an error if expectedAt is null', async () => {
     const { testClient } = await createTestClient();
     const plantType = await db.plantType.create(testPlantType);
     const user = await db.user.create(testUser);

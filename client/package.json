@@ -60,8 +60,10 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
-    "@testing-library/react": "^9.3.1",
+    "@testing-library/react": "^9.3.2",
     "apollo-boost": "^0.4.4",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-link-http": "^1.5.16",
     "classnames": "^2.2.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
@@ -76,7 +78,8 @@
     "react-router-dom": "^4.3.1",
     "react-testing-library": "^8.0.1",
     "reactstrap": "^8.1.1",
-    "serve": "^11.0.1"
+    "serve": "^11.0.1",
+    "waait": "^1.0.5"
   },
   "babel": {
     "plugins": [
@@ -117,6 +120,9 @@
     }
   },
   "jest": {
+    "modulePaths": [
+      "./src"
+    ],
     "coverageReporters": [
       "text",
       "cobertura"

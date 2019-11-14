@@ -81,9 +81,9 @@ describe('Plant Model', () => {
       expect(plantPlantType.careAdvice).toBe(plantType.careAdvice);
       expect(plantPlantType.luxLevelInfo).toBe(plantType.luxLevelInfo);
       expect(plantPlantType.waterCycleInfo).toBe(plantType.waterCycleInfo);
-      expect(plantPlantType.jungleVibes).toBe(plantType.jungleVibes);
-      expect(plantPlantType.airyFresh).toBe(plantType.airyFresh);
-      expect(plantPlantType.purifiesAir).toBe(plantType.purifiesAir);
+      expect(plantPlantType.hasJungleVibes).toBe(plantType.hasJungleVibes);
+      expect(plantPlantType.isAiryFresh).toBe(plantType.isAiryFresh);
+      expect(plantPlantType.isAirPurifying).toBe(plantType.isAirPurifying);
       expect(plantPlantType.luxLevel).toBe(plantType.luxLevel);
       expect(plantPlantType.waterLevel).toBe(plantType.waterLevel);
       expect(plantPlantType.waterCycle).toBe(plantType.waterCycle);

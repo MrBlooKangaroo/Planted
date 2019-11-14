@@ -2,10 +2,19 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
+import {
+  rootPath,
+  gardenPath,
+  nookPath,
+  plantTypePath,
+  wishlistPath,
+} from 'constants/paths';
 import Layout from './layout/root';
 import Explore from './explore-page/root';
 import Garden from './garden-view/root';
-import { rootPath, gardenPath } from '../constants/paths';
+import { NookDetail } from '../components/nook-view/root';
+import { PlantTypePage } from './plant-page/root';
+import { WishlistView } from '../components/wishlist-view/root';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_BACKEND_URL,
@@ -19,6 +28,9 @@ export const App = () => (
         <Layout>
           <Route component={Explore} exact path={rootPath} />
           <Route component={Garden} path={gardenPath} />
+          <Route component={NookDetail} path={nookPath} />
+          <Route component={PlantTypePage} path={plantTypePath} />
+          <Route component={WishlistView} exact path={wishlistPath} />
         </Layout>
       </Switch>
     </BrowserRouter>

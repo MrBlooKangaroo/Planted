@@ -57,6 +57,7 @@ module.exports = {
       components: commonPaths.componentsFolder,
       constants: commonPaths.constantsFolder,
       utils: commonPaths.utilsFolder,
+      assets: commonPaths.assetsFolder,
     },
     extensions: ['.wasm', '.mjs', '.js', '.jsx', '.json', '*'],
   },

@@ -1,0 +1,39 @@
+.description {
+  font-size: 18px;
+  margin-bottom: 100px;
+  line-height: 40px;
+}
+
+.headers {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.largeCircle {
+  position: absolute;
+  z-index: -1;
+  right: -100px;
+  top: -164px;
+}
+
+.smallCircle {
+  position: absolute;
+  z-index: -1;
+  bottom: -50px;
+  left: 24px;
+}
+
+.summaryCard {
+  position: relative;
+}
+
+.summaryTextPanel {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Karla';
+  padding: 80px 175px 35px 125px;
+  margin: 170px 245px 245px 245px;
+  background-color: white;
+  border-radius: 8px;
+}
