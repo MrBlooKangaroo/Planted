@@ -108,10 +108,7 @@ describe("Nook Resolver", () => {
       expect(responseNooks).toBeDefined();
       expect(responseNooks.length).toBe(5);
       responseNooks.forEach(async responseNook => {
-        expect(responseNook).toBeDefined();
-        expect(responseNook.name).toBe(testNook.name);
-        expect(responseNook.luxLevel).toBe(testNook.luxLevel);
-        expect(responseNook.plants).toBeDefined();
+        expect(responseNook.user.id).toBe(user.id);
       });
     });
   });
