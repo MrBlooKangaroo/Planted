@@ -34,7 +34,8 @@
   position: absolute;
   top: -40px;
   left: 160px;
-  width: 300px;
+  width: 240px;
+  padding: 0px 30px 30px 30px;
   z-index: 100;
   border-radius: 7px;
   box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
@@ -48,10 +49,6 @@
   left: 130px;
   width: 33px;
   z-index: 110;
-}
-
-.wishlistMargin {
-  margin: 0px 30px 30px 30px;
 }
 
 .wishlistHeaderContainer {

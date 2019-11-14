@@ -20,6 +20,7 @@ import pets from './unselected/pets.svg';
 import heartUnselected from './unselected/heartUnfilled.svg';
 import heartSelected from './selected/filled-large.svg';
 import arrowConnecting from './unselected/arrowConnecting.svg';
+import exit from './unselected/x-large.svg';
 
 export {
   arrowConnecting,
@@ -33,6 +34,7 @@ export {
   cycleUnselectedLow,
   cycleUnselectedMedium,
   diamond,
+  exit,
   heartSelected,
   heartUnselected,
   humidity,
