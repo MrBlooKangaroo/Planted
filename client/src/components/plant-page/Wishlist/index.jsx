@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.css';
-import { WishListItem } from '../WishListItem';
+import { WishlistItem } from '../WishListItem';
 import { arrowConnecting } from 'assets/icons';
 
 export const text = {
@@ -27,7 +27,7 @@ export const Wishlist = ({ nooks, togglePopUp }) => {
           </div>
           <div className={styles.optionList}>
             {nooks.map(nook => (
-              <WishListItem {...nook} key={nook.id} />
+              <WishlistItem {...nook} key={nook.id} />
             ))}
           </div>
           <div className={styles.saveButtonContainer}>

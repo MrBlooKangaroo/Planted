@@ -1,28 +1,33 @@
 import React, { useState } from 'react';
 import styles from './styles.css';
 
-export const WishListItem = ({ name }) => {
+export const text = {
+  black: '#FFFFFF',
+  white: '#000000',
+  aquamarine: '#00736a',
+};
+
+export const WishlistItem = ({ name }) => {
   const [isSelected, toggleIsSelected] = useState(false);
-  const [checkBox, setCheckBox] = useState('#FFFFFF');
-  const [textColor, setTextColor] = useState('#000000');
+  const [checkBox, setCheckBox] = useState(text.black);
+  const [textColor, setTextColor] = useState(text.white);
   const styleColor = { color: textColor };
   const styleBackgroundColor = { backgroundColor: checkBox };
 
   function ChangeColor() {
     if (!isSelected) {
-      console.log('Hello');
-      setCheckBox('#00736a');
-      setTextColor('#00736a');
+      setCheckBox(text.aquamarine);
+      setTextColor(text.aquamarine);
       toggleIsSelected(!isSelected);
     } else {
-      setCheckBox('#FFFFFF');
-      setTextColor('#000000');
+      setCheckBox(text.black);
+      setTextColor(text.white);
       toggleIsSelected(!isSelected);
     }
   }
 
   return (
-    <button className={styles.wishListItem} onClick={ChangeColor}>
+    <button className={styles.wishlistItem} onClick={ChangeColor}>
       <div className={styles.listItemButton}>
         <div className={styles.listItem}>
           <div className={styles.smallBox} style={styleBackgroundColor} />
