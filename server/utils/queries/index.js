@@ -5,6 +5,6 @@ module.exports = {
   plantType: require("./plantType.graphql"),
   watering: require("./watering.graphql"),
   wish: require("./wish.graphql"),
-  suggestedPlantTypes: require("./suggestedPlantTypes.graphql"),
+  getPlantTypeSuggestions: require("./getPlantTypeSuggestions.graphql"),
   getNooksByUserId: require("./getNooksByUserId.graphql")
 };
