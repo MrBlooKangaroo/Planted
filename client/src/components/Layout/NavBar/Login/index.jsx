@@ -8,7 +8,7 @@ export const loginText = {
   login: 'Log in',
 };
 
-export const Login = ({ isAuthenticated, toggleIsAuthenticated, history }) => {
+export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
   let userInfo, tokenInfo;
   const [photoUrl, setPhotoUrl] = useState('');
   const localUser = localStorage.getItem('user');
@@ -25,8 +25,8 @@ export const Login = ({ isAuthenticated, toggleIsAuthenticated, history }) => {
     const user = await fetchGoogleUser(response);
     userInfo = user.data.authGoogle.user;
     tokenInfo = user.data.authGoogle.token;
-    localStorage.setItem('token', tokenInfo);
-    localStorage.setItem('user', JSON.stringify(userInfo));
+    window.localStorage.setItem('token', tokenInfo);
+    window.localStorage.setItem('user', userInfo);
     if (user) {
       toggleIsAuthenticated(true);
       setPhotoUrl(userInfo.photoUrl);

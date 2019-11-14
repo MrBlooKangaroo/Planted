@@ -38,9 +38,6 @@
   padding: 0.7rem;
   width: 21rem;
 }
-.searchInput:focus {
-  outline: none;
-}
 .searchInput:focus::placeholder {
   filter: brightness(1.7);
 }
