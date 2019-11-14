@@ -12,6 +12,7 @@ import cycleSelectedMedium from './selected/cycleSelectedMedium.svg';
 import cycleSelectedHigh from './selected/cycleSelectedHigh.svg';
 import arrowRight from './arrows/arrowRight.svg';
 import arrowLeft from './arrows/arrowLeft.svg';
+import emptyNook from './empty-states/emptyNook.svg';
 
 export {
   luxUnselectedLow,
@@ -28,4 +29,5 @@ export {
   cycleSelectedHigh,
   arrowLeft,
   arrowRight,
+  emptyNook,
 };

@@ -1,15 +1,16 @@
 import React from 'react';
-import { arrowRight, arrowLeft } from '../../../../../assets/icons';
+import { arrowRight, arrowLeft, emptyNook } from '../../../../../assets/icons';
+
 import {
   nookCardPhoto,
   carouselContainer,
   arrowRightClass,
   arrowLeftClass,
-  emptyNook,
+  emptyNookClass,
 } from './styles.css';
 
 export default ({
-  nook: { name: nookName },
+  nook: { name },
   currentPlant,
   plants,
   carouselIndex,
@@ -26,18 +27,15 @@ export default ({
     )}
     {currentPlant ? (
       <img
-        alt={nookName}
+        alt={name}
         className={nookCardPhoto}
         src={
-          currentPlant &&
-          (currentPlant.photoUrl ||
-            currentPlant.plantType.photoUrlHorizontalCrop)
+          currentPlant.photoUrl || currentPlant.plantType.photoUrlHorizontalCrop
         }
       />
     ) : (
-      <div className={emptyNook} />
+      <img alt="emptyNook" src={emptyNook} className={emptyNookClass} />
     )}
-
     {carouselIndex < plants.length - 1 && (
       <img
         alt="arrowRight"

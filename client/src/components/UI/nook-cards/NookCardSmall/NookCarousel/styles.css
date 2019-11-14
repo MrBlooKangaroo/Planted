@@ -23,6 +23,7 @@
   left: 7%;
 }
 
-.emptyNook {
-  height: 18.3rem;
+.emptyNookClass {
+  height: 18.5rem;
+  width: 100%;
 }
