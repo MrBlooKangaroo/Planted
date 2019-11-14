@@ -131,9 +131,9 @@ describe('Wish Model', () => {
       expect(wishPlantType.careAdvice).toBe(testPlantType.careAdvice);
       expect(wishPlantType.luxLevelInfo).toBe(testPlantType.luxLevelInfo);
       expect(wishPlantType.waterCycleInfo).toBe(testPlantType.waterCycleInfo);
-      expect(wishPlantType.jungleVibes).toBe(testPlantType.jungleVibes);
-      expect(wishPlantType.airyFresh).toBe(testPlantType.airyFresh);
-      expect(wishPlantType.purifiesAir).toBe(testPlantType.purifiesAir);
+      expect(wishPlantType.hasJungleVibes).toBe(testPlantType.hasJungleVibes);
+      expect(wishPlantType.isAiryFresh).toBe(testPlantType.isAiryFresh);
+      expect(wishPlantType.isAirPurifying).toBe(testPlantType.isAirPurifying);
       expect(wishPlantType.luxLevel).toBe(testPlantType.luxLevel);
       expect(wishPlantType.waterLevel).toBe(testPlantType.waterLevel);
       expect(wishPlantType.waterCycle).toBe(testPlantType.waterCycle);

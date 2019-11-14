@@ -16,9 +16,9 @@ query getPlantType($id: ID!) {
     careAdvice
     luxLevelInfo
     waterCycleInfo
-    jungleVibes
-    airyFresh
-    purifiesAir
+    hasJungleVibes
+    isAiryFresh
+    isAirPurifying
     luxLevel
     waterLevel
     waterCycle

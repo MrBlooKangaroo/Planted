@@ -8,7 +8,7 @@ type Query {
   user(id: ID!): User
   users: [User!]
   plant(id: ID!): Plant
-  plants: [Plant!]
+  plants(start: Int end: Int): [Plant!]
   nook(id: ID!): Nook
   nooks(userId: ID): [Nook!]
   plantType(id: ID!): PlantType
@@ -17,6 +17,8 @@ type Query {
   waterings: [Watering!]
   wish(id: ID!): Wish
   wishes: [Wish!]
+  nookTest(id: ID! start: Int end: Int): Nook
+  suggestedPlantTypes(luxInput: LuxLevel): [PlantType!]
 }
 
 """
@@ -56,9 +58,9 @@ type PlantType implements Node {
   careAdvice: String!
   luxLevelInfo: String!
   waterCycleInfo: String!
-  jungleVibes: Boolean!
-  airyFresh: Boolean!
-  purifiesAir: Boolean!
+  hasJungleVibes: Boolean!
+  isAiryFresh: Boolean!
+  isAirPurifying: Boolean!
   luxLevel: LuxLevel!
   waterLevel: WaterLevel!
   waterCycle: WaterCycle!

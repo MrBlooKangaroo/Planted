@@ -1,6 +1,6 @@
 import React from 'react';
-import levels from '../../../../constants/levels';
-import FilterIcon from '../../../UI/icons/FilterIcon';
+import levels from 'constants/levels';
+import FilterIcon from 'components/UI/icons/FilterIcon';
 import { header, subFilterList, subFilterWrapper } from './styles.css';
 
 export const subFilterText = {
