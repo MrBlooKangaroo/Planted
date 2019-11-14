@@ -4,23 +4,23 @@ import {
   cycleUnselectedMedium,
   cycleUnselectedLow,
 } from 'assets/icons';
-import { lightLevels } from 'constants/variables';
+import { waterLevels } from 'constants/variables';
 
 const altbyWaterLevel = {
-  [lightLevels.low]: 'cycleUnselectedLow water level',
-  [lightLevels.medium]: 'cycleUnselectedMedium water level',
-  [lightLevels.high]: 'cycleUnselectedHigh water level',
+  [waterLevels.low]: 'Low water level icon',
+  [waterLevels.medium]: 'Medium water level icon',
+  [waterLevels.high]: 'High water level icon',
 };
 
-const srcByLightLevel = {
-  [lightLevels.low]: cycleUnselectedLow,
-  [lightLevels.medium]: cycleUnselectedMedium,
-  [lightLevels.high]: cycleUnselectedHigh,
+const srcByWaterLevel = {
+  [waterLevels.low]: cycleUnselectedLow,
+  [waterLevels.medium]: cycleUnselectedMedium,
+  [waterLevels.high]: cycleUnselectedHigh,
 };
 
-export const WaterLevelPicture = ({ waterLevel = lightLevels.low, styles }) => (
+export const WaterLevelPicture = ({ waterLevel = waterLevels.low, styles }) => (
   <img
-    src={srcByLightLevel[waterLevel]}
+    src={srcByWaterLevel[waterLevel]}
     alt={altbyWaterLevel[waterLevel]}
     className={styles}
   />
