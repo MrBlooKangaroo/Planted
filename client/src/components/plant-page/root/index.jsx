@@ -1,4 +1,5 @@
 import { getPlantType } from 'src/api/queries/getPlantType';
+import { ProTipsCard } from '../ProTipsCard';
 import { SummaryCard } from '../SummaryCard';
 import React from 'react';
 import styles from './styles.css';
@@ -13,6 +14,7 @@ export const PlantTypePage = ({ match }) => {
 
   return (
     <div className={styles.plantView}>
+      <ProTipsCard {...plantType} />
       <SummaryCard {...plantType} />
     </div>
   );
