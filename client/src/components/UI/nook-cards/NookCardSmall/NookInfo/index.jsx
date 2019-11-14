@@ -20,11 +20,13 @@ const NookInfo = ({
       {getLuxOrCycleIcon('luxLevel', luxLevel, 'unselected', luxLevelIcon)}
     </div>
     <div className={nookInfoBottom}>
-      <img
-        className={userPhoto}
-        src={currentUser.photoUrl}
-        alt={currentUser.firstName}
-      />
+      {currentUser && (
+        <img
+          className={userPhoto}
+          src={currentUser.photoUrl}
+          alt={currentUser.firstName}
+        />
+      )}
       <span className={plantTotal}>{plantTotalText}</span>
     </div>
   </>
