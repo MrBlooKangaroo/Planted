@@ -8,7 +8,7 @@ export const text = {
   heartAlt: 'Heart Unselected',
   lightHeader: 'Light',
   waterHeader: 'Water',
-  plantAlt: 'Plant Type Picutre',
+  plantAlt: 'Plant Type Picture',
 };
 
 export const TopCard = ({
