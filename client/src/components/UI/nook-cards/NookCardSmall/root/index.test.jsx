@@ -33,7 +33,7 @@ describe('NookCardSmall Component', () => {
     expect(nookCardSmallComponent).toExist();
   });
 
-  it('should be passed all required props', async () => {
+  it('should be passed all required props', () => {
     const nookProp = element.props().nook;
     expect(nookProp).toBeDefined();
     expect(nookProp.name).toBeDefined();

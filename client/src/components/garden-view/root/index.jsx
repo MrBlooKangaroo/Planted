@@ -5,7 +5,7 @@ import NookList from '../NookList';
 import HeaderRow from '../HeaderRow';
 import { gardenContainer } from './styles.css';
 
-export const sortByName = (a, b) => {
+export const sortByNookName = (a, b) => {
   if (a.name < b.name) return -1;
   if (a.name > b.name) return 1;
   return 0;
@@ -22,10 +22,11 @@ const Garden = props => {
       variables: { userId: currentUser.id },
       context: { headers: { authorization: token } },
     });
-  if (data)
-    nooks = isForwardSort
-      ? data.nooks.sort(sortByName)
-      : data.nooks.sort(sortByName).reverse();
+
+  if (data) {
+    nooks = data.nooks.sort(sortByNookName);
+    if (isForwardSort) nooks = nooks.reverse();
+  }
   const plantTotalReducer = (total, nook) => total + nook.plants.length;
   const plantTotal = data && data.nooks.reduce(plantTotalReducer, 0);
 
