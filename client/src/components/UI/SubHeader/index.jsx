@@ -7,10 +7,10 @@ export const text = {
 
 export const plantCountText = count => `${count} ${text.plants}`;
 
-export const CarouselHeader = ({ plantCount, title }) => (
+export const SubHeader = ({ plantCount, title }) => (
   <div className={styles.leftSideSpace}>
     <span className={styles.categoryNames}>{title}</span>
-    {plantCount && (
+    {plantCount !== undefined && (
       <span className={styles.count}>{plantCountText(plantCount)}</span>
     )}
   </div>

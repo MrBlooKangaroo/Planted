@@ -1,13 +1,13 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
-import { CarouselHeader, plantCountText, text } from './index';
+import { SubHeader, plantCountText, text } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
 
 afterEach(cleanup);
 
-describe('CarouselHeader component', () => {
+describe('SubHeader component', () => {
   let wrapper, props;
 
   props = {
@@ -16,11 +16,11 @@ describe('CarouselHeader component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<CarouselHeader {...props} />);
+    wrapper = mount(<SubHeader {...props} />);
   });
 
-  it('should mount a CarouselHeader component', () => {
-    const element = wrapper.find(CarouselHeader);
+  it('should mount a SubHeader component', () => {
+    const element = wrapper.find(SubHeader);
     expect(element).toExist();
   });
 
