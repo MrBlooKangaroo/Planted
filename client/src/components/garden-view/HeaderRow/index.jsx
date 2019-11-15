@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import {
   gardenContainer,
-  headerClass,
-  gardenStatsClass,
+  header as headerClass,
+  gardenStats as gardenStatsClass,
   sortSpan,
   alphaSortText,
   caretUp,
@@ -13,27 +13,42 @@ import {
 
 export const headerRowText = {
   header: 'Garden',
-  forwardsSort: 'A to Z',
-  backwardsSort: 'Z to A',
+  alphabeticalOrderText: 'A to Z',
+  reverseAlphabeticalOrderText: 'Z to A',
   gardenStats: (nookTotal, plantTotal) =>
     `${nookTotal} nooks • ${plantTotal} plants`,
 };
 
-const HeaderRow = ({ nooks, plantTotal, isForwardSort, toggleSort }) => {
-  const { header, forwardsSort, backwardsSort, gardenStats } = headerRowText;
+const HeaderRow = ({
+  nooks,
+  plantTotal,
+  isAlphabeticallySorted,
+  toggleSort,
+}) => {
+  const {
+    header,
+    alphabeticalOrderText,
+    reverseAlphabeticalOrderText,
+    gardenStats,
+  } = headerRowText;
   return (
     <div className={gardenContainer}>
-      <div className={headerClass}>{header}</div>
+      <h1 className={headerClass}>{header}</h1>
       <div className={gardenStatsClass}>
         {gardenStats(nooks.length, plantTotal)}
       </div>
-      <div className={sortSpan} onClick={() => toggleSort(!isForwardSort)}>
+      <div
+        className={sortSpan}
+        onClick={() => toggleSort(!isAlphabeticallySorted)}
+      >
         <span className={alphaSortText}>
-          {isForwardSort ? forwardsSort : backwardsSort}
+          {isAlphabeticallySorted
+            ? alphabeticalOrderText
+            : reverseAlphabeticalOrderText}
         </span>
         <FontAwesomeIcon
           icon={faAngleDown}
-          className={isForwardSort ? caretUp : caretDown}
+          className={isAlphabeticallySorted ? caretUp : caretDown}
         />
       </div>
     </div>

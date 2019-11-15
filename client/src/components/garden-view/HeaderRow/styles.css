@@ -1,4 +1,4 @@
-.headerClass {
+.header {
   color: rgba(33, 33, 33, 0.9);
   display: block;
   font-family: 'Halant', serif;
@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.gardenStatsClass {
+.gardenStats {
   display: inline-block;
   font-family: 'Karla', sans-serif;
   margin-bottom: 2rem;

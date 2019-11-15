@@ -14,7 +14,7 @@ describe('HeaderRow Component', () => {
     props = {
       nooks: [{ name: 'Bathroom' }, { name: 'Foyer' }],
       plantTotal: 3,
-      isForwardSort: true,
+      isAlphabeticallySorted: true,
       toggleSort: () => {},
     };
     element = mount(<HeaderRow {...props} />);
@@ -31,8 +31,8 @@ describe('HeaderRow Component', () => {
     expect(headerRowProps.nooks.length).toBe(2);
     expect(headerRowProps.plantTotal).toBeDefined();
     expect(typeof headerRowProps.plantTotal).toBe('number');
-    expect(headerRowProps.isForwardSort).toBeDefined();
-    expect(typeof headerRowProps.isForwardSort).toBe('boolean');
+    expect(headerRowProps.isAlphabeticallySorted).toBeDefined();
+    expect(typeof headerRowProps.isAlphabeticallySorted).toBe('boolean');
     expect(headerRowProps.toggleSort).toBeDefined();
     expect(typeof headerRowProps.toggleSort).toBe('function');
   });
@@ -42,13 +42,15 @@ describe('HeaderRow Component', () => {
   });
 
   it('should have the forwardsSort text', () => {
-    expect(element.text()).toContain(headerRowText.forwardsSort);
+    expect(element.text()).toContain(headerRowText.alphabeticalOrderText);
   });
 
   it('should flip from A - Z to Z - A on click', () => {
-    element.setProps({ isForwardSort: false });
+    element.setProps({ isAlphabeticallySorted: false });
     const headerRowComponent = element.find(HeaderRow);
-    expect(headerRowComponent.text()).toContain(headerRowText.backwardsSort);
+    expect(headerRowComponent.text()).toContain(
+      headerRowText.reverseAlphabeticalOrderText,
+    );
   });
 });
 

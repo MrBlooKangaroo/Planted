@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export const GET_NOOKS_BY_USER_ID = gql`
+export default gql`
   query getNooksByUserId($userId: ID!) {
     nooks(userId: $userId) {
       id
