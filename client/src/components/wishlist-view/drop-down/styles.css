@@ -1,21 +1,24 @@
 .downArrow {
   transform: rotate(90deg);
   border: none;
-  margin-left: 100px;
-  background-color: white;
+  flex-direction: flex-end;
+  position: absolute;
+  top: 3px;
+  right: 20px;
 }
 
 .dropDownButton {
   background-color: white;
   border-radius: 4px;
   border: none;
+  padding: 0px;
 }
 
 .dropDownTitle {
   font-family: 'Karla';
   font-weight: bold;
   font-size: 16px;
-  margin-left: 35px;
+  /* margin-left: 35px; */
 }
 
 .buttonContainer {
@@ -23,7 +26,8 @@
   align-items: center;
   flex-direction: row;
   height: 35px;
-  width: 230px;
+  width: 245px;
+  position: relative;
 }
 
 .dropDownContainer {
@@ -31,4 +35,14 @@
   justify-content: flex-end;
   margin-right: 45px;
   position: relative;
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header {
+  margin-left: 30px;
 }

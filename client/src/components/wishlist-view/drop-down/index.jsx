@@ -9,6 +9,7 @@ const text = {
 
 export const DropDown = () => {
   const [showList, setShowList] = useState(false);
+  const [header, setHeader] = useState('Sort By');
 
   const toggleShowList = () => {
     setShowList(!showList);
@@ -18,15 +19,19 @@ export const DropDown = () => {
     <div className={styles.dropDownContainer}>
       <button className={styles.dropDownButton} onClick={toggleShowList}>
         <div className={styles.buttonContainer}>
-          <p className={styles.dropDownTitle}>Sort By</p>
-          <img
-            src={arrowRight}
-            alt={text.downArrow}
-            className={styles.downArrow}
-          />
+          <p className={styles.header}>{header}</p>
+          <div>
+            <img
+              src={arrowRight}
+              alt={text.downArrow}
+              className={styles.downArrow}
+            />
+          </div>
         </div>
       </button>
-      {showList && <SortList />}
+      {showList && (
+        <SortList setHeader={setHeader} toggleShowList={toggleShowList} />
+      )}
     </div>
   );
 };

@@ -13,6 +13,10 @@ import cycleSelectedHigh from './selected/cycleSelectedHigh.svg';
 import arrowLeft from './unselected/arrow-left.svg';
 import arrowRight from './unselected/arrow-right.svg';
 import cactus from './unselected/cactus.svg';
+import singleSunFilled from './unselected/single-sun-filled.svg';
+import singleSunUnfilled from './unselected/single-sun-unfilled.svg';
+import singleSunFilledGreen from './selected/sun-single-filled-green.svg';
+import singleSunUnfilledGreen from './selected/sun-single-unfilled-green.svg';
 
 export {
   luxUnselectedLow,
@@ -30,4 +34,8 @@ export {
   arrowLeft,
   arrowRight,
   cactus,
+  singleSunFilled,
+  singleSunUnfilled,
+  singleSunFilledGreen,
+  singleSunUnfilledGreen,
 };
