@@ -31,7 +31,7 @@ const Garden = props => {
   return !loading && !errors && <BaseGarden {...baseProps} />;
 };
 
-const BaseGarden = props => (
+export const BaseGarden = props => (
   <div className={gardenContainer}>
     <HeaderRow {...props} />
   </div>
