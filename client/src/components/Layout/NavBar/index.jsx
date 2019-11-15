@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Login } from './Login';
-import { Link } from 'react-router-dom';
-import { rootPath, navLinkPaths } from '../../../constants/paths';
+import { NavLink } from 'react-router-dom';
+import { rootPath, navLinkPaths } from 'constants/paths';
 import {
   navBar,
   logo,
@@ -14,29 +14,33 @@ import {
 
 export const navBarText = {
   logo: 'Planted',
+  explore: 'EXPLORE',
 };
 
-const renderPath = (path, currentPath) => {
-  const navText = path === rootPath ? 'EXPLORE' : path.slice(1).toUpperCase();
-  const className = currentPath === path ? navPathSelected : navPath;
-  return (
-    <Link to={path} key={path} id={path} className={className}>
-      {navText}
-    </Link>
-  );
-};
+export const getLinkText = path =>
+  path === rootPath ? navBarText.explore : path.slice(1).toUpperCase();
 
 const NavBar = ({ location }) => {
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
-  const currentPath = location ? location.pathname : rootPath;
   return (
     <nav className={navBar}>
       <div className={logo}>{navBarText.logo}</div>
       {isAuthenticated && (
         <div className={navPathsContainer}>
-          {navLinkPaths.map(path => renderPath(path, currentPath))}
+          {navLinkPaths.map(path => (
+            <NavLink
+              to={path}
+              id={path}
+              key={path}
+              className={navPath}
+              activeClassName={navPathSelected}
+              isActive={() => location && path === location.pathname}
+            >
+              {getLinkText(path)}
+            </NavLink>
+          ))}
         </div>
       )}
       <div className={navContentRight}>
