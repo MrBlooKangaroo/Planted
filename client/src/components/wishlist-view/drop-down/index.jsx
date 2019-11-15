@@ -5,13 +5,22 @@ import { SortList } from '../sort-list';
 
 const text = {
   downArrow: 'Arrow pull down',
+  sortBy: 'Sort By',
 };
 
 export const DropDown = () => {
   const [showList, setShowList] = useState(false);
-  const [header, setHeader] = useState('Sort By');
+  const [header, setHeader] = useState(
+    <p className={styles.dropDownTitle}>{text.sortBy}</p>,
+  );
+  const [arrowStyle, setArrowStyle] = useState(styles.downArrow);
 
   const toggleShowList = () => {
+    if (showList) {
+      setArrowStyle(styles.downArrow);
+    } else {
+      setArrowStyle(styles.upArrow);
+    }
     setShowList(!showList);
   };
 
@@ -20,12 +29,8 @@ export const DropDown = () => {
       <button className={styles.dropDownButton} onClick={toggleShowList}>
         <div className={styles.buttonContainer}>
           <p className={styles.header}>{header}</p>
-          <div>
-            <img
-              src={arrowRight}
-              alt={text.downArrow}
-              className={styles.downArrow}
-            />
+          <div className={styles.arrowContainer}>
+            <img src={arrowRight} alt={text.downArrow} className={arrowStyle} />
           </div>
         </div>
       </button>
