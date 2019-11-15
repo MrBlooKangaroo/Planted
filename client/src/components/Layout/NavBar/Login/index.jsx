@@ -24,7 +24,7 @@ export const Login = () => {
     userInfo = user.data.authGoogle.user;
     tokenInfo = user.data.authGoogle.token;
     window.localStorage.setItem('token', tokenInfo);
-    window.localStorage.setItem('user', userInfo);
+    window.localStorage.setItem('user', JSON.stringify(userInfo));
     if (user) {
       toggleIsAuthenticated(true);
       setPhotoUrl(userInfo.photoUrl);
