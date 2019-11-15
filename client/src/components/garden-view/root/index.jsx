@@ -14,7 +14,6 @@ const Garden = props => {
   });
   if (data) {
     nooks = data.nooks.sort(sortByName);
-    if (!isAlphabeticallySorted) nooks = nooks.reverse();
   }
   const plantTotalReducer = (plantTotalAccumulator, nook) =>
     nook.plants && plantTotalAccumulator + nook.plants.length;
