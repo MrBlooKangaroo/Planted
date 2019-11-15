@@ -5,7 +5,9 @@
   margin-bottom: 25px;
 }
 
-.listItemButton {
+.wishlistItem,
+.listItemButton,
+.existingListItemButton {
   background-color: white;
   border: none;
 }
@@ -24,7 +26,9 @@
   width: 10px;
 }
 
-.wishlistItem {
-  background-color: white;
-  border: none;
+.listItemButton:hover {
+  cursor: pointer;
+}
+.existingListItemButton:hover {
+  cursor: default;
 }

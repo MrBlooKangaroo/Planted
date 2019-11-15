@@ -16,18 +16,21 @@ export const text = {
 export const Wishlist = ({ nooks, wishes, togglePopUp, plantTypeId }) => {
   const [createWish] = useMutation(CREATE_WISH);
   const [selectedNooks, setSelectedNooks] = useState([]);
+
   const onSaveClick = selectedNooks => {
     const userId = JSON.parse(localStorage.getItem('user')).id;
     selectedNooks.forEach(nookId => {
-      createWish({
-        variables: {
-          wish: {
-            nookId,
-            userId,
-            plantTypeId,
+      const exists = wishes.some(wish => wish.nook && wish.nook.id === nookId);
+      if (!exists)
+        createWish({
+          variables: {
+            wish: {
+              nookId,
+              userId,
+              plantTypeId,
+            },
           },
-        },
-      });
+        });
     });
     togglePopUp();
   };

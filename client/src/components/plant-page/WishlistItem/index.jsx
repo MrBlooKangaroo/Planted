@@ -21,7 +21,8 @@ export const WishlistItem = ({
   const styleBackgroundColor = { backgroundColor: checkBox };
 
   const wishNookIds = wishes.map(wish => wish.nook && wish.nook.id);
-  if (wishNookIds.includes(id) && !isSelected) {
+  const wishExists = wishNookIds.includes(id);
+  if (!wishExists && !isSelected) {
     setCheckBox(text.aquamarine);
     setTextColor(text.aquamarine);
     toggleIsSelected(!isSelected);
@@ -44,7 +45,12 @@ export const WishlistItem = ({
 
   return (
     <button id={id} className={styles.wishlistItem} onClick={ChangeColor}>
-      <div id={id} className={styles.listItemButton}>
+      <div
+        id={id}
+        className={
+          wishExists ? styles.listItemButton : styles.existingListItemButton
+        }
+      >
         <div id={id} className={styles.listItem}>
           <div
             id={id}
