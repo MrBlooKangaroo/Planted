@@ -1,3 +1,7 @@
+.buttonPosition {
+  position: relative;
+}
+
 .description {
   font-family: 'Karla';
   font-size: 22px;
