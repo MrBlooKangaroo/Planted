@@ -22,18 +22,10 @@ export const TopCard = ({
   photoUrl,
 }) => {
   const [showWishlist, toggleShowWishList] = useState(false);
-  const [showHeartUnselected, toggleShowHeartUnselected] = useState(
-    heartUnselected,
-  );
+  const heartSrc = showWishlist ? heartSelected : heartUnselected;
 
   function togglePopUp() {
-    if (showWishlist) {
-      toggleShowWishList(!showWishlist);
-      toggleShowHeartUnselected(heartUnselected);
-    } else {
-      toggleShowWishList(!showWishlist);
-      toggleShowHeartUnselected(heartSelected);
-    }
+    toggleShowWishList(!showWishlist);
   }
 
   return (
@@ -43,7 +35,7 @@ export const TopCard = ({
         <h1 className={styles.title}>{name}</h1>
         <div className={styles.buttonPosition}>
           <button className={styles.heartButton} onClick={togglePopUp}>
-            <img src={showHeartUnselected} alt={text.heartAlt} />
+            <img src={heartSrc} alt={text.heartAlt} />
           </button>
           {showWishlist && (
             <WishlistInPlantType
