@@ -33,9 +33,10 @@ exports.nook = async (_obj, { id }) => {
   return nook || raiseNotFoundError();
 };
 
-exports.nooks = async () => {
-  return await db.nook.findAll();
-};
+exports.nooks = async (_obj, { userId }) =>
+  userId
+    ? await db.nook.findAll({ where: { userId } })
+    : await db.nook.findAll();
 
 exports.plantType = async (_obj, { id }) => {
   const plantType = await db.plantType.findOne({
@@ -45,9 +46,10 @@ exports.plantType = async (_obj, { id }) => {
   return plantType || raiseNotFoundError();
 };
 
-exports.plantTypes = async () => {
-  return await db.plantType.findAll();
-};
+exports.plantTypes = async (_obj, { luxLevel }) =>
+  luxLevel
+    ? await db.plantType.findAll({ where: { luxLevel } })
+    : await db.plantType.findAll();
 
 exports.watering = async (_obj, { id }) => {
   const watering = await db.watering.findOne({

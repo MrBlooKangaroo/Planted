@@ -38,14 +38,18 @@ exports.testPlantType = {
   waterCycleInfo: 'Water around once a week.',
   colorPalette: 'Green, Purple, Silver',
   petToxicity: 'Toxic to pets.',
-  humidityAdvice: 'As this plant likes moist air, use of a room humidifier is recommended.',
+  humidityAdvice:
+    'As this plant likes moist air, use of a room humidifier is recommended.',
   travelAdvice: "Don't sweat a week away.",
   careAdvice:
     'If the leaves start turning brown and falling off, it’s probably not dead—it’s just getting ready for its winter slumber. Cut off all the foliage and stop watering until you see new shoots appear in spring.',
   hasJungleVibes: true,
   isAiryFresh: false,
   isAirPurifying: false,
-  photoUrl: 'https://planted-production.s3.amazonaws.com/plantedPhotos/default/elephant-ear.png',
-  photoUrlHorizontalCrop: 'https://planted-production.s3.amazonaws.com/plantedPhotos/horizontalCrop/elephant-ear-h.png',
-  photoUrlVerticalCrop: 'https://planted-production.s3.amazonaws.com/plantedPhotos/verticalCrop/elephant-ear-v.png',
+  photoUrl:
+    'https://planted-production.s3.amazonaws.com/plantedPhotos/default/elephant-ear.png',
+  photoUrlHorizontalCrop:
+    'https://planted-production.s3.amazonaws.com/plantedPhotos/horizontalCrop/elephant-ear-h.png',
+  photoUrlVerticalCrop:
+    'https://planted-production.s3.amazonaws.com/plantedPhotos/verticalCrop/elephant-ear-v.png',
 };
