@@ -14,13 +14,9 @@ const Garden = props => {
   let nooks = [];
   const [isForwardSort, toggleSort] = useState(true);
   const currentUser = JSON.parse(localStorage.getItem('user'));
-  const token = localStorage.getItem('token');
-  const { loading, errors, data } =
-    token &&
-    useQuery(GET_NOOKS_BY_USER_ID, {
-      variables: { userId: currentUser.id },
-    });
-
+  const { loading, errors, data } = useQuery(GET_NOOKS_BY_USER_ID, {
+    variables: { userId: currentUser.id },
+  });
   if (data) {
     nooks = data.nooks.sort(sortByNookName);
     if (isForwardSort) nooks = nooks.reverse();
@@ -29,11 +25,11 @@ const Garden = props => {
   const plantTotal = data && data.nooks.reduce(plantTotalReducer, 0);
 
   const baseProps = {
-    ...props,
     nooks,
     plantTotal,
     isForwardSort,
     toggleSort,
+    ...props,
   };
 
   return !loading && !errors && <BaseGarden {...baseProps} />;

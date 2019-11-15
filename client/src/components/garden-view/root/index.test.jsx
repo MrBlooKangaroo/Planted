@@ -1,8 +1,8 @@
 import 'jest-enzyme';
 import { sortByNookName } from '.';
 
-describe('Garden Component', () => {
-  it('should be able to use sortByName function', () => {
+describe('sortByNookName function', () => {
+  it('should return nooks in the correct, alphabetical order', () => {
     const initialNooks = [{ name: 'Foyer' }, { name: 'Bathroom' }];
     const responseNooks = initialNooks.sort(sortByNookName);
     expect(responseNooks).toBeDefined();
