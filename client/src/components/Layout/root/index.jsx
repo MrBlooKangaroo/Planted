@@ -4,7 +4,7 @@ import './styles.css';
 
 export default props => (
   <Fragment>
-    <NavBar />
+    <NavBar {...props} />
     {props.children}
   </Fragment>
 );

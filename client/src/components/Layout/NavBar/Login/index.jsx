@@ -8,10 +8,11 @@ export const loginText = {
   login: 'Log in',
 };
 
-export const Login = () => {
+export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
   let userInfo, tokenInfo;
   const [photoUrl, setPhotoUrl] = useState('');
-  const [isAuthenticated, toggleIsAuthenticated] = useState(false);
+  const cachedUser = localStorage.getItem('user');
+  if (cachedUser && !photoUrl) setPhotoUrl(JSON.parse(cachedUser).photoUrl);
 
   const onLogout = () => {
     toggleIsAuthenticated(false);
@@ -24,7 +25,7 @@ export const Login = () => {
     userInfo = user.data.authGoogle.user;
     tokenInfo = user.data.authGoogle.token;
     window.localStorage.setItem('token', tokenInfo);
-    window.localStorage.setItem('user', userInfo);
+    window.localStorage.setItem('user', JSON.stringify(userInfo));
     if (user) {
       toggleIsAuthenticated(true);
       setPhotoUrl(userInfo.photoUrl);
