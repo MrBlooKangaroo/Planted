@@ -7,7 +7,7 @@ export const PlantGrid = ({ plants, styles = localStyles, isWide = false }) => {
   const Card = isWide ? WidePlantCard : PlantCard;
   return (
     <div className={styles.plantContainer}>
-      {plants && plants.map(plant => <Card {...plant.plantType} />)}
+      {plants && plants.map(plant => <Card key={plant.id} {...plant} />)}
     </div>
   );
 };

@@ -3,7 +3,8 @@ import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import NavBar, { navBarText } from '.';
+import NavBar, { navBarText, getLinkText } from '.';
+import { rootPath, gardenPath, wishlistPath } from 'constants/paths';
 import UserInfo from './UserInfo';
 import { Login } from './Login';
 
@@ -40,5 +41,20 @@ describe('NavBar Component', () => {
   it('should have logo text', () => {
     const navBar = element.find(NavBar);
     expect(navBar.text()).toContain(navBarText.logo);
+  });
+
+  it('should return EXPLORE text if passed index path', () => {
+    const textResponse = getLinkText(rootPath);
+    expect(textResponse).toBe(navBarText.explore);
+  });
+
+  it('should return GARDEN text if passed /garden path', () => {
+    const textResponse = getLinkText(gardenPath);
+    expect(textResponse).toBe('GARDEN');
+  });
+
+  it('should return WISHLIST text if passed /wishlist path', () => {
+    const textResponse = getLinkText(wishlistPath);
+    expect(textResponse).toBe('WISHLIST');
   });
 });

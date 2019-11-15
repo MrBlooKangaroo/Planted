@@ -6,7 +6,7 @@ import 'jest-enzyme';
 import NookInfo from '.';
 import styles from './styles.css';
 import 'jest-enzyme';
-import getLuxOrCycleIcon from '../../../../../utils/getLuxOrCycleIcon';
+import getLuxOrCycleIcon from 'utils/getLuxOrCycleIcon';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

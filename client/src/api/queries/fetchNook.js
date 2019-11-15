@@ -8,12 +8,14 @@ const FETCH_NOOK = gql`
       luxLevel
       plants {
         plantType {
+          id
           name
           photoUrlVerticalCrop
         }
       }
       wishes {
         plantType {
+          id
           name
           photoUrlVerticalCrop
         }

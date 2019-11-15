@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 export const FETCH_SUGGESTIONS = gql`
   query fetchSuggestions($luxInput: LuxLevel) {
     suggestedPlantTypes(luxInput: $luxInput) {
+      id
       name
       photoUrlVerticalCrop
     }

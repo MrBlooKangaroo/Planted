@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import getLuxOrCycleIcon from 'utils/getLuxOrCycleIcon';
 import {
   plantCardLarge,
@@ -6,8 +7,8 @@ import {
   plantCardLargeLuxLevel,
 } from './styles.css';
 
-const PlantCardLarge = ({ name, luxLevel, photoUrl }) => (
-  <div className={plantCardLarge}>
+const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => (
+  <Link to={`/plant-types/${id}`} className={plantCardLarge}>
     <img alt={name} className={plantCardLargePhoto} src={photoUrl} />
     {name}
     {getLuxOrCycleIcon(
@@ -16,7 +17,7 @@ const PlantCardLarge = ({ name, luxLevel, photoUrl }) => (
       'unselected',
       plantCardLargeLuxLevel,
     )}
-  </div>
+  </Link>
 );
 
 export default PlantCardLarge;

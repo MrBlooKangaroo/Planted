@@ -3,7 +3,7 @@ import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import { arrowLeft, arrowRight, emptyNook } from '../../../../../assets/icons';
+import { arrowLeft, arrowRight, emptyNook } from 'assets/icons';
 import NookCarousel from '.';
 import styles from './styles.css';
 import 'jest-enzyme';

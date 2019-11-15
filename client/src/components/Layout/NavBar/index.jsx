@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Login } from './Login';
-import { Link } from 'react-router-dom';
-import { navLinkPaths } from '../../../constants/paths';
+import { Link, NavLink } from 'react-router-dom';
+import { rootPath, navLinkPaths } from 'constants/paths';
 import {
   navBar,
   logo,
@@ -14,30 +14,35 @@ import {
 
 export const navBarText = {
   logo: 'Planted',
+  explore: 'EXPLORE',
 };
 
-const renderPath = (path, currentPath) => {
-  const navText = path === '/' ? 'EXPLORE' : path.slice(1).toUpperCase();
-  const className = currentPath === path ? navPathSelected : navPath;
-  return (
-    <Link to={path} key={path} id={path} className={className}>
-      {navText}
-    </Link>
-  );
-};
+export const getLinkText = path =>
+  path === rootPath ? navBarText.explore : path.slice(1).toUpperCase();
 
-const NavBar = props => {
+const NavBar = ({ location }) => {
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
-  const currentPath = 'location' in props ? props.location.pathname : '/';
-  const loginProps = { isAuthenticated, toggleIsAuthenticated };
   return (
     <nav className={navBar}>
-      <div className={logo}>{navBarText.logo}</div>
+      <Link to={rootPath} className={logo}>
+        {navBarText.logo}
+      </Link>
       {isAuthenticated && (
         <div className={navPathsContainer}>
-          {navLinkPaths.map(path => renderPath(path, currentPath))}
+          {navLinkPaths.map(path => (
+            <NavLink
+              to={path}
+              id={path}
+              key={path}
+              className={navPath}
+              activeClassName={navPathSelected}
+              isActive={() => location && path === location.pathname}
+            >
+              {getLinkText(path)}
+            </NavLink>
+          ))}
         </div>
       )}
       <div className={navContentRight}>
@@ -46,7 +51,10 @@ const NavBar = props => {
           type="text"
           placeholder=" &#xf002;    Search Plant Names"
         />
-        <Login {...loginProps} />
+        <Login
+          isAuthenticated={isAuthenticated}
+          toggleIsAuthenticated={toggleIsAuthenticated}
+        />
       </div>
     </nav>
   );

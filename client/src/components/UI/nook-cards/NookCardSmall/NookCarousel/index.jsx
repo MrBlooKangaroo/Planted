@@ -1,5 +1,6 @@
 import React from 'react';
-import { arrowRight, arrowLeft, emptyNook } from '../../../../../assets/icons';
+import { Link } from 'react-router-dom';
+import { arrowRight, arrowLeft, emptyNook } from 'assets/icons';
 
 import {
   nookCardPhoto,
@@ -26,13 +27,16 @@ export default ({
       />
     )}
     {currentPlant ? (
-      <img
-        alt={name}
-        className={nookCardPhoto}
-        src={
-          currentPlant.photoUrl || currentPlant.plantType.photoUrlHorizontalCrop
-        }
-      />
+      <Link to={`/plant-types/${currentPlant.plantType.id}`}>
+        <img
+          alt={name}
+          className={nookCardPhoto}
+          src={
+            currentPlant.photoUrl ||
+            currentPlant.plantType.photoUrlHorizontalCrop
+          }
+        />
+      </Link>
     ) : (
       <img alt="emptyNook" src={emptyNook} className={emptyNookClass} />
     )}
