@@ -14,7 +14,7 @@ export const SortListOption = ({
     <SortListOptionText icon={icon} description={description} />
   );
 
-  function toggleHover() {
+  const toggleHover = () => {
     if (iconGreen) {
       if (selected) {
         toggleSelected(!selected);
@@ -22,7 +22,7 @@ export const SortListOption = ({
         toggleSelected(!selected);
       }
     }
-  }
+  };
 
   return (
     <button
