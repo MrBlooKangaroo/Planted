@@ -17,7 +17,7 @@ export const navBarText = {
   explore: 'EXPLORE',
 };
 
-export const getLinkText = path =>
+export const getNavLinkText = path =>
   path === rootPath ? navBarText.explore : path.slice(1).toUpperCase();
 
 const NavBar = ({ location }) => {
@@ -38,7 +38,7 @@ const NavBar = ({ location }) => {
               activeClassName={navPathSelected}
               isActive={() => location && path === location.pathname}
             >
-              {getLinkText(path)}
+              {getNavLinkText(path)}
             </NavLink>
           ))}
         </div>
