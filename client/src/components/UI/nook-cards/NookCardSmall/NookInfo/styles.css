@@ -16,9 +16,11 @@
 }
 
 .nookCardName {
+  color: rgba(33, 33, 33, 0.9);
   font-family: 'Halant';
   font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .userPhoto {

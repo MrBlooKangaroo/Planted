@@ -13,14 +13,15 @@
 }
 
 .plantName {
+  color: rgba(33, 33, 33, 0.9);
   font-family: 'Karla';
   font-size: 14px;
   font-weight: bold;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
 }
 
 .plantPic {
-  height: 80%;
   width: 251px;
 }

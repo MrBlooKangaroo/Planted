@@ -21,7 +21,7 @@ export const WishlistView = () => {
     <div>
       <h1 className={styles.title}>{text.wishlist}</h1>
       {wishlistNooks.map(nook => (
-        <NookWishlist nook={nook} key={nook.id} />
+        <NookWishlist {...nook} key={nook.id} />
       ))}
     </div>
   );

@@ -15,6 +15,7 @@ import Garden from './garden-view/root';
 import { NookDetail } from '../components/nook-view/root';
 import { PlantTypePage } from './plant-page/root';
 import { WishlistView } from '../components/wishlist-view/root';
+import 'components/Layout/root/styles.css';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_BACKEND_URL,

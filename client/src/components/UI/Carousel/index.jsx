@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles.css';
 import { arrowRight, arrowLeft } from 'assets/icons';
-import { PlantCard } from '../../UI/plant-card';
+import { PlantCard } from 'components/UI/plant-card';
 
 const LeftButton = ({ distance, setDistance }) => {
   const clickLeft = () => {
@@ -52,8 +52,8 @@ export const Carousel = ({ plants }) => {
       <div className={styles.suggestionsContainer}>
         <div className={styles.carouselContainer}>
           {plants.map(plant => (
-            <div style={transform}>
-              <PlantCard {...plant} />
+            <div key={plant.id} style={transform}>
+              <PlantCard key={plant.id} {...plant} />
             </div>
           ))}
         </div>

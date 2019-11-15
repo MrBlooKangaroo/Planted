@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { GET_NOOKS_BY_USER_ID } from '../../../api/queries/getNooks';
+import { GET_NOOKS_BY_USER_ID } from 'api/queries/getNooks';
 import NookList from '../NookList';
 import HeaderRow from '../HeaderRow';
 import { gardenContainer } from './styles.css';
@@ -22,7 +22,6 @@ const Garden = props => {
       variables: { userId: currentUser.id },
       context: { headers: { authorization: token } },
     });
-
   if (data) {
     nooks = data.nooks.sort(sortByNookName);
     if (isForwardSort) nooks = nooks.reverse();

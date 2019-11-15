@@ -1,5 +1,6 @@
 import React from 'react';
-import getLuxOrCycleIcon from '../../../../../utils/getLuxOrCycleIcon';
+import { Link } from 'react-router-dom';
+import getLuxOrCycleIcon from 'utils/getLuxOrCycleIcon';
 import {
   nookCardName,
   userPhoto,
@@ -10,13 +11,15 @@ import {
 } from './styles.css';
 
 const NookInfo = ({
-  nook: { name: nookName, luxLevel },
+  nook: { id, name: nookName, luxLevel },
   currentUser,
   plantTotalText,
 }) => (
   <>
     <div className={nookInfoTop}>
-      <span className={nookCardName}>{nookName}</span>
+      <Link to={`/nooks/${id}`} className={nookCardName}>
+        {nookName}
+      </Link>
       {getLuxOrCycleIcon('luxLevel', luxLevel, 'unselected', luxLevelIcon)}
     </div>
     <div className={nookInfoBottom}>

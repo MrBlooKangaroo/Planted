@@ -4,7 +4,7 @@ import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import NookList from '.';
-import NookCardSmall from '../../UI/nook-cards/NookCardSmall/root';
+import NookCardSmall from 'components/UI/nook-cards/NookCardSmall/root';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);

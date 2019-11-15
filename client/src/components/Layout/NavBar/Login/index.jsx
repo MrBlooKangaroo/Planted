@@ -8,7 +8,8 @@ export const loginText = {
   login: 'Log in',
 };
 
-export const Login = ({ isAuthenticated, toggleIsAuthenticated, history }) => {
+export const Login = props => {
+  const { isAuthenticated, toggleIsAuthenticated } = props;
   let userInfo, tokenInfo;
   const [photoUrl, setPhotoUrl] = useState('');
   const localUser = localStorage.getItem('user');
