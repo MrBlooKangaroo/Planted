@@ -6,6 +6,7 @@ import Layout from 'components/Layout/root';
 import Explore from 'components/explore-page/root';
 import {
   rootPath,
+  gardenPath,
   nookPath,
   plantTypePath,
   wishlistPath,
@@ -27,6 +28,7 @@ export const App = () => (
       <Switch>
         <Layout>
           <Route component={Explore} exact path={rootPath} />
+          <Route component={Garden} exact path={gardenPath} />
           <Route component={NookDetail} path={nookPath} />
           <Route component={PlantTypePage} path={plantTypePath} />
           <Route component={WishlistView} exact path={wishlistPath} />
