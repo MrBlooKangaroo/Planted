@@ -14,12 +14,12 @@ export const AddToWishlistOption = ({ name }) => {
   const styleText = { color: textColor };
   const styleBackgroundColor = { backgroundColor };
 
-  const ChangeColor = () => {
+  const changeColor = () => {
     toggleIsSelected(!isSelected);
   };
 
   return (
-    <button className={styles.wishlistItem} onClick={ChangeColor}>
+    <button className={styles.wishlistItem} onClick={changeColor}>
       <div className={styles.listItemButton}>
         <div className={styles.listItem}>
           <div className={styles.smallBox} style={styleBackgroundColor} />

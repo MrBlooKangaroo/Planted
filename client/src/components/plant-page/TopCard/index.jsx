@@ -21,13 +21,13 @@ export const TopCard = ({
   waterCycleInfo,
   photoUrl,
 }) => {
-  const [showAddToWishlistOptions, toggleShowAddToWishlistOptions] = useState(
+  const [showAddToWishlistOptions, setShowAddToWishlistOptions] = useState(
     false,
   );
   const heartSrc = showAddToWishlistOptions ? heartSelected : heartUnselected;
 
   const togglePopUp = () => {
-    toggleShowAddToWishlistOptions(!showAddToWishlistOptions);
+    setShowAddToWishlistOptions(!showAddToWishlistOptions);
   };
 
   return (

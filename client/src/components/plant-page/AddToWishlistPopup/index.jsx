@@ -4,11 +4,11 @@ import { AddToWishlistOption } from '../AddToWishlistOption';
 import { arrowConnecting, exit } from 'assets/icons';
 
 export const text = {
-  connectorAlt: 'Connecting piece from heart to popupBox',
-  wishlistHeader: 'Add to Wishlist',
   buttonType: 'submit',
   buttonValue: 'Save',
   closeButtonHeader: 'The X in the top right of the header to close it',
+  connectorAlt: 'Connecting piece from heart to popupBox',
+  wishlistHeader: 'Add to Wishlist',
 };
 
 export const AddToWishlistPopup = ({ nooks, togglePopUp }) => (
