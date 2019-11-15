@@ -1,14 +1,14 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
-import { Wishlist, text } from './index';
+import { AddToWishlistPopup, text } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
 import { arrowConnecting, exit } from 'assets/icons';
 
 afterEach(cleanup);
 
-describe('Wishlist component', () => {
+describe('AddToWishlistPopup component', () => {
   let wrapper, props;
 
   beforeEach(() => {
@@ -20,11 +20,11 @@ describe('Wishlist component', () => {
         },
       ],
     };
-    wrapper = mount(<Wishlist {...props} />);
+    wrapper = mount(<AddToWishlistPopup {...props} />);
   });
 
-  it('should mount a Wishlist component', () => {
-    const element = wrapper.find(Wishlist);
+  it('should mount a AddToWishlistPopup component', () => {
+    const element = wrapper.find(AddToWishlistPopup);
     expect(element).toExist();
   });
 

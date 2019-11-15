@@ -1,13 +1,13 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
-import { WishlistItem, text } from './index';
+import { AddToWishlistOption, text } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
 
 afterEach(cleanup);
 
-describe('WishlistItem component', () => {
+describe('AddToWishlistOption component', () => {
   let wrapper, props;
 
   beforeEach(() => {
@@ -16,11 +16,11 @@ describe('WishlistItem component', () => {
         name: 'Fake Name',
       },
     };
-    wrapper = mount(<WishlistItem {...props.nook} />);
+    wrapper = mount(<AddToWishlistOption {...props.nook} />);
   });
 
-  it('should mount a WishlistItem component', () => {
-    const element = wrapper.find(WishlistItem);
+  it('should mount a AddToWishlistOption component', () => {
+    const element = wrapper.find(AddToWishlistOption);
     expect(element).toExist();
   });
 
@@ -41,13 +41,13 @@ describe('WishlistItem component', () => {
   it('should mount a div with the class name smallBox', () => {
     const element = wrapper.find('div').find({ className: styles.smallBox });
     expect(element).toExist();
-    expect(element.prop('style').backgroundColor).toEqual(text.black);
+    expect(element.prop('style').backgroundColor).toEqual(text.white);
   });
 
   it('should mount a div with the class name nookName', () => {
     const element = wrapper.find('div').find({ className: styles.nookName });
     expect(element).toExist();
-    expect(element.prop('style').color).toEqual(text.white);
+    expect(element.prop('style').color).toEqual(text.black);
     expect(element.text()).toEqual(props.nook.name);
   });
 });

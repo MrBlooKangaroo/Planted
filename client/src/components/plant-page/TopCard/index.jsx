@@ -4,7 +4,7 @@ import { heartUnselected } from 'assets/icons';
 import { heartSelected } from 'assets/icons';
 import { LightLevelPicture } from 'components/UI/lightLevelPicture';
 import { WaterLevelPicture } from 'components/UI/waterLevelPicture';
-import { WishlistInPlantType } from '../WishlistPlantType';
+import { Wishlist } from '../Wishlist';
 
 export const text = {
   heartAlt: 'Heart Unselected',
@@ -21,12 +21,14 @@ export const TopCard = ({
   waterCycleInfo,
   photoUrl,
 }) => {
-  const [showWishlist, toggleShowWishList] = useState(false);
-  const heartSrc = showWishlist ? heartSelected : heartUnselected;
+  const [showAddToWishlistOptions, toggleShowAddToWishlistOptions] = useState(
+    false,
+  );
+  const heartSrc = showAddToWishlistOptions ? heartSelected : heartUnselected;
 
-  function togglePopUp() {
-    toggleShowWishList(!showWishlist);
-  }
+  const togglePopUp = () => {
+    toggleShowAddToWishlistOptions(!showAddToWishlistOptions);
+  };
 
   return (
     <div className={styles.topCardContainer}>
@@ -37,12 +39,7 @@ export const TopCard = ({
           <button className={styles.heartButton} onClick={togglePopUp}>
             <img src={heartSrc} alt={text.heartAlt} />
           </button>
-          {showWishlist && (
-            <WishlistInPlantType
-              togglePopUp={togglePopUp}
-              showWishlist={showWishlist}
-            />
-          )}
+          {showAddToWishlistOptions && <Wishlist togglePopUp={togglePopUp} />}
         </div>
       </div>
       <section>
