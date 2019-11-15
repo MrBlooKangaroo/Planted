@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { GET_NOOKS_BY_USER_ID } from '../../../api/queries/getNooks';
-import NookList from '../NookList';
+import { GET_NOOKS_BY_USER_ID } from 'api/queries/getNooks';
 import HeaderRow from '../HeaderRow';
 import { gardenContainer } from './styles.css';
 
@@ -20,7 +19,6 @@ const Garden = props => {
     token &&
     useQuery(GET_NOOKS_BY_USER_ID, {
       variables: { userId: currentUser.id },
-      context: { headers: { authorization: token } },
     });
 
   if (data) {
@@ -44,7 +42,6 @@ const Garden = props => {
 const BaseGarden = props => (
   <div className={gardenContainer}>
     <HeaderRow {...props} />
-    <NookList {...props} />
   </div>
 );
 
