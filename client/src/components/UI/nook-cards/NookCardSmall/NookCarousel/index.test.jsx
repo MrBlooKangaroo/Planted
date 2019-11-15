@@ -50,20 +50,20 @@ describe('NookCarousel Component', () => {
   });
 
   it('should be passed all required props', () => {
-    const nookCarouselProps = element.props();
-    expect(nookCarouselProps).toBeDefined();
-    expect(nookCarouselProps.nook).toBeDefined();
-    expect(nookCarouselProps.nook.name).toBe(nook.name);
-    expect(nookCarouselProps.nook.luxLevel).toBe(nook.luxLevel);
-    expect(nookCarouselProps.currentPlant).toBeDefined();
-    expect(nookCarouselProps.currentPlant.photoUrl).toBe(currentPlant.photoUrl);
-    expect(
-      nookCarouselProps.currentPlant.plantType.photoUrlHorizontalCrop,
-    ).toBe(currentPlant.plantType.photoUrlHorizontalCrop);
-    expect(nookCarouselProps.carouselIndex).toBeDefined();
-    expect(nookCarouselProps.carouselIndex).toBe(carouselIndex);
-    expect(nookCarouselProps.onArrowClick).toBeDefined();
-    expect(typeof nookCarouselProps.onArrowClick).toBe('function');
+    const nookCarouselProp = element.props();
+    expect(nookCarouselProp).toBeDefined();
+    expect(nookCarouselProp.nook).toBeDefined();
+    expect(nookCarouselProp.nook.name).toBe(nook.name);
+    expect(nookCarouselProp.nook.luxLevel).toBe(nook.luxLevel);
+    expect(nookCarouselProp.currentPlant).toBeDefined();
+    expect(nookCarouselProp.currentPlant.photoUrl).toBe(currentPlant.photoUrl);
+    expect(nookCarouselProp.currentPlant.plantType.photoUrlHorizontalCrop).toBe(
+      currentPlant.plantType.photoUrlHorizontalCrop,
+    );
+    expect(nookCarouselProp.carouselIndex).toBeDefined();
+    expect(nookCarouselProp.carouselIndex).toBe(carouselIndex);
+    expect(nookCarouselProp.onArrowClick).toBeDefined();
+    expect(typeof nookCarouselProp.onArrowClick).toBe('function');
   });
 
   it('should render an img tag with same src as prop photoUrl', () => {

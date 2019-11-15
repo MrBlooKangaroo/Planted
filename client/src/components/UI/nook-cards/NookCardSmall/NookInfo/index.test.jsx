@@ -32,16 +32,16 @@ describe('NookInfo Component', () => {
   });
 
   it('should be passed all required props', () => {
-    const nookInfoProps = element.props();
-    expect(nookInfoProps).toBeDefined();
-    expect(nookInfoProps.nook).toBeDefined();
-    expect(nookInfoProps.nook.name).toBe(nook.name);
-    expect(nookInfoProps.nook.luxLevel).toBe(nook.luxLevel);
-    expect(nookInfoProps.currentUser).toBeDefined();
-    expect(nookInfoProps.currentUser.photoUrl).toBe(currentUser.photoUrl);
-    expect(nookInfoProps.currentUser.firstName).toBe(currentUser.firstName);
-    expect(nookInfoProps.plantTotalText).toBeDefined();
-    expect(nookInfoProps.plantTotalText).toBe(plantTotalText);
+    const nookInfoProp = element.props();
+    expect(nookInfoProp).toBeDefined();
+    expect(nookInfoProp.nook).toBeDefined();
+    expect(nookInfoProp.nook.name).toBe(nook.name);
+    expect(nookInfoProp.nook.luxLevel).toBe(nook.luxLevel);
+    expect(nookInfoProp.currentUser).toBeDefined();
+    expect(nookInfoProp.currentUser.photoUrl).toBe(currentUser.photoUrl);
+    expect(nookInfoProp.currentUser.firstName).toBe(currentUser.firstName);
+    expect(nookInfoProp.plantTotalText).toBeDefined();
+    expect(nookInfoProp.plantTotalText).toBe(plantTotalText);
   });
 
   it('should render the nook name', () => {

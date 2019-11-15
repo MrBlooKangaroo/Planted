@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() });
 afterEach(cleanup);
 
 describe('HeaderRow Component', () => {
-  let element, props;
+  let wrapper, props;
   beforeEach(() => {
     props = {
       nooks: [{ name: 'Bathroom' }, { name: 'Foyer' }],
@@ -17,37 +17,36 @@ describe('HeaderRow Component', () => {
       isForwardSort: true,
       toggleSort: () => {},
     };
-    element = mount(<HeaderRow {...props} />);
+    wrapper = mount(<HeaderRow {...props} />);
   });
 
   it('should mount the headerRow component', () => {
-    const headerRow = element.find(HeaderRow);
+    const headerRow = wrapper.find(HeaderRow);
     expect(headerRow).toExist();
   });
 
   it('should be passed all required props', async () => {
-    const headerRowProps = element.props();
-    expect(headerRowProps.nooks).toBeDefined();
-    expect(headerRowProps.nooks.length).toBe(2);
-    expect(headerRowProps.plantTotal).toBeDefined();
-    expect(typeof headerRowProps.plantTotal).toBe('number');
-    expect(headerRowProps.isForwardSort).toBeDefined();
-    expect(typeof headerRowProps.isForwardSort).toBe('boolean');
-    expect(headerRowProps.toggleSort).toBeDefined();
-    expect(typeof headerRowProps.toggleSort).toBe('function');
+    expect(wrapper.props().nooks).toBeDefined();
+    expect(wrapper.props().nooks.length).toBe(2);
+    expect(wrapper.props().plantTotal).toBeDefined();
+    expect(typeof wrapper.props().plantTotal).toBe('number');
+    expect(wrapper.props().isForwardSort).toBeDefined();
+    expect(typeof wrapper.props().isForwardSort).toBe('boolean');
+    expect(wrapper.props().toggleSort).toBeDefined();
+    expect(typeof wrapper.props().toggleSort).toBe('function');
   });
 
   it('should have the header text', () => {
-    expect(element.text()).toContain(headerRowText.header);
+    expect(wrapper.text()).toContain(headerRowText.header);
   });
 
   it('should have the forwardsSort text', () => {
-    expect(element.text()).toContain(headerRowText.forwardsSort);
+    expect(wrapper.text()).toContain(headerRowText.forwardsSort);
   });
 
   it('should flip from A - Z to Z - A on click', () => {
-    element.setProps({ isForwardSort: false });
-    const headerRowComponent = element.find(HeaderRow);
+    wrapper.setProps({ isForwardSort: false });
+    const headerRowComponent = wrapper.find(HeaderRow);
     expect(headerRowComponent.text()).toContain(headerRowText.backwardsSort);
   });
 
