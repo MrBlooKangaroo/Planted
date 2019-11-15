@@ -1,7 +1,6 @@
 .categoryListContainer {
-  display: grid;
-  grid-column: 1/3;
   margin-top: 2rem;
+  grid-column: 1/3;
 }
 
 .header {
@@ -9,16 +8,11 @@
   margin-bottom: 0.3rem;
 }
 
-.categoryListLeft,
-.categoryListRight {
+.categoryList {
+  display: flex;
   margin: 0;
   padding: 0;
-}
-.categoryListLeft {
-  grid-column: 1;
-}
-.categoryListRight {
-  grid-column: 2;
+  justify-content: space-between;
 }
 
 .categoryUnselected,
