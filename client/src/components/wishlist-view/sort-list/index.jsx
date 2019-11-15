@@ -50,6 +50,7 @@ export const SortList = ({ setHeader, toggleShowList }) => {
       {list &&
         list.map(listItem => (
           <SortListItem
+            key={Math.random()}
             icon={listItem.icon}
             iconGreen={listItem.iconGreen}
             description={listItem.description}

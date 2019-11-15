@@ -22,6 +22,10 @@ import heartUnselected from './unselected/heartUnfilled.svg';
 import heartSelected from './selected/filled-large.svg';
 import arrowConnecting from './unselected/arrowConnecting.svg';
 import exit from './unselected/x-large.svg';
+import singleSunFilled from './unselected/single-sun-filled.svg';
+import singleSunUnfilled from './unselected/single-sun-unfilled.svg';
+import singleSunFilledGreen from './selected/sun-single-filled-green.svg';
+import singleSunUnfilledGreen from './selected/sun-single-unfilled-green.svg';
 
 export {
   arrowConnecting,
@@ -48,4 +52,8 @@ export {
   luxUnselectedMedium,
   pets,
   travel,
+  singleSunFilled,
+  singleSunUnfilled,
+  singleSunFilledGreen,
+  singleSunUnfilledGreen,
 };
