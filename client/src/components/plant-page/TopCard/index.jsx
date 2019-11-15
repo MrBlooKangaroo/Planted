@@ -4,7 +4,7 @@ import { heartUnselected } from 'assets/icons';
 import { heartSelected } from 'assets/icons';
 import { LightLevelPicture } from 'components/UI/lightLevelPicture';
 import { WaterLevelPicture } from 'components/UI/waterLevelPicture';
-import { Wishlist } from '../Wishlist';
+import { WishlistPopup } from '../WishlistPopup';
 
 export const text = {
   heartAlt: 'Heart Unselected',
@@ -39,7 +39,9 @@ export const TopCard = ({
           <button className={styles.heartButton} onClick={togglePopUp}>
             <img src={heartSrc} alt={text.heartAlt} />
           </button>
-          {showAddToWishlistOptions && <Wishlist togglePopUp={togglePopUp} />}
+          {showAddToWishlistOptions && (
+            <WishlistPopup togglePopUp={togglePopUp} />
+          )}
         </div>
       </div>
       <section>

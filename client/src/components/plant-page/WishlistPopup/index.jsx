@@ -2,7 +2,7 @@ import React from 'react';
 import { fetchNooksFromUser } from 'api/queries/fetchNooksFromUser';
 import { AddToWishlistPopup } from '../AddToWishlistPopup';
 
-export const Wishlist = ({ togglePopUp }) => {
+export const WishlistPopup = ({ togglePopUp }) => {
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const userId = currentUser.id;
   const { loading, error, data } = fetchNooksFromUser(userId);
