@@ -74,12 +74,3 @@ exports.wish = async (_obj, { id }) => {
 exports.wishes = async () => {
   return await db.wish.findAll();
 };
-
-exports.suggestedPlantTypes = async (_obj, { luxInput }) => {
-  const plantType = await db.plantType.findAll({
-    where: {
-      luxLevel: luxInput,
-    },
-  });
-  return plantType || raiseNotFoundError();
-};
