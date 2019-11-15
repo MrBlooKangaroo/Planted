@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
 import styles from './styles.css';
 import { WishlistItem } from '../WishListItem';
 import { arrowConnecting, exit } from 'assets/icons';
+import CREATE_WISH from 'api/mutations/createWish';
 
 export const text = {
   connectorAlt: 'Connecting piece from heart to popupBox',
@@ -11,7 +13,24 @@ export const text = {
   closeButtonHeader: 'The X in the top right of the header to close it',
 };
 
-export const Wishlist = ({ nooks, togglePopUp }) => {
+export const Wishlist = ({ nooks, wishes, togglePopUp, plantTypeId }) => {
+  const [createWish] = useMutation(CREATE_WISH);
+  const [selectedNooks, setSelectedNooks] = useState([]);
+  const onSaveClick = selectedNooks => {
+    const userId = JSON.parse(localStorage.getItem('user')).id;
+    selectedNooks.forEach(nookId => {
+      createWish({
+        variables: {
+          wish: {
+            nookId,
+            userId,
+            plantTypeId,
+          },
+        },
+      });
+    });
+    togglePopUp();
+  };
   return (
     <div>
       <img
@@ -28,7 +47,14 @@ export const Wishlist = ({ nooks, togglePopUp }) => {
         </div>
         <div className={styles.optionList}>
           {nooks.map(nook => (
-            <WishlistItem {...nook} key={nook.id} />
+            <WishlistItem
+              id={nook.id}
+              key={nook.id}
+              selectedNooks={selectedNooks}
+              setSelectedNooks={setSelectedNooks}
+              wishes={wishes}
+              {...nook}
+            />
           ))}
         </div>
         <div className={styles.saveButtonContainer}>
@@ -36,7 +62,7 @@ export const Wishlist = ({ nooks, togglePopUp }) => {
             type={text.buttonType}
             value={text.buttonValue}
             className={styles.saveButton}
-            onClick={togglePopUp}
+            onClick={() => onSaveClick(selectedNooks)}
           />
         </div>
       </div>

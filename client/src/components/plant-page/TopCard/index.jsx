@@ -14,12 +14,14 @@ export const text = {
 };
 
 export const TopCard = ({
+  id,
   name,
   luxLevel,
   luxLevelInfo,
   waterLevel,
   waterCycleInfo,
   photoUrl,
+  wishes,
 }) => {
   const [showWishlist, toggleShowWishList] = useState(false);
   const [showHeartUnselected, toggleShowHeartUnselected] = useState(
@@ -47,8 +49,10 @@ export const TopCard = ({
           </button>
           {showWishlist && (
             <WishlistInPlantType
+              plantTypeId={id}
               togglePopUp={togglePopUp}
               showWishlist={showWishlist}
+              wishes={wishes}
             />
           )}
         </div>

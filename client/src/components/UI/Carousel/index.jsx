@@ -52,8 +52,8 @@ export const Carousel = ({ plants }) => {
       <div className={styles.suggestionsContainer}>
         <div className={styles.carouselContainer}>
           {plants.map(plant => (
-            <div key={plant.id} style={transform}>
-              <PlantCard key={plant.id} {...plant} />
+            <div key={Math.random()} style={transform}>
+              <PlantCard {...plant} />
             </div>
           ))}
         </div>
