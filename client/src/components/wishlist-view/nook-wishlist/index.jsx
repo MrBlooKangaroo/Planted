@@ -1,7 +1,7 @@
-import { PlantGrid } from '../../UI/plant-grid';
-import { SubHeader } from '../../UI/SubHeader';
 import React from 'react';
 import styles from './styles.css';
+import { PlantGrid } from 'components/UI/plant-grid';
+import { SubHeader } from 'components/UI/SubHeader';
 
 export const NookWishlist = ({ id, name, wishes }) => (
   <div>

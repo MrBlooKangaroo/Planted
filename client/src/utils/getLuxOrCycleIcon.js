@@ -30,27 +30,5 @@ export default (type, level, selection, className) => {
     },
   };
   const icon = iconDict[type][selection][level];
-  let tag = level;
-  if (type === 'waterCycle') {
-    switch (level) {
-      case 'HIGH':
-        tag = 'WEEKLY';
-        break;
-      default:
-      case 'MEDIUM':
-        tag = 'BIWEEKLY';
-        break;
-      case 'LOW':
-        tag = 'MONTHLY';
-        break;
-    }
-  }
-  return (
-    <img
-      src={icon}
-      id={`${type}:${tag}`}
-      alt={`${type}:${tag}`}
-      className={className}
-    />
-  );
+  return <img src={icon} alt={`${type}:${level}`} className={className} />;
 };

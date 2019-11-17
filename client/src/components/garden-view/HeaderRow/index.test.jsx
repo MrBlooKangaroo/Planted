@@ -9,48 +9,53 @@ configure({ adapter: new Adapter() });
 afterEach(cleanup);
 
 describe('HeaderRow Component', () => {
-  let wrapper, props;
+  let element, props;
   beforeEach(() => {
     props = {
       nooks: [{ name: 'Bathroom' }, { name: 'Foyer' }],
       plantTotal: 3,
-      isForwardSort: true,
+      isAlphabeticallySorted: true,
       toggleSort: () => {},
     };
-    wrapper = mount(<HeaderRow {...props} />);
+    element = mount(<HeaderRow {...props} />);
   });
 
   it('should mount the headerRow component', () => {
-    const headerRow = wrapper.find(HeaderRow);
+    const headerRow = element.find(HeaderRow);
     expect(headerRow).toExist();
   });
 
   it('should be passed all required props', async () => {
-    expect(wrapper.props().nooks).toBeDefined();
-    expect(wrapper.props().nooks.length).toBe(2);
-    expect(wrapper.props().plantTotal).toBeDefined();
-    expect(typeof wrapper.props().plantTotal).toBe('number');
-    expect(wrapper.props().isForwardSort).toBeDefined();
-    expect(typeof wrapper.props().isForwardSort).toBe('boolean');
-    expect(wrapper.props().toggleSort).toBeDefined();
-    expect(typeof wrapper.props().toggleSort).toBe('function');
+    const headerRowProps = element.props();
+    expect(headerRowProps.nooks).toBeDefined();
+    expect(headerRowProps.nooks.length).toBe(2);
+    expect(headerRowProps.plantTotal).toBeDefined();
+    expect(typeof headerRowProps.plantTotal).toBe('number');
+    expect(headerRowProps.isAlphabeticallySorted).toBeDefined();
+    expect(typeof headerRowProps.isAlphabeticallySorted).toBe('boolean');
+    expect(headerRowProps.toggleSort).toBeDefined();
+    expect(typeof headerRowProps.toggleSort).toBe('function');
   });
 
   it('should have the header text', () => {
-    expect(wrapper.text()).toContain(headerRowText.header);
+    expect(element.text()).toContain(headerRowText.header);
   });
 
   it('should have the forwardsSort text', () => {
-    expect(wrapper.text()).toContain(headerRowText.forwardsSort);
+    expect(element.text()).toContain(headerRowText.alphabeticalOrderText);
   });
 
   it('should flip from A - Z to Z - A on click', () => {
-    wrapper.setProps({ isForwardSort: false });
-    const headerRowComponent = wrapper.find(HeaderRow);
-    expect(headerRowComponent.text()).toContain(headerRowText.backwardsSort);
+    element.setProps({ isAlphabeticallySorted: false });
+    const headerRowComponent = element.find(HeaderRow);
+    expect(headerRowComponent.text()).toContain(
+      headerRowText.reverseAlphabeticalOrderText,
+    );
   });
+});
 
-  it('should be able to use gardenStats function', () => {
+describe('gardenStats function', () => {
+  it('should return corresponding sub header text', () => {
     const gardenStats = headerRowText.gardenStats(3, 10);
     expect(gardenStats).toBeDefined();
     expect(gardenStats).toBe('3 nooks • 10 plants');

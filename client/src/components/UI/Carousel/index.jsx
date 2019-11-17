@@ -7,7 +7,6 @@ const LeftButton = ({ distance, setDistance }) => {
   const clickLeft = () => {
     if (distance < 0) setDistance(distance + 350);
   };
-
   return distance !== 0 ? (
     <button onClick={clickLeft} className={styles.leftClick}>
       <img src={arrowLeft} alt="left click" />
@@ -21,10 +20,8 @@ const RightButton = ({ distance, setDistance, max }) => {
   const clickRight = () => {
     if (distance > -max) setDistance(distance - 350);
   };
-
   const farRight = -max;
   const isAtFarRight = max >= 350 && distance !== farRight;
-
   return (
     isAtFarRight && (
       <button onClick={clickRight} className={styles.rightClick}>
@@ -39,13 +36,11 @@ export const Carousel = ({ plants }) => {
   const max = (plants.length - 4) * 350;
   const translate = `translatex(${distance}px)`;
   const transform = { transform: translate };
-
   const states = {
     distance,
     setDistance,
     max,
   };
-
   return (
     <div className={styles.carousel}>
       <LeftButton {...states} />

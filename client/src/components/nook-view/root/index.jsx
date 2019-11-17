@@ -4,7 +4,7 @@ import { LightLevelPicture } from 'components/UI/lightLevelPicture';
 import { NookPlants } from '../NookPlants';
 import { SuggestionsList } from '../SuggestionsList';
 import { WishlistCarousel } from '../WishlistCarousel';
-import { fetchNook } from '../../../api/queries/fetchNook';
+import fetchNook from 'api/queries/fetchNook';
 
 export const nookDetailText = {
   loadingText: 'Loading...',
