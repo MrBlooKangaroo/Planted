@@ -1,0 +1,50 @@
+.plantCardSmall {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  height: 475px;
+  justify-content: space-around;
+  margin-top: 28px;
+  width: 300px;
+}
+
+.plantCardSmallName {
+  font-family: 'Karla';
+  font-size: 14px;
+  justify-content: center;
+  text-align: center;
+}
+
+.plantCardSmallPhoto {
+  height: 70%;
+  width: 251px;
+}
+
+.plantCardLarge {
+  background: white;
+  border-radius: 4px;
+  color: rgba(33, 33, 33, 0.9);
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  height: 33rem;
+  margin-bottom: 3rem;
+  min-width: 20rem;
+  padding: 1rem;
+  text-align: center;
+  width: 29%;
+}
+
+.plantCardLargePhoto {
+  height: 80%;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.plantCardLargeLuxLevel {
+  display: block;
+  margin: 1rem auto;
+}

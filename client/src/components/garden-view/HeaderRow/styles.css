@@ -1,0 +1,52 @@
+.header {
+  color: rgba(33, 33, 33, 0.9);
+  display: block;
+  font-family: 'Halant', serif;
+  font-size: 3.6rem;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.gardenStats {
+  display: inline-block;
+  font-family: 'Karla', sans-serif;
+  margin-bottom: 2rem;
+  margin-left: 17.1rem;
+  padding-top: 0.5rem;
+  text-align: center;
+}
+
+.sortSpan {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  color: rgba(33, 33, 33, 0.9);
+  float: right;
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  height: 1.75rem;
+  margin-right: 5.2rem;
+  padding-top: 0.5rem;
+  width: 12rem;
+}
+.sortSpan:hover {
+  cursor: pointer;
+}
+
+.alphaSortText {
+  float: left;
+  margin-left: 2rem;
+}
+
+.caretUp,
+.caretDown {
+  font-size: 1.1rem;
+  margin-left: 2rem;
+}
+.caretUp {
+  transform: rotate(180deg);
+}
+.caretDown {
+  transform: rotate(0deg);
+}
