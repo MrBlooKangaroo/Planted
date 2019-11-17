@@ -3,11 +3,13 @@ import { categorySelected, categoryUnselected } from './styles.css';
 
 const CategoryListItem = ({ categoryName, checkIfSelected, onFilterClick }) => (
   <li
-    id={categoryName}
+    id={`category:${categoryName}`}
     key={categoryName}
     onClick={onFilterClick}
     className={
-      checkIfSelected(categoryName) ? categorySelected : categoryUnselected
+      checkIfSelected(`category:${categoryName}`)
+        ? categorySelected
+        : categoryUnselected
     }
   >
     {categoryName}

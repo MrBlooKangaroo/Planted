@@ -48,6 +48,7 @@ describe('plant-card components', () => {
   describe('PlantCardLarge component', () => {
     let wrapper;
     const plantType = {
+      id: '1',
       name: 'Crotons',
       photoUrl: 'crotons.png',
       luxLevel: 'HIGH',
@@ -62,6 +63,7 @@ describe('plant-card components', () => {
     });
 
     it('should be passed all required props', async () => {
+      expect(wrapper.props().id).toBeDefined();
       expect(wrapper.props().name).toBeDefined();
       expect(wrapper.props().photoUrl).toBeDefined();
       expect(wrapper.props().luxLevel).toBeDefined();

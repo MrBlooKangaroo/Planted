@@ -13,13 +13,11 @@ export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
   const [photoUrl, setPhotoUrl] = useState('');
   const cachedUser = localStorage.getItem('user');
   if (cachedUser && !photoUrl) setPhotoUrl(JSON.parse(cachedUser).photoUrl);
-
   const onLogout = () => {
     toggleIsAuthenticated(false);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
   };
-
   const googleResponse = async response => {
     const user = await fetchGoogleUser(response);
     userInfo = user.data.authGoogle.user;
@@ -31,14 +29,12 @@ export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
       setPhotoUrl(userInfo.photoUrl);
     }
   };
-
   const baseProps = {
     isAuthenticated,
     googleResponse,
     onLogout,
     photoUrl,
   };
-
   return <BaseLogin {...baseProps} />;
 };
 

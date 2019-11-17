@@ -42,6 +42,21 @@ describe('NavBar Component', () => {
     const navBar = element.find(NavBar);
     expect(navBar.text()).toContain(navBarText.logo);
   });
+
+  it('should return EXPLORE text if passed index path', () => {
+    const textResponse = getLinkText(rootPath);
+    expect(textResponse).toBe(navBarText.explore);
+  });
+
+  it('should return GARDEN text if passed /garden path', () => {
+    const textResponse = getLinkText(gardenPath);
+    expect(textResponse).toBe('GARDEN');
+  });
+
+  it('should return WISHLIST text if passed /wishlist path', () => {
+    const textResponse = getLinkText(wishlistPath);
+    expect(textResponse).toBe('WISHLIST');
+  });
 });
 
 describe('getNavLinkText function', () => {

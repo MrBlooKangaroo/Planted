@@ -10,34 +10,50 @@ import cycleUnselectedHigh from './unselected/cycleUnselectedHigh.svg';
 import cycleSelectedLow from './selected/cycleSelectedLow.svg';
 import cycleSelectedMedium from './selected/cycleSelectedMedium.svg';
 import cycleSelectedHigh from './selected/cycleSelectedHigh.svg';
-import arrowLeft from './unselected/arrow-left.svg';
-import arrowRight from './unselected/arrow-right.svg';
+import arrowLeft from './arrows/arrowLeft.svg';
+import arrowRight from './arrows/arrowRight.svg';
+import emptyNook from './empty-states/emptyNook.svg';
 import cactus from './unselected/cactus.svg';
 import diamond from './unselected/diamond.svg';
 import travel from './unselected/travel.svg';
 import humidity from './unselected/humidity.svg';
 import pets from './unselected/pets.svg';
 import heartUnselected from './unselected/heartUnfilled.svg';
+import heartSelected from './selected/filled-large.svg';
+import arrowConnecting from './unselected/arrowConnecting.svg';
+import exit from './unselected/x-large.svg';
+import singleSunFilled from './unselected/single-sun-filled.svg';
+import singleSunUnfilled from './unselected/single-sun-unfilled.svg';
+import singleSunFilledGreen from './selected/sun-single-filled-green.svg';
+import singleSunUnfilledGreen from './selected/sun-single-unfilled-green.svg';
 
 export {
-  luxUnselectedLow,
-  luxUnselectedMedium,
-  luxUnselectedHigh,
-  luxSelectedLow,
-  luxSelectedMedium,
-  luxSelectedHigh,
-  cycleUnselectedLow,
-  cycleUnselectedMedium,
-  cycleUnselectedHigh,
-  cycleSelectedLow,
-  cycleSelectedMedium,
-  cycleSelectedHigh,
+  arrowConnecting,
   arrowLeft,
   arrowRight,
+  emptyNook,
   cactus,
+  cycleSelectedHigh,
+  cycleSelectedLow,
+  cycleSelectedMedium,
+  cycleUnselectedHigh,
+  cycleUnselectedLow,
+  cycleUnselectedMedium,
   diamond,
-  travel,
-  humidity,
-  pets,
+  exit,
+  heartSelected,
   heartUnselected,
+  humidity,
+  luxSelectedHigh,
+  luxSelectedLow,
+  luxSelectedMedium,
+  luxUnselectedHigh,
+  luxUnselectedLow,
+  luxUnselectedMedium,
+  pets,
+  travel,
+  singleSunFilled,
+  singleSunUnfilled,
+  singleSunFilledGreen,
+  singleSunUnfilledGreen,
 };

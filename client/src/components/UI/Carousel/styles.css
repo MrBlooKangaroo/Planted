@@ -58,7 +58,3 @@
 .suggestionsContainer {
   max-width: 1370px;
 }
-
-* {
-  transition: all 700ms ease;
-}

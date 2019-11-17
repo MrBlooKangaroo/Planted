@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Login } from './Login';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { rootPath, navLinkPaths } from 'constants/paths';
 import {
   navBar,
@@ -26,7 +26,9 @@ const NavBar = ({ location }) => {
   );
   return (
     <nav className={navBar}>
-      <div className={logo}>{navBarText.logo}</div>
+      <Link to={rootPath} className={logo}>
+        {navBarText.logo}
+      </Link>
       {isAuthenticated && (
         <div className={navPathsContainer}>
           {navLinkPaths.map(path => (
