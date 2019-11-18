@@ -33,7 +33,7 @@ describe('SortDropDown component', () => {
       .find({ className: styles.dropDownButton });
     expect(element).toExist();
     element.simulate('click');
-    const elementCheck = wrapper.find('SortList');
+    const elementCheck = wrapper.find('SortListOption');
     expect(elementCheck).toExist();
   });
 
@@ -60,7 +60,7 @@ describe('SortDropDown component', () => {
   it('should mount the SortList class after click', () => {
     const button = wrapper.find('button');
     button.simulate('click');
-    const element = wrapper.find('SortList');
+    const element = wrapper.find('SortListOption');
     expect(element).toExist();
   });
 });
