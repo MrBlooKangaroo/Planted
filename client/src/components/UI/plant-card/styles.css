@@ -24,3 +24,8 @@
   height: 80%;
   width: 251px;
 }
+
+.linkStyle {
+  text-decoration: none;
+  color: black;
+}
