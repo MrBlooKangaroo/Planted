@@ -9,7 +9,9 @@ export const SortListOption = ({
   toggleShowList,
   selectedAlt,
   unselectedAlt,
+  identifier,
 }) => {
+  console.log(identifier);
   const [selected, toggleSelected] = useState(false);
   const iconPic = selected ? iconSelectedSrc : icon;
   const chosenAlt = selected ? unselectedAlt : selectedAlt;

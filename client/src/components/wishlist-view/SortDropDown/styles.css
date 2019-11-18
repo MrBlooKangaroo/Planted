@@ -12,6 +12,21 @@
   width: 245px;
 }
 
+.sortListContainer {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px 0px 40px 30px;
+  position: absolute;
+  right: 0px;
+  top: 45px;
+  width: 245px;
+}
+
 .downArrow {
   background-color: white;
   flex-direction: flex-end;

@@ -23,46 +23,47 @@ const text = {
   oldestIcon: '->',
 };
 
-const sortListOptions = [
-  {
+const sortListOptions = {
+  alphabetical: {
     icon: text.alphabeticalIcon,
     description: text.alphabetical,
   },
-  {
+  oldest: {
     icon: text.oldestIcon,
     description: text.oldest,
   },
-  {
+  newest: {
     icon: text.newestIcon,
     description: text.newest,
   },
-  {
+  lowLight: {
     icon: singleSunUnfilled,
     iconSelectedSrc: singleSunUnfilledGreen,
     description: text.lowLight,
     selectedAlt: text.lowSelectedLightAlt,
     unselectedAlt: text.lowUnselectedLightAlt,
   },
-  {
+  highLight: {
     icon: singleSunFilled,
     iconSelectedSrc: singleSunFilledGreen,
     description: text.highLight,
     selectedAlt: text.highSelectedLightAlt,
     unselectedAlt: text.highUnselectedLightAlt,
   },
-];
+};
 
 export const SortList = ({ toggleShowList }) => (
   <div className={styles.sortListContainer}>
     {sortListOptions &&
-      sortListOptions.map(listItem => (
+      Object.entries(sortListOptions).map(([key, value]) => (
         <SortListOption
-          description={listItem.description}
-          icon={listItem.icon}
-          iconSelectedSrc={listItem.iconSelectedSrc}
-          key={listItem.description}
-          selectedAlt={listItem.selectedAlt}
-          unselectedAlt={listItem.unselectedAlt}
+          description={value.description}
+          icon={value.icon}
+          iconSelectedSrc={value.iconSelectedSrc}
+          key={key}
+          identifier={key}
+          selectedAlt={value.selectedAlt}
+          unselectedAlt={value.unselectedAlt}
           toggleShowList={toggleShowList}
         />
       ))}
