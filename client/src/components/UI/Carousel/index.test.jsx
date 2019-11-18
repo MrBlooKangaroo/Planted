@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { Carousel } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -22,7 +23,11 @@ describe('Carousel component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<Carousel {...props} />);
+    wrapper = mount(
+      <Router>
+        <Carousel {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a Carousel component', () => {
