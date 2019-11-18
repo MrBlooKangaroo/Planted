@@ -12,7 +12,7 @@ import cycleSelectedMedium from './selected/cycleSelectedMedium.svg';
 import cycleSelectedHigh from './selected/cycleSelectedHigh.svg';
 import arrowLeft from './arrows/arrowLeft.svg';
 import arrowRight from './arrows/arrowRight.svg';
-import emptyNook from './empty-states/emptyNook.svg';
+import emptyNook from './unselected/emptyNook.svg';
 import cactus from './unselected/cactus.svg';
 import diamond from './unselected/diamond.svg';
 import travel from './unselected/travel.svg';

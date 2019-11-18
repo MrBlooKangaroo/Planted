@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { arrowRight, arrowLeft, emptyNook } from 'assets/icons';
-
 import {
   nookCardPhoto,
   carouselContainer,

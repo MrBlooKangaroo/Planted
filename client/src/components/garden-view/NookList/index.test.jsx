@@ -34,8 +34,8 @@ describe('Nook List Component', () => {
   });
 
   it('should mount the NookList component', () => {
-    const categoryList = element.find(NookList);
-    expect(categoryList).toExist();
+    const nookList = element.find(NookList);
+    expect(nookList).toExist();
   });
 
   it('should mount the NookCardSmall components', () => {
@@ -44,7 +44,7 @@ describe('Nook List Component', () => {
     expect(nookCardComponents.length).toBe(2);
   });
 
-  it('should mount the NookCardSmall components', () => {
+  it('should pass nook prop to each NookCardSmall', () => {
     const nookCardComponents = element.find(NookCardSmall);
     nookCardComponents.forEach(nookCardComponent => {
       expect(nookCardComponent.props().nook).toBeDefined();

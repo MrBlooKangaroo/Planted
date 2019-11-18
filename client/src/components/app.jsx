@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import Layout from 'components/Layout/root';
-import Explore from 'components/explore-page/root';
 import {
   rootPath,
   gardenPath,
@@ -11,6 +9,8 @@ import {
   plantTypePath,
   wishlistPath,
 } from 'constants/paths';
+import Layout from 'components/Layout/root';
+import Explore from 'components/explore-page/root';
 import Garden from './garden-view/root';
 import { NookDetail } from '../components/nook-view/root';
 import { PlantTypePage } from './plant-page/root';

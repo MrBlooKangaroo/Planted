@@ -1,5 +1,5 @@
 import React from 'react';
-import NookCardSmall from 'components/UI/nook-cards/NookCardSmall/root';
+import NookCardSmall from 'components/UI/nook-cards/NookCardSmall';
 import { nooksContainer } from './styles.css';
 
 const NookList = ({ nooks }) => (

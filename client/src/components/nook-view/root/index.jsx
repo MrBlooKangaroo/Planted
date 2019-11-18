@@ -11,17 +11,19 @@ export const nookDetailText = {
   errorText: 'Error: ',
 };
 
-export const NookDetail = ({ match }) => {
-  let userPhotoUrl = '';
-  const { nookId } = match.params;
+export const NookDetail = props => {
+  const { nookId } = props.match && props.match.params;
   const { loadingText, errorText } = nookDetailText;
+
   const { loading, error, data } = fetchNook(nookId);
+  if (data) debugger;
   if (loading) return loadingText;
   if (error) return errorText + error.message;
   const { nook } = data,
     { name, luxLevel, wishes } = nook;
+
   const localUser = localStorage.getItem('user');
-  if (localUser) userPhotoUrl = JSON.parse(localUser).photoUrl;
+  const userPhotoUrl = localUser && JSON.parse(localUser).photoUrl;
   return (
     <div>
       <div className={styles.title}>{name}</div>
