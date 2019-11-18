@@ -105,14 +105,6 @@ describe('Create Plant Mutation Resolver', () => {
             nookId: nook.id,
             plantTypeId: plantType.id
         })
-        const watering = await db.watering.create({
-            ...testWatering,
-            plantId: plant.id
-        })
-        const wateringTwo = await db.watering.create({
-            ...testWatering,
-            plantId: plant.id
-        })
 
         const variables = { id: plant.id }
         const responsePlantData = await testClient.query({ query, variables })

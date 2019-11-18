@@ -52,21 +52,19 @@ describe('Create Plant Mutation Resolver', () => {
             }
         })
 
-        const response = await testClient.query({
+        const updatedNook = await testClient.query({
             query, variables: {
                 id: nook.id
             }
         })
 
-        const responseData = response.data.nook
+        const updatedNookData = updatedNook.data.nook
 
-        expect(responseData).toBeDefined()
-        expect(responseData.name).toEqual(text.updateName)
-        expect(responseData.luxLevel).toEqual(text.updateLuxLevel)
-        expect(responseData.photoUrl).toEqual(text.updatePhotoUrl)
-        expect(responseData.id).toEqual(nook.id)
-        expect(responseData.user.id).toEqual(user.id)
-
-
+        expect(updatedNookData).toBeDefined()
+        expect(updatedNookData.name).toEqual(text.updateName)
+        expect(updatedNookData.luxLevel).toEqual(text.updateLuxLevel)
+        expect(updatedNookData.photoUrl).toEqual(text.updatePhotoUrl)
+        expect(updatedNookData.id).toEqual(nook.id)
+        expect(updatedNookData.user.id).toEqual(user.id)
     })
 })

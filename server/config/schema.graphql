@@ -127,10 +127,10 @@ type Mutation {
   createWatering(input: CreateWateringInput): WateringPayload
   createWish(input: CreateWishInput): WishPayload
   authGoogle(input: AuthInput!): AuthResponse
-deletePlant(id: ID!): deletePlantPayload
-  deleteNook(id: ID!): deleteNookPayLoad
-  deleteWatering(id: ID!): deleteWateringPayload
-  updateNook(id: ID! input:UpdateNookInput): updateNookPayload
+  deletePlant(id: ID!): DeletePlantPayload
+  deleteNook(id: ID!): DeleteNookPayLoad
+  deleteWatering(id: ID!): DeleteWateringPayload
+  updateNook(id: ID! input:UpdateNookInput): UpdateNookPayload
 }
 
 input UpdateNookInput {
@@ -141,19 +141,19 @@ input UpdateNookInput {
   updatedAt: Date
 }
 
-type updateNookPayload {
+type UpdateNookPayload {
   nook: Nook
 }
 
-type deleteWateringPayload {
+type DeleteWateringPayload {
   watering: Watering
 }
 
-type deletePlantPayload {
+type DeletePlantPayload {
   plant: Plant
 }
 
-type deleteNookPayLoad {
+type DeleteNookPayLoad {
   nook: Nook
 }
 

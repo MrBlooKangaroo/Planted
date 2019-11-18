@@ -127,11 +127,6 @@ exports.deleteNook = async (obj, { id }) => {
       include: [db.nook, db.plantType, db.watering]
     })
 
-    let waterings = await db.watering.findAll({
-      where: { plantId: plants[0].dataValues.id },
-      include: db.plant
-    })
-
     plants.forEach(async plant => {
       await db.watering.destroy({
         where: { plantId: plant.dataValues.id },

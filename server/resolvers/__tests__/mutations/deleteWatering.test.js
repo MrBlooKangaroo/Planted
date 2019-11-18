@@ -34,7 +34,7 @@ describe('Create Plant Mutation Resolver', () => {
         '../../../utils/queries/watering.graphql'
     )
 
-    it('should not be able to find watering after it has been delted', async () => {
+    it('should not be able to find watering after it has been deleted', async () => {
         const { testClient } = await createTestClient()
         const user = await db.user.create(testUser)
         const plantType = await db.plantType.create(testPlantType)
@@ -67,7 +67,5 @@ describe('Create Plant Mutation Resolver', () => {
             }
         })
         expect(responseWateringAfterDeleted.errors[0].extensions.code).toEqual('NOT_FOUND')
-
     })
-
 })
