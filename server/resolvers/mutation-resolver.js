@@ -1,6 +1,6 @@
 const { ApolloError } = require('apollo-server');
 const db = require('../models');
-const { pubsub } = require('../utils');
+const { pubsub, raiseNotFoundError } = require('../utils');
 const { authenticateGoogle } = require('../config/passport');
 const jwt = require('jsonwebtoken');
 
@@ -71,3 +71,97 @@ exports.authGoogle = async (_, { input: { accessToken } }, { req, res }) => {
     return error;
   }
 };
+
+exports.deletePlant = async (obj, { id }) => {
+  const plant = await db.plant.findOne({
+    where: { id },
+    include: [db.nook, db.plantType, db.watering]
+  })
+  if (plant) {
+
+    await db.watering.destroy({
+      where: { plantId: id },
+      include: db.plant
+    })
+
+    await db.plant.destroy({
+      where: { id },
+      include: [db.nook, db.plantType, db.watering]
+    })
+
+    return { plant }
+  }
+  else {
+    return raiseNotFoundError();
+  }
+}
+
+exports.deleteWatering = async (obj, { id }) => {
+  const watering = await db.watering.findOne({
+    where: { id },
+    include: db.plant
+  })
+
+  if (watering) {
+    await db.watering.destroy({
+      where: { id },
+      include: db.plant
+    })
+
+    return { watering }
+
+  } else {
+    return raiseNotFoundError();
+  }
+}
+
+exports.deleteNook = async (obj, { id }) => {
+  const nook = await db.nook.findOne({
+    where: { id },
+    include: [db.user, db.plant]
+  })
+
+  if (nook) {
+    const plants = await db.plant.findAll({
+      where: { nookId: id },
+      include: [db.nook, db.plantType, db.watering]
+    })
+
+    plants.forEach(async plant => {
+      await db.watering.destroy({
+        where: { plantId: plant.dataValues.id },
+        include: db.plant
+      })
+    })
+
+    await db.plant.destroy({
+      where: { nookId: id },
+      include: [db.nook, db.plantType, db.watering]
+    })
+
+    await db.nook.destroy({
+      where: { id },
+      include: [db.user, db.plant]
+    })
+
+    return { nook }
+  } else {
+    return raiseNotFoundError();
+  }
+}
+
+exports.updateNook = async (obj, { id, input }) => {
+  const nook = await db.nook.findOne({
+    where: { id },
+    include: [db.user, db.plant]
+  })
+  if (nook) {
+    await db.nook.update({ ...input }, {
+      where: { id: id }
+    })
+
+    return { nook }
+  } else {
+    return raiseNotFoundError();
+  }
+}
