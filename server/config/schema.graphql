@@ -127,6 +127,34 @@ type Mutation {
   createWatering(input: CreateWateringInput): WateringPayload
   createWish(input: CreateWishInput): WishPayload
   authGoogle(input: AuthInput!): AuthResponse
+deletePlant(id: ID!): deletePlantPayload
+  deleteNook(id: ID!): deleteNookPayLoad
+  deleteWatering(id: ID!): deleteWateringPayload
+  updateNook(id: ID! input:UpdateNookInput): updateNookPayload
+}
+
+input UpdateNookInput {
+  name: String
+  photoUrl: String
+  luxLevel: LuxLevel
+  createdAt: Date
+  updatedAt: Date
+}
+
+type updateNookPayload {
+  nook: Nook
+}
+
+type deleteWateringPayload {
+  watering: Watering
+}
+
+type deletePlantPayload {
+  plant: Plant
+}
+
+type deleteNookPayLoad {
+  nook: Nook
 }
 
 input CreateUserInput {
