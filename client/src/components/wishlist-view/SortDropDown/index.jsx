@@ -61,12 +61,13 @@ export const SortDropDown = () => {
   const [header, setHeader] = useState();
   const arrowStyle = !showList ? styles.downArrow : styles.upArrow;
 
-  const toggleShowList = (headerKey, icon) => {
+  const toggleShowList = (headerKey, icon, iconChars) => {
     if (headerKey) {
       let headerOption = (
         <SortListOptionText
           icon={icon}
           description={sortListOptions[headerKey].description}
+          iconChars={iconChars}
         />
       );
       setHeader(headerOption);

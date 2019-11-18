@@ -31,10 +31,12 @@ export const SortListOption = ({
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
       onClick={() => {
-        toggleShowList(headerKey, icon);
+        toggleShowList(headerKey, icon, iconChars);
       }}
     >
       <SortListOptionText
+        iconSrc={iconSrc}
+        iconChars={iconChars}
         icon={iconPic}
         description={description}
         chosenAlt={chosenAlt}
