@@ -15,8 +15,7 @@ export const WishlistView = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  console.log(data);
-  const { nooks } = data.user;
+  const { nooks } = data;
 
   return (
     <div>

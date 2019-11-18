@@ -16,11 +16,7 @@ export const SortListOption = ({
 
   const toggleHover = () => {
     if (iconGreen) {
-      if (selected) {
-        toggleSelected(!selected);
-      } else {
-        toggleSelected(!selected);
-      }
+      toggleSelected(!selected);
     }
   };
 
