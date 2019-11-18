@@ -10,14 +10,12 @@ export const SortListOption = ({
   selectedAlt,
   unselectedAlt,
   identifier,
+  key,
 }) => {
-  console.log(identifier);
   const [selected, toggleSelected] = useState(false);
   const iconPic = selected ? iconSelectedSrc : icon;
   const chosenAlt = selected ? unselectedAlt : selectedAlt;
-  const headerOption = (
-    <SortListOptionText icon={icon} description={description} />
-  );
+  const headerKey = identifier;
 
   const toggleHover = () => {
     if (iconSelectedSrc) {
@@ -31,7 +29,7 @@ export const SortListOption = ({
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
       onClick={() => {
-        toggleShowList(headerOption);
+        toggleShowList(headerKey);
       }}
     >
       <SortListOptionText

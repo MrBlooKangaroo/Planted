@@ -57,24 +57,19 @@ const sortListOptions = {
 };
 
 export const SortDropDown = () => {
-  let headerChange;
-  console.log(sortListOptions.alphabetical);
-  const defaultHeader = (
-    <span className={styles.dropDownTitle}>{text.sortBy}</span>
-  );
   const [showList, setShowList] = useState(false);
-  const [header, setHeader] = useState(defaultHeader);
+  const [header, setHeader] = useState();
   const arrowStyle = !showList ? styles.downArrow : styles.upArrow;
 
-  const toggleShowList = headerValue => {
-    if (headerValue) {
-      headerChange = (
+  const toggleShowList = headerKey => {
+    if (headerKey) {
+      let headerOption = (
         <SortListOptionText
-          icon={sortListOptions.alphabetical.icon}
-          description={sortListOptions.alphabetical.description}
+          icon={sortListOptions[headerKey].icon}
+          description={sortListOptions[headerKey].description}
         />
       );
-      setHeader(headerChange);
+      setHeader(headerOption);
     }
     setShowList(!showList);
   };
@@ -86,7 +81,13 @@ export const SortDropDown = () => {
         onClick={() => toggleShowList()}
       >
         <div className={styles.buttonContentsContainer}>
-          <p className={styles.header}>{header}</p>
+          <p className={styles.header}>
+            {header ? (
+              header
+            ) : (
+              <span className={styles.dropDownTitle}>{text.sortBy}</span>
+            )}
+          </p>
           <img src={arrowRight} alt={text.arrow} className={arrowStyle} />
         </div>
       </button>
