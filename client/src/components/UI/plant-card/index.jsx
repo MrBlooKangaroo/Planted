@@ -7,11 +7,19 @@ export const PlantCard = ({
   name,
   id,
   photoUrlVerticalCrop,
-}) => (
-  <Link to={`/plant-types/${id}`} className={styles.linkStyle}>
-    <div className={styles.plantBox}>
-      <img src={photoUrlVerticalCrop} className={styles.plantPic} />
-      <p className={styles.plantName}>{name}</p>
-    </div>
-  </Link>
-);
+}) => {
+  const plantPath = `/plant-types/${id}`;
+
+  return (
+    <Link to={plantPath} className={styles.linkStyle}>
+      <div className={styles.plantBox}>
+        <img
+          src={photoUrlVerticalCrop}
+          className={styles.plantPic}
+          alt={name}
+        />
+        <p className={styles.plantName}>{name}</p>
+      </div>
+    </Link>
+  );
+};

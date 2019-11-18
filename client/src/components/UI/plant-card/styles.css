@@ -1,3 +1,8 @@
+.linkStyle {
+  text-decoration: none;
+  color: black;
+}
+
 .plantBox {
   align-items: center;
   background-color: white;
@@ -23,9 +28,4 @@
 .plantPic {
   height: 80%;
   width: 251px;
-}
-
-.linkStyle {
-  text-decoration: none;
-  color: black;
 }
