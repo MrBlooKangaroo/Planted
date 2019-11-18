@@ -4,6 +4,7 @@ import { SortListOptionText } from '../SortListOptionText';
 
 export const SortListOption = ({
   description,
+  icon,
   iconSrc,
   iconChars,
   iconSelectedSrc,
@@ -11,13 +12,12 @@ export const SortListOption = ({
   selectedAlt,
   unselectedAlt,
   identifier,
-  key,
+  handleClickOption,
 }) => {
   const [selected, toggleSelected] = useState(false);
-  const icon = iconSrc ? iconSrc : iconChars;
-  const iconPic = selected ? iconSelectedSrc : icon;
-  const chosenAlt = selected ? unselectedAlt : selectedAlt;
-  const headerKey = identifier;
+  const iconStatus = iconSrc ? iconSrc : iconChars;
+  const iconPic = selected ? iconSelectedSrc : iconStatus;
+  const alt = selected ? unselectedAlt : selectedAlt;
 
   const toggleHover = () => {
     if (iconSelectedSrc) {
@@ -31,15 +31,14 @@ export const SortListOption = ({
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
       onClick={() => {
-        toggleShowList(headerKey, icon, iconChars);
+        handleClickOption(identifier);
       }}
     >
       <SortListOptionText
-        iconSrc={iconSrc}
         iconChars={iconChars}
         icon={iconPic}
         description={description}
-        chosenAlt={chosenAlt}
+        alt={alt}
       />
     </button>
   );

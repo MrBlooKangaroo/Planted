@@ -29,14 +29,17 @@ export const text = {
 
 const sortListOptions = {
   alphabetical: {
+    icon: text.alphabeticalIcon,
     iconChars: text.alphabeticalIcon,
     description: text.alphabetical,
   },
   oldest: {
+    icon: text.oldestIcon,
     iconChars: text.oldestIcon,
     description: text.oldest,
   },
   newest: {
+    icon: text.newestIcon,
     iconChars: text.newestIcon,
     description: text.newest,
   },
@@ -58,54 +61,52 @@ const sortListOptions = {
 
 export const SortDropDown = () => {
   const [showList, setShowList] = useState(false);
-  const [header, setHeader] = useState();
+  const [currentlySelectedOptionName, selectOption] = useState(undefined);
   const arrowStyle = !showList ? styles.downArrow : styles.upArrow;
 
-  const toggleShowList = (headerKey, icon, iconChars) => {
-    if (headerKey) {
-      let headerOption = (
-        <SortListOptionText
-          icon={icon}
-          description={sortListOptions[headerKey].description}
-          iconChars={iconChars}
-        />
-      );
-      setHeader(headerOption);
-    }
+  const handleClickOption = optionName => {
+    selectOption(optionName);
+    setShowList(false);
+  };
+
+  const handleClickHeader = () => {
     setShowList(!showList);
   };
 
+  const currentlySelectedOption =
+    currentlySelectedOptionName && sortListOptions[currentlySelectedOptionName];
+
   return (
     <div className={styles.dropDownContainer}>
-      <button
-        className={styles.dropDownButton}
-        onClick={() => toggleShowList()}
-      >
+      <button className={styles.dropDownButton} onClick={handleClickHeader}>
         <div className={styles.buttonContentsContainer}>
-          <p className={styles.header}>
-            {header ? (
-              header
+          <div className={styles.header}>
+            {currentlySelectedOption ? (
+              <SortListOptionText
+                {...currentlySelectedOption}
+                handleClick={handleClickHeader}
+              />
             ) : (
               <span className={styles.dropDownTitle}>{text.sortBy}</span>
             )}
-          </p>
+          </div>
           <img src={arrowRight} alt={text.arrow} className={arrowStyle} />
         </div>
       </button>
       {showList && (
         <div className={styles.sortListContainer}>
           {sortListOptions &&
-            Object.entries(sortListOptions).map(([key, value]) => (
+            Object.entries(sortListOptions).map(([key, listItemData]) => (
               <SortListOption
-                description={value.description}
-                iconSrc={value.iconSrc}
-                iconChars={value.iconChars}
-                iconSelectedSrc={value.iconSelectedSrc}
+                description={listItemData.description}
+                iconSrc={listItemData.iconSrc}
+                iconChars={listItemData.iconChars}
+                iconSelectedSrc={listItemData.iconSelectedSrc}
                 key={key}
                 identifier={key}
-                selectedAlt={value.selectedAlt}
-                unselectedAlt={value.unselectedAlt}
-                toggleShowList={toggleShowList}
+                selectedAlt={listItemData.selectedAlt}
+                unselectedAlt={listItemData.unselectedAlt}
+                handleClickOption={handleClickOption}
               />
             ))}
         </div>

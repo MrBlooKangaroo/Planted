@@ -34,7 +34,6 @@ describe('SortListOption component', () => {
   it('should pass the required props to the SortListOptionText', () => {
     const element = wrapper.find('SortListOptionText');
     expect(element).toExist();
-    expect(element.prop('icon')).toEqual(props.icon);
     expect(element.prop('description')).toEqual(props.description);
   });
 });

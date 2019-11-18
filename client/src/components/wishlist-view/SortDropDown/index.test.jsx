@@ -44,12 +44,6 @@ describe('SortDropDown component', () => {
     expect(element).toExist();
   });
 
-  it('should mount the p with a classname header', () => {
-    const element = wrapper.find('p').find({ className: styles.header });
-    expect(element).toExist();
-    expect(element.text()).toEqual(text.sortBy);
-  });
-
   it('should mount the img with a classname downArrow', () => {
     const element = wrapper.find('img').find({ className: styles.downArrow });
     expect(element).toExist();
