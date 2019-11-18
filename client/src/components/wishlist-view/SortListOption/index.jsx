@@ -5,17 +5,20 @@ import { SortListOptionText } from '../SortListOptionText';
 export const SortListOption = ({
   description,
   icon,
-  iconGreen,
+  iconSelectedSrc,
   toggleShowList,
+  selectedAlt,
+  unselectedAlt,
 }) => {
   const [selected, toggleSelected] = useState(false);
-  const iconPic = selected ? iconGreen : icon;
+  const iconPic = selected ? iconSelectedSrc : icon;
+  const chosenAlt = selected ? unselectedAlt : selectedAlt;
   const headerOption = (
     <SortListOptionText icon={icon} description={description} />
   );
 
   const toggleHover = () => {
-    if (iconGreen) {
+    if (iconSelectedSrc) {
       toggleSelected(!selected);
     }
   };
@@ -29,7 +32,11 @@ export const SortListOption = ({
         toggleShowList(headerOption);
       }}
     >
-      <SortListOptionText icon={iconPic} description={description} />
+      <SortListOptionText
+        icon={iconPic}
+        description={description}
+        chosenAlt={chosenAlt}
+      />
     </button>
   );
 };

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import styles from './styles.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { arrowRight } from 'assets/icons';
 import { SortList } from '../SortList';
+import { SortListOptionText } from '../SortListOptionText';
 
 export const text = {
   arrow: 'Points down if unselected and up if selected',
@@ -11,6 +10,7 @@ export const text = {
 };
 
 export const SortDropDown = () => {
+  let headerChange;
   const defaultHeader = (
     <span className={styles.dropDownTitle}>{text.sortBy}</span>
   );
@@ -21,6 +21,7 @@ export const SortDropDown = () => {
   const toggleShowList = headerValue => {
     if (headerValue) {
       setHeader(headerValue);
+      // headerChange = <SortListOptionText icon={icon} description={description} />
     }
     setShowList(!showList);
   };

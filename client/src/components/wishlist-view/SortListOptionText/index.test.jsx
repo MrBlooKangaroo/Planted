@@ -14,6 +14,7 @@ describe('SortListOptionText component', () => {
     props = {
       icon: 'iconPic',
       description: 'Looks like an icon',
+      chosenAlt: 'icon pic alt',
     };
     wrapper = mount(<SortListOptionText {...props} />);
   });
@@ -45,7 +46,7 @@ describe('SortListOptionText component', () => {
 
   it('should mount a img element when icon is greater than 10 characters', () => {
     wrapper.setProps({ icon: 'This is longer than 10 characters' });
-    const element = wrapper.find('img').find({ alt: text.photoUsed });
+    const element = wrapper.find('img').find({ alt: props.chosenAlt });
     expect(element).toExist();
     expect(element.prop('src')).toEqual('This is longer than 10 characters');
   });

@@ -50,14 +50,6 @@ describe('SortDropDown component', () => {
     expect(element.text()).toEqual(text.sortBy);
   });
 
-  //Check on PR if still there
-  it('should mount the div with a classname arrowContainer', () => {
-    const element = wrapper
-      .find('div')
-      .find({ className: styles.arrowContainer });
-    expect(element).toExist();
-  });
-
   it('should mount the img with a classname downArrow', () => {
     const element = wrapper.find('img').find({ className: styles.downArrow });
     expect(element).toExist();

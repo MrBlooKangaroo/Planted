@@ -30,11 +30,11 @@ describe('SortList component', () => {
     const sortListItems = wrapper.find('SortListItem');
     sortListItems.forEach(
       sortListItem =>
-        expect(sortListItem.props().icon).toBeDefined() &&
-        expect(sortListItem.props().iconGreen).toBeDefined() &&
-        expect(sortListItem.props().description).toBeDefined() &&
-        expect(sortListItem.props().setHeader).toBeDefined() &&
-        expect(sortListItem.props().toggleShowList).toBeDefined(),
+        expect(sortListItem).toHaveProp('icon') &&
+        expect(sortListItem).toHaveProp('iconGreen') &&
+        expect(sortListItem).toHaveProp('description') &&
+        expect(sortListItem).toHaveProp('setHeader') &&
+        expect(sortListItem).toHaveProp('toggleShowList'),
     );
   });
 });
