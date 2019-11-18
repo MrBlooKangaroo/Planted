@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { WishlistCarousel } from './index';
 import { WishlistCarouselBase } from './index';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -21,7 +22,11 @@ describe('WishlistCarousel component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<WishlistCarousel {...props} />);
+    wrapper = mount(
+      <Router>
+        <WishlistCarousel {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a WishlistCarousel component', () => {
@@ -54,7 +59,11 @@ describe('WishlistCarouselBase component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<WishlistCarouselBase {...props} />);
+    wrapper = mount(
+      <Router>
+        <WishlistCarouselBase {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a WishlistCarouselBase component', () => {
