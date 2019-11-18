@@ -1,0 +1,18 @@
+.iconContainer {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  height: 25px;
+  justify-content: center;
+  margin-right: 30px;
+  width: 25px;
+}
+
+.itemTextContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Karla';
+  font-size: 14px;
+  justify-content: flex-start;
+}

@@ -1,0 +1,65 @@
+.buttonContentsContainer {
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  padding-left: 30px;
+  position: relative;
+  width: 245px;
+}
+
+.sortListContainer {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px 0px 40px 30px;
+  position: absolute;
+  right: 0px;
+  top: 45px;
+  width: 245px;
+}
+
+.downArrow {
+  background-color: white;
+  flex-direction: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 3px;
+  transform: rotate(90deg);
+}
+
+.dropDownButton {
+  border-radius: 4px;
+  border: none;
+  padding: 0px;
+}
+
+.dropDownTitle {
+  font-family: 'Karla';
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropDownContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 45px;
+  margin-top: 100px;
+  position: relative;
+}
+
+.upArrow {
+  flex-direction: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 3px;
+  transform: rotate(270deg);
+}

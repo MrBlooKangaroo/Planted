@@ -1,0 +1,12 @@
+.sortListButton {
+  border: none;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+.sortListButton:hover {
+  border: none;
+  color: #00736a;
+  margin-bottom: 10px;
+  padding: 0px;
+}

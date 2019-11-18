@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from './styles.css';
-import { fetchNooks } from 'api/queries/fetchNooks';
+import { fetchWishesfromNooksByUser } from 'api/queries/fetchWishesfromNooksByUser';
 import { NookWishlist } from '../nook-wishlist';
+import { SortDropDown } from '../SortDropDown';
 
 const text = {
   wishlist: 'Wishlist',
 };
 
 export const WishlistView = () => {
-  const { loading, error, data } = fetchNooks();
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const userId = currentUser.id;
+  const { loading, error, data } = fetchWishesfromNooksByUser(userId);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
@@ -20,6 +23,7 @@ export const WishlistView = () => {
   return (
     <div>
       <h1 className={styles.title}>{text.wishlist}</h1>
+      <SortDropDown />
       {wishlistNooks.map(nook => (
         <NookWishlist nook={nook} key={nook.id} />
       ))}
