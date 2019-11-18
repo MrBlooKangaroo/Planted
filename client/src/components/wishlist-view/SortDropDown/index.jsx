@@ -29,26 +29,26 @@ export const text = {
 
 const sortListOptions = {
   alphabetical: {
-    icon: text.alphabeticalIcon,
+    iconChars: text.alphabeticalIcon,
     description: text.alphabetical,
   },
   oldest: {
-    icon: text.oldestIcon,
+    iconChars: text.oldestIcon,
     description: text.oldest,
   },
   newest: {
-    icon: text.newestIcon,
+    iconChars: text.newestIcon,
     description: text.newest,
   },
   lowLight: {
-    icon: singleSunUnfilled,
+    iconSrc: singleSunUnfilled,
     iconSelectedSrc: singleSunUnfilledGreen,
     description: text.lowLight,
     selectedAlt: text.lowSelectedLightAlt,
     unselectedAlt: text.lowUnselectedLightAlt,
   },
   highLight: {
-    icon: singleSunFilled,
+    iconSrc: singleSunFilled,
     iconSelectedSrc: singleSunFilledGreen,
     description: text.highLight,
     selectedAlt: text.highSelectedLightAlt,
@@ -61,11 +61,11 @@ export const SortDropDown = () => {
   const [header, setHeader] = useState();
   const arrowStyle = !showList ? styles.downArrow : styles.upArrow;
 
-  const toggleShowList = headerKey => {
+  const toggleShowList = (headerKey, icon) => {
     if (headerKey) {
       let headerOption = (
         <SortListOptionText
-          icon={sortListOptions[headerKey].icon}
+          icon={icon}
           description={sortListOptions[headerKey].description}
         />
       );
@@ -97,7 +97,8 @@ export const SortDropDown = () => {
             Object.entries(sortListOptions).map(([key, value]) => (
               <SortListOption
                 description={value.description}
-                icon={value.icon}
+                iconSrc={value.iconSrc}
+                iconChars={value.iconChars}
                 iconSelectedSrc={value.iconSelectedSrc}
                 key={key}
                 identifier={key}

@@ -4,7 +4,8 @@ import { SortListOptionText } from '../SortListOptionText';
 
 export const SortListOption = ({
   description,
-  icon,
+  iconSrc,
+  iconChars,
   iconSelectedSrc,
   toggleShowList,
   selectedAlt,
@@ -13,6 +14,7 @@ export const SortListOption = ({
   key,
 }) => {
   const [selected, toggleSelected] = useState(false);
+  const icon = iconSrc ? iconSrc : iconChars;
   const iconPic = selected ? iconSelectedSrc : icon;
   const chosenAlt = selected ? unselectedAlt : selectedAlt;
   const headerKey = identifier;
@@ -29,7 +31,7 @@ export const SortListOption = ({
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
       onClick={() => {
-        toggleShowList(headerKey);
+        toggleShowList(headerKey, icon);
       }}
     >
       <SortListOptionText
