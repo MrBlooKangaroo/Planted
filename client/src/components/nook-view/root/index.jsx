@@ -16,7 +16,6 @@ export const NookDetail = props => {
   const { loadingText, errorText } = nookDetailText;
 
   const { loading, error, data } = fetchNook(nookId);
-  if (data) debugger;
   if (loading) return loadingText;
   if (error) return errorText + error.message;
   const { nook } = data,
