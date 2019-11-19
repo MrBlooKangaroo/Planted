@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { Wishlist, text } from './index';
@@ -20,7 +21,11 @@ describe('Wishlist component', () => {
         },
       ],
     };
-    wrapper = mount(<Wishlist {...props} />);
+    wrapper = mount(
+      <BrowserRouter>
+        <Wishlist {...props} />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount a Wishlist component', () => {

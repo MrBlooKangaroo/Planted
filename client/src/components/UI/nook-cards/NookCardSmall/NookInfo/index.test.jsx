@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -23,7 +24,11 @@ describe('NookInfo Component', () => {
       currentUser,
       plantTotalText,
     };
-    element = mount(<NookInfo {...props} />);
+    element = mount(
+      <BrowserRouter>
+        <NookInfo {...props} />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount a NookInfo component', () => {

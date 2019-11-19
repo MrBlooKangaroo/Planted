@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -13,7 +14,11 @@ describe('UserInfo Component', () => {
   beforeEach(() => {
     photoUrl = 'corey.png';
     props = { photoUrl, onLogout: () => {} };
-    wrapper = mount(<UserInfo {...props} />);
+    wrapper = mount(
+      <BrowserRouter>
+        <UserInfo {...props} />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount the userInfo component', () => {

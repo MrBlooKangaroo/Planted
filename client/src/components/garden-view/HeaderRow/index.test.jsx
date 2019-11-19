@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -17,7 +18,11 @@ describe('HeaderRow Component', () => {
       isAlphabeticallySorted: true,
       toggleSort: () => {},
     };
-    element = mount(<HeaderRow {...props} />);
+    element = mount(
+      <BrowserRouter>
+        <HeaderRow {...props} />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount the headerRow component', () => {

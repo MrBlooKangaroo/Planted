@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -15,7 +16,11 @@ describe('NavBar Component', () => {
   let element, props;
   beforeEach(() => {
     props = { isAuthenticated: false };
-    element = mount(<NavBar {...props} />);
+    element = mount(
+      <BrowserRouter>
+        <NavBar {...props} />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount the NavBar component', () => {

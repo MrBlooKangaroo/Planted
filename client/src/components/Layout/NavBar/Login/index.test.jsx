@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
 import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -12,7 +14,11 @@ afterEach(cleanup);
 describe('Login Component', () => {
   let element;
   beforeEach(() => {
-    element = mount(<Login />);
+    element = mount(
+      <BrowserRouter>
+        <Login />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount the Login component', () => {

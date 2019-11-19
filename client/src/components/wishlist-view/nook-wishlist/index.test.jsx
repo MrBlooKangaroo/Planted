@@ -1,10 +1,11 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { NookWishlist, text } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { wrap } from 'module';
 
 afterEach(cleanup);
 
@@ -26,9 +27,9 @@ describe('NookWishlist component', () => {
       },
     };
     wrapper = mount(
-      <Router>
+      <BrowserRouter>
         <NookWishlist {...props} />
-      </Router>,
+      </BrowserRouter>,
     );
   });
 
@@ -41,6 +42,7 @@ describe('NookWishlist component', () => {
     const element = wrapper
       .find('SubHeader')
       .find({ plantCount: props.nook.wishes.length });
+
     expect(element).toExist();
     expect(element.prop('title')).toEqual(props.nook.name);
   });
@@ -54,6 +56,8 @@ describe('NookWishlist component', () => {
 
   it('should mount the plant grid element nooks being passed in', () => {
     const element = wrapper.find('div').find({ plants: props.nook.wishes });
+    console.log(wrapper.text());
+
     expect(element).toExist();
   });
 });

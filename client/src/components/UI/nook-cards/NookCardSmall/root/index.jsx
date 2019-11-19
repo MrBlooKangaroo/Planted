@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NookCarousel from './NookCarousel';
-import NookInfo from './NookInfo';
+import NookCarousel from '../NookCarousel';
+import NookInfo from '../NookInfo';
 import { nookCard } from './styles.css';
 
 const NookCardSmall = ({ nook }) => {

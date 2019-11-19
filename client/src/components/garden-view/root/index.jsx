@@ -11,7 +11,7 @@ const GardenView = props => {
   const [isAlphabeticallySorted, toggleSort] = useState(true);
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const { loading, errors, data } = useQuery(GET_NOOKS_BY_USER_ID, {
-    variables: { userId: currentUser.id },
+    variables: { userId: currentUser ? currentUser.id : '123' },
   });
   nooks = data && data.nooks.sort(sortByName);
   if (!isAlphabeticallySorted) nooks = nooks.reverse();

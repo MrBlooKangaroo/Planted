@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { shallow, mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -14,8 +15,16 @@ describe('Dropdown Component', () => {
   let wrapper, element, props;
   beforeEach(() => {
     props = { checkIfSelected: () => true };
-    wrapper = shallow(<Dropdown {...props} />);
-    element = mount(<Dropdown {...props} />);
+    wrapper = shallow(
+      <BrowserRouter>
+        <Dropdown {...props} />
+      </BrowserRouter>,
+    );
+    element = mount(
+      <BrowserRouter>
+        <Dropdown {...props} />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount the Dropdown component', () => {
