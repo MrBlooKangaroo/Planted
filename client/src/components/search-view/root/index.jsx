@@ -7,10 +7,11 @@ import {
   greenText,
 } from './styles.css';
 import GET_PLANT_TYPES from 'api/queries/getPlantTypes';
-import PlantTypeCardLarge from 'components/UI/plant-cards/PlantCardLarge';
+import PlantCardLarge from '../../UI/plant-cards/PlantCardLarge';
 
 const SearchView = () => {
-  const { loading, errors, data } = useQuery(GET_PLANT_TYPES);
+  let headerText = '';
+  const { data } = useQuery(GET_PLANT_TYPES);
   const searchString = localStorage.getItem('searchString');
   const filteredPlantTypes =
     data &&
@@ -18,21 +19,25 @@ const SearchView = () => {
     data.plantTypes.filter(plantType =>
       plantType.name.toLowerCase().includes(searchString.toLowerCase()),
     );
+  if (data)
+    headerText = `Showing ${filteredPlantTypes.length} result${
+      filteredPlantTypes.length === 1 ? '' : 's'
+    } for `;
   return (
     <div className={searchViewContainer}>
-      <div className={header}>
-        Showing {data && filteredPlantTypes.length} result
-        {data && filteredPlantTypes.length === 1 ? '' : 's'} for
-        <span className={greenText}> "{searchString}"</span>
-      </div>
-      <div className={plantTypeListClass}>
-        {!loading &&
-          !errors &&
-          data &&
-          filteredPlantTypes.map(plantType => (
-            <PlantTypeCardLarge key={plantType.name} {...plantType} />
-          ))}
-      </div>
+      {data && (
+        <>
+          <h1 className={header}>
+            {headerText}
+            <span className={greenText}> "{searchString}"</span>
+          </h1>
+          <div className={plantTypeListClass}>
+            {filteredPlantTypes.map(plantType => (
+              <PlantCardLarge key={plantType.name} {...plantType} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

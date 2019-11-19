@@ -1,6 +1,6 @@
 import React from 'react';
 import { plantTypeList } from './styles.css';
-import PlantTypeCardLarge from 'components/UI/plant-cards/PlantCardLarge';
+import PlantTypeCardLarge from '../../UI/plant-cards/PlantCardLarge';
 
 const PlantTypeList = ({ plantTypes }) => {
   return (

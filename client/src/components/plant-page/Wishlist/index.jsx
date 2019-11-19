@@ -21,8 +21,10 @@ export const Wishlist = ({ nooks, wishes, togglePopUp, plantTypeId }) => {
   const onSaveClick = selectedNooks => {
     const userId = currentUser.id;
     selectedNooks.forEach(nookId => {
-      const exists = wishes.some(wish => wish.nook && wish.nook.id === nookId);
-      if (!exists)
+      const isAlreadyAdded = wishes.some(
+        wish => wish.nook && wish.nook.id === nookId,
+      );
+      if (!isAlreadyAdded)
         createWish({
           variables: {
             wish: {

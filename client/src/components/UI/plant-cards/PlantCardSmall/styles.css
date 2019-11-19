@@ -28,30 +28,3 @@
   height: 70%;
   width: 251px;
 }
-
-.plantCardLarge {
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
-    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
-  color: rgba(33, 33, 33, 0.9);
-  font-family: 'Karla', sans-serif;
-  font-weight: bold;
-  height: 680px;
-  margin-bottom: 3rem;
-  min-width: 420px;
-  padding: 1rem;
-  text-align: center;
-  width: 29%;
-}
-
-.plantCardLargePhoto {
-  height: 80%;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
-.plantCardLargeLuxLevel {
-  display: block;
-  margin: 1rem auto;
-}

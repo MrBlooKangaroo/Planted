@@ -15,42 +15,34 @@ export const WishlistItem = ({
   setSelectedNooks,
 }) => {
   const [isSelected, toggleIsSelected] = useState(false);
-  const [checkBox, setCheckBox] = useState(text.black);
-  const [textColor, setTextColor] = useState(text.white);
-  const styleColor = { color: textColor };
-  const styleBackgroundColor = { backgroundColor: checkBox };
-
-  const wishNookIds = wishes.map(wish => wish.nook && wish.nook.id);
-  const wishExists = wishNookIds.includes(id);
-  if (!wishExists && !isSelected) {
-    setCheckBox(text.aquamarine);
-    setTextColor(text.aquamarine);
-    toggleIsSelected(!isSelected);
-  }
+  const textColor = isSelected ? text.white : text.aquamarine;
+  const checkBoxColor = isSelected ? text.black : text.aquamarine;
 
   const ChangeColor = e => {
     const nookId = e.target.id;
     if (!isSelected) {
-      setCheckBox(text.aquamarine);
-      setTextColor(text.aquamarine);
       toggleIsSelected(!isSelected);
       setSelectedNooks([...selectedNooks, nookId]);
     } else {
-      setCheckBox(text.black);
-      setTextColor(text.white);
       toggleIsSelected(!isSelected);
       setSelectedNooks(selectedNooks.filter(nook => nook.id !== nookId));
     }
   };
 
+  const wishNookIds = wishes.map(wish => wish.nook && wish.nook.id);
+  const wishExists = wishNookIds.includes(id);
+  if (!wishExists && !isSelected) {
+    toggleIsSelected(!isSelected);
+  }
+
+  const listItemClass = wishExists
+    ? styles.listItemButton
+    : styles.existingListItemButton;
+  const styleColor = { color: textColor };
+  const styleBackgroundColor = { backgroundColor: checkBoxColor };
   return (
     <button id={id} className={styles.wishlistItem} onClick={ChangeColor}>
-      <div
-        id={id}
-        className={
-          wishExists ? styles.listItemButton : styles.existingListItemButton
-        }
-      >
+      <div id={id} className={listItemClass}>
         <div id={id} className={styles.listItem}>
           <div
             id={id}
