@@ -8,6 +8,7 @@ const FETCH_WISHES_FROM_NOOKS_BY_USER = gql`
       name
       wishes {
         plantType {
+          id
           name
           photoUrlVerticalCrop
         }
