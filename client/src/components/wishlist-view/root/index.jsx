@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.css';
-import { fetchNooks } from 'api/queries/fetchNooks';
+import { fetchWishesfromNooksByUser } from 'api/queries/fetchWishesfromNooksByUser';
 import { NookWishlist } from '../nook-wishlist';
 import { DropDown } from '../drop-down';
 
@@ -9,7 +9,9 @@ const text = {
 };
 
 export const WishlistView = () => {
-  const { loading, error, data } = fetchNooks();
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const userId = currentUser.id;
+  const { loading, error, data } = fetchWishesfromNooksByUser(userId);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
   return (

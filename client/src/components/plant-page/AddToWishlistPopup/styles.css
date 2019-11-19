@@ -1,0 +1,87 @@
+.exit {
+  border: none;
+}
+
+.header {
+  font-family: 'Halant';
+  font-size: 18px;
+  margin-right: 70px;
+}
+
+.listItem {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+}
+
+.listItemButton {
+  background-color: white;
+  border: none;
+}
+
+.nookName {
+  font-family: 'Karla';
+  font-size: 16px;
+  margin-left: 14px;
+}
+
+.optionList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.smallBox {
+  border-style: solid;
+  border-width: 2px;
+  height: 10px;
+  margin-right: 20px;
+  width: 10px;
+}
+
+.saveButton {
+  background-color: #00736a;
+  border-radius: 4px;
+  height: 30px;
+  width: 90px;
+}
+
+.saveButtonContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.wishlistContainer {
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  height: auto;
+  left: 160px;
+  padding: 0px 30px 30px 30px;
+  position: absolute;
+  top: -40px;
+  width: 240px;
+  z-index: 1;
+}
+
+.wishlistConnector {
+  height: 25px;
+  left: 130px;
+  position: absolute;
+  top: 0px;
+  width: 33px;
+  z-index: 2;
+}
+
+.wishlistHeaderContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.wishListItem {
+  background-color: white;
+  border: none;
+}

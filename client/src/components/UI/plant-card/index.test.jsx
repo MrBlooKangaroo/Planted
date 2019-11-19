@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { PlantCard } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -15,7 +16,11 @@ describe('PlantCard component', () => {
       photoUrl: 'fakePhotoUrl',
       name: 'fakeName',
     };
-    wrapper = mount(<PlantCard {...plant} />);
+    wrapper = mount(
+      <Router>
+        <PlantCard {...plant} />
+      </Router>,
+    );
   });
 
   it('should mount a PlantCard component', () => {

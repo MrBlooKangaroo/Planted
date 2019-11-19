@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { WidePlantCard } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -15,7 +16,11 @@ describe('WidePlantCard component', () => {
       photoUrl: 'fakePhotoUrl',
       name: 'fakeName',
     };
-    wrapper = mount(<WidePlantCard {...plant} />);
+    wrapper = mount(
+      <Router>
+        <WidePlantCard {...plant} />
+      </Router>,
+    );
   });
 
   it('should mount a WidePlantCard component', () => {

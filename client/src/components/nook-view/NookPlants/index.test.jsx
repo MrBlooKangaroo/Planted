@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { NookPlants, text } from './index';
 import 'jest-enzyme';
 import styles from './styles.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -21,7 +22,11 @@ describe('NookPlants component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<NookPlants {...props} />);
+    wrapper = mount(
+      <Router>
+        <NookPlants {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a NookPlants component', () => {

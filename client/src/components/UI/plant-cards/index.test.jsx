@@ -5,6 +5,7 @@ import PlantCardSmall from './PlantCardSmall';
 import PlantCardLarge from './PlantCardLarge';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -16,7 +17,11 @@ describe('plant-card components', () => {
       name: 'fakeName',
     };
     beforeEach(() => {
-      wrapper = mount(<PlantCardSmall {...plant} />);
+      wrapper = mount(
+        <Router>
+          <PlantCardSmall {...plant} />
+        </Router>,
+      );
     });
 
     it('should mount a PlantCardSmall component', () => {
@@ -54,7 +59,11 @@ describe('plant-card components', () => {
       luxLevel: 'HIGH',
     };
     beforeEach(() => {
-      wrapper = mount(<PlantCardLarge {...plantType} />);
+      wrapper = mount(
+        <Router>
+          <PlantCardLarge {...plantType} />
+        </Router>,
+      );
     });
 
     it('should mount a PlantCardLarge component', () => {
@@ -63,10 +72,11 @@ describe('plant-card components', () => {
     });
 
     it('should be passed all required props', async () => {
-      expect(wrapper.props().id).toBeDefined();
-      expect(wrapper.props().name).toBeDefined();
-      expect(wrapper.props().photoUrl).toBeDefined();
-      expect(wrapper.props().luxLevel).toBeDefined();
+      const element = wrapper.find(PlantCardLarge);
+
+      expect(element.prop('name')).toEqual(plantType.name);
+      expect(element.prop('photoUrl')).toEqual(plantType.photoUrl);
+      expect(element.prop('luxLevel')).toEqual(plantType.luxLevel);
     });
 
     it('should render an img tag with same props photoUrl', () => {

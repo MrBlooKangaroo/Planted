@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { NookWishlist, text } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -24,7 +25,11 @@ describe('NookWishlist component', () => {
         ],
       },
     };
-    wrapper = mount(<NookWishlist {...props} />);
+    wrapper = mount(
+      <Router>
+        <NookWishlist {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a NookWishlist component', () => {
