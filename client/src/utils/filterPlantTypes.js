@@ -1,11 +1,12 @@
 export const getFilterDict = filterId => {
+  const [type, value] = filterId.split(':');
   return {
-    type: filterId.split(':')[0],
-    value: filterId.split(':')[1],
+    type,
+    value,
   };
 };
 
-export default (plantTypes, filterIds) => {
+const filterPlantTypes = (plantTypes, filterIds) => {
   const filters = filterIds.map(filterId => getFilterDict(filterId));
 
   const luxLevelFilters = filters.filter(filter => filter.type === 'luxLevel');
@@ -37,3 +38,5 @@ export default (plantTypes, filterIds) => {
   });
   return filteredPlantTypes;
 };
+
+export default filterPlantTypes;

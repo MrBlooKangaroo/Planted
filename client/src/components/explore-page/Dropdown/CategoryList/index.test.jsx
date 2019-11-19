@@ -5,7 +5,7 @@ import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
 import CategoryList, { categoryListText } from '.';
-import CategoryListItem from './CategoryListItem';
+import CategoryListItem from '../CategoryListItem';
 
 configure({ adapter: new Adapter() });
 afterEach(cleanup);
@@ -26,7 +26,7 @@ describe('Category List Component', () => {
   it('should mount the CategoryListItem components', () => {
     const categoryListItems = wrapper.find(CategoryListItem);
     expect(categoryListItems).toExist();
-    expect(categoryListItems.length).toBe(14);
+    expect(categoryListItems.length).toBe(3);
   });
 
   it('should pass the required props to the CategoryListItems', () => {
@@ -41,15 +41,5 @@ describe('Category List Component', () => {
 
   it("should have the category list's text", () => {
     expect(wrapper.text()).toContain(categoryListText.header);
-  });
-
-  it("should have the category list item's name", () => {
-    const category = shallow(
-      <CategoryListItem
-        checkIfSelected={() => {}}
-        categoryName="Jungle Vibes"
-      />,
-    );
-    expect(category.text()).toContain('Jungle Vibes');
   });
 });

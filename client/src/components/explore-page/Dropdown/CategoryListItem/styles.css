@@ -1,0 +1,12 @@
+.categoryUnselected,
+.categorySelected {
+  margin: 0.9rem 0;
+}
+.categorySelected:hover,
+.categoryUnselected:hover {
+  cursor: pointer;
+}
+.categorySelected,
+.categoryUnselected:hover {
+  color: #00736a;
+}

@@ -10,14 +10,15 @@ export const PlantTypePage = ({ match }) => {
   const { loading, error, data } = getPlantType(plantTypeId);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-
-  const { plantType } = data;
-
   return (
     <div className={styles.plantView}>
-      <TopCard {...plantType} />
-      <ProTipsCard {...plantType} />
-      <SummaryCard {...plantType} />
+      {data && (
+        <>
+          <TopCard {...data.plantType} />
+          <ProTipsCard {...data.plantType} />
+          <SummaryCard {...data.plantType} />
+        </>
+      )}
     </div>
   );
 };

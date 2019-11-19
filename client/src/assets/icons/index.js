@@ -19,7 +19,7 @@ import travel from './unselected/travel.svg';
 import humidity from './unselected/humidity.svg';
 import pets from './unselected/pets.svg';
 import heartUnselected from './unselected/heartUnfilled.svg';
-import heartSelected from './selected/filled-large.svg';
+import heartSelected from './selected/heartFilled.svg';
 import arrowConnecting from './unselected/arrowConnecting.svg';
 import exit from './unselected/x-large.svg';
 import singleSunFilled from './unselected/single-sun-filled.svg';

@@ -7,17 +7,21 @@ import {
   plantCardLargeLuxLevel,
 } from './styles.css';
 
-const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => (
-  <Link to={`/plant-types/${id}`} className={plantCardLarge}>
-    <img alt={name} className={plantCardLargePhoto} src={photoUrl} />
-    {name}
-    {getLuxOrCycleIcon(
-      'luxLevel',
-      luxLevel,
-      'unselected',
-      plantCardLargeLuxLevel,
-    )}
-  </Link>
-);
+const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => {
+  const plantTypeLink = `/plant-types/${id}`;
+  const luxIcon = getLuxOrCycleIcon(
+    'luxLevel',
+    luxLevel,
+    'unselected',
+    plantCardLargeLuxLevel,
+  );
+  return (
+    <Link to={plantTypeLink} className={plantCardLarge}>
+      <img alt={name} className={plantCardLargePhoto} src={photoUrl} />
+      {name}
+      {luxIcon}
+    </Link>
+  );
+};
 
 export default PlantCardLarge;

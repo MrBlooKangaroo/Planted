@@ -4,6 +4,7 @@ import styles from './styles.css';
 import { WishlistItem } from '../WishListItem';
 import { arrowConnecting, exit } from 'assets/icons';
 import CREATE_WISH from 'api/mutations/createWish';
+import currentUser from 'utils/currentUser';
 
 export const text = {
   connectorAlt: 'Connecting piece from heart to popupBox',
@@ -18,7 +19,7 @@ export const Wishlist = ({ nooks, wishes, togglePopUp, plantTypeId }) => {
   const [selectedNooks, setSelectedNooks] = useState([]);
 
   const onSaveClick = selectedNooks => {
-    const userId = JSON.parse(localStorage.getItem('user')).id;
+    const userId = currentUser.id;
     selectedNooks.forEach(nookId => {
       const exists = wishes.some(wish => wish.nook && wish.nook.id === nookId);
       if (!exists)

@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryListItem from './CategoryListItem';
+import CategoryListItem from '../CategoryListItem';
 import categories from 'constants/categories';
 import { header, categoryList, categoryListContainer } from './styles.css';
 

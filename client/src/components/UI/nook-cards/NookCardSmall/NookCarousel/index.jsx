@@ -9,43 +9,48 @@ import {
   emptyNookClass,
 } from './styles.css';
 
-export default ({
+const NookCarousel = ({
   nook: { name },
   currentPlant,
   plants,
   carouselIndex,
-  onArrowClick,
-}) => (
-  <div className={carouselContainer}>
-    {carouselIndex !== 0 && (
-      <img
-        alt="arrowLeft"
-        className={arrowLeftClass}
-        src={arrowLeft}
-        onClick={() => onArrowClick('left')}
-      />
-    )}
-    {currentPlant ? (
-      <Link to={`/plant-types/${currentPlant.plantType.id}`}>
+  onArrowClickLeft,
+  onArrowClickRight,
+}) => {
+  const isAtLeftLimit = carouselIndex === 0;
+  const isAtRightLimit = carouselIndex === plants.length - 1;
+  const plantTypeLink =
+    currentPlant && `/plant-types/${currentPlant.plantType.id}`;
+  const currentPlantImgSrc =
+    currentPlant &&
+    (currentPlant.photoUrl || currentPlant.plantType.photoUrlHorizontalCrop);
+  return (
+    <div className={carouselContainer}>
+      {!isAtLeftLimit && (
         <img
-          alt={name}
-          className={nookCardPhoto}
-          src={
-            currentPlant.photoUrl ||
-            currentPlant.plantType.photoUrlHorizontalCrop
-          }
+          alt="arrowLeft"
+          className={arrowLeftClass}
+          src={arrowLeft}
+          onClick={onArrowClickLeft}
         />
-      </Link>
-    ) : (
-      <img alt="emptyNook" src={emptyNook} className={emptyNookClass} />
-    )}
-    {carouselIndex < plants.length - 1 && (
-      <img
-        alt="arrowRight"
-        className={arrowRightClass}
-        src={arrowRight}
-        onClick={() => onArrowClick('right')}
-      />
-    )}
-  </div>
-);
+      )}
+      {currentPlant ? (
+        <Link to={plantTypeLink}>
+          <img alt={name} className={nookCardPhoto} src={currentPlantImgSrc} />
+        </Link>
+      ) : (
+        <img alt="emptyNook" src={emptyNook} className={emptyNookClass} />
+      )}
+      {!isAtRightLimit && (
+        <img
+          alt="arrowRight"
+          className={arrowRightClass}
+          src={arrowRight}
+          onClick={onArrowClickRight}
+        />
+      )}
+    </div>
+  );
+};
+
+export default NookCarousel;
