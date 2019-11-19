@@ -1,0 +1,15 @@
+.navLinksContainer {
+  display: inline-flex;
+}
+
+.navLink,
+.navLinkSelected {
+  color: rgba(33, 33, 33, 0.9);
+  font-family: 'Karla', sans-serif;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+.navLinkSelected {
+  font-weight: bold;
+}

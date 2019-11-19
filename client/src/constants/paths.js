@@ -1,4 +1,5 @@
 export const rootPath = '/';
+export const searchPath = '/search';
 export const gardenPath = '/garden';
 export const wishlistPath = '/wishlist';
 export const nookPath = '/nooks/:nookId';

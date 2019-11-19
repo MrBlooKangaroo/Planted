@@ -8,10 +8,12 @@ import {
   nookPath,
   plantTypePath,
   wishlistPath,
+  searchPath,
 } from 'constants/paths';
 import Layout from 'components/Layout/root';
 import Explore from 'components/explore-page/root';
 import Garden from './garden-view/root';
+import SearchView from 'components/search-view/root';
 import { NookDetail } from '../components/nook-view/root';
 import { PlantTypePage } from './plant-page/root';
 import { WishlistView } from '../components/wishlist-view/root';
@@ -32,6 +34,7 @@ export const App = () => (
           <Route component={NookDetail} path={nookPath} />
           <Route component={PlantTypePage} path={plantTypePath} />
           <Route component={WishlistView} exact path={wishlistPath} />
+          <Route component={SearchView} path={searchPath} />
         </Layout>
       </Switch>
     </BrowserRouter>

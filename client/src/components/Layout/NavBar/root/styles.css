@@ -13,15 +13,15 @@
   margin-left: 3.4rem;
 }
 
-.navPath,
-.navPathSelected {
+.navLink,
+.navLinkSelected {
   color: rgba(33, 33, 33, 0.9);
   font-family: 'Karla', sans-serif;
   font-size: 1.1rem;
   margin: 0 1rem;
   text-decoration: none;
 }
-.navPathSelected {
+.navLinkSelected {
   font-weight: bold;
 }
 

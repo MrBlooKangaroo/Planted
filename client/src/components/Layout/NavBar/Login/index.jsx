@@ -8,7 +8,7 @@ export const loginText = {
   login: 'Log in',
 };
 
-export const Login = ({ isAuthenticated, toggleIsAuthenticated }) => {
+export default ({ isAuthenticated, toggleIsAuthenticated }) => {
   let userInfo, tokenInfo;
   const [photoUrl, setPhotoUrl] = useState('');
   const cachedUser = localStorage.getItem('user');

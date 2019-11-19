@@ -1,27 +1,23 @@
-.plantCardSmall {
-  align-items: center;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
-    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  height: 475px;
-  justify-content: space-around;
-  margin-top: 28px;
-  width: 300px;
+.plantTypeListClass {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 3rem 5rem 0 5rem;
 }
 
-.plantCardSmallName {
-  font-family: 'Karla';
-  font-size: 14px;
-  justify-content: center;
+.header {
+  color: rgba(33, 33, 33, 0.9);
+  display: block;
+  float: left;
+  font-family: 'Halant', serif;
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-left: 3rem;
   text-align: center;
 }
 
-.plantCardSmallPhoto {
-  height: 70%;
-  width: 251px;
+.greenText {
+  color: #00736a;
 }
 
 .plantCardLarge {
@@ -34,14 +30,14 @@
   font-weight: bold;
   height: 680px;
   margin-bottom: 3rem;
-  min-width: 420px;
+  min-width: 20rem;
   padding: 1rem;
   text-align: center;
   width: 29%;
 }
 
 .plantCardLargePhoto {
-  height: 80%;
+  height: 10rem;
   margin-bottom: 2rem;
   width: 100%;
 }
