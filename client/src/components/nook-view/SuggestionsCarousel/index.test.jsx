@@ -3,6 +3,7 @@ import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { SuggestionsCarousel, SuggestionsCarouselBase, text } from './index';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 const plants = [
@@ -19,7 +20,11 @@ describe('SuggestionsCarousel component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<SuggestionsCarousel {...props} />);
+    wrapper = mount(
+      <Router>
+        <SuggestionsCarousel {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a SuggestionsCarousel component', () => {
@@ -41,7 +46,11 @@ describe('SuggestionsCarouselBase component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<SuggestionsCarouselBase {...props} />);
+    wrapper = mount(
+      <Router>
+        <SuggestionsCarouselBase {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a SubHeader component', () => {

@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { WidePlantGrid } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -17,7 +18,11 @@ describe('WidePlantGrid component', () => {
         name: 'fakeName',
       },
     ];
-    wrapper = mount(<WidePlantGrid plants={plants} />);
+    wrapper = mount(
+      <Router>
+        <WidePlantGrid plants={plants} />
+      </Router>,
+    );
   });
 
   it('should mount a WidePlantGrid component', () => {

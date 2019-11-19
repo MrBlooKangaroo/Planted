@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { PlantGrid } from './index';
 import styles from './styles.css';
 import 'jest-enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 afterEach(cleanup);
 
@@ -17,7 +18,11 @@ describe('PlantGrid component', () => {
         name: 'fakeName',
       },
     ];
-    wrapper = mount(<PlantGrid plants={plants} />);
+    wrapper = mount(
+      <Router>
+        <PlantGrid plants={plants} />
+      </Router>,
+    );
   });
 
   it('should mount a PlantGrid component', () => {

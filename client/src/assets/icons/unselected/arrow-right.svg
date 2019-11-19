@@ -1,11 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
     <defs>
         <rect id="b" width="30" height="30" rx="8"/>
-        <filter id="a" width="353.3%" height="353.3%" x="-126.7%" y="-113.3%" filterUnits="objectBoundingBox">
-            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
-            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="12"/>
-            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
-        </filter>
     </defs>
     <g fill="none" fill-rule="evenodd">
         <use fill="#000" filter="url(#a)" xlink:href="#b"/>

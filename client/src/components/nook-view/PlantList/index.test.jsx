@@ -4,24 +4,30 @@ import { mount } from 'enzyme';
 import { PlantList } from './index';
 import 'jest-enzyme';
 import styles from './styles.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { EmptyBanner } from '../EmptyBanner';
 
 afterEach(cleanup);
 
 describe('PlantList component with one plant', () => {
   let wrapper, props;
 
-  props = {
-    plants: [
-      {
-        id: 'e476ab1b-1e35-40e5-ba76-f2b9e146686c',
-        photoUrl: 'fakePhotoUrl',
-        name: 'fakeName',
-      },
-    ],
-  };
-
   beforeEach(() => {
-    wrapper = mount(<PlantList {...props} />);
+    props = {
+      plants: [
+        {
+          id: 'e476ab1b-1e35-40e5-ba76-f2b9e146686c',
+          photoUrl: 'fakePhotoUrl',
+          name: 'fakeName',
+        },
+      ],
+    };
+
+    wrapper = mount(
+      <Router>
+        <PlantList {...props} />
+      </Router>,
+    );
   });
 
   it('should mount a PlantList component', () => {
@@ -32,7 +38,7 @@ describe('PlantList component with one plant', () => {
   it('should render the EmptyBanner element', () => {
     wrapper.setProps({ plants: [] });
     const element = wrapper.find('EmptyBanner');
-    expect(element).toExist();
+    expect(element).toBeDefined();
   });
 
   it('should render the WidePlantGrid element', () => {
