@@ -7,5 +7,5 @@ export const SuggestionsList = ({ luxLevel }) => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  return <SuggestionsCarousel plants={data.suggestedPlantTypes} />;
+  return <SuggestionsCarousel plants={data.plantTypes} />;
 };
