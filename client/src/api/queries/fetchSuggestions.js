@@ -2,8 +2,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 export const FETCH_SUGGESTIONS = gql`
-  query fetchSuggestions($luxInput: LuxLevel) {
-    suggestedPlantTypes(luxInput: $luxInput) {
+  query fetchSuggestions($luxLevel: LuxLevel) {
+    plantTypes(luxLevel: $luxLevel) {
       id
       name
       photoUrlVerticalCrop
@@ -13,5 +13,5 @@ export const FETCH_SUGGESTIONS = gql`
 
 export const fetchSuggestions = luxLevel =>
   useQuery(FETCH_SUGGESTIONS, {
-    variables: { luxInput: luxLevel },
+    variables: { luxLevel: luxLevel },
   });
