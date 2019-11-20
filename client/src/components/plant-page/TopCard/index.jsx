@@ -40,7 +40,13 @@ export const TopCard = ({
 
   return (
     <div className={styles.topCardContainer}>
-      <img src={photoUrl} className={styles.plantPicture} alt={text.plantAlt} />
+      <div className={styles.plantPictureContainer}>
+        <img
+          src={photoUrl}
+          alt={text.plantAlt}
+          className={styles.plantPicture}
+        />
+      </div>
       <div className={styles.titleContainer}>
         <h1 className={styles.title}>{name}</h1>
         <div className={styles.buttonPosition}>
