@@ -9,8 +9,10 @@ const text = {
 };
 
 export const WishlistView = () => {
+  let userId;
   const currentUser = JSON.parse(localStorage.getItem('user'));
-  const userId = currentUser.id;
+  if (currentUser) userId = currentUser.id;
+  else window.location.replace('/');
   const { loading, error, data } = fetchWishesfromNooksByUser(userId);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
