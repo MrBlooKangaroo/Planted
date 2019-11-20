@@ -1,5 +1,7 @@
 .navLinksContainer {
   display: inline-flex;
+  padding-right: 300px;
+  padding-left: 50px;
 }
 
 .navLink,

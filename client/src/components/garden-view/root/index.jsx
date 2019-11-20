@@ -10,6 +10,7 @@ const GardenView = props => {
   let nooks = [];
   const [isAlphabeticallySorted, toggleSort] = useState(true);
   const currentUser = JSON.parse(localStorage.getItem('user'));
+  if (!currentUser) window.location.replace('/');
   const { loading, errors, data } = useQuery(GET_NOOKS_BY_USER_ID, {
     variables: { userId: currentUser ? currentUser.id : '' },
   });

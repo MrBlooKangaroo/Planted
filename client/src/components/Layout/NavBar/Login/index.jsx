@@ -18,6 +18,7 @@ export default ({ isAuthenticated, toggleIsAuthenticated }) => {
     toggleIsAuthenticated(false);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    window.location.reload();
   };
 
   const googleResponse = async response => {
@@ -30,6 +31,7 @@ export default ({ isAuthenticated, toggleIsAuthenticated }) => {
       toggleIsAuthenticated(true);
       setPhotoUrl(userInfo.photoUrl);
     }
+    window.location.reload();
   };
 
   const baseProps = {

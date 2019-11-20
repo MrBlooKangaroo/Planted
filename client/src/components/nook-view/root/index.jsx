@@ -12,6 +12,10 @@ export const nookDetailText = {
 };
 
 export const NookDetail = props => {
+  let userPhotoUrl;
+  const localUser = localStorage.getItem('user');
+  if (!localUser) window.location.replace('/');
+  else userPhotoUrl = JSON.parse(localUser).photoUrl;
   const { nookId } = props.match && props.match.params;
   const { loadingText, errorText } = nookDetailText;
 
@@ -20,9 +24,6 @@ export const NookDetail = props => {
   if (error) return errorText + error.message;
   const { nook } = data,
     { name, luxLevel, wishes } = nook;
-
-  const localUser = localStorage.getItem('user');
-  const userPhotoUrl = localUser && JSON.parse(localUser).photoUrl;
   return (
     <div>
       <div className={styles.title}>{name}</div>
