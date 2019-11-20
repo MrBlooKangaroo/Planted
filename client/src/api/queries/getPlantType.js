@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 const GET_PLANT_TYPE = gql`
   query getPlantType($id: ID!) {
     plantType(id: $id) {
+      id
       name
       featuresWeb
       instructionsWeb
@@ -16,6 +17,17 @@ const GET_PLANT_TYPE = gql`
       photoUrl
       luxLevel
       waterLevel
+      wishes {
+        user {
+          id
+        }
+        plantType {
+          id
+        }
+        nook {
+          id
+        }
+      }
     }
   }
 `;

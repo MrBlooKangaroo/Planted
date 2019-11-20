@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { mount, configure } from 'enzyme';
 import { cleanup } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -12,7 +13,11 @@ afterEach(cleanup);
 describe('Layout Component', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<Layout />);
+    wrapper = mount(
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount the Layout component', () => {

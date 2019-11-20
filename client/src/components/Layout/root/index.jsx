@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import NavBar from '../NavBar';
+import React from 'react';
+import NavBar from '../NavBar/root';
 import './styles.css';
 
 export default props => (
-  <Fragment>
+  <>
     <NavBar {...props} />
     {props.children}
-  </Fragment>
+  </>
 );

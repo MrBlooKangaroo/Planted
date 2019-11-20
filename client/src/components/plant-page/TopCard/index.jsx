@@ -4,7 +4,7 @@ import { heartUnselected } from 'assets/icons';
 import { heartSelected } from 'assets/icons';
 import { LightLevelPicture } from 'components/UI/lightLevelPicture';
 import { WaterLevelPicture } from 'components/UI/waterLevelPicture';
-import { WishlistPopup } from '../WishlistPopup';
+import { WishlistInPlantType } from '../WishlistPlantType';
 
 export const text = {
   heartAlt: 'Heart Unselected',
@@ -14,21 +14,29 @@ export const text = {
 };
 
 export const TopCard = ({
+  id,
   name,
   luxLevel,
   luxLevelInfo,
   waterLevel,
   waterCycleInfo,
   photoUrl,
+  wishes,
 }) => {
-  const [showAddToWishlistOptions, setShowAddToWishlistOptions] = useState(
-    false,
+  const [showWishlist, toggleShowWishList] = useState(false);
+  const [showHeartUnselected, toggleShowHeartUnselected] = useState(
+    heartUnselected,
   );
-  const heartSrc = showAddToWishlistOptions ? heartSelected : heartUnselected;
 
-  const togglePopUp = () => {
-    setShowAddToWishlistOptions(!showAddToWishlistOptions);
-  };
+  function togglePopUp() {
+    if (showWishlist) {
+      toggleShowWishList(!showWishlist);
+      toggleShowHeartUnselected(heartUnselected);
+    } else {
+      toggleShowWishList(!showWishlist);
+      toggleShowHeartUnselected(heartSelected);
+    }
+  }
 
   return (
     <div className={styles.topCardContainer}>
@@ -37,10 +45,15 @@ export const TopCard = ({
         <h1 className={styles.title}>{name}</h1>
         <div className={styles.buttonPosition}>
           <button className={styles.heartButton} onClick={togglePopUp}>
-            <img src={heartSrc} alt={text.heartAlt} />
+            <img src={showHeartUnselected} alt={text.heartAlt} />
           </button>
-          {showAddToWishlistOptions && (
-            <WishlistPopup togglePopUp={togglePopUp} />
+          {showWishlist && (
+            <WishlistInPlantType
+              plantTypeId={id}
+              togglePopUp={togglePopUp}
+              showWishlist={showWishlist}
+              wishes={wishes}
+            />
           )}
         </div>
       </div>

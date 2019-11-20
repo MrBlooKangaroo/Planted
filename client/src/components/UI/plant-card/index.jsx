@@ -1,11 +1,11 @@
 import React from 'react';
-import localStyles from './styles.css';
 import { Link } from 'react-router-dom';
+import localStyles from './styles.css';
 
 export const PlantCard = ({
   styles = localStyles,
-  name,
   id,
+  name,
   photoUrlVerticalCrop,
 }) => {
   const plantPath = `/plant-types/${id}`;

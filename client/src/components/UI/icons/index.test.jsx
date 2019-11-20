@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import FilterIcon from './FilterIcon';
@@ -16,7 +17,11 @@ describe('icon components', () => {
         checkIfSelected: () => {},
         onFilterClick: () => {},
       };
-      wrapper = mount(<FilterIcon {...props} />);
+      wrapper = mount(
+        <BrowserRouter>
+          <FilterIcon {...props} />
+        </BrowserRouter>,
+      );
     });
 
     it('should mount a FilterIcon component', () => {

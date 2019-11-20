@@ -24,8 +24,9 @@ const FETCH_NOOK = gql`
   }
 `;
 
-export function fetchNook(nookId) {
-  return useQuery(FETCH_NOOK, {
+const fetchNook = nookId =>
+  useQuery(FETCH_NOOK, {
     variables: { id: nookId },
   });
-}
+
+export default fetchNook;

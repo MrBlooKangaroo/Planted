@@ -1,0 +1,14 @@
+.nookCard {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.03),
+    0 -12px 19px 0 rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 378px;
+  justify-content: space-around;
+  margin: 1rem;
+  width: 29%;
+}

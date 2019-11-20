@@ -4,7 +4,15 @@ import { filterUnselected, filterSelected } from './styles.css';
 
 const FilterIcon = ({ type, level, checkIfSelected, onFilterClick }) => {
   const [isHovering, toggleHover] = useState(false);
-  const filterId = `${type}:${level}`;
+  const waterCycleDict = {
+    HIGH: 'WEEKLY',
+    MEDIUM: 'BIWEEKLY',
+    LOW: 'MONTHLY',
+  };
+  const filterId =
+    type === 'waterCycle'
+      ? `${type}:${waterCycleDict[level]}`
+      : `${type}:${level}`;
   const selection =
     isHovering || checkIfSelected(filterId) ? 'selected' : 'unselected';
   const className = checkIfSelected(filterId)

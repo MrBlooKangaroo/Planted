@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { EmptyBanner } from './index';
@@ -16,7 +17,11 @@ describe('EmptyBanner component', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<EmptyBanner />);
+    wrapper = mount(
+      <BrowserRouter>
+        <EmptyBanner />
+      </BrowserRouter>,
+    );
   });
 
   it('should mount a EmptyBanner component', () => {

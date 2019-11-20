@@ -10,8 +10,9 @@ import cycleUnselectedHigh from './unselected/cycleUnselectedHigh.svg';
 import cycleSelectedLow from './selected/cycleSelectedLow.svg';
 import cycleSelectedMedium from './selected/cycleSelectedMedium.svg';
 import cycleSelectedHigh from './selected/cycleSelectedHigh.svg';
-import arrowLeft from './unselected/arrow-left.svg';
-import arrowRight from './unselected/arrow-right.svg';
+import arrowLeft from './arrows/arrowLeft.svg';
+import arrowRight from './arrows/arrowRight.svg';
+import emptyNook from './unselected/emptyNook.svg';
 import cactus from './unselected/cactus.svg';
 import diamond from './unselected/diamond.svg';
 import travel from './unselected/travel.svg';
@@ -30,6 +31,7 @@ export {
   arrowConnecting,
   arrowLeft,
   arrowRight,
+  emptyNook,
   cactus,
   cycleSelectedHigh,
   cycleSelectedLow,

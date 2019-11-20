@@ -24,9 +24,8 @@ export const WishlistView = () => {
     <div>
       <h1 className={styles.title}>{text.wishlist}</h1>
       <SortDropDown />
-      {wishlistNooks.map(nook => (
-        <NookWishlist nook={nook} key={nook.id} />
-      ))}
+      {nooks &&
+        wishlistNooks.map(nook => <NookWishlist nook={nook} key={nook.id} />)}
     </div>
   );
 };

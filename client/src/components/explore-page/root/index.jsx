@@ -1,6 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import filterPlantTypes from 'utils/filterPlantTypes';
+import GET_PLANT_TYPES from 'api/queries/getPlantTypes';
 import Dropdown from '../Dropdown';
 import PlantTypeList from '../PlantTypeList';
 import {
@@ -19,6 +22,7 @@ export const exploreText = {
 const Explore = () => {
   const [isDropdownOpen, toggleDropdown] = useState(false);
   const [activeFilters, setActiveFilters] = useState([]);
+  const { loading, errors, data } = useQuery(GET_PLANT_TYPES);
 
   const checkIfSelected = filter => activeFilters.includes(filter);
   const onFilterClick = e => {
@@ -28,8 +32,15 @@ const Explore = () => {
       ? setActiveFilters(activeFilters.filter(f => f !== filterId))
       : setActiveFilters([...activeFilters, filterId]);
   };
-
+  let plantTypes = [];
+  if (!loading && !errors && data) {
+    plantTypes =
+      activeFilters.length > 0
+        ? filterPlantTypes(data.plantTypes, activeFilters)
+        : data.plantTypes;
+  }
   const baseProps = {
+    plantTypes,
     isDropdownOpen,
     toggleDropdown,
     activeFilters,
@@ -43,7 +54,7 @@ const BaseExplore = props => {
   const { isDropdownOpen, activeFilters, toggleDropdown } = props;
   const { header, prompt } = exploreText;
   return (
-    <Fragment>
+    <>
       <div className={headerClass}>{header}</div>
       <div
         onClick={() => toggleDropdown(!isDropdownOpen)}
@@ -57,7 +68,7 @@ const BaseExplore = props => {
       </div>
       {isDropdownOpen && <Dropdown {...props} />}
       <PlantTypeList {...props} />
-    </Fragment>
+    </>
   );
 };
 
