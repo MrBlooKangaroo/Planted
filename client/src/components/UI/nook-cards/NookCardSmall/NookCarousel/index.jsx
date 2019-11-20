@@ -26,28 +26,34 @@ const NookCarousel = ({
     (currentPlant.photoUrl || currentPlant.plantType.photoUrlHorizontalCrop);
   return (
     <div className={carouselContainer}>
-      {!isAtLeftLimit && (
-        <img
-          alt="arrowLeft"
-          className={arrowLeftClass}
-          src={arrowLeft}
-          onClick={onArrowClickLeft}
-        />
-      )}
       {currentPlant ? (
-        <Link to={plantTypeLink}>
-          <img alt={name} className={nookCardPhoto} src={currentPlantImgSrc} />
-        </Link>
+        <div>
+          {!isAtLeftLimit && (
+            <img
+              alt="arrowLeft"
+              className={arrowLeftClass}
+              src={arrowLeft}
+              onClick={onArrowClickLeft}
+            />
+          )}
+          <Link to={plantTypeLink}>
+            <img
+              alt={name}
+              className={nookCardPhoto}
+              src={currentPlantImgSrc}
+            />
+          </Link>
+          {!isAtRightLimit && (
+            <img
+              alt="arrowRight"
+              className={arrowRightClass}
+              src={arrowRight}
+              onClick={onArrowClickRight}
+            />
+          )}
+        </div>
       ) : (
         <img alt="emptyNook" src={emptyNook} className={emptyNookClass} />
-      )}
-      {!isAtRightLimit && (
-        <img
-          alt="arrowRight"
-          className={arrowRightClass}
-          src={arrowRight}
-          onClick={onArrowClickRight}
-        />
       )}
     </div>
   );
