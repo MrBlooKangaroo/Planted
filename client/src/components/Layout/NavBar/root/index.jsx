@@ -17,7 +17,7 @@ const NavBar = props => {
   const onSearchSubmit = e => {
     e.preventDefault();
     localStorage.setItem('searchString', e.target[0].value);
-    window.location.href = 'http://localhost:8080/search';
+    window.location.href = `${window.location.origin}/search`;
   };
   const baseProps = {
     isAuthenticated,
