@@ -7,7 +7,6 @@ export const SuggestionsList = ({ luxLevel }) => {
   const { loading, error, data } = fetchSuggestions(luxLevel);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  console.log(data);
 
   return <SuggestionsCarousel plants={data.plantTypes} />;
 };
