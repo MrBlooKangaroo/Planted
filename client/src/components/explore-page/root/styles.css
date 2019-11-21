@@ -37,8 +37,8 @@
   margin-left: 2rem;
 }
 .caretUp {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 .caretDown {
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }

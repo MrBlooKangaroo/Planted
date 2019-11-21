@@ -5,6 +5,7 @@ import Login from '../Login';
 import NavLinks from '../NavLinks';
 import SearchBar from '../SearchBar';
 import { rootPath } from 'constants/paths';
+import { logoBlack } from 'assets/icons';
 import { navBar, logo, navContentRight } from './styles.css';
 
 export const navBarText = {
@@ -36,8 +37,8 @@ const NavBar = props => {
 
 const BaseNavBar = props => (
   <nav className={navBar}>
-    <Link to={rootPath} className={logo}>
-      {navBarText.logo}
+    <Link to={rootPath}>
+      <img src={logoBlack} alt={navBarText.logo} className={logo} />
     </Link>
     <NavLinks {...props} />
     <div className={navContentRight}>

@@ -7,10 +7,8 @@
 }
 
 .logo {
-  color: rgba(33, 33, 33, 0.9);
-  font-family: 'Halant', serif;
-  font-size: 2.2rem;
   margin-left: 3.4rem;
+  width: 9.2rem;
 }
 
 .navContentRight {
