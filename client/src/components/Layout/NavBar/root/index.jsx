@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 import Login from '../Login';
 import NavLinks from '../NavLinks';
 import SearchBar from '../SearchBar';
@@ -12,6 +11,7 @@ export const navBarText = {
 };
 
 const NavBar = props => {
+  const [isLogoutVisible, toggleLogoutVisible] = useState(false);
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
@@ -19,9 +19,12 @@ const NavBar = props => {
   const onSearchSubmit = e => {
     e.preventDefault();
     localStorage.setItem('searchString', e.target[0].value);
-    props.history.push('/search');
+    window.location.href = 'http://localhost:8080/search';
   };
+
   const baseProps = {
+    isLogoutVisible,
+    toggleLogoutVisible,
     isAuthenticated,
     toggleIsAuthenticated,
     onSearchSubmit,
@@ -42,5 +45,4 @@ const BaseNavBar = props => (
     </div>
   </nav>
 );
-
-export default withRouter(NavBar);
+export default NavBar;
