@@ -12,7 +12,7 @@ export const navBarText = {
 };
 
 const NavBar = props => {
-  const [isLogoutVisible, toggleLogoutButton] = useState(false);
+  const [isLogoutVisible, toggleLogoutVisible] = useState(false);
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
@@ -25,7 +25,7 @@ const NavBar = props => {
 
   const baseProps = {
     isLogoutVisible,
-    toggleLogoutButton,
+    toggleLogoutVisible,
     isAuthenticated,
     toggleIsAuthenticated,
     onSearchSubmit,
