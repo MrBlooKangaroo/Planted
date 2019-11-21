@@ -7,7 +7,7 @@ import {
   plantCardLargeLuxLevel,
 } from './styles.css';
 
-const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => {
+const PlantCardLarge = ({ id, name, luxLevel, photoUrlVerticalCrop }) => {
   const plantTypeLink = `/plant-types/${id}`;
   const luxIcon = getLuxOrCycleIcon(
     'luxLevel',
@@ -17,7 +17,11 @@ const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => {
   );
   return (
     <Link to={plantTypeLink} className={plantCardLarge}>
-      <img alt={name} className={plantCardLargePhoto} src={photoUrl} />
+      <img
+        alt={name}
+        className={plantCardLargePhoto}
+        src={photoUrlVerticalCrop}
+      />
       {name}
       {luxIcon}
     </Link>
