@@ -1,6 +1,9 @@
 .exit {
   border: none;
 }
+.exit:hover {
+  cursor: pointer;
+}
 
 .header {
   font-family: 'Halant';
@@ -46,6 +49,9 @@
   color: white;
   height: 30px;
   width: 90px;
+}
+.saveButton:hover {
+  cursor: pointer;
 }
 
 .saveButtonContainer {
