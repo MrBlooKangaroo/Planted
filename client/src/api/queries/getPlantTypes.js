@@ -6,6 +6,8 @@ export default gql`
       id
       name
       photoUrl
+      photoUrlHorizontalCrop
+      photoUrlVerticalCrop
       luxLevel
       waterCycle
       hasJungleVibes

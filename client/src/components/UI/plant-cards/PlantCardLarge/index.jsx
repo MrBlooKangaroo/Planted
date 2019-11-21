@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import getLuxOrCycleIcon from 'utils/getLuxOrCycleIcon';
 import {
@@ -7,7 +7,16 @@ import {
   plantCardLargeLuxLevel,
 } from './styles.css';
 
-const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => {
+const PlantCardLarge = ({
+  id,
+  name,
+  luxLevel,
+  photoUrl,
+  photoUrlVerticalCrop,
+}) => {
+  const [plantTypePhotoUrl, setPlantTypePhotoUrl] = useState(
+    photoUrlVerticalCrop,
+  );
   const plantTypeLink = `/plant-types/${id}`;
   const luxIcon = getLuxOrCycleIcon(
     'luxLevel',
@@ -16,8 +25,13 @@ const PlantCardLarge = ({ id, name, luxLevel, photoUrl }) => {
     plantCardLargeLuxLevel,
   );
   return (
-    <Link to={plantTypeLink} className={plantCardLarge}>
-      <img alt={name} className={plantCardLargePhoto} src={photoUrl} />
+    <Link
+      to={plantTypeLink}
+      className={plantCardLarge}
+      onMouseEnter={() => setPlantTypePhotoUrl(photoUrl)}
+      onMouseLeave={() => setPlantTypePhotoUrl(photoUrlVerticalCrop)}
+    >
+      <img src={plantTypePhotoUrl} alt={name} className={plantCardLargePhoto} />
       {name}
       {luxIcon}
     </Link>
