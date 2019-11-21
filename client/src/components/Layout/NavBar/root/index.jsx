@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Login from '../Login';
 import NavLinks from '../NavLinks';
 import SearchBar from '../SearchBar';
@@ -14,10 +15,11 @@ const NavBar = props => {
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
+
   const onSearchSubmit = e => {
     e.preventDefault();
     localStorage.setItem('searchString', e.target[0].value);
-    window.location.href = `${window.location.origin}/search`;
+    props.history.push('/search');
   };
   const baseProps = {
     isAuthenticated,
@@ -41,4 +43,4 @@ const BaseNavBar = props => (
   </nav>
 );
 
-export default NavBar;
+export default withRouter(NavBar);
