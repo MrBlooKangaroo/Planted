@@ -7,7 +7,6 @@ export default gql`
       photoUrlVerticalCrop
       name
       photoUrl
-      photoUrlHorizontalCrop
       photoUrlVerticalCrop
       luxLevel
       waterCycle
