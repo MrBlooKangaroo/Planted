@@ -1,5 +1,9 @@
+.categoryNames,
+.count {
+  color: rgba(33, 33, 33, 0.9);
+}
+
 .categoryNames {
-  color: #212121;
   font-family: 'Halant';
   font-size: 24px;
   margin-bottom: 135px;

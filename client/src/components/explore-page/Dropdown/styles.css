@@ -9,8 +9,9 @@
   font-size: 0.9rem;
   grid-template-columns: 1fr 1fr;
   left: 50%;
-  margin-left: -11.1rem;
+  margin-left: -9.9rem;
   padding: 1.4rem;
   position: absolute;
-  width: 19.3rem;
+  width: 17rem;
+  z-index: 1;
 }
