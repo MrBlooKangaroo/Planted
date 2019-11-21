@@ -12,7 +12,7 @@ const typeDefs = gql`
 const context = ({ req, res }) => {
   const token = req.headers.authorization || '';
   const currentUser = jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-    const whitelist = ['authGoogle', 'IntrospectionQuery', 'plantTypes'];
+    const whitelist = ['authGoogle', 'IntrospectionQuery', 'plantTypes', 'plantType'];
     let isWhitelisted = req.body.query === '';
     if (!isWhitelisted) {
       for (let i in whitelist) {

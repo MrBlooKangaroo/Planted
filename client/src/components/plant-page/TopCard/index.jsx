@@ -27,14 +27,17 @@ export const TopCard = ({
   const [showHeartUnselected, toggleShowHeartUnselected] = useState(
     heartUnselected,
   );
+  const currentUser = JSON.parse(localStorage.getItem('user'));
 
   function togglePopUp() {
-    if (showWishlist) {
-      toggleShowWishList(!showWishlist);
-      toggleShowHeartUnselected(heartUnselected);
-    } else {
-      toggleShowWishList(!showWishlist);
-      toggleShowHeartUnselected(heartSelected);
+    if (currentUser) {
+      if (showWishlist) {
+        toggleShowWishList(!showWishlist);
+        toggleShowHeartUnselected(heartUnselected);
+      } else {
+        toggleShowWishList(!showWishlist);
+        toggleShowHeartUnselected(heartSelected);
+      }
     }
   }
 
