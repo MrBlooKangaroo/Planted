@@ -8,7 +8,12 @@ export const loginText = {
   login: 'Log in',
 };
 
-export default ({ isAuthenticated, toggleIsAuthenticated }) => {
+export default ({
+  isLogoutVisible,
+  toggleLogoutButton,
+  isAuthenticated,
+  toggleIsAuthenticated,
+}) => {
   let userInfo, tokenInfo;
   const [photoUrl, setPhotoUrl] = useState('');
   const cachedUser = localStorage.getItem('user');
@@ -35,6 +40,8 @@ export default ({ isAuthenticated, toggleIsAuthenticated }) => {
   };
 
   const baseProps = {
+    isLogoutVisible,
+    toggleLogoutButton,
     isAuthenticated,
     googleResponse,
     onLogout,
@@ -45,15 +52,23 @@ export default ({ isAuthenticated, toggleIsAuthenticated }) => {
 };
 
 export const BaseLogin = ({
-  isAuthenticated,
-  googleResponse,
-  onLogout,
   name,
   photoUrl,
+  onLogout,
+  isLogoutVisible,
+  toggleLogoutButton,
+  isAuthenticated,
+  googleResponse,
 }) => (
   <div className={loginContainer}>
     {isAuthenticated ? (
-      <UserInfo name={name} onLogout={onLogout} photoUrl={photoUrl} />
+      <UserInfo
+        name={name}
+        photoUrl={photoUrl}
+        onLogout={onLogout}
+        isLogoutVisible={isLogoutVisible}
+        toggleLogoutButton={toggleLogoutButton}
+      />
     ) : (
       <GoogleLogin
         className={googleButton}

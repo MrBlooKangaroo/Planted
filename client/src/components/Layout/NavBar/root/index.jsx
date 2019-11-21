@@ -12,6 +12,7 @@ export const navBarText = {
 };
 
 const NavBar = props => {
+  const [isLogoutVisible, toggleLogoutButton] = useState(false);
   const [isAuthenticated, toggleIsAuthenticated] = useState(
     localStorage.getItem('user') !== null,
   );
@@ -21,7 +22,10 @@ const NavBar = props => {
     localStorage.setItem('searchString', e.target[0].value);
     props.history.push('/search');
   };
+
   const baseProps = {
+    isLogoutVisible,
+    toggleLogoutButton,
     isAuthenticated,
     toggleIsAuthenticated,
     onSearchSubmit,
