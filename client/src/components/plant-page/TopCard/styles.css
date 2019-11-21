@@ -31,11 +31,16 @@
 }
 
 .plantPicture {
-  height: 805px;
-  left: 80%;
+  height: 100%;
+  max-width: 100%;
+}
+
+.plantPictureContainer {
+  height: 1000px;
+  left: 75%;
   position: absolute;
   top: -44px;
-  width: 652px;
+  width: 850px;
 }
 
 .title {

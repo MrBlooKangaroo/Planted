@@ -9,14 +9,14 @@ const UserInfo = ({
   photoUrl,
   onLogout,
   isLogoutVisible,
-  toggleLogoutButton,
+  toggleLogoutVisible,
 }) => (
   <div className={userInfoContainer}>
     <img
       className={userPhoto}
       src={photoUrl}
       alt={photoUrl}
-      onClick={() => toggleLogoutButton(!isLogoutVisible)}
+      onClick={() => toggleLogoutVisible(!isLogoutVisible)}
     />
     {isLogoutVisible && (
       <button className={logoutButton} onClick={onLogout}>

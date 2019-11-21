@@ -4,6 +4,7 @@ export default gql`
   {
     plantTypes {
       id
+      photoUrlVerticalCrop
       name
       photoUrl
       photoUrlHorizontalCrop

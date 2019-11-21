@@ -10,7 +10,7 @@ export const loginText = {
 
 export default ({
   isLogoutVisible,
-  toggleLogoutButton,
+  toggleLogoutVisible,
   isAuthenticated,
   toggleIsAuthenticated,
 }) => {
@@ -41,7 +41,7 @@ export default ({
 
   const baseProps = {
     isLogoutVisible,
-    toggleLogoutButton,
+    toggleLogoutVisible,
     isAuthenticated,
     googleResponse,
     onLogout,
@@ -56,7 +56,7 @@ export const BaseLogin = ({
   photoUrl,
   onLogout,
   isLogoutVisible,
-  toggleLogoutButton,
+  toggleLogoutVisible,
   isAuthenticated,
   googleResponse,
 }) => (
@@ -67,7 +67,7 @@ export const BaseLogin = ({
         photoUrl={photoUrl}
         onLogout={onLogout}
         isLogoutVisible={isLogoutVisible}
-        toggleLogoutButton={toggleLogoutButton}
+        toggleLogoutVisible={toggleLogoutVisible}
       />
     ) : (
       <GoogleLogin
