@@ -7,6 +7,9 @@
   "bin": {
     "graphql-starter-kit": "./index.js"
   },
+  "engines": {
+    "node": "10.14.1"
+  },
   "scripts": {
     "build": "node scripts/build.js",
     "g": "yarn generate",
