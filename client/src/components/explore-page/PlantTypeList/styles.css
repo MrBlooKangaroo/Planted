@@ -1,6 +1,6 @@
 .plantTypeList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 3rem 5rem 0 5rem;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles.css';
 
-export const text = {
+export const hexColorCodes = {
   black: '#FFFFFF',
   white: '#000000',
   aquamarine: '#00736a',
@@ -14,9 +14,10 @@ export const WishlistItem = ({
   selectedNooks,
   setSelectedNooks,
 }) => {
+  const { black, white, aquamarine } = hexColorCodes;
   const [isSelected, toggleIsSelected] = useState(false);
-  const textColor = isSelected ? text.white : text.aquamarine;
-  const checkBoxColor = isSelected ? text.black : text.aquamarine;
+  const textColor = isSelected ? white : aquamarine;
+  const checkBoxColor = isSelected ? black : aquamarine;
 
   const ChangeColor = e => {
     const nookId = e.target.id;

@@ -1,3 +1,7 @@
+.wishlistViewContainer {
+  color: rgba(33, 33, 33, 0.9);
+}
+
 .title {
   display: flex;
   font-family: 'Halant';

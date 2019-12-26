@@ -26,6 +26,7 @@ import singleSunFilled from './unselected/single-sun-filled.svg';
 import singleSunUnfilled from './unselected/single-sun-unfilled.svg';
 import singleSunFilledGreen from './selected/sun-single-filled-green.svg';
 import singleSunUnfilledGreen from './selected/sun-single-unfilled-green.svg';
+import logoBlack from './logos/logo-black.png';
 
 export {
   arrowConnecting,
@@ -56,4 +57,5 @@ export {
   singleSunUnfilled,
   singleSunFilledGreen,
   singleSunUnfilledGreen,
+  logoBlack,
 };

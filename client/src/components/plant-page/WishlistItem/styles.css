@@ -4,6 +4,9 @@
   flex-direction: row;
   margin-bottom: 25px;
 }
+.listItem:hover {
+  cursor: pointer;
+}
 
 .wishlistItem,
 .listItemButton,
@@ -24,10 +27,6 @@
   height: 10px;
   margin-right: 20px;
   width: 10px;
-}
-
-.listItemButton:hover {
-  cursor: pointer;
 }
 .existingListItemButton:hover {
   cursor: default;

@@ -21,6 +21,9 @@
   border: none;
   margin-left: 82px;
 }
+.heartButton:hover {
+  cursor: pointer;
+}
 
 .indicator {
   height: 32px;

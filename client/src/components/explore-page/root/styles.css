@@ -19,7 +19,7 @@
   margin: 1rem auto;
   padding: 0.6rem 2.4rem;
   text-align: center;
-  width: 17rem;
+  width: 15rem;
 }
 .promptUnfiltered:hover,
 .promptFiltered:hover {
@@ -37,8 +37,8 @@
   margin-left: 2rem;
 }
 .caretUp {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 .caretDown {
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }

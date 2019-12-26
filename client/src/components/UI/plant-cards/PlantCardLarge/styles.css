@@ -11,13 +11,13 @@
   min-width: 420px;
   padding: 1rem;
   text-align: center;
+  overflow: hidden;
   width: 29%;
 }
 
 .plantCardLargePhoto {
-  height: 80%;
-  margin-bottom: 2rem;
-  width: 100%;
+  height: 90%;
+  margin-bottom: 1rem;
 }
 
 .plantCardLargeLuxLevel {

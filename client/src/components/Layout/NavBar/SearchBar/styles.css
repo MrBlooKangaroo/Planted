@@ -4,12 +4,15 @@
   font-family: FontAwesome, 'Karla', sans-serif;
   font-size: 1.1rem;
   padding: 0.7rem;
-  width: 21rem;
+  width: 278px;
 }
-.searchInput:focus::placeholder {
-  filter: brightness(1.7);
+.searchInput:focus {
+  width: 568px;
 }
 .searchInput::placeholder {
   color: #7a7a7a;
   margin-left: 1rem;
+}
+.searchInput:focus::placeholder {
+  filter: brightness(1.7);
 }
